@@ -2,11 +2,11 @@
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
 //println(" userHome = "+userHome+"appName = "+appName)
-grails.config.locations = ["file:${userHome}/LinkSharing/LinkSharingconfig.groovy"]
+//grails.config.locations = ["file:${userHome}/LinkSharing/LinkSharingconfig.groovy"]
 //println("Extuyhiiiiiiiiiiernal Config found":${grails.config.locations})
 //println("Extuyhiiiiiiiiiiernal Config found":${grails.config.locations})
-def userHome=userHome
-def appName=appName;
+//def userHome=userHome
+//def appName=appName;
 //grails.config.locations = [ "classpath:${appName}-config.properties",
 //                             "classpath:${appName}-config.groovy",
 //                             "file:${userHome}/.grails/${appName}-config.properties",
