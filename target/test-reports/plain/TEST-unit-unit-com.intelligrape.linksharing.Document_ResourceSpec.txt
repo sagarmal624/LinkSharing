@@ -1,0 +1,39 @@
+Testsuite: com.intelligrape.linksharing.Document_ResourceSpec
+Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 5.818 sec
+------------- Standard Output ---------------
+--Output from test for Document Resource[0]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:hello sagar, filepath:/home/sagar/sagar.txt, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[1]--
+[lastUpdated:null, dateCreated:null, description:how are you, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[2]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:123, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[3]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[4]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:i am fine and you, topic:null, readingItems:null, filepath:/home/sagar, createdById:null, createdBy:null]
+--Output from test for Document Resource[5]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[6]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, topic:null, readingItems:null, description:15, filepath:13, createdById:null, createdBy:null]
+--Output from test for Document Resource[7]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from test for Document Resource[0]--
+--Output from test for Document Resource[1]--
+--Output from test for Document Resource[2]--
+--Output from test for Document Resource[3]--
+--Output from test for Document Resource[4]--
+--Output from test for Document Resource[5]--
+--Output from test for Document Resource[6]--
+--Output from test for Document Resource[7]--
+------------- ---------------- ---------------
+
+Testcase: test for Document Resource[0] took 5.147 sec
+Testcase: test for Document Resource[1] took 0.084 sec
+Testcase: test for Document Resource[2] took 0.077 sec
+Testcase: test for Document Resource[3] took 0.07 sec
+Testcase: test for Document Resource[4] took 0.077 sec
+Testcase: test for Document Resource[5] took 0.075 sec
+Testcase: test for Document Resource[6] took 0.08 sec
+Testcase: test for Document Resource[7] took 0.077 sec

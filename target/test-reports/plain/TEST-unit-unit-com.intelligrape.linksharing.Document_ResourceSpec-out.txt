@@ -1,0 +1,16 @@
+--Output from test for Document Resource[0]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:hello sagar, filepath:/home/sagar/sagar.txt, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[1]--
+[lastUpdated:null, dateCreated:null, description:how are you, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[2]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:123, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[3]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[4]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:i am fine and you, topic:null, readingItems:null, filepath:/home/sagar, createdById:null, createdBy:null]
+--Output from test for Document Resource[5]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[6]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, topic:null, readingItems:null, description:15, filepath:13, createdById:null, createdBy:null]
+--Output from test for Document Resource[7]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]

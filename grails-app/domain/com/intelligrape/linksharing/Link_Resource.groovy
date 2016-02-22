@@ -6,4 +6,8 @@ class Link_Resource extends Resource {
         url(nullable:false ,blank: false,url:true,validator:{val,obj->!(val.isInteger())})
 
     }
+    public String toString()
+    {
+        return url
+    }
 }

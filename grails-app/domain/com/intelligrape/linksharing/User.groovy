@@ -1,5 +1,4 @@
 package com.intelligrape.linksharing
-
 class User {
     String username
     String firstname
@@ -11,7 +10,8 @@ class User {
     byte[] photo
     Date dateCreated
     Date lastUpdated
-    static hasMany = [topics:Topic,subscriptions:Subscription,resources:Resource,resource_ratings:Resource_Rating,readingItems:ReadingItem]
+
+  static hasMany = [topics:Topic,subscriptions:Subscription,resources:Resource,resource_ratings:Resource_Rating,readingItems:ReadingItem]
     static constraints = {
         username(blank:false,nullable:false,unique:true)
         firstname (blank: false, nullable: false)
@@ -28,6 +28,11 @@ class User {
         resources(nullable:true)
         resource_ratings(nullable:true)
         readingItems(nullable:true)
-    }
 
+    }
+    public String toString()
+    {
+        return username
+
+    }
 }

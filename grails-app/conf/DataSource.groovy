@@ -15,13 +15,14 @@ hibernate {
     flush.mode = 'manual' // OSIV session flush mode outside of transactional context
 
 }
-
 // environment specific settings
 environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/LinkSharing"
+                logSql=true
+
 
         }
     }

@@ -6,7 +6,8 @@ class Subscription {
     Seriousness seriousness;
     static constraints = {
       seriousness(nullable: false,blank:false)
-        user(nullable:true)
+        user(nullable:true )
         topic(nullable:true)
+
     }
 }

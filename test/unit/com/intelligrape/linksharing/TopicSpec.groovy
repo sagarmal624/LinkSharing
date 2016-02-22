@@ -23,23 +23,23 @@ class TopicSpec extends Specification {
 
         Topic topic = new Topic(name: name, visibility: visibility, dateCreated: dateCreated, lastUpdated: lastUpdated);
         when:
-        println(topic.properties)
         Boolean result = topic.validate();
+        String topicname = topic.toString()
+
         then:
         result == valid
-
+        checkname == topicname.equals(validname)
         where:
 
-        name          | visibility         | dateCreated | lastUpdated | valid
-        "sagars"      | Visibility.PRIVATE | null        | null        | true
-
-        "sagarmal624" | Visibility.PUBLIC  | null        | null        | true
-        ""            | Visibility.PRIVATE | ""          | "null"      | false
-        "sagar"       | Visibility.PUBLIC  | null        | null        | true
-        null          | Visibility.PUBLIC  | null        | null        | false
-        "sagar"       | Visibility.PRIVATE | null        | null        | true
-        "sagar"       | Visibility.PUBLIC  | null        | null        | true
-
+        name     | visibility         | dateCreated | lastUpdated | valid | validname | checkname
+        "grails" | Visibility.PRIVATE | null        | null        | true  | "sagars"  | false
+        "java"   | Visibility.PUBLIC  | null        | null        | true  | "java"    | true
+        "grails" | Visibility.PRIVATE | ""          | "null"      | true  | "grails"  | true
+        "mvc"    | Visibility.PUBLIC  | null        | null        | true  | "mva"     | false
+        "hello"  | Visibility.PUBLIC  | null        | null        | true  | "hello"   | true
+        "sagar"  | Visibility.PRIVATE | null        | null        | true  | "sagar"   | true
+        "sagar"  | Visibility.PUBLIC  | null        | null        | true  | "sagar"   | true
+        ""       | Visibility.PRIVATE | null        | null        | false | ""        | false
 
     }
 

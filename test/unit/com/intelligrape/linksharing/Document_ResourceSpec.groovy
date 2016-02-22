@@ -24,18 +24,21 @@ class Document_ResourceSpec extends Specification {
         println(document_resource.properties)
         when:
         Boolean result = document_resource.validate()
+        String path = document_resource.toString()
         then:
         result == valid
+        checkpath == path.equals(checkfilepath)
         where:
-        sno | filepath                | description         | valid
-        1   | "/home/sagar/sagar.txt" | "hello sagar"       | true
-        2   | null                    | "how are you"       | false
-        3   | 123                     | ""                  | false
-        4   | ""                      | null                | false
-        5   | "/home/sagar"           | "i am fine and you" | true
-        6   | null                    | null                | false
-        7   | 13                      | 15                  | false
-        8   | ""                      | ""                  | false
+        sno | filepath                | description         | valid | checkfilepath           | checkpath
+
+        1   | "/home/sagar/sagar.txt" | "hello sagar"       | true  | "/home/sagar/sagar.txt" | true
+        2   | null                    | "how are you"       | false | null                    | true
+        3   | 123                     | ""                  | false | 123                     | false
+        4   | ""                      | null                | false | ""                      | false
+        5   | "/home/sagar"           | "i am fine and you" | true  | "/home/sagar"           | true
+        6   | null                    | null                | false | null                    | true
+        7   | 13                      | 15                  | false | 13                      | false
+        8   | ""                      | ""                  | false | ""                      | false
 
     }
 

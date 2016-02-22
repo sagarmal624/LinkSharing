@@ -1,6 +1,5 @@
 package com.intelligrape.linksharing
 
-import org.grails.datastore.mapping.query.Query.In
 
 class Resource_Rating {
     static belongsTo = [resource: Resource, user: User]

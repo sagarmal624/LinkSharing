@@ -46,5 +46,5 @@ The @require_full_tree@ directive is an additional directive similar to @require
 The @require_self@ directive allows you to control where in the manifest the contents of the current file should reside. If the @require_self@ directive is not specified, the contents of the current file are appended to the end of the manifest.
 
 {note}
-In the examples above, 2 different directive prefixes were shown, one for CSS, and one for JavaScript. It is important to note that the syntax of these directives can vary based on the file type and preprocessor definition. For example, CoffeeScript files begin with "#=".
+In the UserProfileAndLockScreen above, 2 different directive prefixes were shown, one for CSS, and one for JavaScript. It is important to note that the syntax of these directives can vary based on the file type and preprocessor definition. For example, CoffeeScript files begin with "#=".
 {note}

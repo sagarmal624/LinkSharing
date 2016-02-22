@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="sagar" id="0" name="UserSpec" package="com.intelligrape.linksharing" tests="6" time="5.872" timestamp="2016-02-12T11:37:56">
+  <testsuite errors="0" failures="0" hostname="sagar" id="0" name="Document_ResourceSpec" package="com.intelligrape.linksharing" tests="8" time="5.818" timestamp="2016-02-20T07:34:52">
       <properties />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[0]" time="5.547" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[0]" time="5.147" />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[1]" time="0.054" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[1]" time="0.084" />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[2]" time="0.043" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[2]" time="0.077" />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[3]" time="0.048" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[3]" time="0.07" />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[4]" time="0.044" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[4]" time="0.077" />
 
-      <testcase classname="com.intelligrape.linksharing.UserSpec" name="Test User Validation[5]" time="0.053" />
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[5]" time="0.075" />
 
-      <system-out><![CDATA[--Output from Test User Validation[0]--
-[lastUpdated:null, photo:null, resource_ratings:null, firstname:sagar, resources:null, password:amaxx, subscriptions:null, username:sagar, dateCreated:null, active:true, lastname:mal, topics:null, readingItems:null, admin:true, email:sa@gm.com]
---Output from Test User Validation[1]--
-[firstname:null, lastname:null, lastUpdated:null, photo:null, resource_ratings:null, admin:false, active:false, resources:null, subscriptions:null, password:sagar, dateCreated:null, topics:null, username:sagarmal624, readingItems:null, email:sa@gm.com]
---Output from Test User Validation[2]--
-[firstname:null, lastUpdated:null, photo:null, resource_ratings:null, resources:null, lastname:sagar, subscriptions:null, dateCreated:null, active:null, topics:null, username:null, readingItems:null, admin:true, email:null, password:12345670890]
---Output from Test User Validation[3]--
-[lastUpdated:null, photo:null, resource_ratings:null, admin:false, lastname:shankhala, resources:null, firstname:sagarmal, password:125, email:sagar@gm.com, subscriptions:null, username:sagar, dateCreated:null, active:true, topics:null, readingItems:null]
---Output from Test User Validation[4]--
-[firstname:null, lastname:null, lastUpdated:null, photo:null, resource_ratings:null, password:null, resources:null, subscriptions:null, dateCreated:null, active:null, topics:null, username:null, readingItems:null, admin:null, email:null]
---Output from Test User Validation[5]--
-[firstname:null, lastname:null, lastUpdated:null, photo:null, resource_ratings:null, password:null, resources:null, subscriptions:null, dateCreated:null, active:null, topics:null, username:null, readingItems:null, admin:null, email:null]
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[6]" time="0.08" />
+
+      <testcase classname="com.intelligrape.linksharing.Document_ResourceSpec" name="test for Document Resource[7]" time="0.077" />
+
+      <system-out><![CDATA[--Output from test for Document Resource[0]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:hello sagar, filepath:/home/sagar/sagar.txt, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[1]--
+[lastUpdated:null, dateCreated:null, description:how are you, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[2]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:123, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[3]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[4]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, description:i am fine and you, topic:null, readingItems:null, filepath:/home/sagar, createdById:null, createdBy:null]
+--Output from test for Document Resource[5]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
+--Output from test for Document Resource[6]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, topic:null, readingItems:null, description:15, filepath:13, createdById:null, createdBy:null]
+--Output from test for Document Resource[7]--
+[lastUpdated:null, dateCreated:null, topicId:null, resource_ratings:null, filepath:null, topic:null, readingItems:null, description:null, createdById:null, createdBy:null]
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from Test User Validation[0]--
---Output from Test User Validation[1]--
---Output from Test User Validation[2]--
---Output from Test User Validation[3]--
---Output from Test User Validation[4]--
---Output from Test User Validation[5]--
+      <system-err><![CDATA[--Output from test for Document Resource[0]--
+--Output from test for Document Resource[1]--
+--Output from test for Document Resource[2]--
+--Output from test for Document Resource[3]--
+--Output from test for Document Resource[4]--
+--Output from test for Document Resource[5]--
+--Output from test for Document Resource[6]--
+--Output from test for Document Resource[7]--
 ]]></system-err>
 
   </testsuite>

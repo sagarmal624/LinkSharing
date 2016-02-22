@@ -10,6 +10,7 @@ import spock.lang.Unroll
 @TestFor(User)
 class UserSpec extends Specification {
 
+
     def setup() {
     }
 
@@ -27,15 +28,19 @@ class UserSpec extends Specification {
         println(user.properties)
         when:
         Boolean result = user.validate()
+        String username = user.toString()
         then:
         result == valid
+        username.equals(validname)
         where:
-        uname         | fname      | lname       | mail           | pwd           | admn  | active | dateCreated    | lastUpdated    | valid
-        "sagar"       | "sagar"    | "mal"       | "sa@gm.com"    | "amaxx"       | true  | true   | null           | null           | true
-        "sagarmal624" | ""         | null        | "sa@gm.com"    | "sagar"       | false | false  | null           | new Date()     | false
-        ""            | null       | "sagar  "   | null           | "12345670890" | true  | null   | null           | new Date()     | false
-        "sagar"       | "sagarmal" | "shankhala" | "sagar@gm.com" | "125"         | false | true   | 02 - 01 - 1993 | 02 - 01 - 1993 | false
-        ""            | " "        | " "         | ""             | ""            | null  | null   | null           | null           | false
-        null          | null       | null        | null           | null          | null  | null   | null           | true           | false
+        uname         | fname      | lname       | mail           | pwd           | admn  | active | dateCreated    | lastUpdated    | valid | validname
+        "sagar"       | "sagar"    | "mal"       | "sa@gm.com"    | "amaxx"       | true  | true   | null           | null           | true  | "sagar"
+        "sagarmal624" | ""         | null        | "sa@gm.com"    | "sagar"       | false | false  | null           | new Date()     | false | "sagarmal624"
+        "123"         | null       | "sagar  "   | null           | "12345670890" | true  | null   | null           | new Date()     | false | "123"
+        "sagar"       | "sagarmal" | "shankhala" | "sagar@gm.com" | "125"         | false | true   | 02 - 01 - 1993 | 02 - 01 - 1993 | false | "sagar"
+        "sagar"       | " "        | " "         | ""             | ""            | null  | null   | null           | null           | false | "sagar"
+        "shankhala"   | null       | null        | null           | null          | null  | null   | null           | true           | false | "shankhala"
+
     }
+
 }

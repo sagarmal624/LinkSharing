@@ -1,7 +1,4 @@
 package com.intelligrape.linksharing
-
-
-
 class Topic {
     String name;
     static belongsTo = [createdBy:User]
@@ -17,7 +14,12 @@ class Topic {
         visibility (blank:false,nullable: false,inList: Visibility.values() as List)
         resources(nullable: true)
         subscriptions(nullable: true)
-        createdBy(nullable: true,unique:true)
+        createdBy(nullable: true)
+    }
+    public String toString()
+    {
+        return name
+
     }
 
 }
