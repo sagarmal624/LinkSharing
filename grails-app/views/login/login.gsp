@@ -1,3 +1,4 @@
+<%@ page import="com.intelligrape.linksharing.Resource; com.intelligrape.linksharing.User" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,7 +48,7 @@
 <body>
 <nav class="navbar navbar-default" role="navigation" style="background-color:#1ab7ea;"><div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="../main/main.gsp">Link Sharing</a>
+        <a class="navbar-brand" href="${createLink(controller:"login",action:"index")}">Link Sharing</a>
     </div>
     <ul class="nav navbar-nav">
         <li><a href="../main/main.gsp">Home</a></li>
@@ -59,55 +60,102 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="${createLink(controller:"user",action:"register")}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="${createLink(controller:"login",action:"login")}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a href="${createLink(controller:"login",action:"index")}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
     </ul>
 </div>
 </nav>
 <div class="container" style="margin-top:-100px">
 
-    <div class="login-box">
-        <div class="login-logo">
+      <div class="col-lg-8 " style="padding-top:80px ">
+              <div class="panel panel-default"   style="border:1px solid gray">
+                  <div class="panel-heading" style="background-color:#1ab7ea;border: 1px solid">Recent Shares</div>
+                  <div class="panel-body"">
+                      <g:each in="${com.intelligrape.linksharing.Resource.getRecentResources()}">
+                          <div class="row" style="border-bottom: 1px solid gray;padding-bottom:10px ">
+                              <div class="col-lg-2 col-md-2 col-sm-2">
+                                  <span>
+                                      <asset:image src="1.png"  style="border:1px solid"></asset:image>
+                                  </span>
+                              </div>
+                              <div class="col-lg-10 col-md-10 col-sm-10">
+                                  <div class="row">
+                                      <div class="col-lg-4">
+                                          ${com.intelligrape.linksharing.User.findByUsername(it[3]).name}
+                                      </div>
+                                      <div class="col-lg-3">@ ${it[3]}</div>
+                                      <div class="col-lg-2"> 5min</div>
+                                      <div class="col-lg-3">
+                                          <span style="color:blue">${it[2]}</span>
+                                      </div>
+                                  </div>
+                                  <g:if test="${it[0]}">
+                                      <span><a href="${it[0]}">${it[0]}</a></span>
+                                  </g:if>
+                                  <g:else>
+                                      <span><a href="${it[1]}">${it[1]}</a></span>
+                                  </g:else>
 
-            <a href="${createLink(controller:"linkSharing", action: "Home")}"><b>Link</b>Sharing</a>
-        </div>
+                                  <div class="row">
+                                      <div class="col-lg-9">
+                                          <asset:image src="facebook.png"></asset:image>
+                                          <asset:image src="twtr.png"></asset:image>
+                                          <asset:image src="google.png"></asset:image>
+                                      </div>
+                                      <div class="col-lg-3">
+                                          <a href="#"><u>View Post</u></a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <br>
+                      </g:each>
+                  </div>
+              </div>
+      </div>
+      <div class="col-lg-4">
+      <div class="login-box" style="border: 1px solid gray">
         <g:if test="${flash.message}">
             <div class="alert alert-success">
                 <strong>Success!</strong>${flash.message}!.
             </div>
         </g:if>
+        <g:if test="${flash.error}">
+            <div class="alert alert-danger">
+                <strong>Error!</strong>${flash.error}!.
+            </div>
+        </g:if>
+
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg"><strong>Sign In</strong></p>
 
-            <g:form controller="login"  action="index" method="post">
+            <g:form >
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <g:field type="email" class="form-control" required="true" name="email" id="email" placeholder="Email" value=""/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                   <span class="text-danger"> <g:fieldError field="email" bean="${user}"></g:fieldError>
+                  </span>
                 </div>
-
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" id="password">
+                    <g:passwordField  name="password" required="true" class="form-control" placeholder="Password" id="password" value=""/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <span class="text-danger">  <g:fieldError field="email" bean="${user}"></g:fieldError>
+</span>
                 </div>
-
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <g:checkBox name="checkbox"/> Remember Me
                             </label>
                         </div>
                     </div>
-                    <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <g:actionSubmit  controller="login"  action="loginHandler" name="Sign In" value="Sign In" class="btn btn-primary btn-block btn-flat"/>
                     </div>
-                    <!-- /.col -->
                 </div>
             </g:form>
-
             <div id="status">
             </div>
-
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
                 <fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"
@@ -145,11 +193,13 @@
             <!-- /.social-auth-links -->
 
             <a href="#">I forgot my password</a><br>
-            <a href="../user/register.gsp" class="text-center">Register a new membership</a>
+            <a href="${createLink(controller:"user",action:"index" )}" class="text-center">Register a new membership</a>
 
         </div>
         <!-- /.login-box-body -->
     </div>
+ </div>
+</div>
     <script>
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
@@ -198,7 +248,8 @@
         function testAPI() {
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', {fields: 'name, email'}, function (response) {
-                window.location="http://localhost:8080/linkSharing/dashboard"
+                  window.location="http://localhost:8080/linkSharing/dashboard"
+                FB.logout();
 
                 // document.getElementById('email').value = response.email;
                 //document.getElementById('password').value = "default";
@@ -286,7 +337,7 @@
 
     </footer>
 
-</div>
+
 
 </body>
 </html>

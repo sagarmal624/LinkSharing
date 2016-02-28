@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -6,21 +5,24 @@
   <title>LinkSharing | Data Tables</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script src="../dist/js/star-rating.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'dist/css/skins', file: '_all-skins.min.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat/', file: 'blue.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'plugins/morris', file: 'morris.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
+  <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
+  <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-  
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -99,7 +101,7 @@
                         <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                       </div>
                       <h4>
-                       IT Department
+                        IT Department
                         <small><i class="fa fa-clock-o"></i> Yesterday</small>
                       </h4>
                       <p>Why not buy a new awesome theme?</p>
@@ -122,146 +124,40 @@
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
-          <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-comment"></i>
-              <span class="label label-warning"></span>
+              <span class="label label-info"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Create Topic</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                    <form>
-                      <ul class="menu">
 
-                        <li><!-- Task item -->
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Topic Name......">
-                          </div>
-                        </li>
 
-                        <li>
-                          <div class="form-group">
-                            <select class="dropdown form-control">
-
-                              <option>Select Visibility</option>
-                              <option>Private</option>
-                              <option>Public</option>
-                            </select>
-                          </div>
-
-                        </li>
-                        <li><!-- Task item -->
-                          <div class="form-group">
-                            <div class="form-group">
-                              <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                              <button class="btn btn-info col-lg-offset-3">Create</button>
-                            </div>
-                          </div>
-                        </li>
-                      </ul></form>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </li>
           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+               class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-link"></i>
               <span class="label label-warning"></span>
+
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Share Link</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                    <form>
-                      <ul class="menu">
 
-                        <li><!-- Task item -->
-                          <div class="form-group">
-                            <input type="url" class="form-control" placeholder="URL....">
-                          </div>
-                        </li>
-                        <li><!-- Task item -->
-                          <div class="form-group">
-                            <textarea class="form-control" placeholder="Write Descriptions here....." rows="2" cols="20"></textarea>
-                          </div>
-                        </li>
-
-
-                        <li>
-                          <div class="form-group">
-                            <select class="dropdown form-control">
-
-                              <option>Select Topic</option>
-                              <option>Grails</option>
-                              <option>Java</option>
-                            </select>
-                          </div>
-
-                        </li>
-                        <li><!-- Task item -->
-                          <div class="form-group">
-                            <div class="form-group">
-                              <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                              <button class="btn btn-info col-lg-offset-3">Share</button>
-                            </div>
-                          </div>
-                        </li>
-                      </ul></form>
-
-
-
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </li>
 
           <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-file-o"></i>
+              <span class="label label-success"></span>
+            </a>
+
+          </li>
+
+          <li class="dropdown tasks-menu">
+            <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-send-o"></i>
               <span class="label label-success"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Send Invitation</li>
-              <li>
-                <form>
-                  <ul class="menu">
 
-                    <li><!-- Task item -->
-                      <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email-Id">
-                      </div>
-                    </li>
-                    <li>
-                      <div class="form-group">
-                        <select class="dropdown form-control">
-
-                          <option>Select Topic</option>
-                          <option>Grails</option>
-                          <option>Java</option>
-                        </select>
-                      </div>
-
-                    </li>
-                    <li><!-- Task item -->
-                      <div class="form-group">
-                        <div class="form-group">
-                          <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                          <button class="btn btn-info col-lg-offset-3">Send</button>
-                        </div>
-                      </div>
-                    </li>
-                  </ul></form>
-              </li>
-
-            </ul>
           </li>
-           <!-- User Account: style can be found in dropdown.less -->
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -273,7 +169,7 @@
                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                 Sagar Mal Shankhala - Web Developer Trainee
+                  Sagar Mal Shankhala - Web Developer Trainee
                   <small>@To The New Digital</small>
                 </p>
               </li>
@@ -327,10 +223,10 @@
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+          <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            </button>
+          </span>
         </div>
       </form>
       <!-- /.search form -->
@@ -341,7 +237,7 @@
           <a href="${createLink(controller:'linkSharing', action: 'dashboard')}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
-          
+
         </li>
         <li>
           <a href="${createLink(controller:'linkSharing', action: 'trendingPost')}">
@@ -354,14 +250,14 @@
             <i class="fa fa-edit"></i> <span>Account Setting</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
-         </li>
+        </li>
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-table"></i> <span>Admin</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            
+
             <li class="active"><a href="${createLink(controller:'linkSharing', action: 'admin')}"><i class="fa fa-circle-o"></i> Data tables</a></li>
           </ul>
         </li>
@@ -385,13 +281,9 @@
           <ul class="treeview-menu">
             <li><a href="${createLink(controller:'linkSharing', action: 'profile')}"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-           </ul>
+          </ul>
         </li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-      </ul>
+         </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -401,7 +293,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Users for Admin
+        Users for Admin
         <small>link Sharing</small>
       </h1>
       <ol class="breadcrumb">
@@ -415,12 +307,12 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-          
+
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Users List</h3>
             </div>
-            <!-- /.box-header -->
+
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -431,241 +323,21 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Admin</th>
-                  <th>Manage</th>
+                  <th>Active</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ankita
-                  </td>
-                  <td>ankita624@gmail.com</td>
-                  <td>Ankita</td>
-                  <td></td>
-                  <td>yes</td>
-                  <td>active</td>
-                    
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Pooja
-                  </td>
-                  <td>pooja624@gmail.com</td>
-                  <td>pooja</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>9</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>11</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>12</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>13</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>14</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>15</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>16</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>17</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>18</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>19</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>20</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>21</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>22</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
-                <tr>
-                  <td>23</td>
-                  <td>Sagar Mal
-                  </td>
-                  <td>sagarmal624@gmail.com</td>
-                  <td>sagarmal</td>
-                  <td>shankhala</td>
-                  <td>yes</td>
-                  <td>active</td>
-                </tr>
+                 <tbody>
+                <g:each in="${users}" var="user">
+                  <tr>
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>${user.firstname}</td>
+                    <td>${user.lastname}</td>
+                    <td>${user.admin}</td>
+                    <td>${user.active}</td>
+                  </tr>
+                </g:each>
                 </tbody>
                 <tfoot>
                 <tr>
@@ -675,17 +347,22 @@
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Admin</th>
-                  <th>Manage</th>
-                    </tr>
+                  <th>Active</th>
+                </tr>
+
                 </tfoot>
               </table>
+              <g:paginate next="Forward" prev="Back" maxsteps="0" controller="user" action="show" total="${userCount}" />
+
             </div>
+            <!-- /.box-header -->
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
       </div>
+
       <!-- /.row -->
     </section>
     <!-- /.content -->
@@ -696,7 +373,7 @@
       <b>Version</b> 2.3.2
     </div>
     <strong>Copyright &copy; 2016-2017 <a href="http://tothenew.com">To The New Digital</a>.</strong> All rights
-    reserved.
+  reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -893,24 +570,15 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery 2.2.0 -->
-<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
-<!-- page script -->
+<script src="${resource(dir:'plugins/jQuery',file:'jQuery-2.2.0.min.js')}"></script>
+<script src="${resource(dir:'bootstrap/js',file:'bootstrap.min.js')}"></script>
+<script src="${resource(dir:'plugins/datatables',file:'jquery.dataTables.min.js')}"></script>
+<script src="${resource(dir:'plugins/datatables/',file:'dataTables.bootstrap.min.js')}"></script>
+<script src="${resource(dir:'plugins/slimScroll/',file:'jquery.slimscroll.min.js')}"></script>
+<script src="${resource(dir:'plugins/fastclick',file:'fastclick.js')}"></script>
+<script src="${resource(dir:'dist/js',file:'app.min.js')}"></script>
+<script src="${resource(dir:'dist/js',file:'demo.js')}"></script>
 <script>
   $(function () {
     $("#example1").DataTable();
@@ -924,5 +592,10 @@
     });
   });
 </script>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
 </body>
 </html>

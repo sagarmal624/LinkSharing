@@ -4354,7 +4354,7 @@ define('esprima', ['exports'], function(exports) {
   Copyright (C) 2012 Arpad Borsos <arpad.borsos@googlemail.com>
   Copyright (C) 2011 Ariya Hidayat <ariya.hidayat@gmail.com>
 
-  Redistribution and use in source and binary forms, with or without
+  Redistribution and use in source and binary AccountSetting, with or without
   modification, are permitted provided that the following conditions are met:
 
     * Redistributions of source code must retain the above copyright
@@ -7920,7 +7920,7 @@ parseStatement: true, parseSourceElement: true */
  * @preserve Copyright 2012 Robert Gust-Bardon <http://robert.gust-bardon.org/>.
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without
+ * Redistribution and use in source and binary AccountSetting, with or without
  * modification, are permitted provided that the following conditions
  * are met:
  *
@@ -9168,7 +9168,7 @@ define('uglifyjs/parse-js', ["exports"], function(exports) {
     Copyright 2010 (c) Mihai Bazon <mihai.bazon@gmail.com>
     Based on parse-js (http://marijn.haverbeke.nl/parse-js/).
 
-    Redistribution and use in source and binary forms, with or without
+    Redistribution and use in source and binary AccountSetting, with or without
     modification, are permitted provided that the following conditions
     are met:
 
@@ -10619,7 +10619,7 @@ define('uglifyjs/process', ["require", "exports", "module", "./parse-js", "./squ
 
     Copyright 2010 (c) Mihai Bazon <mihai.bazon@gmail.com>
 
-    Redistribution and use in source and binary forms, with or without
+    Redistribution and use in source and binary AccountSetting, with or without
     modification, are permitted provided that the following conditions
     are met:
 
@@ -12839,7 +12839,7 @@ define('source-map/array-set', function (require, exports, module) {
  * https://code.google.com/p/closure-compiler/source/browse/trunk/src/com/google/debugging/sourcemap/Base64VLQ.java
  *
  * Copyright 2011 The Closure Compiler Authors. All rights reserved.
- * Redistribution and use in source and binary forms, with or without
+ * Redistribution and use in source and binary AccountSetting, with or without
  * modification, are permitted provided that the following conditions are
  * met:
  *

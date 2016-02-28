@@ -5,22 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LinkSharing | Dashboard</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
+    %{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--}%
+    %{--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'dist/css/skins', file: '_all-skins.min.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat', file: 'blue.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/morris', file: 'morris.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">--}%
+    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">--}%
+    %{--<link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">--}%
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+    <script src="../dist/js/star-rating.js" type="text/javascript"></script>
     <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">
     <link rel="stylesheet" href="${resource(dir: 'dist/css/skins', file: '_all-skins.min.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat', file: 'blue.css')}">
+    <link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat/', file: 'blue.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/morris', file: 'morris.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
     <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <header class="main-header">
-        <a href="index.html" class="logo">
+        <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
             <span class="logo-mini"><b>L</b>S</span>
             <span class="logo-lg"><b>Link</b>Sharing</span>
         </a>
@@ -105,147 +123,43 @@
                         </ul>
                     </li>
                     <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-comment"></i>
-                            <span class="label label-warning"></span>
+                            <span class="label label-info"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">Create Topic</li>
-                            <li>
-                                <ul class="menu">
-                                    <li>
-                                        <form>
-                                            <ul class="menu">
 
-                                                <li><!-- Task item -->
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="Enter Topic Name......">
-                                                    </div>
-                                                </li>
 
-                                                <li>
-                                                    <div class="form-group">
-                                                        <select class="dropdown form-control">
-
-                                                            <option>Select Visibility</option>
-                                                            <option>Private</option>
-                                                            <option>Public</option>
-                                                        </select>
-                                                    </div>
-
-                                                </li>
-                                                <li><!-- Task item -->
-                                                    <div class="form-group">
-                                                        <div class="form-group">
-                                                            <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                                                            <button class="btn btn-info col-lg-offset-3">Create</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul></form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
                     <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+                           class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-link"></i>
                             <span class="label label-warning"></span>
+
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">Share Link</li>
-                            <li>
-                                <ul class="menu">
-                                    <li>
-                                        <form>
-                                            <ul class="menu">
 
-                                                <li><!-- Task item -->
-                                                    <div class="form-group">
-                                                        <input type="url" class="form-control" placeholder="URL....">
-                                                    </div>
-                                                </li>
-                                                <li><!-- Task item -->
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" placeholder="Write Descriptions here....." rows="2" cols="20"></textarea>
-                                                    </div>
-                                                </li>
-
-
-                                                <li>
-                                                    <div class="form-group">
-                                                        <select class="dropdown form-control">
-
-                                                            <option>Select Topic</option>
-                                                            <option>Grails</option>
-                                                            <option>Java</option>
-                                                        </select>
-                                                    </div>
-
-                                                </li>
-                                                <li><!-- Task item -->
-                                                    <div class="form-group">
-                                                        <div class="form-group">
-                                                            <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                                                            <button class="btn btn-info col-lg-offset-3">Share</button>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul></form>
-
-
-
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-file-o"></i>
+                            <span class="label label-success"></span>
+                        </a>
+
+                    </li>
+
+                    <li class="dropdown tasks-menu">
+                        <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-send-o"></i>
                             <span class="label label-success"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">Send Invitation</li>
-                            <li>
-                                <form>
-                                    <ul class="menu">
 
-                                        <li><!-- Task item -->
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Email-Id">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-group">
-                                                <select class="dropdown form-control">
-
-                                                    <option>Select Topic</option>
-                                                    <option>Grails</option>
-                                                    <option>Java</option>
-                                                </select>
-                                            </div>
-
-                                        </li>
-                                        <li><!-- Task item -->
-                                            <div class="form-group">
-                                                <div class="form-group">
-                                                    <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                                                    <button class="btn btn-info col-lg-offset-3">Send</button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul></form>
-                            </li>
-
-                        </ul>
                     </li>
+
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Sagar mal Shankhala</span>
+                            <span class="hidden-xs">${session.username}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -253,7 +167,7 @@
                                 <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Sagar Mal Shankhala - Web Developer Trainee
+                                    ${session.username} - Web Developer Trainee
                                     <small>To The New Digital</small>
                                 </p>
                             </li>
@@ -276,7 +190,7 @@
                                     <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="${createLink(controller:"login",action:"index")}" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -297,7 +211,7 @@
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Sagar Mal Shankhala</p>
+                    <p>${session.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -364,10 +278,6 @@
                         <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
                     </ul>
                 </li>
-                <li class="header">LABELS</li>
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -979,11 +889,44 @@
     </aside>
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+%{--<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>--}%
+%{--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>--}%
 <script>
     $.widget.bridge('uibutton', $.ui.button);
     </script>
+%{--<script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>--}%
+%{--<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>--}%
+%{--<script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'plugins/sparkline', file: 'jquery.sparkline.min.js')}"></script>--}%
+%{--<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.min.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-world-mill-en.js')}"></script>--}%
+%{--<script src="${resource(dir: 'plugins/knob', file: 'jquery.knob.js')}"></script>--}%
+%{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>--}%
+%{--<script src="${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'plugins/datepicker', file: 'bootstrap-datepicker.js')}"></script>--}%
+%{--<script src="${resource(dir: 'plugins/bootstrap-wysihtml5/', file: 'bootstrap3-wysihtml5.all.min.js')}"></script>--}%
+%{--<script src="${resource(dir: 'plugins/slimScroll', file: 'jquery.slimscroll.min.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'plugins/fastclick', file: 'fastclick.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'dist/js', file: 'app.min.js')}"></script>--}%
+%{----}%
+%{--<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>--}%
+%{--<script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>--}%
+
+
+
+
+
+
+<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button);
+</script>
 <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>
@@ -1006,5 +949,23 @@
 
 <script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+           // if($("#success").text().trim()!="" ||$("#success").text()!=null)
+            //{
+                $("#successAlert").modal('show');
+
+            //}
+          });
+</script>
+<g:render template="../templates/message"/>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
+
 </body>
 </html>
+
+

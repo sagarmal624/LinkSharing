@@ -1,12 +1,13 @@
+import LinkSharing.PasswordConstant
 import com.intelligrape.linksharing.Document_Resource
 import com.intelligrape.linksharing.Link_Resource
 import com.intelligrape.linksharing.ReadingItem
 import com.intelligrape.linksharing.Resource
 import com.intelligrape.linksharing.Resource_Rating
-import com.intelligrape.linksharing.Seriousness
+import Enums.Seriousness
 import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
-import com.intelligrape.linksharing.Visibility
+import Enums.Visibility
 
 class BootStrap {
     def createResourceRatings() {

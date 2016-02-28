@@ -1,5 +1,6 @@
 package com.intelligrape.linksharing
 
+import Enums.Seriousness
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll

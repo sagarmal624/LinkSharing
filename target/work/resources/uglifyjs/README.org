@@ -568,7 +568,7 @@ UglifyJS is released under the BSD license:
 Copyright 2010 (c) Mihai Bazon <mihai.bazon@gmail.com>
 Based on parse-js (http://marijn.haverbeke.nl/parse-js/).
 
-Redistribution and use in source and binary forms, with or without
+Redistribution and use in source and binary AccountSetting, with or without
 modification, are permitted provided that the following conditions
 are met:
 

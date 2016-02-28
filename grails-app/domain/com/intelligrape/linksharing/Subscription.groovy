@@ -1,5 +1,7 @@
 package com.intelligrape.linksharing
 
+import Enums.Seriousness
+
 class Subscription {
 
     static belongsTo=[user:User,topic:Topic]

@@ -19,10 +19,10 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="../../index2.html"><b>Link</b>Sharing</a>
+    <a href="${createLink(controller:"linkSharing",action:"mainpage")}"><b>Link</b>Sharing</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">Sagar Mal Shankhala</div>
+  <div class="lockscreen-name">${session.username}</div>
 
   <div class="lockscreen-item">
     <!-- lockscreen image -->
@@ -44,7 +44,7 @@
     Enter your password to retrieve your session
   </div>
   <div class="text-center">
-    <a href="login.html">Or sign in as a different user</a>
+    <a href="${createLink(controller:"login",action:"logout")}">Or sign in as a different user</a>
   </div>
   <div class="lockscreen-footer text-center">
     Copyright &copy; 2016-2017 <b><a href="http://tothenew.com" class="text-black">To The New Digital</a></b><br>

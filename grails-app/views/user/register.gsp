@@ -1,7 +1,7 @@
+<%@ page import="com.intelligrape.linksharing.Resource" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
     <title>LinkSharing</title>
     <meta charset="utf-8">
 
@@ -33,7 +33,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
     <style>
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img {
@@ -51,7 +50,7 @@
 <body>
 <nav class="navbar navbar-default" role="navigation" style="background-color:#1ab7ea;"><div class="container-fluid">
     <div class="navbar-header">
-        <a class="navbar-brand" href="../main/main.gsp">Link Sharing</a>
+        <a class="navbar-brand" href="${createLink(controller:"login",action:"index")}">Link Sharing</a>
     </div>
     <ul class="nav navbar-nav">
         <li><a href="../main/main.gsp">Home</a></li>
@@ -68,65 +67,138 @@
     </ul>
 </div>
 </nav>
-
 <div class="container" style="margin-top:-100px">
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel-group" style="padding-top: 90px">
+            <div class="panel panel-default"   style="border:1px solid gray">
+                <div class="panel-heading" style="background-color:#1ab7ea;border: 1px solid">
+                    <div class="row">
+                        <div class="col-lg-9">Top Posts
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="dropdown" data-placement="top" data-toggle="tooltipdropdown" title="Dropdown Will Have Today, 1 week , 1 month,1 year. " data-placement="right">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Today
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Yesterday</a></li>
+                                    <li><a href="#">1 Week</a></li>
+                                    <li><a href="#">1 Month</a></li>
+                                    <li><a href="#">1 year</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <g:each in="${com.intelligrape.linksharing.Resource.getToppost()}">
 
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="${createLink(controller:"linkSharing", action: "Home")}"><b>Link</b>Sharing</a>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <span>
+                                    <asset:image src="1.png"  style="border:1px solid"></asset:image>
+
+
+                                </span>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        SagarMalShankhala
+                                    </div>
+                                    <div class="col-lg-3">@ ${session?.user } </div>
+                                    <div class="col-lg-2"> 5min</div>
+                                    <div class="col-lg-3">
+                                        <span style="color:blue">${it[2]}</span>
+                                    </div>
+                                </div>
+                                ${it[0]}
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <asset:image src="facebook.png"></asset:image>
+                                        <asset:image src="twtr.png"></asset:image>
+                                        <asset:image src="google.png"></asset:image>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="#"><u>View Post</u></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </g:each>
+
+                </div>
+            </div>
         </div>
-        <g:if test="${flash.message}">
-        <div class="alert alert-danger">
-            <strong>Field Error!</strong>${flash.message}!.
-        </div>
-            </g:if>
+    </div>
+
+
+
+    <div class="col-lg-4">
+    <div class="login-box" style="border: 1px solid gray">
         <div class="login-box-body">
-            <p class="login-box-msg">Register a new membership</p>
-
+            <p class="login-box-msg"><strong>Register a new membership</strong></p>
             <g:form controller="user"  action="register" method="post">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="FirstName">
+                    <g:textField class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <span class="text-danger">                 <g:fieldError field="firstname" bean="${user}"></g:fieldError>
+</span>
+
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder=LastName">
+                    <g:textField  class="form-control" name="lastname" id="lastname" placeholder="LastName" value="${user?.lastname}" />
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+                    <span class="text-danger">                 <g:fieldError field="lastname" bean="${user}"></g:fieldError>
+</span>
+
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <g:field  type="email" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <span class="text-danger">            <g:fieldError field="email" bean="${user}"></g:fieldError>
+</span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                    <g:textField type="text" class="form-control" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <span class="text-danger"><g:fieldError field="username" bean="${user}"></g:fieldError>
+ </span>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+                    <g:passwordField type="password" class="form-control" placeholder="Password" id="password" required="true" name="password"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <span class="text-danger"><g:fieldError field="password" bean="${user}">
+                    </g:fieldError></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Retype Password" id="cpassword">
+                    <g:passwordField  name="confirmPassword" class="form-control" placeholder="Retype Password" id="cpassword" required="true"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <span class="text-danger"><g:fieldError field="confirmPassword" bean="${user}">
+
+                    </g:fieldError></span>
+
                 </div>
 
                 <div class="form-group has-feedback">
-                    <input type="file" class="form-control" id="photo" name="photo">
+                    <g:field type="file" class="form-control" id="photo" name="photo"/>
                     <span class="glyphicon glyphicon-file form-control-feedback"></span>
+                    <span class="text-danger">  <g:fieldError field="photo" bean="${user}"></g:fieldError>
+</span>
                 </div>
-
-
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <label>
-                                <input type="checkbox"> Remember Me
+                                <g:checkBox name="Admin" value="${user?.admin}">  </g:checkBox>Admin
                             </label>
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
+                        <g:submitButton class="btn btn-primary btn-block btn-flat" name="Sign Up"></g:submitButton>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -147,11 +219,11 @@
                             data-clientid="207048416405-n2q6q83fl9lcviphsc6v4sfp7asf7d2q.apps.googleusercontent.com"
                             data-callback="onSignInCallback"
                             data-theme="dark"
-                            data-width="300px"
+                            data-width="500px"
                             data-cookiepolicy="single_host_origin">
                     </button>
-
                 </div>
+
                 <script>
                     function onSignInCallback(resp) {
                         gapi.client.load('plus', 'v1', apiClientLoaded);
@@ -175,37 +247,26 @@
                             if (resp.emails[i].type === 'account')
                                 document.getElementById("email").value = resp.emails[i].value;
                         }
-
-                        document.getElementById('firstname').value = resp.displayName.split(" ").slice(0, -1).join(' ');
+                         document.getElementById('firstname').value = resp.displayName.split(" ").slice(0, -1).join(' ');
                         document.getElementById('lastname').value = resp.displayName.split(' ').slice(-1).join(' ');
                         document.getElementById('username').value = resp.displayName.split(" ").slice(0, -1).join('');
-
+                        gapi.auth.signOut();
                     }
-
-                </script>
-
-
+     </script>
             </div>
-            <!-- /.social-auth-links -->
-
             <a href="#"></a><br>
-            <a href="../user/register.gsp" class="text-center">I already have a membership</a>
+            <a href="${createLink(controller:"login",action: "index" )}" class="text-center">I already have a membership</a>
 
         </div>
-        <!-- /.login-box-body -->
     </div>
+</div>
+</div>
     <script>
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
             console.log(response);
             if (response.status === 'connected') {
                 testAPI();
-            } else if (response.status === 'not_authorized') {
-                document.getElementById('status').innerHTML = 'Please' +
-                        'Sign Up this app.';
-            } else {
-                document.getElementById('status').innerHTML = 'Please' +
-                        'Sign up Facebook.';
             }
         }
         function checkLoginState() {
@@ -250,8 +311,11 @@
 
                 document.getElementById('email').value = response.email;
                 document.getElementById("username").value=response.name.split(" ").slice(0, -1).join('');
+                        FB.logout();
+                    }
 
-            });
+
+            );
         }
     </script>
     %{--<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>--}%
@@ -261,6 +325,7 @@
     <script src="../../plugins/iCheck/icheck.min.js"></script>
     <script>
         $(function () {
+
             $('input').iCheck({
                 checkboxClass: 'icheckbox_square-blue',
                 radioClass: 'iradio_square-blue',
@@ -269,7 +334,7 @@
         });
     </script>
 
-
+</div>
 
     <footer class="footer-distributed">
 
@@ -335,7 +400,7 @@
 
     </footer>
 
-</div>
+
 
 </body>
 </html>

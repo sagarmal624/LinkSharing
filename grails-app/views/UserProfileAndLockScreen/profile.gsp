@@ -6,24 +6,35 @@
   <title>Sagar Mal Shankhala | User Profile</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    %{--<!-- fullCalendar 2.2.5-->--}%
+    <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.print.css" media="print">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    %{--<!-- AdminLTE Skins. Choose a skin from the css/skins--}%
+    %{--folder instead of downloading all of them to reduce the load. -->--}%
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    %{--<!-- iCheck -->--}%
+    <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
+    %{--<!-- bootstrap wysihtml5 - text editor -->--}%
+    <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index.html" class="logo">
+    <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>S</span>
       <!-- logo for regular state and mobile devices -->
@@ -118,147 +129,41 @@
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-     <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-comment"></i>
-              <span class="label label-warning"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Create Topic</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter Topic Name......"> 
-                      </div>
-                  </li>
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Visibility</option>
-                      <option>Private</option>
-                      <option>Public</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Create</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    </li>
-                </ul>
-              </li>
-             </ul>
-          </li>
-           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-link"></i>
-              <span class="label label-warning"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Share Link</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="url" class="form-control" placeholder="URL...."> 
-                      </div>
-                  </li>
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                          <textarea class="form-control" placeholder="Write Descriptions here....." rows="2" cols="20"></textarea> 
-                      </div>
-                  </li>
-            
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Share</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    
-                    
-                    
-                    </li>
-                </ul>
-              </li>
-             </ul>
-          </li>
-               <!-- Tasks: style can be found in dropdown.less -->
-       <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-send-o"></i>
-              <span class="label label-success"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Send Invitation</li>
-              <li>
-                  <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email-Id"> 
-                      </div>
-                  </li>
-                  <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Send</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-              </li>
-              
-            </ul>
-          </li>
-             <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
+            <li class="dropdown notifications-menu">
+                <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-comment"></i>
+                    <span class="label label-info"></span>
+                </a>
+
+
+            </li>
+            <li class="dropdown notifications-menu">
+                <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+                   class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-link"></i>
+                    <span class="label label-warning"></span>
+
+                </a>
+
+            </li>
+
+            <li class="dropdown tasks-menu">
+                <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-file-o"></i>
+                    <span class="label label-success"></span>
+                </a>
+
+            </li>
+
+            <li class="dropdown tasks-menu">
+                <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-send-o"></i>
+                    <span class="label label-success"></span>
+                </a>
+
+            </li>
+
+            <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Sagar Mal Shankhala</span>
@@ -941,5 +846,10 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
 </body>
 </html>

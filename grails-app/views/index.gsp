@@ -1,3 +1,4 @@
+<%@ page import="java.nio.file.Files" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,7 +40,7 @@
 <nav class="navbar navbar-default" role="navigation" style="background-color:#1ab7ea;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="../main/main.gsp">Link Sharing</a>
+            <a class="navbar-brand" href="${createLink(controller:"login",action:"index")}">Link Sharing</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a href="../main/main.gsp">Home</a></li>
@@ -51,8 +52,21 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <g:if test="${session.username}">
+                <li>
+                    <div class="btn btn-info brn-group" >
+                    <a href="${createLink(controller:"linkSharing",action:"dashboard")}" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>${session?.username}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="${createLink(controller:"linkSharing",action:"dashboard")}">Dashboard</a></li>
+                            <li><a href="${createLink(controller:"login",action:"logout")}">Logout</a></li>
+                        </ul>
+                    </div>
+                      </li>
+            </g:if>
+            <g:else>
             <li><a href="${createLink(controller:"user",action:"index")}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="${createLink(controller:"login",action:"index")}"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+           </g:else>
         </ul>
     </div>
 </nav>
@@ -117,6 +131,7 @@
 
     </div>
 
+</div>
 
 
 
@@ -182,7 +197,6 @@
     </footer>
 
 
-</div>
 
 </body>
 </html>

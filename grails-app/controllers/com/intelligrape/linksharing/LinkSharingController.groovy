@@ -15,7 +15,7 @@ class LinkSharingController {
     }
 
     def accountSetting() {
-        render view: "/forms/general"
+        render view: "/AccountSetting/general"
     }
 
     def admin() {
@@ -50,5 +50,8 @@ class LinkSharingController {
     def readmail()
     {
         render view: "/mailbox/read-mail"
+    }
+    def mainpage(){
+        render view:"../index"
     }
 }

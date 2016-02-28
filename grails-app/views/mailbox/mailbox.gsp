@@ -6,37 +6,39 @@
   <title>LinkSharing |Inbox</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
+  %{--<!-- Bootstrap 3.3.5 -->--}%
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- fullCalendar 2.2.5-->
+  %{--<!-- fullCalendar 2.2.5-->--}%
   <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.min.css">
   <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.print.css" media="print">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
+  %{--<!-- AdminLTE Skins. Choose a skin from the css/skins--}%
+  %{--folder instead of downloading all of them to reduce the load. -->--}%
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
-  <!-- iCheck -->
+  %{--<!-- iCheck -->--}%
   <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  %{--<!-- bootstrap wysihtml5 - text editor -->--}%
+  <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index.html" class="logo">
+    <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>L</b>S</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Link</b>Sharing</span>
     </a>
@@ -81,146 +83,40 @@
               <li class="footer"><a href="mailbox.gsp">See All Messages</a></li>
             </ul>
           </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-         <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown notifications-menu">
+            <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-comment"></i>
-              <span class="label label-warning"></span>
+              <span class="label label-info"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Create Topic</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter Topic Name......"> 
-                      </div>
-                  </li>
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Visibility</option>
-                      <option>Private</option>
-                      <option>Public</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Create</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    </li>
-                </ul>
-              </li>
-             </ul>
+
+
           </li>
-           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <li class="dropdown notifications-menu">
+            <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+               class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-link"></i>
               <span class="label label-warning"></span>
+
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Share Link</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="url" class="form-control" placeholder="URL...."> 
-                      </div>
-                  </li>
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                          <textarea class="form-control" placeholder="Write Descriptions here....." rows="2" cols="20"></textarea> 
-                      </div>
-                  </li>
-            
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Share</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    
-                    
-                    
-                    </li>
-                </ul>
-              </li>
-             </ul>
+
           </li>
-           <!-- Tasks: style can be found in dropdown.less -->
-         <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+          <li class="dropdown tasks-menu">
+            <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-file-o"></i>
+              <span class="label label-success"></span>
+            </a>
+
+          </li>
+
+          <li class="dropdown tasks-menu">
+            <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-send-o"></i>
               <span class="label label-success"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Send Invitation</li>
-              <li>
-                  <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email-Id"> 
-                      </div>
-                  </li>
-                  <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Send</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-              </li>
-              
-            </ul>
+
           </li>
-           <!-- User Account: style can be found in dropdown.less -->
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -345,10 +241,6 @@
             <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
              </ul>
         </li>
-       <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -457,6 +349,7 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>
+
                   <tr>
                     <td><input type="checkbox"></td>
                     <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
@@ -477,123 +370,7 @@
                     <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
                     <td class="mailbox-date">28 mins ago</td>
                   </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Sagar Mal Shankhala</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">11 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Sagar Mal Shankhala</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">15 hours ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Rahul</a></td>
-                    <td class="mailbox-subject"><b>Java</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">Yesterday</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Ankita</a></td>
-                    <td class="mailbox-subject"><b>AMC</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">2 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Sagar Mal Shankhala</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">2 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Vaibhav Sharma</a></td>
-                    <td class="mailbox-subject"><b>American Swan(Grails)</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">2 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Amit Sharma</a></td>
-                    <td class="mailbox-subject"><b>AMC</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">2 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Udiy Pratap</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">2 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Rony Thomas</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">4 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.gsp">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">12 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">12 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">14 days ago</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">15 days ago</td>
-                  </tr>
+
                   </tbody>
                 </table>
                 <!-- /.table -->
@@ -898,5 +675,10 @@
 </script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
 </body>
 </html>

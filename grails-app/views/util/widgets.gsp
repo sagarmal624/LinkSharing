@@ -1,3 +1,4 @@
+<%@ page import="com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../index.html" class="logo">
+    <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>S</span>
       <!-- logo for regular state and mobile devices -->
@@ -127,148 +128,40 @@
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-      <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-comment"></i>
-              <span class="label label-warning"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Create Topic</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter Topic Name......"> 
-                      </div>
-                  </li>
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Visibility</option>
-                      <option>Private</option>
-                      <option>Public</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Create</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    </li>
-                </ul>
-              </li>
-             </ul>
-          </li>
-           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-link"></i>
-              <span class="label label-warning"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Share Link</li>
-              <li>
-                <ul class="menu">
-                  <li>
-                <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="url" class="form-control" placeholder="URL...."> 
-                      </div>
-                  </li>
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                          <textarea class="form-control" placeholder="Write Descriptions here....." rows="2" cols="20"></textarea> 
-                      </div>
-                  </li>
-            
-                    
-                    <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Share</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-                    
-                    
-                    
-                    </li>
-                </ul>
-              </li>
-             </ul>
-          </li>
-         
+            <li class="dropdown notifications-menu">
+                <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-comment"></i>
+                    <span class="label label-info"></span>
+                </a>
+
+
+            </li>
+            <li class="dropdown notifications-menu">
+                <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+                   class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-link"></i>
+                    <span class="label label-warning"></span>
+
+                </a>
+
+            </li>
+
             <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-send-o"></i>
-              <span class="label label-success"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Send Invitation</li>
-              <li>
-                  <form>
-                <ul class="menu">
-                  
-                  <li><!-- Task item -->
-                      <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email-Id"> 
-                      </div>
-                  </li>
-                  <li>
-                      <div class="form-group">
-                   <select class="dropdown form-control">
-                      
-                      <option>Select Topic</option>
-                      <option>Grails</option>
-                      <option>Java</option>
-                      </select>
-                      </div>
-                      
-                   </li>
-                  <li><!-- Task item -->
-                  <div class="form-group">
-                      <div class="form-group">
-                         <button class="btn btn-danger col-lg-offset-1">Cancel</button>
-                         <button class="btn btn-info col-lg-offset-3">Send</button>
-                      </div>
-                      </div>
-                    </li>
-                      </ul></form>
-              </li>
-              
-            </ul>
-          </li>
-       
-            <!-- Tasks: style can be found in dropdown.less -->
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
+                <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-file-o"></i>
+                    <span class="label label-success"></span>
+                </a>
+
+            </li>
+
+            <li class="dropdown tasks-menu">
+                <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-send-o"></i>
+                    <span class="label label-success"></span>
+                </a>
+
+            </li>
+            <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Sagar Mal Shankhala</span>
@@ -396,10 +289,6 @@
              </ul>
         </li>
     
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -470,11 +359,10 @@
       </div>
       <h2 class="page-header">Trending Topics</h2>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 container" >
               <div class="box box-success">
             <div class="box-header">
               <i class="fa fa-comments-o"></i>
-
               <h3 class="box-title">Subscriptions</h3>
 
               <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
@@ -485,20 +373,19 @@
                 </div>
               </div>
             </div>
-            <div class="box-body chat" id="chat-box">
-              <!-- chat item -->
-              <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
+            <div class="box-body chat" id="chat-box" >
+           <g:each in="${Topic.getTrendingTopics()}" var="i">
+              <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
                 <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
 
                 <p class="message">
                   <a href="#" class="name">
                     <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                    Grails
-                  </a>
+                      ${i.name}                  </a>
                   <span class="row">
                       <span class="text-info col-lg-4">
-                            @Sagar     
-                      </span>
+                          @${i.createdBy}
+                       </span>
                       <span class="text-info  col-lg-4">
                       
                           Subscription  
@@ -518,7 +405,8 @@
                         </span>
                     <span class="col-lg-4">
                        <span class="badge" style="color:aqua">
-                           50</span>
+                           ${Subscription.countByTopic(Topic.findByCreatedByAndName(i.createdBy,i.name))}
+                        </span>
                         </span>
                     <span class="col-lg-4">
                        <span class="badge" style="color:aqua">
@@ -571,92 +459,8 @@
                   </div>
                 <!-- /.attachment -->
               </div>
-              <!-- /.item -->
-               <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
-                <img src="../dist/img/user3-128x128.jpg" alt="user image" class="online">
+           </g:each>   <!-- /.item -->
 
-                <p class="message">
-                  <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                    Grails
-                  </a>
-                  <span class="row">
-                      <span class="text-info col-lg-4">
-                            @Sagar     
-                      </span>
-                      <span class="text-info col-lg-4">
-                      
-                          Subscription  
-                      </span>
-                      <span class="text-info col-lg-4">
-                      
-                      Post
-                      </span>
-                  </span>
-                  
-                  </p>
-                <div class="attachment">
-                 
-                    <div class="row">
-                    <span class="col-lg-4">
-                        <a href="#">Unsubscribe
-                        </a></span>
-                    <span class="col-lg-4">
-                       <span class="badge" style="color:aqua">
-                           50</span>
-                        </span>
-                    <span class="col-lg-4">
-                       <span class="badge" style="color:aqua">
-                           50</span>
-                        </span>
-                
-                    </div>
-                <br>
-                  <div class="row">
-                        <div class="col-lg-4">
-                        
-                        <div class="form-group">
-                        <select class="form-control">
-                            
-                            <option>Serious</option>
-                            <option>Very Serious</option>
-                            <option>Casual</option>
-                            </select>
-                        </div>
-                        </div>
-                      
-                            <div class="col-lg-4">
-                        <div class="form-group">
-                        <select class="form-control">
-                            <option>Private</option>
-                            <option>Public</option>
-                            </select>
-                        </div>
-                        </div>
-                  
-                      <div class="col-lg-4">
-                             <div class="col-lg-4">
-                                 <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span>
-                             </div>
-                             <div class="col-lg-4">
-                            
-                             <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
-                             </div>
-                              <div class="col-lg-4">
-                            
-                                 <span class="glyphicon glyphicon-trash"style="font-size:25px" ></span>          
-                             </div>
-                             </div>
-                          
-                    </div>
-                    
-                  
-                  
-                  
-                  </div>
-                <!-- /.attachment -->
-              </div>
-             
                 <!-- chat item -->
              
                
@@ -989,5 +793,10 @@
 
 <script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
 </body>
 </html>
