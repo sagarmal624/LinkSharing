@@ -1,12 +1,21 @@
 package com.intelligrape.linksharing
 
+import LinkSharing.MailSender
+
+import javax.mail.Message
+import javax.mail.Session
+import javax.mail.Transport
+import javax.mail.internet.InternetAddress
+import javax.mail.internet.MimeMessage
+
 class UserController {
 
     def index() {
 
         if(!session.username) {
 
-            render view: "register"
+            // render view: "register"
+            render view:"/HomePage"
         }
         else
             render view: "/linkSharing/dashboard"
@@ -19,20 +28,36 @@ class UserController {
 
     }
 
+    def sendMail() {
+        List<String> to=[params.emailto];
+        boolean flag=MailSender.sendMail("sagarmal624@gmail.com","ubprpuraifiykixj",params.subject ,to,params.message);
+        if(flag)flash.message="Mail is sent Successfully" else flash.error="Error During Mail Sending!"
+        render view:"/linkSharing/dashboard"
+
+    }
+    def sendAttechMail()
+    {
+        List<String> to=[params.emailto];
+        boolean flag=MailSender.sendAttechedMail("sagarmal624@gmail.com","ubprpuraifiykixj",params.subject ,to);
+        if(flag)flash.message="Mail is sent Successfully" else flash.error="Error During Mail Sending!"
+        render view:"/mailbox/mailbox"
+
+
+    }
+
     def register() {
         def user = new User(params)
         if (user)
-                if (user.validate()) {
-                    flash.message = "Record is Successfully Saved!"
-                    user.save(flush: true)
-                    render(view: "/login/login")
-                }
+            if (user.validate()) {
+                flash.message = "Record is Successfully Saved!"
+                user.save(flush: true)
+                render(view: "/login/login")
+            }
 
-             else {
+            else {
 
-                       forward(action: "index",model:[user:user])
-
-                }
+                forward(action: "index",model:[user:user])
+            }
     }
     def show()
     {

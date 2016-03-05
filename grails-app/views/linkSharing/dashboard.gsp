@@ -48,6 +48,75 @@
             </a>
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li class="dropdown notifications-menu">
+                        <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="searchtxtbox" placeholder="Search...." name="name">
+                                <div class="input-group-btn ">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+
+                            </div>
+
+
+                        </form>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Grails/Java</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>
+                                                To The New  Digital Design Team
+                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                            </h4>
+                                            <p>new blog is uploaded....</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>
+                                                Developers
+                                                <small><i class="fa fa-clock-o"></i> Today</small>
+                                            </h4>
+                                            <p>Today is Gorm session.</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>
+                                                American Sawan Department
+                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                            </h4>
+                                            <p>project is going on...</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <h4>
+                                                Reviewers
+                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                            </h4>
+                                            <p>Java/Grails</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a></li>
+                        </ul>
+
+
+                    </li>
+
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
@@ -958,6 +1027,42 @@
             //}
           });
 </script>
+<script type="text/javascript">
+    $("#searchform").submit(function(e)
+    {
+        var postData ={
+            name:$("#searchtxtbox").val()
+            // /$(this).serializeArray();
+        }
+        var formURL = "${g.createLink(action:"search",controller:"resource" )}";
+        $("#searchtxtbox").keyup(function(){
+            $("#searchform").addClass("dropdown-toggle");
+            $("#searchform").attr("data-toggle","dropdown");
+
+
+        });
+
+        $.ajax(
+                {
+                    url : formURL,
+                    type: "POST",
+                    data : postData,
+                    success:function(data, textStatus, jqXHR)
+                    {
+                        console.log(data.resources);
+                    },
+
+                    dataType: 'json',
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+
+                    }
+
+                });
+        e.preventDefault();	//STOP default action
+    });
+</script>
+
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>

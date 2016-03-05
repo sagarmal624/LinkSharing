@@ -1,11 +1,15 @@
 package com.intelligrape.linksharing
 
 class LinkSharingController {
-    def Home()
-   {
-       render view:"/linkSharing/dashboard"
+    def showResource(){
 
-   }
+        render view:"/util/showResource"
+    }
+    def Home()
+    {
+        render view:"/linkSharing/dashboard"
+
+    }
     def dashboard() {
         render view: "dashboard.gsp"
     }

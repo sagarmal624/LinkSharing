@@ -2,39 +2,51 @@ package com.intelligrape.linksharing
 import Enums.Visibility
 import LinkSharing.ResourceSearchCo
 
-class TopicController {
+class TopicController extends UtilController {
     def create()
     {
+
         render template:"/templates/Topic/create"
     }
 
     def save(){
+        Map map=[:]
+        println("SAVE >>>>>>>>")
         String topicname=params.name;
         String visibility=params.visibility
-      User user=User.findByEmail(session.email)
+        User user=User.findByEmail(session.email)
         Topic topic=new Topic(name:topicname,createdBy:user,visibility:Visibility.toEnum(visibility))
-
+        println("Callled *** ")
         if(!topic.validate())
         {
+            flash.message="This Topic name is already Exist!.Please Change Topic Name!"
+            /* renderAsJSON {
+                  flash.error
+           }*/
 
-            flash.error="errorrr"
-            render flash.error
 
         }else
         {
 
-            topic.save(flush:true)
-            flash.message="Record is saved"
-             render view:"/linkSharing/dashboard"
-
+            Thread.sleep(500)
+            flash.message="Topic is created with ${topicname} name successfully!"
+            topic=topic.save(flush: true)
 
         }
+        map=[message:flash.message]
+        groovy.lang.Closure closure={ map}
+        renderAsJSON(closure)
     }
-    def show(long id, ResourceSearchCo co){
+
+
+    def show(ResourceSearchCo co){
+        co.name='J00aa0ava'
+        co.visibility='PUBLIC'
 
         List<Resource>resources=Resource.search(co).list()
-        println "----------------====>>>>"+resources
-        Topic topic=Topic.read(id)
+
+        println "----------------====>>>>"+resources*.description
+        /*Topic topic=Topic.read(id)
 
         if(topic==null)
         {
@@ -56,10 +68,11 @@ class TopicController {
 
             }
         }
-
+*/
     }
 
 
 
 }
+
 

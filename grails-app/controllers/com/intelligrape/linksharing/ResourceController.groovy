@@ -4,7 +4,7 @@ import LinkSharing.RatingInfoVO
 import LinkSharing.ResourceSearchCo
 import LinkSharing.TopicVO
 
-class ResourceController {
+class ResourceController extends UtilController{
     def index() {
 
     }
@@ -25,9 +25,15 @@ class ResourceController {
     }
     def search(ResourceSearchCo co)
     {
+        Map map=[:]
+        co.visibility='PUBLIC'
         List<Resource>resources=Resource.search(co).list()
 
-        render resources.description
+        map=[resources:resources]
+        groovy.lang.Closure closure={ map}
+        renderAsJSON(closure)
+
+
     }
     def RatingProperties() {
         Resource resource = Resource.get(5)
@@ -45,6 +51,7 @@ class ResourceController {
         }
         render concat
     }
+
     def save(){
 
         String url=params.url;

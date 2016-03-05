@@ -2,8 +2,7 @@ package com.intelligrape.linksharing
 
 class UtilController {
 
-    def index() {
-  render view:"../index"
-
+    protected void renderAsJSON(Closure cl){
+        render(contentType: "text/json", encoding: "UTF-8",cl )
     }
 }

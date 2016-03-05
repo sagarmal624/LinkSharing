@@ -570,7 +570,6 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-
 <script src="${resource(dir:'plugins/jQuery',file:'jQuery-2.2.0.min.js')}"></script>
 <script src="${resource(dir:'bootstrap/js',file:'bootstrap.min.js')}"></script>
 <script src="${resource(dir:'plugins/datatables',file:'jquery.dataTables.min.js')}"></script>

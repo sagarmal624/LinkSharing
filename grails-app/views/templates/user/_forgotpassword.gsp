@@ -1,9 +1,9 @@
-<div class="modal fade" id="forgotpassward" role="dialog">
+<div class="modal fade" id="forgotPassword" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Forgot Password</h4>
+                <h4 class="modal-title">Enter Email-id to get Password on Email</h4>
             </div>
             <g:form controller="topic" action="save" >
                 <div class="modal-body">
