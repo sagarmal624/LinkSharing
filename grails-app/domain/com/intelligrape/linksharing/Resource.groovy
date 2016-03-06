@@ -1,7 +1,7 @@
 package com.intelligrape.linksharing
 
 import LinkSharing.RatingInfoVO
-import LinkSharing.ResourceSearchCo
+import LinkSharing.ResourceSearchCO
 
 abstract class Resource {
     String description;
@@ -34,17 +34,19 @@ abstract class Resource {
 
     static namedQueries = {
 
-        search { ResourceSearchCo co ->
+        search { ResourceSearchCO co ->
             if (co.topicId) {
                 eq('topic_id', co.topicId)
 
             }
-            if(co.visibility){
-                'topic'{
-                    eq("visibility",co.visibility)
-                }
+            if(co.description){
+             'topic'{
+                 eq('name',co.description)
+                 eq("visibility",co.visibility)
+             }
+
             }
-        }
+           }
     }
     public static List<Resource>getRecentResources()
     {

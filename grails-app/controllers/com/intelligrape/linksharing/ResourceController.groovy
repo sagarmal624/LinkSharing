@@ -1,7 +1,7 @@
 package com.intelligrape.linksharing
 
 import LinkSharing.RatingInfoVO
-import LinkSharing.ResourceSearchCo
+import LinkSharing.ResourceSearchCO
 import LinkSharing.TopicVO
 
 class ResourceController extends UtilController{
@@ -23,17 +23,17 @@ class ResourceController extends UtilController{
 
         }
     }
-    def search(ResourceSearchCo co)
+    def search(ResourceSearchCO co)
     {
         Map map=[:]
+        //co.topicName=params.topicName;
+ //       println "topic name->>>>>>>>>>>>>>>>>>>>"+co.description;
         co.visibility='PUBLIC'
         List<Resource>resources=Resource.search(co).list()
 
         map=[resources:resources]
         groovy.lang.Closure closure={ map}
         renderAsJSON(closure)
-
-
     }
     def RatingProperties() {
         Resource resource = Resource.get(5)
@@ -58,7 +58,7 @@ class ResourceController extends UtilController{
         String description=params.description
         String topicname=params.topicname
 
-        println ">>>>>>>>>>>>>>>>>>>>>>"+params
+   //     println ">>>>>>>>>>>>>>>>>>>>>>"+params
         Resource  resource= new Link_Resource(topic:Topic.findByName(topicname),createdBy:User.findByEmail(session.email),description:description,url: url)
         if(resource.validate()) {
             Thread.sleep(1000)
@@ -76,5 +76,6 @@ class ResourceController extends UtilController{
         renderAsJSON(closure)
 
     }
+
 
 }

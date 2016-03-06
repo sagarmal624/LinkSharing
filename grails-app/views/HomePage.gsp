@@ -12,6 +12,7 @@
 			<link href="${resource(dir:'bootstrap/css',file:'bootstrap.min.css')}" rel="stylesheet">
 			<link href="${assetPath(src:'custom.css')}" rel="stylesheet">
 			<link href="${assetPath(src:'flexslider.css')}" rel="stylesheet">
+			<link href="${resource(dir:'css',file:'footer-distributed-with-address-and-phones.css')}" rel="stylesheet">
 
 			<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 			<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>

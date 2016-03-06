@@ -132,21 +132,25 @@
         </div>
     </div>
 
-
-
     <div class="col-lg-4">
-    <div class="login-box" style="border: 1px solid gray">
-        <div class="login-box-body">
-            <p class="login-box-msg"><strong>Register a new membership</strong></p>
-            <g:form controller="user"  action="register" method="post">
-                <div class="form-group has-feedback">
+
+            <ul class="features">
+        <div class="login-box" style="border: 1px solid gray">
+         <div class="login-box-body">
+             <li class="description">
+
+             <p class="login-box-msg"><strong>Register a new membership</strong></p>
+            </li>
+                 <g:form controller="user"  action="register" method="post">
+                <li><div class="form-group has-feedback">
                     <g:textField class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     <span class="text-danger">                 <g:fieldError field="firstname" bean="${user}"></g:fieldError>
 </span>
 
-                </div>
-                <div class="form-group has-feedback">
+                </div></li>
+                     <li>
+                                     <div class="form-group has-feedback">
                     <g:textField  class="form-control" name="lastname" id="lastname" placeholder="LastName" value="${user?.lastname}" />
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
@@ -154,25 +158,31 @@
 </span>
 
                 </div>
+                     </li>
+                     <li>
                 <div class="form-group has-feedback">
                     <g:field  type="email" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     <span class="text-danger">            <g:fieldError field="email" bean="${user}"></g:fieldError>
 </span>
-                </div>
+                </div></li>
+                     <li>
                 <div class="form-group has-feedback">
                     <g:textField type="text" class="form-control" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     <span class="text-danger"><g:fieldError field="username" bean="${user}"></g:fieldError>
  </span>
                 </div>
-
+</li>
+                     <li>
                 <div class="form-group has-feedback">
                     <g:passwordField type="password" class="form-control" placeholder="Password" id="password" required="true" name="password"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     <span class="text-danger"><g:fieldError field="password" bean="${user}">
                     </g:fieldError></span>
                 </div>
+                     </li>
+                     <li>
                 <div class="form-group has-feedback">
                     <g:passwordField  name="confirmPassword" class="form-control" placeholder="Retype Password" id="cpassword" required="true"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -181,13 +191,14 @@
                     </g:fieldError></span>
 
                 </div>
-
+</li><li>
                 <div class="form-group has-feedback">
                     <g:field type="file" class="form-control" id="photo" name="photo"/>
                     <span class="glyphicon glyphicon-file form-control-feedback"></span>
                     <span class="text-danger">  <g:fieldError field="photo" bean="${user}"></g:fieldError>
 </span>
                 </div>
+         </li>
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
@@ -259,7 +270,9 @@
 
         </div>
     </div>
-</div>
+</ul>
+
+    </div>
 </div>
     <script>
         function statusChangeCallback(response) {

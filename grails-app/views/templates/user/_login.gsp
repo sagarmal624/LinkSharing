@@ -11,6 +11,8 @@
                 <div class="panel panel-default" >
                     <div class="panel-heading" >Recent Shares</div>
                     <div class="panel-body">
+
+
                         <g:each in="${com.intelligrape.linksharing.Resource.getRecentResources()}">
                             <div class="row" style="border-bottom: 1px solid gray;padding-bottom:10px ">
                                 <div class="col-lg-2 col-md-2 col-sm-2">
@@ -50,6 +52,9 @@
                             </div>
                             <br>
                         </g:each>
+
+
+
                     </div>
                 </div>
             </div>

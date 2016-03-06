@@ -67,7 +67,7 @@
                                                 <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
-                                                Support Team
+                                                ${id}
                                                 <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                             </h4>
                                             <p>Why not buy a new awesome theme?</p>

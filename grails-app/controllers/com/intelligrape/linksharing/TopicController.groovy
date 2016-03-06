@@ -1,6 +1,6 @@
 package com.intelligrape.linksharing
 import Enums.Visibility
-import LinkSharing.ResourceSearchCo
+import LinkSharing.ResourceSearchCO
 
 class TopicController extends UtilController {
     def create()
@@ -39,7 +39,7 @@ class TopicController extends UtilController {
     }
 
 
-    def show(ResourceSearchCo co){
+    def show(ResourceSearchCO co){
         co.name='J00aa0ava'
         co.visibility='PUBLIC'
 

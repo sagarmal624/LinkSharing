@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LinkSharing | Dashboard</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link href="${resource(dir:'bootstrap/css',file:'bootstrap.min.css')}" rel="stylesheet">
+    <link href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}" rel="stylesheet">
     %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    %{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>--}%
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-    <script src="${resource(dir:'bootstrap/js',file:'bootstrap.min.js')}"></script>
-    <script src="${resource(dir:'js',file:'jquery.mockjax.js')}"></script>
-    <script src="${resource(dir:'js',file:'bootstrap-typeahead.js')}"></script>    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
+    <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
+    %{--<script src="${resource(dir:'js',file:'bootstrap-typeahead.js')}"></script>    <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
+    %{--<script src="${resource(dir:'js',file:'jquery.mockjax.js')}"></script>--}%
     %{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--}%
     %{--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}%
     %{--<link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">--}%
@@ -25,10 +24,10 @@
     %{--<link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">--}%
     %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
 
+    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
+
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-    %{--/<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
 
     <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="../dist/js/star-rating.js" type="text/javascript"></script>
@@ -46,10 +45,11 @@
     %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>--}%
 
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <header class="main-header">
-        <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
+        <a href="${createLink(controller: "linkSharing", action: "mainpage")}" class="logo">
             <span class="logo-mini"><b>L</b>S</span>
             <span class="logo-lg"><b>Link</b>Sharing</span>
         </a>
@@ -57,75 +57,79 @@
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
+
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown notifications-menu">
-                        %{--<form id="searchform" class="navbar-form" role="search" style="padding-left:30px">--}%
-                            %{--<div class="input-group">--}%
-                                %{--<input id="demo1" type="text" class="col-md-12 form-control" placeholder="Search cities..." autocomplete="off" />--}%
-                                %{--<div class="input-group-btn ">--}%
+                        <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+                            <div class="input-group">
+                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                                       class="col-md-12 form-control" placeholder="Search topics..."/>
+
+                                <div class="input-group-btn ">
 
                                     %{--<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>--}%
-                                %{--</div>--}%
+                                </div>
 
-                            %{--</div>--}%
+                            </div>
 
-
-                        %{--</form>--}%
-                        %{--<ul class="dropdown-menu">--}%
-                            %{--<li class="header">You have 4 messages</li>--}%
-                            %{--<li>--}%
-                                %{--<ul class="menu">--}%
+                        </form>
+                        <ul class="dropdown-menu">
+                            <li class="header" id="dropdownheader"></li>
+                            <li>
+                                <ul class="menu" id="dropdownsearch">
                                     %{--<li><!-- start message -->--}%
-                                        %{--<a href="#">--}%
-                                            %{--<h4>--}%
-                                                %{--Support Team--}%
-                                                %{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}%
-                                            %{--</h4>--}%
-                                            %{--<p>Grails/Java</p>--}%
-                                        %{--</a>--}%
+                                    %{--<a href="#">--}%
+                                    %{--<h4>--}%
+                                    %{--Support Team--}%
+                                    %{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}%
+                                    %{--</h4>--}%
+                                    %{--<p>Grails/Java</p>--}%
+                                    %{--</a>--}%
                                     %{--</li>--}%
                                     %{--<li>--}%
-                                        %{--<a href="#">--}%
-                                            %{--<h4>--}%
-                                                %{--To The New  Digital Design Team--}%
-                                                %{--<small><i class="fa fa-clock-o"></i> 2 hours</small>--}%
-                                            %{--</h4>--}%
-                                            %{--<p>new blog is uploaded....</p>--}%
-                                        %{--</a>--}%
+                                    %{--<a href="#">--}%
+                                    %{--<h4>--}%
+                                    %{--To The New  Digital Design Team--}%
+                                    %{--<small><i class="fa fa-clock-o"></i> 2 hours</small>--}%
+                                    %{--</h4>--}%
+                                    %{--<p>new blog is uploaded....</p>--}%
+                                    %{--</a>--}%
                                     %{--</li>--}%
                                     %{--<li>--}%
-                                        %{--<a href="#">--}%
-                                            %{--<h4>--}%
-                                                %{--Developers--}%
-                                                %{--<small><i class="fa fa-clock-o"></i> Today</small>--}%
-                                            %{--</h4>--}%
-                                            %{--<p>Today is Gorm session.</p>--}%
-                                        %{--</a>--}%
+                                    %{--<a href="#">--}%
+                                    %{--<h4>--}%
+                                    %{--Developers--}%
+                                    %{--<small><i class="fa fa-clock-o"></i> Today</small>--}%
+                                    %{--</h4>--}%
+                                    %{--<p>Today is Gorm session.</p>--}%
+                                    %{--</a>--}%
                                     %{--</li>--}%
                                     %{--<li>--}%
-                                        %{--<a href="#">--}%
-                                            %{--<h4>--}%
-                                                %{--American Sawan Department--}%
-                                                %{--<small><i class="fa fa-clock-o"></i> Yesterday</small>--}%
-                                            %{--</h4>--}%
-                                            %{--<p>project is going on...</p>--}%
-                                        %{--</a>--}%
+                                    %{--<a href="#">--}%
+                                    %{--<h4>--}%
+                                    %{--American Sawan Department--}%
+                                    %{--<small><i class="fa fa-clock-o"></i> Yesterday</small>--}%
+                                    %{--</h4>--}%
+                                    %{--<p>project is going on...</p>--}%
+                                    %{--</a>--}%
                                     %{--</li>--}%
                                     %{--<li>--}%
-                                        %{--<a href="#">--}%
-                                            %{--<h4>--}%
-                                                %{--Reviewers--}%
-                                                %{--<small><i class="fa fa-clock-o"></i> 2 days</small>--}%
-                                            %{--</h4>--}%
-                                            %{--<p>Java/Grails</p>--}%
-                                        %{--</a>--}%
+                                    %{--<a href="#">--}%
+                                    %{--<h4>--}%
+                                    %{--Reviewers--}%
+                                    %{--<small><i class="fa fa-clock-o"></i> 2 days</small>--}%
+                                    %{--</h4>--}%
+                                    %{--<p>Java/Grails</p>--}%
+                                    %{--</a>--}%
                                     %{--</li>--}%
-                                %{--</ul>--}%
-                            %{--</li>--}%
-                            %{--<li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a></li>--}%
-                        %{--</ul>--}%
 
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
+                            </li>
+                        </ul>
+                        %{----}%
 
                     </li>
 
@@ -141,60 +145,70 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
                                                 <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 To The New  Digital Design Team
                                                 <small><i class="fa fa-clock-o"></i> 2 hours</small>
                                             </h4>
+
                                             <p>new blog is uploaded....</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Developers
                                                 <small><i class="fa fa-clock-o"></i> Today</small>
                                             </h4>
+
                                             <p>Today is Gorm session.</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 American Sawan Department
                                                 <small><i class="fa fa-clock-o"></i> Yesterday</small>
                                             </h4>
+
                                             <p>project is going on...</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Reviewers
                                                 <small><i class="fa fa-clock-o"></i> 2 days</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
@@ -204,11 +218,11 @@
                         </ul>
                     </li>
                     <li class="dropdown notifications-menu">
-                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-comment"></i>
                             <span class="label label-info"></span>
                         </a>
-
 
                     </li>
                     <li class="dropdown notifications-menu">
@@ -222,7 +236,8 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#shareDoc" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-file-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -230,7 +245,8 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-send-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -258,6 +274,7 @@
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Subscriptions</a>
                                     </div>
+
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Topics</a>
                                     </div>
@@ -268,10 +285,13 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="${createLink(controller: "linkSharing", action: "profile")}"
+                                       class="btn btn-default btn-flat">Profile</a>
                                 </div>
+
                                 <div class="pull-right">
-                                    <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="${createLink(controller: "login", action: "logout")}"
+                                       class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -291,6 +311,7 @@
                 <div class="pull-left image">
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
+
                 <div class="pull-left info">
                     <p>${session.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -301,7 +322,8 @@
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                                class="fa fa-search"></i>
                         </button>
                     </span>
                 </div>
@@ -309,19 +331,20 @@
             <ul class="sidebar-menu">
                 <li class="header">LINK SHARING</li>
                 <li class="active treeview">
-                    <a class="active"href="${createLink(controller:'linkSharing', action: 'dashboard')}">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                    <a class="active" href="${createLink(controller: 'linkSharing', action: 'dashboard')}">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
+                            class="fa fa-angle-left pull-right"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="${createLink(controller:'linkSharing', action: 'trendingPost')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'trendingPost')}">
                         <i class="fa fa-th"></i> <span>Trending Post</span>
                         <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>
 
                 <li class="treeview">
-                    <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
                         <i class="fa fa-edit"></i> <span>Account Setting</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -333,17 +356,18 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li><a href="${createLink(controller:'linkSharing', action: 'admin')}"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                                class="fa fa-circle-o"></i> Data tables</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="${createLink(controller:'linkSharing', action: 'calender')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'calender')}">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <small class="label pull-right bg-red">3</small>
                     </a>
                 </li>
                 <li>
-                    <a href="${createLink(controller:'linkSharing', action: 'inbox')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
                         <small class="label pull-right bg-yellow">12</small>
                     </a>
@@ -355,8 +379,10 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li><a href="${createLink(controller:'linkSharing', action: 'profile')}"><i class="fa fa-circle-o"></i> Profile</a></li>
-                        <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'profile')}"><i
+                                class="fa fa-circle-o"></i> Profile</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'lockscreen')}"><i
+                                class="fa fa-circle-o"></i> Lockscreen</a></li>
                     </ul>
                 </li>
             </ul>
@@ -386,12 +412,14 @@
 
                             <p>Subscriptions</p>
                         </div>
+
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
@@ -399,12 +427,14 @@
 
                             <p>Topics</p>
                         </div>
+
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="icon">
@@ -413,18 +443,22 @@
 
                         <div class="inner">
                             <h1>
-                                <a href="">    <p>Create Resource</p>
+                                <a href=""><p>Create Resource</p>
                                 </a>
 
-                                <a href="#"><p>Create Link<p></a>
+                                <a href="#"><p>Create Link
+
+                                    <p></a>
                             </h1>
                         </div>
+
                         <div class="icon">
                             <i class="ion ion-link"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
@@ -434,6 +468,7 @@
                                 <a href="#"><p>Share Link</p></a>
                             </h1>
                         </div>
+
                         <div class="icon">
                             <i class="glyphicon glyphicon-fire"></i>
                         </div>
@@ -441,6 +476,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <section class="col-lg-7 connectedSortable">
                     <div class="box box-success">
@@ -451,12 +487,15 @@
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                                 <div class="btn-group" data-toggle="btn-toggle">
-                                    <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
+                                    <button type="button" class="btn btn-default btn-sm active"><i
+                                            class="fa fa-square text-green"></i>
                                     </button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm"><i
+                                            class="fa fa-square text-red"></i></button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="box-body chat" id="chat-box">
                             <!-- chat item -->
                             <div class="item">
@@ -482,6 +521,7 @@
                                     </span>
 
                                 </p>
+
                                 <div class="attachment">
 
                                     <div class="row">
@@ -499,6 +539,7 @@
 
                                     </div>
                                     <br>
+
                                     <div class="row">
                                         <div class="col-lg-4">
 
@@ -523,22 +564,22 @@
 
                                         <div class="col-lg-4">
                                             <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span>
+                                                <span class="glyphicon glyphicon-envelope"
+                                                      style="font-size:25px"></span>
                                             </div>
+
                                             <div class="col-lg-4">
 
                                                 <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
                                             </div>
+
                                             <div class="col-lg-4">
 
-                                                <span class="glyphicon glyphicon-trash"style="font-size:25px" ></span>
+                                                <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
                                             </div>
                                         </div>
 
                                     </div>
-
-
-
 
                                 </div>
                                 <!-- /.attachment -->
@@ -567,6 +608,7 @@
                                     </span>
 
                                 </p>
+
                                 <div class="attachment">
 
                                     <div class="row">
@@ -584,6 +626,7 @@
 
                                     </div>
                                     <br>
+
                                     <div class="row">
                                         <div class="col-lg-4">
 
@@ -608,22 +651,22 @@
 
                                         <div class="col-lg-4">
                                             <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span>
+                                                <span class="glyphicon glyphicon-envelope"
+                                                      style="font-size:25px"></span>
                                             </div>
+
                                             <div class="col-lg-4">
 
                                                 <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
                                             </div>
+
                                             <div class="col-lg-4">
 
-                                                <span class="glyphicon glyphicon-trash"style="font-size:25px" ></span>
+                                                <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
                                             </div>
                                         </div>
 
                                     </div>
-
-
-
 
                                 </div>
                                 <!-- /.attachment -->
@@ -639,29 +682,37 @@
                         <!-- /.chat -->
 
                     </div>
+
                     <div class="box box-info">
                         <div class="box-header">
                             <i class="fa fa-envelope"></i>
 
                             <h3 class="box-title">Quick Email</h3>
+
                             <div class="pull-right box-tools">
-                                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                                <button type="button" class="btn btn-info btn-sm" data-widget="remove"
+                                        data-toggle="tooltip" title="Remove">
                                     <i class="fa fa-times"></i></button>
                             </div>
                         </div>
+
                         <div class="box-body">
                             <form action="#" method="post">
                                 <div class="form-group">
                                     <input type="email" class="form-control" name="emailto" placeholder="Email to:">
                                 </div>
+
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="subject" placeholder="Subject">
                                 </div>
+
                                 <div>
-                                    <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    <textarea class="textarea" placeholder="Message"
+                                              style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
                             </form>
                         </div>
+
                         <div class="box-footer clearfix">
                             <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
                                 <i class="fa fa-arrow-circle-right"></i></button>
@@ -674,9 +725,11 @@
                     <div class="box box-solid bg-light-blue-gradient">
                         <div class="box-header">
                             <div class="pull-right box-tools">
-                                <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range">
+                                <button type="button" class="btn btn-primary btn-sm daterange pull-right"
+                                        data-toggle="tooltip" title="Date range">
                                     <i class="fa fa-calendar"></i></button>
-                                <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+                                <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
+                                        data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
                                     <i class="fa fa-minus"></i></button>
                             </div>
 
@@ -686,23 +739,28 @@
                                 Visitors
                             </h3>
                         </div>
+
                         <div class="box-body">
                             <div id="world-map" style="height: 250px; width: 100%;"></div>
                         </div>
+
                         <div class="box-footer no-border">
                             <div class="row">
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-1"></div>
+
                                     <div class="knob-label">Visitors</div>
                                 </div>
                                 <!-- ./col -->
                                 <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                                     <div id="sparkline-2"></div>
+
                                     <div class="knob-label">Online</div>
                                 </div>
                                 <!-- ./col -->
                                 <div class="col-xs-4 text-center">
                                     <div id="sparkline-3"></div>
+
                                     <div class="knob-label">Exists</div>
                                 </div>
                                 <!-- ./col -->
@@ -710,6 +768,7 @@
                             <!-- /.row -->
                         </div>
                     </div>
+
                     <div class="box box-solid bg-green-gradient">
                         <div class="box-header">
                             <i class="fa fa-calendar"></i>
@@ -719,7 +778,8 @@
                             <div class="pull-right box-tools">
                                 <!-- button with a dropdown -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" class="btn btn-success btn-sm dropdown-toggle"
+                                            data-toggle="dropdown">
                                         <i class="fa fa-bars"></i></button>
                                     <ul class="dropdown-menu pull-right" role="menu">
                                         <li><a href="#">Add new event</a></li>
@@ -728,12 +788,15 @@
                                         <li><a href="#">View calendar</a></li>
                                     </ul>
                                 </div>
-                                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i
+                                        class="fa fa-minus"></i>
                                 </button>
-                                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+                                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i
+                                        class="fa fa-times"></i>
                                 </button>
                             </div>
                         </div>
+
                         <div class="box-body no-padding">
                             <div id="calendar" style="width: 100%"></div>
                         </div>
@@ -746,6 +809,7 @@
                                         <span class="pull-left">Task #1</span>
                                         <small class="pull-right">90%</small>
                                     </div>
+
                                     <div class="progress xs">
                                         <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
                                     </div>
@@ -754,6 +818,7 @@
                                         <span class="pull-left">Task #2</span>
                                         <small class="pull-right">70%</small>
                                     </div>
+
                                     <div class="progress xs">
                                         <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
                                     </div>
@@ -764,6 +829,7 @@
                                         <span class="pull-left">Task #3</span>
                                         <small class="pull-right">60%</small>
                                     </div>
+
                                     <div class="progress xs">
                                         <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
                                     </div>
@@ -772,6 +838,7 @@
                                         <span class="pull-left">Task #4</span>
                                         <small class="pull-right">40%</small>
                                     </div>
+
                                     <div class="progress xs">
                                         <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
                                     </div>
@@ -799,6 +866,7 @@
             <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
             <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
         </ul>
+
         <div class="tab-content">
             <div class="tab-pane" id="control-sidebar-home-tab">
                 <h3 class="control-sidebar-heading">Recent Activity</h3>
@@ -901,10 +969,10 @@
                     </li>
                 </ul>
 
-
             </div>
             <!-- Stats tab content -->
             <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+
             <div class="tab-pane" id="control-sidebar-settings-tab">
                 <form method="post">
                     <h3 class="control-sidebar-heading">General Settings</h3>
@@ -968,6 +1036,7 @@
             </div>
         </div>
     </aside>
+
     <div class="control-sidebar-bg"></div>
 </div>
 
@@ -976,7 +1045,7 @@
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
-//</script>
+    //</script>
 <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>
@@ -999,74 +1068,54 @@
 
 %{--<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>--}%
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
+
 <script type="text/javascript">
-    $(function() {
-        function displayResult(item) {
-            $('.alert').show().html('You selected <strong>' + item.value + '</strong>: <strong>' + item.text + '</strong>');
+
+    var topic = function searchTopic(description) {
+        <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>
+    };
+
+    function justDoIt(data, textStatus) {
+        if (data) {
+
+            var obj = eval(data.resources)
+            //var obj = JSON.parse(JSON.stringify(data));
+            //var ob=data['resources']
+            //console.log(ob[0].createdBy[0]);
+//        console.log(data['resources'][0]);
+            $("#searchform").addClass("dropdown-toggle");
+            $("#searchform").attr("data-toggle", "dropdown");
+
+            if ($("#searchform").val() == null || $("#searchform").val() == "") {
+                $("#dropdownsearch").empty();
+                $("#dropdownheader").text('Record not Found');
+            }
+
+            $.each(obj, function (key, value) {
+                $("#dropdownheader").text(obj.length+" Matching Records are Found");
+                console.log(key + ": " + value.id);
+                <g:set var="myval" value="[id:value?.id]"/>
+
+                $("#dropdownsearch").append(
+                        "<li>" +
+                        "<a href='${createLink(controller:'linkSharing',action:'showResource',params:myval)}' >" +
+                        "<h4>" + value.description + "<small>" +
+                        "<i class='fa fa-clock-o'></i> 5 mins</small>" +
+                        "</h4>" +
+                        "<p>" + value+ "</p>" +
+                        "</a>" +
+                        "</li>");
+            });
+
         }
-        $('#demo1').typeahead({
-            source: [
-                {id: 1, name: 'Toronto'},
-                {id: 2, name: 'Montreal'},
-                {id: 3, name: 'New York'},
-                {id: 4, name: 'Buffalo'},
-                {id: 5, name: 'Boston'},
-                {id: 6, name: 'Columbus'},
-                {id: 7, name: 'Dallas'},
-                {id: 8, name: 'Vancouver'},
-                {id: 9, name: 'Seattle'},
-                {id: 10, name: 'Los Angeles'}
-            ],
-
-            onSelect: displayResult
-        });
-
-    });
+    }
 </script>
-
-
-%{--<script type="text/javascript">--}%
-    %{--$("#searchform").submit(function(e)--}%
-    %{--{--}%
-        %{--var postData ={--}%
-            %{--name:$("#searchtxtbox").val()--}%
-            %{--// /$(this).serializeArray();--}%
-        %{--}--}%
-        %{--var formURL = "${g.createLink(action:"search",controller:"resource" )}";--}%
-        %{--$("#searchtxtbox").keyup(function(){--}%
-            %{--$("#searchform").addClass("dropdown-toggle");--}%
-            %{--$("#searchform").attr("data-toggle","dropdown");--}%
-
-
-        %{--});--}%
-
-        %{--$.ajax(--}%
-                %{--{--}%
-                    %{--url : formURL,--}%
-                    %{--type: "POST",--}%
-                    %{--data : postData,--}%
-                    %{--success:function(data, textStatus, jqXHR)--}%
-                    %{--{--}%
-                        %{--console.log(data.resources);--}%
-                    %{--},--}%
-
-                    %{--dataType: 'json',--}%
-                    %{--error: function(jqXHR, textStatus, errorThrown)--}%
-                    %{--{--}%
-
-                    %{--}--}%
-
-                %{--});--}%
-        %{--e.preventDefault();	//STOP default action--}%
-    %{--});--}%
-%{--</script>--}%
 
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
-
 
 </body>
 </html>

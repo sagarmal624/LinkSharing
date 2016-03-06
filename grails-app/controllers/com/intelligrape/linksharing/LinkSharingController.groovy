@@ -2,8 +2,8 @@ package com.intelligrape.linksharing
 
 class LinkSharingController {
     def showResource(){
-
-        render view:"/util/showResource"
+             println"--------------->>>>>id="+params.id
+        render view:"/util/showResource",model:[id:params.id]
     }
     def Home()
     {
