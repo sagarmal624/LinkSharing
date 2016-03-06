@@ -71,8 +71,6 @@ class TopicController extends UtilController {
 */
     }
 
-
-
 }
 
 

@@ -5,7 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LinkSharing | Dashboard</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
+    <link href="${resource(dir:'bootstrap/css',file:'bootstrap.min.css')}" rel="stylesheet">
+    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="${resource(dir:'bootstrap/js',file:'bootstrap.min.js')}"></script>
+    <script src="${resource(dir:'js',file:'jquery.mockjax.js')}"></script>
+    <script src="${resource(dir:'js',file:'bootstrap-typeahead.js')}"></script>    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
     %{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--}%
     %{--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}%
     %{--<link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">--}%
@@ -16,10 +23,16 @@
     %{--<link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">--}%
     %{--<link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">--}%
     %{--<link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">--}%
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-    </script>
+    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    %{--/<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
+
+    <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="../dist/js/star-rating.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">
+    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">
@@ -30,9 +43,7 @@
     <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
     <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-
+    %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>--}%
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -49,70 +60,71 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown notifications-menu">
-                        <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="searchtxtbox" placeholder="Search...." name="name">
-                                <div class="input-group-btn ">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
+                        %{--<form id="searchform" class="navbar-form" role="search" style="padding-left:30px">--}%
+                            %{--<div class="input-group">--}%
+                                %{--<input id="demo1" type="text" class="col-md-12 form-control" placeholder="Search cities..." autocomplete="off" />--}%
+                                %{--<div class="input-group-btn ">--}%
 
-                            </div>
+                                    %{--<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>--}%
+                                %{--</div>--}%
+
+                            %{--</div>--}%
 
 
-                        </form>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li>
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Grails/Java</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h4>
-                                                To The New  Digital Design Team
-                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </h4>
-                                            <p>new blog is uploaded....</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Today is Gorm session.</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h4>
-                                                American Sawan Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>project is going on...</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Java/Grails</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a></li>
-                        </ul>
+                        %{--</form>--}%
+                        %{--<ul class="dropdown-menu">--}%
+                            %{--<li class="header">You have 4 messages</li>--}%
+                            %{--<li>--}%
+                                %{--<ul class="menu">--}%
+                                    %{--<li><!-- start message -->--}%
+                                        %{--<a href="#">--}%
+                                            %{--<h4>--}%
+                                                %{--Support Team--}%
+                                                %{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}%
+                                            %{--</h4>--}%
+                                            %{--<p>Grails/Java</p>--}%
+                                        %{--</a>--}%
+                                    %{--</li>--}%
+                                    %{--<li>--}%
+                                        %{--<a href="#">--}%
+                                            %{--<h4>--}%
+                                                %{--To The New  Digital Design Team--}%
+                                                %{--<small><i class="fa fa-clock-o"></i> 2 hours</small>--}%
+                                            %{--</h4>--}%
+                                            %{--<p>new blog is uploaded....</p>--}%
+                                        %{--</a>--}%
+                                    %{--</li>--}%
+                                    %{--<li>--}%
+                                        %{--<a href="#">--}%
+                                            %{--<h4>--}%
+                                                %{--Developers--}%
+                                                %{--<small><i class="fa fa-clock-o"></i> Today</small>--}%
+                                            %{--</h4>--}%
+                                            %{--<p>Today is Gorm session.</p>--}%
+                                        %{--</a>--}%
+                                    %{--</li>--}%
+                                    %{--<li>--}%
+                                        %{--<a href="#">--}%
+                                            %{--<h4>--}%
+                                                %{--American Sawan Department--}%
+                                                %{--<small><i class="fa fa-clock-o"></i> Yesterday</small>--}%
+                                            %{--</h4>--}%
+                                            %{--<p>project is going on...</p>--}%
+                                        %{--</a>--}%
+                                    %{--</li>--}%
+                                    %{--<li>--}%
+                                        %{--<a href="#">--}%
+                                            %{--<h4>--}%
+                                                %{--Reviewers--}%
+                                                %{--<small><i class="fa fa-clock-o"></i> 2 days</small>--}%
+                                            %{--</h4>--}%
+                                            %{--<p>Java/Grails</p>--}%
+                                        %{--</a>--}%
+                                    %{--</li>--}%
+                                %{--</ul>--}%
+                            %{--</li>--}%
+                            %{--<li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a></li>--}%
+                        %{--</ul>--}%
 
 
                     </li>
@@ -958,110 +970,96 @@
     </aside>
     <div class="control-sidebar-bg"></div>
 </div>
-%{--<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>--}%
-%{--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>--}%
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-    </script>
-%{--<script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>--}%
-%{--<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>--}%
-%{--<script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'plugins/sparkline', file: 'jquery.sparkline.min.js')}"></script>--}%
-%{--<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.min.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-world-mill-en.js')}"></script>--}%
-%{--<script src="${resource(dir: 'plugins/knob', file: 'jquery.knob.js')}"></script>--}%
-%{--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>--}%
-%{--<script src="${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'plugins/datepicker', file: 'bootstrap-datepicker.js')}"></script>--}%
-%{--<script src="${resource(dir: 'plugins/bootstrap-wysihtml5/', file: 'bootstrap3-wysihtml5.all.min.js')}"></script>--}%
-%{--<script src="${resource(dir: 'plugins/slimScroll', file: 'jquery.slimscroll.min.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'plugins/fastclick', file: 'fastclick.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'dist/js', file: 'app.min.js')}"></script>--}%
-%{----}%
-%{--<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>--}%
-%{--<script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>--}%
 
 
-
-
-
-
-<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+%{--<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>--}%
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button);
-</script>
+//</script>
 <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>
-
+%{----}%
 <script src="${resource(dir: 'plugins/sparkline', file: 'jquery.sparkline.min.js')}"></script>
 <script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.min.js')}"></script>
-
+%{----}%
 <script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-world-mill-en.js')}"></script>
 <script src="${resource(dir: 'plugins/knob', file: 'jquery.knob.js')}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script src="${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker.js')}"></script>
-
+%{----}%
 <script src="${resource(dir: 'plugins/datepicker', file: 'bootstrap-datepicker.js')}"></script>
 <script src="${resource(dir: 'plugins/bootstrap-wysihtml5/', file: 'bootstrap3-wysihtml5.all.min.js')}"></script>
 <script src="${resource(dir: 'plugins/slimScroll', file: 'jquery.slimscroll.min.js')}"></script>
-
+%{----}%
 <script src="${resource(dir: 'plugins/fastclick', file: 'fastclick.js')}"></script>
 
 <script src="${resource(dir: 'dist/js', file: 'app.min.js')}"></script>
 
-<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
+%{--<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>--}%
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-           // if($("#success").text().trim()!="" ||$("#success").text()!=null)
-            //{
-                $("#successAlert").modal('show');
-
-            //}
-          });
-</script>
-<script type="text/javascript">
-    $("#searchform").submit(function(e)
-    {
-        var postData ={
-            name:$("#searchtxtbox").val()
-            // /$(this).serializeArray();
+    $(function() {
+        function displayResult(item) {
+            $('.alert').show().html('You selected <strong>' + item.value + '</strong>: <strong>' + item.text + '</strong>');
         }
-        var formURL = "${g.createLink(action:"search",controller:"resource" )}";
-        $("#searchtxtbox").keyup(function(){
-            $("#searchform").addClass("dropdown-toggle");
-            $("#searchform").attr("data-toggle","dropdown");
+        $('#demo1').typeahead({
+            source: [
+                {id: 1, name: 'Toronto'},
+                {id: 2, name: 'Montreal'},
+                {id: 3, name: 'New York'},
+                {id: 4, name: 'Buffalo'},
+                {id: 5, name: 'Boston'},
+                {id: 6, name: 'Columbus'},
+                {id: 7, name: 'Dallas'},
+                {id: 8, name: 'Vancouver'},
+                {id: 9, name: 'Seattle'},
+                {id: 10, name: 'Los Angeles'}
+            ],
 
-
+            onSelect: displayResult
         });
 
-        $.ajax(
-                {
-                    url : formURL,
-                    type: "POST",
-                    data : postData,
-                    success:function(data, textStatus, jqXHR)
-                    {
-                        console.log(data.resources);
-                    },
-
-                    dataType: 'json',
-                    error: function(jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-
-                });
-        e.preventDefault();	//STOP default action
     });
 </script>
+
+
+%{--<script type="text/javascript">--}%
+    %{--$("#searchform").submit(function(e)--}%
+    %{--{--}%
+        %{--var postData ={--}%
+            %{--name:$("#searchtxtbox").val()--}%
+            %{--// /$(this).serializeArray();--}%
+        %{--}--}%
+        %{--var formURL = "${g.createLink(action:"search",controller:"resource" )}";--}%
+        %{--$("#searchtxtbox").keyup(function(){--}%
+            %{--$("#searchform").addClass("dropdown-toggle");--}%
+            %{--$("#searchform").attr("data-toggle","dropdown");--}%
+
+
+        %{--});--}%
+
+        %{--$.ajax(--}%
+                %{--{--}%
+                    %{--url : formURL,--}%
+                    %{--type: "POST",--}%
+                    %{--data : postData,--}%
+                    %{--success:function(data, textStatus, jqXHR)--}%
+                    %{--{--}%
+                        %{--console.log(data.resources);--}%
+                    %{--},--}%
+
+                    %{--dataType: 'json',--}%
+                    %{--error: function(jqXHR, textStatus, errorThrown)--}%
+                    %{--{--}%
+
+                    %{--}--}%
+
+                %{--});--}%
+        %{--e.preventDefault();	//STOP default action--}%
+    %{--});--}%
+%{--</script>--}%
 
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>

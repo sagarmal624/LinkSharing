@@ -67,8 +67,6 @@
                     data : postData,
                     success:function(data, textStatus, jqXHR)
                     {
-//                                  console.log("data ::: ",data);
-                        //  alert("data ::: ",data.message);
                         if(data.message!="This Topic name is already Exist!.Please Change Topic Name!")
                         $("#spanmsg").addClass("alert alert-success")
                        else
@@ -79,35 +77,16 @@
                         $("#alertmsg").toggleClass('hidden');
                         $("#ajaxform")[0].reset()
                         setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
-                        %{--//       ${Thread.sleep(2000)}--}%
-//                        $("#alertmsg").toggleClass('hidden');
-                        %{--$("#addContactModalLabel").html("<span class='col-lg-12 alert alert-success'> ${flash.message}</>");--}%
-//                        $(".modal-body").remove();//html("Your contact with name <b>" + contact.name + "</b> has been saved");
-//                         $(".modal-footer").remove();
-
-
 
                     },
-
                     dataType: 'json',
                     error: function(jqXHR, textStatus, errorThrown)
                     {
-
                         $("#spanmsg").addClass("alert alert-danger")
                         $("#spanmsg").text(data.message)
                         $("#alertmsg").toggleClass('hidden');
                         $("#ajaxform")[0].reset()
                         setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
-
-
-
-
-                        //alert("Hi this is alert...");
-                      //  console.log("Console log Values >> ",textStatus," :: ",errorThrown);
-                        //$("#addContactModalLabel").html("<span class='col-lg-12 alert alert-danger'> ${flash.error}</>");
-                       // $(".modal-body").remove();//html("Your contact with name <b>" + contact.name + "</b> has been saved");
-                       // $(".modal-footer").remove();
-                        //location.reload();
 
                     }
 

@@ -58,17 +58,23 @@ class ResourceController extends UtilController{
         String description=params.description
         String topicname=params.topicname
 
+        println ">>>>>>>>>>>>>>>>>>>>>>"+params
         Resource  resource= new Link_Resource(topic:Topic.findByName(topicname),createdBy:User.findByEmail(session.email),description:description,url: url)
-
         if(resource.validate()) {
+            Thread.sleep(1000)
             resource.save(flush: true)
-            flash.message="Succefully Saved"
+            flash.message="Link Resource is Created with ${url}"
 
-            render view:"/linkSharing/dashboard"
-        }else
-            flash.error="Validaion Error"
+            //render view:"/linkSharing/dashboard"
 
-        render flash.error
+        }else {
+            flash.message = "Record is not saved due to not Valid URL"
+            //render flash.error
+        }
+        Map map=[message:flash.message]
+        groovy.lang.Closure closure={map}
+        renderAsJSON(closure)
+
     }
 
 }
