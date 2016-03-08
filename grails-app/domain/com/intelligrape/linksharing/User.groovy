@@ -62,4 +62,15 @@ class User {
         return topics
     }
 
+    boolean canDeleteResource(Resource resource)
+    {
+        if(resource.createdBy==this || this.admin==true)
+        {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
 }

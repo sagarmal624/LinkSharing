@@ -1,4 +1,4 @@
-<%@ page import="com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
+<%@ page import="com.intelligrape.linksharing.Resource; com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,8 +50,33 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
+            <li class="dropdown notifications-menu">
+                <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+                    <div class="input-group">
+                        <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                               class="col-md-12 form-control" placeholder="Search topics..."/>
+
+                        <div class="input-group-btn ">
+
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+
+                    </div>
+
+                </form>
+                <ul class="dropdown-menu">
+                    <li class="header" id="dropdownheader"></li>
+                    <li>
+                        <ul class="menu" id="dropdownsearch">
+                        </ul>
+                    </li>
+                    <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
+                    </li>
+                </ul>
+                %{----}%
+
+            </li>
+            <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-success">4</span>
@@ -509,7 +534,7 @@
                       
                       
                                  <div class="col-lg-1"></div>
-                                    <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
+                                    <input id="input-21d" type="number" onchange="ratingResource(this.value)" class="rating" min=0 max=5 step=0.5 data-size="sm">
                                   
                       
                       
@@ -793,6 +818,25 @@
 
 <script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
+
+<script type="text/javascript">
+   function ratingResource(score) {
+       console.log("score----------------------"+score)
+         <g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>
+    %{--// <g:remoteFunction  controller="resource" action="saveRating"  params="['resource':resource,'score':score]" onSuccess="justDoIt(data,textStatus)"/>--}%
+       <g:remoteFunction  controller="resource" action="saveRating"  params="\'id=\'+ ${resource?.id} + \'&score=\'+score" onSuccess="justDoIt(data,textStatus)"/>
+       %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
+
+   };
+
+    function justDoIt(data, textStatus) {
+        if (data) {
+
+            var obj = eval(data.resources)
+            console.log(obj)
+        }
+    }
+</script>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>

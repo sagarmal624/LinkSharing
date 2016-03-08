@@ -57,10 +57,21 @@ abstract class Resource {
                 property('filepath')
                 property('topic')
                 property('createdBy')
+                property('description')
             }
             order('dateCreated','desc')
         }
         return resources
+    }
+    String whichResource()
+    {
+        if(this instanceof Link_Resource) {
+            return "Link"
+        }
+        else if(this instanceof Document_Resource)
+        {
+            return "Document"
+        }
     }
     public static List<Resource_Rating> getToppost(){
         List<Resource_Rating> resources=Resource_Rating.createCriteria().list(max:5){

@@ -12,6 +12,7 @@
                     <div class="panel-heading" >Recent Shares</div>
                     <div class="panel-body">
 
+     %{--<ls:recentshares></ls:recentshares>--}%
 
                         <g:each in="${com.intelligrape.linksharing.Resource.getRecentResources()}">
                             <div class="row" style="border-bottom: 1px solid gray;padding-bottom:10px ">
@@ -31,12 +32,10 @@
                                             <span style="color:blue">${it[2]}</span>
                                         </div>
                                     </div>
-                                    <g:if test="${it[0]}">
-                                        <span><a href="${it[0]}">${it[0]}</a></span>
+
+                                    <g:if test="${it[4]}">
+                                        <span><a href="#">${it[4]}</a></span>
                                     </g:if>
-                                    <g:else>
-                                        <span><a href="${it[1]}">${it[1]}</a></span>
-                                    </g:else>
 
                                     <div class="row">
                                         <div class="col-lg-9">
@@ -44,15 +43,26 @@
                                             <asset:image src="twtr.png"></asset:image>
                                             <asset:image src="google.png"></asset:image>
                                         </div>
-                                        <div class="col-lg-3">
-                                            <a href="#"><u>View Post</u></a>
+                                         <div class="col-lg-3">
+                                            <g:if test="${it[0]}">
+                                                <a href="${it[0]}"><u>View Post</u></a>
+                                            </g:if>
+                                            <g:else>
+                                                <a href="${it[1]}"><u>Download</u></a>
+
+                                            </g:else>
+
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <br>
                         </g:each>
-
+%{----}%
 
 
                     </div>

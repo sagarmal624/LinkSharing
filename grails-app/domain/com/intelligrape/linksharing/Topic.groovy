@@ -2,6 +2,7 @@ package com.intelligrape.linksharing
 import Enums.Seriousness
 import Enums.Visibility
 import LinkSharing.TopicVO
+import LinkSharing.UserSubscriptionVO
 
 class Topic {
     String name;
@@ -13,7 +14,6 @@ class Topic {
     static transients = ['subscribedUsers']
     static mapping = {
         sort name: "asc"
-
     }
     static constraints = {
         name(nullable: false, blank: false,unique:true)//,validator:{ val, obj -> !(Topic.findAllById(createdBy).any(val))})
@@ -30,10 +30,34 @@ class Topic {
         return name
 
     }
-     public static List getSubscribedTopic(){
-
+     public static TopicVO getSubscribedTopicDetail(String topicname){
+         Topic topic=Topic.findByName(topicname)
+        int countSubscriptions=Subscription.countByTopic(topic)
+        String seriousness=Subscription.findByTopic(topic)?.seriousness;
+         int countPost=Resource.countByTopic(topic)
+       return new TopicVO(id:topic.id,seriousness:seriousness,name:topicname,countPost:countPost,countSubscription:countSubscriptions,visibility:topic.visibility,createdBy:topic.createdBy);
 
      }
+    public static List getSubscribedUsersDatailOfTopic(String topicname)
+    {  List topicSubscriptionDetails=[]
+        List<Subscription>subscribedUsers=getSubscribedUsers(topicname)
+        subscribedUsers.each {User user->
+              UserSubscriptionVO userSubscriptionVO=new UserSubscriptionVO()
+              userSubscriptionVO.user=User.findByUsername(user.username)
+              userSubscriptionVO.countPost=getTotalPostsOfUser(userSubscriptionVO.user)
+             userSubscriptionVO.countSubscription=getTotalSubscriptionsOfUser(userSubscriptionVO.user)
+            topicSubscriptionDetails.add(userSubscriptionVO)
+        }
+        return topicSubscriptionDetails
+    }
+    public  static Integer getTotalPostsOfUser(User user)
+    {
+        return Resource.countByCreatedBy(user)
+    }
+    public  static Integer getTotalSubscriptionsOfUser(User user)
+    {
+        return Subscription.countByUser(user)
+    }
     public static List<TopicVO> getTrendingTopics() {
         List <Resource>topicList = Resource.createCriteria().list() {
             projections {
@@ -51,7 +75,7 @@ class Topic {
         }
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex{it,index->
-            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), count: it.getAt(1)))
+            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countSubscription: it.getAt(1)))
         }
         return topicsvo
     }
@@ -69,7 +93,21 @@ class Topic {
             }
         }
     }
-
+    boolean isPublic()
+    {
+        return this.visibility==Visibility.PUBLIC
+    }
+    boolean canViewedBy(User user)
+    {
+        if(user.admin || this.isPublic() || Subscription.countByUserAndTopic(user,this))
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+    }
     public static List<Subscription>getSubscribedUsers(String topicname)
     {
 

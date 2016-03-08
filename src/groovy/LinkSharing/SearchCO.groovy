@@ -7,6 +7,6 @@ class SearchCO {
     String q
     String sort
     String order
-    Integer max
+    Integer max=0
     Integer offset
 }

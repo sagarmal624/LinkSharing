@@ -21,6 +21,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="panel-body">
                         <g:each in="${com.intelligrape.linksharing.Resource.getToppost()}">
                             <div class="row" style="border-bottom: 1px solid gray;padding-bottom: 10px">
@@ -59,74 +60,76 @@
                 </div>
             </div>
         </div>
-
-
-
         <div class="col-lg-4">
             <div class="login-box" style="border: 1px solid gray">
                 <div class="login-box-body">
-                    <p class="login-logo"><strong>Sign Up</strong></p>
-                    <g:form controller="user"  action="register" method="post">
-                        <div class="form-group has-feedback">
-                            <g:textField class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                            <span class="text-danger">                 <g:fieldError field="firstname" bean="${user}"></g:fieldError>
+                    <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2></strong></p>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
+                            <span class="text-danger">
+                                <g:fieldError field="firstname" bean="${user}"></g:fieldError>
                             </span>
-
                         </div>
-                        <div class="form-group has-feedback">
-                            <g:textField  class="form-control" name="lastname" id="lastname" placeholder="LastName" value="${user?.lastname}" />
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="lastname" id="lastname" placeholder="LastName" value="${user?.lastname}"/>
 
                             <span class="text-danger">                 <g:fieldError field="lastname" bean="${user}"></g:fieldError>
                             </span>
-
                         </div>
-                        <div class="form-group has-feedback">
-                            <g:field  type="email" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
                             <span class="text-danger">            <g:fieldError field="email" bean="${user}"></g:fieldError>
                             </span>
                         </div>
-                        <div class="form-group has-feedback">
-                            <g:textField type="text" class="form-control" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
-                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
                             <span class="text-danger"><g:fieldError field="username" bean="${user}"></g:fieldError>
                             </span>
                         </div>
 
-                        <div class="form-group has-feedback">
-                            <g:passwordField type="password" class="form-control" placeholder="Password" id="password" required="true" name="password"/>
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password" id="password" required="true" name="password"/>
                             <span class="text-danger"><g:fieldError field="password" bean="${user}">
                             </g:fieldError></span>
                         </div>
-                        <div class="form-group has-feedback">
-                            <g:passwordField  name="confirmPassword" class="form-control" placeholder="Retype Password" id="cpassword" required="true"/>
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        <div class="form-group">
+                            <input type="password"  id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Retype Password"  required="true"/>
                             <span class="text-danger"><g:fieldError field="confirmPassword" bean="${user}">
 
                             </g:fieldError></span>
 
                         </div>
 
-                        <div class="form-group has-feedback">
-                            <g:field type="file" class="form-control" id="photo" name="photo"/>
-                            <span class="glyphicon glyphicon-file form-control-feedback"></span>
+                        <div class="form-group">
+                            <input type="file" class="form-control" id="photo" name="photo"/>
                             <span class="text-danger">  <g:fieldError field="photo" bean="${user}"></g:fieldError>
                             </span>
                         </div>
-                        <div class="row"><br><br>
-                            <div class="col-lg-8">						<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"
-                                                                                           size="large">Sign up using
-        Facebook</fb:login-button>
+
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label" id="captchaOperation"></label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="captcha" />
                             </div>
+                        </div>
+                        <div class="row"><br><br>
+                            %{--<div class="col-lg-8">						<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"--}%
+                            %{--size="large">Sign up using--}%
+                            %{--Facebook</fb:login-button>--}%
+                            %{--</div>--}%
+                            <div class="loader pull-left hidden col-lg-5">
+                                <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
+                            </div>
+
                             <div class="col-xs-4">
-                                <g:submitButton class="btn btn-primary btn-block btn-flat" name="Sign Up"></g:submitButton>
+                                <Button type="submit" id="save" class="btn btn-success btn-block btn-flat" name="Sign Up">Sign Up</Button>
                             </div>
                             <!-- /.col -->
                         </div>
-                    </g:form>
+                    </form>
                     <div id="status"></div>
 
                     <a href="#pricingWrap" class="text-center">I already have a membership</a>
@@ -136,6 +139,27 @@
         </div>
     </div>
     <script>
+
+            var onContactSave = function (contact) {
+                console.log(contact.firstname)
+            };
+            $("#save").click(function () {
+                $(".loader").toggleClass("hidden");
+                var data = {
+                    firstname: $("#firstname").val(),
+                    lastname: $("#lastname").val(),
+                    email: $("#email").val(),
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    confirmPassword:$("#confirmPassword").val()
+                };
+                $.post("/user/register", data, onContactSave);
+            });
+
+    </script>
+
+    <script>
+
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
             console.log(response);
@@ -148,7 +172,6 @@
                 statusChangeCallback(response);
             });
         }
-
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '1705044979707974',
@@ -157,8 +180,6 @@
                 xfbml: true,  // parse social plugins on this page
                 version: 'v2.5' // use graph api version 2.5
             });
-
-
             FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
             });
@@ -171,23 +192,17 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
         // Here we run a very simple test of the Graph API after login is
         // successful.  See st  atusChangeCallback() for when this call is made.
         function testAPI() {
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', {fields: 'name, email'}, function (response) {
-
                         document.getElementById("firstname").value=response.name.split(" ").slice(0, -1).join(' ');
-
                         document.getElementById("lastname").value=response.name.split(' ').slice(-1).join(' ');
-
                         document.getElementById('email').value = response.email;
                         document.getElementById("username").value=response.name.split(" ").slice(0, -1).join('');
                         FB.logout();
                     }
-
-
             );
         }
     </script>

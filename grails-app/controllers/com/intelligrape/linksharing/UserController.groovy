@@ -1,14 +1,15 @@
 package com.intelligrape.linksharing
 
 import LinkSharing.MailSender
+import LinkSharing.SearchCO
+import LinkSharing.UserCO
 
 import javax.mail.Message
 import javax.mail.Session
 import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
-
-class UserController {
+class UserController extends UtilController {
     def index() {
 
         if (!session.username) {
@@ -43,20 +44,28 @@ class UserController {
 
     }
 
-    def register() {
-        def user = new User(params)
+    def register(UserCO co) {
+        User user = new User(co)
+          println "---------user register save--------------->"+co
         if (user)
             if (user.validate()) {
                 flash.message = "Record is Successfully Saved!"
                 user.save(flush: true)
-                render(view: "/HomePage")
-            } else {
+          //      render(view: "/HomePage")
 
-                forward(action: "index", model: [user: user])
+            } else {
+                flash.message = "Record is not Saved due to some validation Error!"
+
+                //        forward(action: "index", model: [user: user])
             }
+
+        Map map = [message: flash.message]
+        Closure closure = { map }
+        renderAsJSON(closure)
+
     }
 
-    def show() {
+    def show(SearchCO searchCO) {
         params.max = 20
         params.offset = params.offset ?: 0
         List<User> users = User.list(params)

@@ -75,7 +75,7 @@
                         $("#spanmsg").text(data.message)
 
                         $("#alertmsg").toggleClass('hidden');
-                        $("#ajaxform")[0].reset()
+                        $("#ajaxform")[0].reset();
                         setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
 
                     },
@@ -83,7 +83,7 @@
                     error: function(jqXHR, textStatus, errorThrown)
                     {
                         $("#spanmsg").addClass("alert alert-danger")
-                        $("#spanmsg").text(data.message)
+                        $("#spanmsg").text(data.message);
                         $("#alertmsg").toggleClass('hidden');
                         $("#ajaxform")[0].reset()
                         setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);

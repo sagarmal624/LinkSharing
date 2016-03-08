@@ -43,9 +43,18 @@ def toppost={attrs,body->
             "</div>"+
             "</g:each>")
          }
+    def canDeleteResouce = {attr,body->
+        User loggedInUser = session.uesr
+        Resource resource = attr.resource
+        if(loggedInUser.canDeleteResource(resource))
+        {
+
+        }
+    }
+
 
     def recentshares={attrs,body->
-        out<<body("<g:each in=${com.intelligrape.linksharing.Resource.getRecentResources()}>"+
+        out<<body("<g:each in=${com.intelligrape.linksharing.Resource.getRecentResources()} var=resource>"+
                 "<div class=row style=border-bottom: 1px solid gray;padding-bottom:10px>"+
                 "  <div class='col-lg-2 col-md-2 col-sm-2'>"+
         "  <span>"+
@@ -55,19 +64,19 @@ def toppost={attrs,body->
                               "  <div class=col-lg-10 col-md-10 col-sm-10>"+
                                   "  <div class=row>"+
                                        " <div class=col-lg-4>"+
-                                       "${com.intelligrape.linksharing.User.findByUsername(it[3])?.name}"+
+                                       "${com.intelligrape.linksharing.User.findByUsername(resource[3])?.name}"+
                                       "</div>"+
-        " <div class=col-lg-3>@ ${it[3]}</div>"+
+        " <div class=col-lg-3>@ ${resource[3]}</div>"+
                                     "    <div class=col-lg-2> 5min</div>"+
         "  <div class=col-lg-3>"+
-        "  <span style=color:blue>${it[2]}</span>"+
+        "  <span style=color:blue>${resource[2]}</span>"+
                                       "  </div>"+
         " </div>"+
-                                 "<g:if test=${it[0]}>"+
-                                   "<span><a href=${it[0]}>${it[0]}</a></span>"+
+                                 "<g:if test=${resource[0]}>"+
+                                   "<span><a href=${resource[0]}>${resource[0]}</a></span>"+
                                "</g:if>"+
         " <g:else>"+
-        "  <span><a href=${it[1]}>${it[1]}</a></span>"+
+        "  <span><a href=${resource[1]}>${resource[1]}</a></span>"+
         "</g:else>"+
                                     "<div class=row>"+
                                        " <div class=col-lg-9>"+

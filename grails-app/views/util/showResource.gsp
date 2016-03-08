@@ -1,4 +1,4 @@
-<%@ page import="com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
+<%@ page import="com.intelligrape.linksharing.Link_Resource; com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +7,6 @@
     <title>LinkSharing |Show Topics</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-    </script>
-    <script src="../dist/js/star-rating.js" type="text/javascript"></script>
     <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -24,15 +19,18 @@
     <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
+    <script src="../dist/js/star-rating.js" type="text/javascript"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
+        <a href="${createLink(controller: "linkSharing", action: "mainpage")}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -50,7 +48,32 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown notifications-menu">
+                        <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+                            <div class="input-group">
+                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                                       class="col-md-12 form-control" placeholder="Search topics..."/>
+
+                                <div class="input-group-btn ">
+
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                        <ul class="dropdown-menu">
+                            <li class="header" id="dropdownheader"></li>
+                            <li>
+                                <ul class="menu" id="dropdownsearch">
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
+                            </li>
+                        </ul>
+                        %{----}%
+
+                    </li>
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
@@ -64,12 +87,14 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="../dist/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 ${id}
                                                 <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
@@ -77,48 +102,56 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
                                                 <small><i class="fa fa-clock-o"></i> 2 hours</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Developers
                                                 <small><i class="fa fa-clock-o"></i> Today</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Sales Department
                                                 <small><i class="fa fa-clock-o"></i> Yesterday</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Reviewers
                                                 <small><i class="fa fa-clock-o"></i> 2 days</small>
                                             </h4>
+
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
@@ -129,11 +162,11 @@
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
-                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-comment"></i>
                             <span class="label label-info"></span>
                         </a>
-
 
                     </li>
                     <li class="dropdown notifications-menu">
@@ -147,7 +180,8 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#shareDoc" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-file-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -155,7 +189,8 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                           data-toggle="dropdown">
                             <i class="fa fa-send-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -182,6 +217,7 @@
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Subscriptions</a>
                                     </div>
+
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Topics</a>
                                     </div>
@@ -192,10 +228,13 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="${createLink(controller: "linkSharing", action: "profile")}"
+                                       class="btn btn-default btn-flat">Profile</a>
                                 </div>
+
                                 <div class="pull-right">
-                                    <a href="${createLink(controller:"login",action:"index")}" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="${createLink(controller: "login", action: "index")}"
+                                       class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -217,6 +256,7 @@
                 <div class="pull-left image">
                     <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                 </div>
+
                 <div class="pull-left info">
                     <p>Sagar Mal Shankhala</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -227,7 +267,8 @@
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                                class="fa fa-search"></i>
                         </button>
                     </span>
                 </div>
@@ -237,19 +278,20 @@
             <ul class="sidebar-menu">
                 <li class="header">LinkSharing</li>
                 <li class="treeview">
-                    <a href="${createLink(controller:'linkSharing', action: 'dashboard')}">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                    <a href="${createLink(controller: 'linkSharing', action: 'dashboard')}">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
+                            class="fa fa-angle-left pull-right"></i>
                     </a>
 
                 </li>
                 <li class="active">
-                    <a href="${createLink(controller:'linkSharing', action: 'trendingPost')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'trendingPost')}">
                         <i class="fa fa-th"></i> <span>Trending Topics</span>
                         <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
                         <i class="fa fa-edit"></i> <span>Account Setting</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -261,18 +303,19 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li><a href="${createLink(controller:'linkSharing', action: 'admin')}"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                                class="fa fa-circle-o"></i> Data tables</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="${createLink(controller:'linkSharing', action: 'calender')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'calender')}">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <small class="label pull-right bg-red">3</small>
                     </a>
                 </li>
                 <li>
 
-                    <a href="${createLink(controller:'linkSharing', action: 'inbox')}">
+                    <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
                         <small class="label pull-right bg-yellow">12</small>
                     </a>
@@ -284,8 +327,10 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li><a href="${createLink(controller:'linkSharing', action: 'profile')}"><i class="fa fa-circle-o"></i> Profile</a></li>
-                        <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'profile')}"><i
+                                class="fa fa-circle-o"></i> Profile</a></li>
+                        <li><a href="${createLink(controller: 'linkSharing', action: 'lockscreen')}"><i
+                                class="fa fa-circle-o"></i> Lockscreen</a></li>
                     </ul>
                 </li>
 
@@ -308,32 +353,144 @@
         </section>
 
         <section class="content">
-                <div class="row">
-                <div class="col-md-6 container" >
+            <div class="row">
+                <div class="col-md-6 container">
                     <div class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
+
                             <h3 class="box-title">Topic: Grails</h3>
+                            <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                                 <div class="btn-group" data-toggle="btn-toggle">
-                                    <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
+                                    <button type="button" class="btn btn-default btn-sm active"><i
+                                            class="fa fa-square text-green"></i>
                                     </button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                                    <button type="button" class="btn btn-default btn-sm"><i
+                                            class="fa fa-square text-red"></i></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="box-body chat" id="chat-box12" >
-                                <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
+
+                        <div class="box-body chat" id="chat-box12">
+
+                            <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
+
+                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
+
+                                <p class="message">
+                                    <a href="#" class="name">
+                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+
+                                        ${topicDetails?.name}(${topicDetails?.visibility})</a>
+
+                                    <span class="row">
+
+                                        <span class="text-info col-lg-4">
+                                            @${topicDetails?.createdBy}
+                                        </span>
+                                        <span class="text-info  col-lg-4">
+
+                                            Subscription
+                                        </span>
+                                        <span class="text-info col-lg-4">
+
+                                            Post
+                                        </span>
+                                    </span>
+
+                                </p>
+
+                                <div class="attachment">
+
+                                    <div class="row">
+                                        <span class="col-lg-4">
+                                            <a href="#">Subscribe</a>
+                                        </span>
+                                        <span class="col-lg-4">
+                                            <span class="badge" style="color:aqua">
+                                                ${topicDetails?.countSubscription}
+                                            </span>
+                                        </span>
+                                        <span class="col-lg-4">
+                                            <span class="badge" style="color:aqua">
+                                                ${topicDetails?.countPost}</span>
+                                        </span>
+
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-lg-offset-2">
+                                            <div class="form-group">
+
+
+
+
+                                                <select id="seriousnessID" class="form-control"
+                                                        onchange="resourceSeriousness(this.value)">
+
+                                                    <option id="1">${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option id="2">${Enums.Seriousness.SERIOUS}</option>
+                                                    <option id="3">${Enums.Seriousness.CASUAL}</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3">
+                                            <div class="col-lg-4">
+                                                <span class="glyphicon glyphicon-envelope"
+                                                      style="font-size:25px"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- /.attachment -->
+                            </div>
+
+                        </div>
+                        <!-- /.chat -->
+
+                    </div>
+
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <i class="fa fa-user"></i>
+
+                            <h3 class="box-title">Users: Grails</h3>
+
+                            <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                                <div class="btn-group" data-toggle="btn-toggle">
+                                    <button type="button" class="btn btn-default btn-sm active"><i
+                                            class="fa fa-square text-green"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default btn-sm"><i
+                                            class="fa fa-square text-red"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-body chat" id="chat-box1"
+                             style="height:400px;overflow-y:scroll;overflow-x:hidden">
+
+                            <g:each in="${topicusersDetails}" var="topic">
+                                <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
+
                                     <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
 
                                     <p class="message">
                                         <a href="#" class="name">
-                                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                            ${"java(Private)"}                  </a>
+                                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15
+                                            </small>
+                                            ${topic?.user.name}</a>
                                         <span class="row">
                                             <span class="text-info col-lg-4">
-                                                @${"sagar"}
+                                                @${topic?.user.username}
                                             </span>
                                             <span class="text-info  col-lg-4">
 
@@ -346,6 +503,7 @@
                                         </span>
 
                                     </p>
+
                                     <div class="attachment">
 
                                         <div class="row">
@@ -354,194 +512,22 @@
                                             </span>
                                             <span class="col-lg-4">
                                                 <span class="badge" style="color:aqua">
-                                                    ${1}
+                                                    ${topic?.countSubscription}
                                                 </span>
                                             </span>
                                             <span class="col-lg-4">
                                                 <span class="badge" style="color:aqua">
-                                                    50</span>
+                                                    ${topic?.countPost}
+
+                                                </span>
                                             </span>
 
                                         </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-lg-offset-2">
-
-                                                <div class="form-group">
-                                                    <select class="form-control">
-
-                                                        <option>Serious</option>
-                                                        <option>Very Serious</option>
-                                                        <option>Casual</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-3">
-                                                <div class="col-lg-4">
-                                                    <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
 
                                     </div>
                                     <!-- /.attachment -->
                                 </div>
-
-
-                        </div>
-                        <!-- /.chat -->
-
-                    </div>
-                    <div class="box box-success">
-                        <div class="box-header">
-                            <i class="fa fa-user"></i>
-                            <h3 class="box-title">Users: Grails</h3>
-
-                            <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                                <div class="btn-group" data-toggle="btn-toggle">
-                                    <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-body chat" id="chat-box1"  style="height:400px;overflow-y:scroll;overflow-x:hidden" >
-                            <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
-
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        ${"Sagar Mal Shankhala"}                  </a>
-                                    <span class="row">
-                                        <span class="text-info col-lg-4">
-                                            @${"sagar"}
-                                        </span>
-                                        <span class="text-info  col-lg-4">
-
-                                            Subscription
-                                        </span>
-                                        <span class="text-info col-lg-4">
-
-                                            Post
-                                        </span>
-                                    </span>
-
-                                </p>
-                                <div class="attachment">
-
-                                    <div class="row">
-                                        <span class="col-lg-4">
-                                            <a href="#">Subscribe</a>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                ${1}
-                                            </span>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                50</span>
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                                <!-- /.attachment -->
-                            </div>
-
-                            <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
-
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        ${"Sagar Mal Shankhala"}                  </a>
-                                    <span class="row">
-                                        <span class="text-info col-lg-4">
-                                            @${"sagar"}
-                                        </span>
-                                        <span class="text-info  col-lg-4">
-
-                                            Subscription
-                                        </span>
-                                        <span class="text-info col-lg-4">
-
-                                            Post
-                                        </span>
-                                    </span>
-
-                                </p>
-                                <div class="attachment">
-
-                                    <div class="row">
-                                        <span class="col-lg-4">
-                                            <a href="#">Subscribe</a>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                ${1}
-                                            </span>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                50</span>
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                                <!-- /.attachment -->
-                            </div>
-
-                            <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
-
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        ${"Sagar Mal Shankhala"}                  </a>
-                                    <span class="row">
-                                        <span class="text-info col-lg-4">
-                                            @${"sagar"}
-                                        </span>
-                                        <span class="text-info  col-lg-4">
-
-                                            Subscription
-                                        </span>
-                                        <span class="text-info col-lg-4">
-
-                                            Post
-                                        </span>
-                                    </span>
-
-                                </p>
-                                <div class="attachment">
-
-                                    <div class="row">
-                                        <span class="col-lg-4">
-                                            <a href="#">Subscribe</a>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                ${1}
-                                            </span>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                50</span>
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                                <!-- /.attachment -->
-                            </div>
+                            </g:each>
                         </div>
                     </div>
                 </div>
@@ -551,56 +537,63 @@
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
 
-                            <h3 class="box-title">Posts:Grails</h3>
-                            <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search" style="padding-left:30px">
+                            <h3 class="box-title">Posts:${topicDetails.name}</h3>
+
+                            <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search"
+                                  style="padding-left:30px">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search" name="q">
+
                                     <div class="input-group-btn ">
-                                        <button class="btn btn-default"type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        <button class="btn btn-default" type="submit"><i
+                                                class="glyphicon glyphicon-search"></i></button>
                                     </div>
 
                                 </div>
 
-
                             </form>
 
                         </div>
+
                         <div class="box-body chat" id="chat-box">
-                            <!-- chat item -->
-                            <div class="item">
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
+                        <!-- chat item -->
+                            <g:each in="${resources}" var="resource">
+                                <div class="item">
+                                    <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
 
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        Grails
-                                    </a>
+                                    <p class="message">
+                                        <a href="#" class="name">
+                                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15
+                                            </small>
+                                            ${topicDetails.name}
+                                        </a>
 
-                                </p>
-                                <div class="attachment pull-left">
+                                    </p>
+
+                                    <div class="attachment pull-left">
 
                                         <span class="text-justify">
-                                            Life is like a game of chess. To win you have to make a move. Knowing which move to make comes with IN-SIGHT and knowledge, and by learning the lessons that are acculated along the way.
-
+                                            ${resource?.description}
                                         </span>
-                                    <br>
+                                        <br>
 
                                         <img src="../dist/img/facebook.png"/>
                                         <img src="../dist/img/twtr.png"/>
                                         <img src="../dist/img/google.png"/> &nbsp;&nbsp;
-                                        %{--<a href="#"><u>Read</u></a>&nbsp;&nbsp;--}%
+                                    %{--<a href="#"><u>Read</u></a>&nbsp;&nbsp;--}%
                                         <u><ls:markRead isread="true"/></u>&nbsp;&nbsp;
-                                       %{--<a href="#"><u>Edit</u></a>&nbsp;&nbsp;--}%
-                                        <a href="#"><u>Download</u></a>&nbsp;&nbsp;
-                                        <a href="#"><u>View Full</u></a>
+                                    %{--<a href="#"><u>Edit</u></a>&nbsp;&nbsp;--}%
+                                        <g:if test="${(resource instanceof Link_Resource)}">
+                                            <a href="${resource?.url}" target="_blank"><u>View Full</u></a>
+                                        </g:if>
+                                        <g:else>
+                                            <a href="#" target="_blank"><u>Download</u></a>&nbsp;&nbsp;
+                                        </g:else>
 
-
-
-
-
+                                    </div>
+                                    <!-- /.attachment -->
                                 </div>
-                                <!-- /.attachment -->
-                            </div>
+                            </g:each>
                         </div>
                         <!-- /.chat -->
 
@@ -817,9 +810,8 @@
        immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script>
+<script src="${resource(dir:'plugins/jQuery/',file:'jQuery-2.2.0.min.js')}"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script><script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
 <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
@@ -845,6 +837,45 @@
 <script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
 <g:render template="../templates/Topic/email"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($("option#1").val()=="${topicDetails?.seriousness}")
+             $('#seriousnessID').find("option#1").attr("selected",true);
+         else if($("option#2").val()=="${topicDetails?.seriousness}")
+             $('#seriousnessID').find("option#2").attr("selected",true);
+         else
+             $('#seriousnessID').find("option#3").attr("selected",true);
+
+
+
+    });
+
+    function resourceSeriousness(seriouness) {
+        console.log("score----------------------"+seriouness)
+        %{--<g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>--}%
+        %{--// <g:remoteFunction  controller="resource" action="saveRating"  params="['resource':resource,'score':score]" onSuccess="justDoIt(data,textStatus)"/>--}%
+        <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ ${topicDetails?.createdBy.id} +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness" onSuccess="justDoIt(data,textStatus)"/>
+        %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
+
+    };
+
+    function justDoIt(data, textStatus) {
+        if (data) {
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
+
+            $("#spanmsg").text(data.message)
+
+            $("#alertmsg").toggleClass('hidden');
+
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
+        }
+    }
+</script>
+
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>

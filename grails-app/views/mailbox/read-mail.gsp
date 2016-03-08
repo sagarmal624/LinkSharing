@@ -55,6 +55,33 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li class="dropdown notifications-menu">
+            <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+              <div class="input-group">
+                <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                       class="col-md-12 form-control" placeholder="Search topics..."/>
+
+                <div class="input-group-btn ">
+
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+
+              </div>
+
+            </form>
+            <ul class="dropdown-menu">
+              <li class="header" id="dropdownheader"></li>
+              <li>
+                <ul class="menu" id="dropdownsearch">
+                </ul>
+              </li>
+              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
+              </li>
+            </ul>
+            %{----}%
+
+          </li>
+
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>

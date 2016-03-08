@@ -68,7 +68,7 @@
 
                                 <div class="input-group-btn ">
 
-                                    %{--<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>--}%
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                 </div>
 
                             </div>
@@ -78,52 +78,6 @@
                             <li class="header" id="dropdownheader"></li>
                             <li>
                                 <ul class="menu" id="dropdownsearch">
-                                    %{--<li><!-- start message -->--}%
-                                    %{--<a href="#">--}%
-                                    %{--<h4>--}%
-                                    %{--Support Team--}%
-                                    %{--<small><i class="fa fa-clock-o"></i> 5 mins</small>--}%
-                                    %{--</h4>--}%
-                                    %{--<p>Grails/Java</p>--}%
-                                    %{--</a>--}%
-                                    %{--</li>--}%
-                                    %{--<li>--}%
-                                    %{--<a href="#">--}%
-                                    %{--<h4>--}%
-                                    %{--To The New  Digital Design Team--}%
-                                    %{--<small><i class="fa fa-clock-o"></i> 2 hours</small>--}%
-                                    %{--</h4>--}%
-                                    %{--<p>new blog is uploaded....</p>--}%
-                                    %{--</a>--}%
-                                    %{--</li>--}%
-                                    %{--<li>--}%
-                                    %{--<a href="#">--}%
-                                    %{--<h4>--}%
-                                    %{--Developers--}%
-                                    %{--<small><i class="fa fa-clock-o"></i> Today</small>--}%
-                                    %{--</h4>--}%
-                                    %{--<p>Today is Gorm session.</p>--}%
-                                    %{--</a>--}%
-                                    %{--</li>--}%
-                                    %{--<li>--}%
-                                    %{--<a href="#">--}%
-                                    %{--<h4>--}%
-                                    %{--American Sawan Department--}%
-                                    %{--<small><i class="fa fa-clock-o"></i> Yesterday</small>--}%
-                                    %{--</h4>--}%
-                                    %{--<p>project is going on...</p>--}%
-                                    %{--</a>--}%
-                                    %{--</li>--}%
-                                    %{--<li>--}%
-                                    %{--<a href="#">--}%
-                                    %{--<h4>--}%
-                                    %{--Reviewers--}%
-                                    %{--<small><i class="fa fa-clock-o"></i> 2 days</small>--}%
-                                    %{--</h4>--}%
-                                    %{--<p>Java/Grails</p>--}%
-                                    %{--</a>--}%
-                                    %{--</li>--}%
-
                                 </ul>
                             </li>
                             <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
@@ -1094,11 +1048,11 @@
             $.each(obj, function (key, value) {
                 $("#dropdownheader").text(obj.length+" Matching Records are Found");
                 console.log(key + ": " + value.id);
-                <g:set var="myval" value="[id:value?.id]"/>
+                %{--<g:set var="myval" value="[id:value?.id]"/>--}%
 
                 $("#dropdownsearch").append(
                         "<li>" +
-                        "<a href='${createLink(controller:'linkSharing',action:'showResource',params:myval)}' >" +
+                        "<a href='${createLink(controller:'linkSharing',action:'showResource')}?id="+value.id+"'>" +
                         "<h4>" + value.description + "<small>" +
                         "<i class='fa fa-clock-o'></i> 5 mins</small>" +
                         "</h4>" +

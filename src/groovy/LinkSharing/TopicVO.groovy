@@ -9,7 +9,10 @@ class TopicVO {
     long id
     String name
     String visibility
-     Integer count
+    Integer countPost
+    Integer countSubscription
     User createdBy
+    String seriousness
+
 
 }
