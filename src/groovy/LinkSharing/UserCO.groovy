@@ -10,5 +10,6 @@ class UserCO {
     String email;
     String password;
     String confirmPassword;
+    byte[] photo;
 
 }

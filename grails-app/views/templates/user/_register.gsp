@@ -1,3 +1,4 @@
+<%@ page import="com.intelligrape.linksharing.Resource" %>
 <div class="container" id="productWrap" >
     <div class="row">
         <div class="col-lg-8" style="padding-top: 25px">
@@ -7,54 +8,26 @@
                         <div class="row">
                             <div class="col-lg-9">Top Posts
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <div class="dropdown" data-placement="top" data-toggle="tooltipdropdown" title="Dropdown Will Have Today, 1 week , 1 month,1 year. " data-placement="right">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >Today
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Yesterday</a></li>
-                                        <li><a href="#">1 Week</a></li>
-                                        <li><a href="#">1 Month</a></li>
-                                        <li><a href="#">1 year</a></li>
-                                    </ul>
+
+                                    <select class="form-control" onchange="${remoteFunction(action: 'toppost',controller:'resource' ,
+                                             params: '\'time=\' + this.value' ,onSuccess:'justDoIt(data, textStatus)' )}">
+
+                                        <option><a href="#">Today</a></option>
+                                        <option><a href="#">Yesterday</a></option>
+                                        <option><a href="#">Week Before</a></option>
+                                        <option><a href="#">Month Before</a></option>
+                                        <option><a href="#">Year Before</a></option>
+                                       </select>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="panel-body">
-                        <g:each in="${com.intelligrape.linksharing.Resource.getToppost()}">
-                            <div class="row" style="border-bottom: 1px solid gray;padding-bottom: 10px">
-                                <div class="col-lg-2">
-                                    <span>
-                                        <asset:image src="1.png"  style="border:1px solid"></asset:image>
-                                    </span>
-                                </div>
-                                <div class="col-lg-10">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            SagarMalShankhala
-                                        </div>
-                                        <div class="col-lg-3">@ ${session?.user } </div>
-                                        <div class="col-lg-2"> 5min</div>
-                                        <div class="col-lg-3">
-                                            <span style="color:blue">${it[2]}</span>
-                                        </div>
-                                    </div>
-                                    ${it[0]}
-                                    <div class="row">
-                                        <div class="col-lg-9">
-                                            <asset:image src="facebook.png"></asset:image>
-                                            <asset:image src="twtr.png"></asset:image>
-                                            <asset:image src="google.png"></asset:image>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a href="#"><u>View Post</u></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </g:each>
+                     <g:render template="/templates/user/toppost" var="toppost" collection="${com.intelligrape.linksharing.Resource.getToppost()}"/>
+
 
                     </div>
                 </div>
@@ -69,7 +42,7 @@
                     <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2>
                     </strong></p>
 
-                    <form id="registrationForm" name="registrationForm" method="post">
+                    <form id="registrationForm" enctype="multipart/form-data" name="registrationForm" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
                             <span class="text-danger">
@@ -110,7 +83,10 @@
 
                         <div class="form-group">
                             <input type="file" class="form-control" id="photo" name="photo"/>
-                            <span class="text-danger">  <g:fieldError field="photo" bean="${user}"></g:fieldError>
+                            <span class="text-danger">
+                                <g:fieldError field="photo" bean="${user}">
+
+                            </g:fieldError>
                             </span>
                         </div>
 
@@ -121,10 +97,6 @@
                             </div>
                         </div>
                         <div class="row"><br><br>
-                            %{--<div class="col-lg-8">						<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"--}%
-                            %{--size="large">Sign up using--}%
-                            %{--Facebook</fb:login-button>--}%
-                            %{--</div>--}%
                             <div id="loaderId" style="display: none">
                                 <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
                             </div>
@@ -134,6 +106,12 @@
                             <!-- /.col -->
                         </div>
                     </form>
+                    %{--<div class="col-lg-8">--}%
+                        %{--<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"--}%
+                    %{--size="large">Sign up using--}%
+                    %{--Facebook</fb:login-button>--}%
+                    %{--</div>--}%
+
                     <div id="status"></div>
 
                     <a href="#pricingWrap" class="text-center">I already have a membership</a>

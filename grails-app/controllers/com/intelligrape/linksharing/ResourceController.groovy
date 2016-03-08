@@ -103,5 +103,34 @@ class ResourceController extends UtilController {
 
 
     }
+    def toppost(){
+        println "working-------------------------"+params.time
+        List<TopicVO> topposts;
+        if(params.time=="Today")
+            topposts=Resource.getToppost()
+         else {
+           Date currentDate=new Date()
+            if(params.time=="Yesterday")
+            {
+                 topposts=Resource.getToppost(currentDate,currentDate-1)
+
+            }else if(params.time=="Week Before")
+            {
+                topposts=Resource.getToppost(currentDate,currentDate-7)
+            }
+            else if(params.time=="Month Before")
+            {
+                topposts=Resource.getToppost(currentDate,currentDate-29)
+            }
+            else if(params.time=="Year Before")
+            {
+                topposts=Resource.getToppost(currentDate,currentDate-365)
+            }
+        }
+        Map map = [topposts:topposts]
+        groovy.lang.Closure closure = { map }
+        renderAsJSON(closure)
+
+    }
 
 }

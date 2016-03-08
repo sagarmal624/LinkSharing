@@ -4,6 +4,7 @@ import LinkSharing.MailSender
 import LinkSharing.SearchCO
 import LinkSharing.UserCO
 import org.codehaus.groovy.grails.web.binding.DataBindingUtils
+import org.springframework.web.multipart.MultipartFile
 
 import javax.mail.Message
 import javax.mail.Session
@@ -42,26 +43,26 @@ class UserController extends UtilController {
         boolean flag = MailSender.sendAttechedMail("sagarmal624@gmail.com", "ubprpuraifiykixj", params.subject, to);
         if (flag) flash.message = "Mail is sent Successfully" else flash.error = "Error During Mail Sending!"
         render view: "/mailbox/mailbox"
-
-
     }
 
     def register(UserCO co) {
+//        MultipartFile multipartFile = params.photo
+//        println("->>>>>file uploadinggggggg>>>>>>>>>>>>>>>>"+multipartFile?.originalFilename)
         User user = new User(co.properties)
-        println "==================" + user
-        flash.message = "This Email-id or Username Already Exits!"
-       println "flash---------------------"+flash.message;
+  //      user.properties = params;
+        String message = "This Email-id or Username Already Exits!"
+       // println "flash---------------------"+user.properties
+
+        println "flash---------------------"+user.validate();
+        //user.save(flush: true,failOnError:true);
         if (user){
             if (user.validate()) {
-                flash.message = "Record is Successfully Saved!"
+                message="Record is Successfully Saved!"
                 Thread.sleep(500)
-                user.save(flush: true)
-                //      render(view: "/HomePage")
-
+                user.save(flush:true)
             }
-            }
-
-        Map map =[message:flash.message]
+        }
+        Map map =[message:message]
         println "-------------------map=="+map;
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)

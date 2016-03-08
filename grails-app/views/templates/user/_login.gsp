@@ -99,7 +99,8 @@
                                         </g:fieldError>
                                     </span>
 
-                                </div></li>
+                                </div>
+                            </li>
                             </li>
                             <li>
                                 <div class="form-group has-success has-feedback">

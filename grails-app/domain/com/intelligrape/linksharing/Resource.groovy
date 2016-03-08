@@ -2,6 +2,7 @@ package com.intelligrape.linksharing
 
 import LinkSharing.RatingInfoVO
 import LinkSharing.ResourceSearchCO
+import LinkSharing.TopPostVO
 
 abstract class Resource {
     String description;
@@ -73,18 +74,56 @@ abstract class Resource {
             return "Document"
         }
     }
-    public static List<Resource_Rating> getToppost(){
+    public static List<TopPostVO> getToppost(){
         List<Resource_Rating> resources=Resource_Rating.createCriteria().list(max:5){
             projections{
                 groupProperty('resource')
                 avg('score','avgScore')
             }
             'resource'{
+
+                property('createdBy')
                 'topic'{property('name')}
+                property('description')
+                property('url')
+                property('filepath')
+
             }
             order('avgScore','desc')
         }
-        return resources;
+
+        List toppostList=[];
+     resources.each {
+         toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ))
+
+     }
+        return toppostList;
+    }
+
+    public static List<TopPostVO> getToppost(Date today,Date before){
+        List<Resource_Rating> resources=Resource_Rating.createCriteria().list(max:5){
+            projections{
+                groupProperty('resource')
+                avg('score','avgScore')
+            }
+            'resource'{
+
+                property('createdBy')
+                'topic'{property('name')}
+                property('description')
+                property('url')
+                property('filepath')
+                between('lastUpdated',before,today)
+            }
+            order('avgScore','desc')
+        }
+
+        List toppostList=[];
+        resources.each {
+            toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ))
+
+        }
+        return toppostList;
     }
 
 }

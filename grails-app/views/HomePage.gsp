@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
 
+
 </head>
 
 <body>
@@ -464,56 +465,45 @@
 
 	});
 </script>
+<script>
+$('#save').click(function(){
+var oData = new FormData(document.forms.namedItem("registrationForm"));
+var url="${createLink(controller:'user',action:'register')}";
+$.ajax({
+url:url,
+type:'POST',
+data:oData,
+dataType:'json',
+processData: false,  // tell jQuery not to process the data
+contentType: false ,
+success:function (data,txtstatus) {
+console.log(data.message);
+	//alert(data);
+}
+});
+});
 
+</script>
 
+%{--<g:render template="../templates/user/forgotpassword"/>--}%
 
 
 <script type="text/javascript">
-	$( document ).ajaxStart(function() {
-		$("#loaderId").show()
-	});
-	$( document ).ajaxStop(function() {
-		$("#loaderId").hide()
-	});
-	$("#registrationForm").submit(function(e)
-	{
-		var postData = $(this).serializeArray();
-		var formURL = "${g.createLink(action:"register",controller:"user" )}";
-		$.ajax(
-				{
-					url : formURL,
-					type: "POST",
-					data : postData,
-					success:function(data, textStatus, jqXHR)
-					{
-				console.log(data.message);
-if(data.message!="This Email-id or Username Already Exits!")
-							$("#spanmsg").addClass("alert alert-success")
-						else
-							$("#spanmsg").addClass("alert alert-danger")
-						$("#spanmsg").text(data.message)
-						$("#alertmsg").toggleClass('hidden');
-									$("#registrationForm")[0].reset();
-						setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 5000);
-					},
-					dataType: 'json',
-					error: function(jqXHR, textStatus, errorThrown)
-					{
-//						$("#spanmsg").addClass("alert alert-danger")
-//						$("#spanmsg").text(data.message);
-//						$("#alertmsg").toggleClass('hidden');
-//									$("#registrationForm")[0].reset();
-//						setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 5000);
+	function changeTopPost(days){
+		console.log("days----------------------"+days);
+		<g:remoteFunction  controller="resource" action="toppost"  params="\'description=\'+${days}" onSuccess="justDoIt(data,textStatus)"/>
 
-					}
+	};
 
-				});
-		e.preventDefault();	//STOP default action
-	});
+	function justDoIt(data, textStatus) {
+		if (data) {
+           var obj=eval(data);
+         console.log(obj.topposts);
+		//	console.log(obj.topposts[0].createdBy);
+
+		}
+	}
 </script>
-
-
-%{--<g:render template="../templates/user/forgotpassword"/>--}%
 
 
 
