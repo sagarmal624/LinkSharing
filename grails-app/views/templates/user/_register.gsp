@@ -63,8 +63,13 @@
         <div class="col-lg-4">
             <div class="login-box" style="border: 1px solid gray">
                 <div class="login-box-body">
-                    <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2></strong></p>
-                    <form id="registrationForm">
+                    <div id="alertmsg" class="hidden"><span id="spanmsg"></span>
+                    </div>
+
+                    <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2>
+                    </strong></p>
+
+                    <form id="registrationForm" name="registrationForm" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
                             <span class="text-danger">
@@ -120,12 +125,11 @@
                             %{--size="large">Sign up using--}%
                             %{--Facebook</fb:login-button>--}%
                             %{--</div>--}%
-                            <div class="loader pull-left hidden col-lg-5">
+                            <div id="loaderId" style="display: none">
                                 <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
                             </div>
-
                             <div class="col-xs-4">
-                                <Button type="submit" id="save" class="btn btn-success btn-block btn-flat" name="Sign Up">Sign Up</Button>
+                                <input type="submit" id="save" class="btn btn-success btn-block btn-flat" name="Sign Up" value="Register"/>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -138,25 +142,7 @@
             </div>
         </div>
     </div>
-    <script>
 
-            var onContactSave = function (contact) {
-                console.log(contact.firstname)
-            };
-            $("#save").click(function () {
-                $(".loader").toggleClass("hidden");
-                var data = {
-                    firstname: $("#firstname").val(),
-                    lastname: $("#lastname").val(),
-                    email: $("#email").val(),
-                    username: $("#username").val(),
-                    password: $("#password").val(),
-                    confirmPassword:$("#confirmPassword").val()
-                };
-                $.post("/user/register", data, onContactSave);
-            });
-
-    </script>
 
     <script>
 
@@ -206,6 +192,9 @@
             );
         }
     </script>
+
+
+
     %{--<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>--}%
     <!-- Bootstrap 3.3.5 -->
 </div>

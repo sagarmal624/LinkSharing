@@ -71,16 +71,17 @@
             <div class="col-sm-4">
                 <ul class="priceTable">
                     <li class="title">Login</li>
-                    <li class="description"><g:if test="${flash.message}">
-                        <div class="alert alert-success">
-                            <strong>Success!</strong>${flash.message}!.
-                        </div>g
-                    </g:if>
-                        <g:if test="${flash.error}">
-                            <div class="alert alert-danger">
-                                <strong>Error!</strong>${flash.error}!.
-                            </div>
-                        </g:if></li>
+                    <li class="description">
+%{--<g:if test="${flash.message}">--}%
+                        %{--<div class="alert alert-success">--}%
+                            %{--<strong>Success!</strong>${flash.message}!.--}%
+                        %{--</div>--}%
+                    %{--</g:if>--}%
+                        %{--<g:if test="${flash.error}">--}%
+                            %{--<div class="alert alert-danger">--}%
+                                %{--<strong>Error!</strong>${flash.error}!.--}%
+                            %{--</div>--}%
+                        %{--</g:if></li>--}%
                     <ul class="features">
                         <g:form controller="login"  action="loginHandler">
                             <li>

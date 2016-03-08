@@ -3,12 +3,14 @@ package com.intelligrape.linksharing
 import LinkSharing.MailSender
 import LinkSharing.SearchCO
 import LinkSharing.UserCO
+import org.codehaus.groovy.grails.web.binding.DataBindingUtils
 
 import javax.mail.Message
 import javax.mail.Session
 import javax.mail.Transport
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
+
 class UserController extends UtilController {
     def index() {
 
@@ -45,22 +47,23 @@ class UserController extends UtilController {
     }
 
     def register(UserCO co) {
-        User user = new User(co)
-          println "---------user register save--------------->"+co
-        if (user)
+        User user = new User(co.properties)
+        println "==================" + user
+        flash.message = "This Email-id or Username Already Exits!"
+       println "flash---------------------"+flash.message;
+        if (user){
             if (user.validate()) {
                 flash.message = "Record is Successfully Saved!"
+                Thread.sleep(500)
                 user.save(flush: true)
-          //      render(view: "/HomePage")
+                //      render(view: "/HomePage")
 
-            } else {
-                flash.message = "Record is not Saved due to some validation Error!"
-
-                //        forward(action: "index", model: [user: user])
+            }
             }
 
-        Map map = [message: flash.message]
-        Closure closure = { map }
+        Map map =[message:flash.message]
+        println "-------------------map=="+map;
+        groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
 
     }

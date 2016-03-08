@@ -2,775 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad867845-b8b9-4094-b8e4-66a128373e40" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/search-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/Custombean.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/UserCO.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/UserSubscriptionVO.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/js/jquery.color.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/js/script.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/DemoTagTagLib.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/LinkSharing/ResourceSearchCo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2_closure6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure3_closure7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/DemoTagTagLib$_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/DemoTagTagLib.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ResourceController$_show_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$__clinit__closure5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_afterInsert_closure3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getSubscribedUsers_closure4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getSubscribedUsers_closure4_closure9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure1_closure7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure1_closure8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-slider/bootstrap-slider.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-slider/slider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/chartjs/Chart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/chartjs/Chart.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/CHANGES.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/adapters/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/build-config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/ckeditor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/config.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/contents.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/af.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/bn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/bs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/en-au.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/en-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/en-gb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/eu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/fo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/gu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ka.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/mn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sr-latn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/lang/zh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/about/dialogs/about.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/about/dialogs/logo_ckeditor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/clipboard/dialogs/paste.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/dialog/dialogDefinition.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/fakeobjects/images/spacer.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/icons_hidpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/image/dialogs/image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/image/images/noimage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/link/dialogs/anchor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/link/dialogs/link.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/link/images/anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/link/images/hidpi/anchor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/magicline/images/hidpi/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/magicline/images/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/pastefromword/filter/default.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/scayt/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/scayt/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/scayt/dialogs/options.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/scayt/dialogs/toolbar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/eo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/km.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ku.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/specialchar/dialogs/specialchar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/table/dialogs/table.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/tabletools/dialogs/tableCell.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/tmp.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/wsc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/plugins/wsc/dialogs/wsc_ie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/dialog_opera.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor_gecko.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor_ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor_ie7.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor_ie8.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/editor_iequirks.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/icons.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/icons_hidpi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/hidpi/close.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/hidpi/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/hidpi/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/hidpi/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/lock-open.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/lock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/images/refresh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/skins/moono/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ckeditor/styles.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/bootstrap-colorpicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/bootstrap-colorpicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/bootstrap-colorpicker.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/bootstrap-colorpicker.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/img/alpha-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/img/alpha.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/img/hue-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/img/hue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/colorpicker/img/saturation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/dataTables.bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/dataTables.bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/dataTables.bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/Readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/css/dataTables.autoFill.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/complete-callback.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/fill-both.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/fill-horizontal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/examples/step-callback.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/images/filler.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/AutoFill/js/dataTables.autoFill.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/License.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/alt_insert.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/col_filter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/colvis.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/fixedcolumns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/fixedheader.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/jqueryui.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/new_init.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/predefined.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/realtime.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/reset.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/server_side.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/examples/state_save.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/images/insert.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/License.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/css/dataTables.colVis.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/css/dataTables.colVis.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/css/dataTables.colvis.jqueryui.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/button_order.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/exclude_columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/group_columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/jqueryui.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/mouseover.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/new_init.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/restore.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/text.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/title_callback.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/two_tables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/examples/two_tables_identical.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/js/dataTables.colVis.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/ColVis/js/dataTables.colVis.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/License.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/css/dataTables.fixedColumns.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/bootstrap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/col_filter.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/colvis.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/css_size.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/index_column.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/left_right_columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/right_column.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/rowspan.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/server-side-processing.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/size_fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/size_fluid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/examples/two_columns.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/Readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/css/dataTables.fixedHeader.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/css/dataTables.fixedHeader.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/header_footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/top_left_right.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/two_tables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/examples/zIndexes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/Readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/css/dataTables.keyTable.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/examples/events.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/examples/html.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/examples/scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/KeyTable/js/dataTables.keyTable.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/License.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/css/dataTables.responsive.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/column-control.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/custom-renderer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/disable-child-rows.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/right-column.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/child-rows/whole-row-control.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/auto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/classes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/fixedHeader.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/display-control/init-classes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/className.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/default.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/new.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/initialisation/option.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/styling/bootstrap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/styling/compact.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/styling/foundation.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/styling/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/examples/styling/scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/js/dataTables.responsive.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/Readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/css/dataTables.scroller.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/api_scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/data/2500.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/data/ssp.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/large_js_source.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/server-side_processing.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/examples/state_saving.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/images/loading-background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/js/dataTables.scroller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/ajax.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/alter_buttons.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/bootstrap.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/button_text.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/collection.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/defaults.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/jqueryui.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/multi_instance.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/multiple_tables.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/new_init.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/pdf_message.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/plug-in.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/select_column.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/select_multi.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/select_os.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/select_single.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/examples/swf_path.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/collection.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/collection_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/copy.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/copy_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/csv.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/csv_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/pdf.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/pdf_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/print.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/print_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/psd/collection.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/psd/copy document.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/psd/file_types.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/psd/printer.psd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/xls.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/images/xls_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/swf/copy_csv_xls.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/images/sort_asc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/images/sort_asc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/images/sort_both.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/images/sort_desc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/images/sort_desc_disabled.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/jquery.dataTables.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/jquery.dataTables.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/jquery.dataTables.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/jquery.dataTables.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datatables/jquery.dataTables_themeroller.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/bootstrap-datepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/datepicker3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.az.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.cy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.el.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ka.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.kk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.kr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.nl-BE.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.no.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.rs-latin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.rs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.sl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.sq.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.sw.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.ua.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/datepicker/locales/bootstrap-datepicker.zh-TW.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/daterangepicker/daterangepicker-bs3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/daterangepicker/daterangepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/daterangepicker/moment.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/daterangepicker/moment.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fastclick/fastclick.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fastclick/fastclick.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/excanvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/excanvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.colorhelpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.colorhelpers.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.canvas.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.canvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.categories.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.categories.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.crosshair.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.crosshair.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.errorbars.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.errorbars.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.fillbetween.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.fillbetween.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.image.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.image.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.navigate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.navigate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.pie.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.pie.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.resize.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.resize.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.selection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.selection.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.stack.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.stack.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.symbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.symbol.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.threshold.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.threshold.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.time.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/flot/jquery.flot.time.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fullcalendar/fullcalendar.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fullcalendar/fullcalendar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fullcalendar/fullcalendar.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fullcalendar/fullcalendar.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/fullcalendar/fullcalendar.print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/_all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/aero.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/aero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/aero@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/blue@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/flat.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/flat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/flat@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/green.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/green@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/grey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/grey@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/orange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/orange.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/orange@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/pink.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/pink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/pink@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/purple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/purple.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/purple@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/red.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/red.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/red@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/yellow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/flat/yellow@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/futurico/futurico.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/futurico/futurico.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/futurico/futurico@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/icheck.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/icheck.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/_all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/aero.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/green.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/grey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/line.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/line.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/line@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/orange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/pink.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/purple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/red.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/line/yellow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/_all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/aero.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/aero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/aero@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/blue@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/green.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/green@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/grey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/grey@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/minimal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/minimal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/minimal@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/orange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/orange.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/orange@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/pink.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/pink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/pink@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/purple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/purple.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/purple@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/red.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/red.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/red@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/yellow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/minimal/yellow@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/polaris/polaris.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/polaris/polaris.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/polaris/polaris@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/_all.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/aero.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/aero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/aero@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/blue.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/blue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/blue@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/green.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/green.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/green@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/grey.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/grey.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/grey@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/orange.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/orange.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/orange@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/pink.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/pink.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/pink@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/purple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/purple.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/purple@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/red.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/red.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/red@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/square.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/square.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/square@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/yellow.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/yellow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/iCheck/square/yellow@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.date.extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.numeric.extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.phone.extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/jquery.inputmask.regex.extensions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/phone-codes/phone-be.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/phone-codes/phone-codes.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/input-mask/phone-codes/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/img/sprite-skin-flat.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/img/sprite-skin-nice.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/ion.rangeSlider.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/ion.rangeSlider.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/ion.rangeSlider.skinFlat.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/ionslider/ion.rangeSlider.skinNice.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jQuery/jQuery-2.2.0.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jQueryUI/jquery-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jQueryUI/jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jvectormap/jquery-jvectormap-1.2.2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jvectormap/jquery-jvectormap-usa-en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/knob/jquery.knob.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/morris/morris.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/morris/morris.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/morris/morris.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/pace/pace.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/pace/pace.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/pace/pace.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/pace/pace.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/az.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/eu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ja.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ms.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/pt-BR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/sr-Cyrl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/zh-CN.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/i18n/zh-TW.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.full.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.full.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/select2/select2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/slimScroll/jquery.slimscroll.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/slimScroll/jquery.slimscroll.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/sparkline/jquery.sparkline.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/sparkline/jquery.sparkline.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/timepicker/bootstrap-timepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/timepicker/bootstrap-timepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/timepicker/bootstrap-timepicker.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web-app/plugins/timepicker/bootstrap-timepicker.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BootStrap.class" afterPath="$PROJECT_DIR$/target/classes/BootStrap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BuildConfig$_run_closure1_closure5.class" afterPath="$PROJECT_DIR$/target/classes/BuildConfig$_run_closure1_closure5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BuildConfig.class" afterPath="$PROJECT_DIR$/target/classes/BuildConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Config.class" afterPath="$PROJECT_DIR$/target/classes/Config.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DataSource.class" afterPath="$PROJECT_DIR$/target/classes/DataSource.class" />
@@ -788,27 +20,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItem.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItem.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItemController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItemController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRecentResources_closure2.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRecentResources_closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRecentResources_closure2_closure7.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRecentResources_closure2_closure7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure8.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9_closure10.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9_closure10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ResourceController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ResourceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating$__clinit__closure1.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating$__clinit__closure1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SettingController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SettingController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Subscription.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Subscription.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SubscriptionController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SubscriptionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$__clinit__closure6.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$__clinit__closure6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure2.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/TopicController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/TopicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UtilController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UtilController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/resources$_run_closure1.class" afterPath="$PROJECT_DIR$/target/classes/resources$_run_closure1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/resources.class" afterPath="$PROJECT_DIR$/target/classes/resources.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-build-classes/TomcatGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-build-classes/TomcatGrailsPlugin.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-build-classes/org/grails/plugins/tomcat/InlineExplodedTomcatServer.class" afterPath="$PROJECT_DIR$/target/work/plugin-build-classes/org/grails/plugins/tomcat/InlineExplodedTomcatServer.class" />
@@ -903,37 +125,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryProvider.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryProvider.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/scaffolding/DefaultGrailsTemplateGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/scaffolding/DefaultGrailsTemplateGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" afterPath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/spring/resources.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/spring/resources.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Topic.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Topic.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/AccountSetting/general.gsp" afterPath="$PROJECT_DIR$/grails-app/views/AccountSetting/general.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/HomePage.gsp" afterPath="$PROJECT_DIR$/grails-app/views/HomePage.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" afterPath="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/compose.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/compose.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/mailbox.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/mailbox.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/tables/data.gsp" afterPath="$PROJECT_DIR$/grails-app/views/tables/data.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/calendar.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/calendar.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/widgets.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/widgets.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/Enums/Seriousness.groovy" afterPath="$PROJECT_DIR$/src/groovy/Enums/Seriousness.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/LinkSharing/SearchCO.groovy" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/SearchCO.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
     </list>
     <ignored path="LinkSharing.iws" />
@@ -958,66 +155,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="showResource.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/util/showResource.gsp">
+      <file leaf-file-name="LoginController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.1875">
-              <caret line="329" column="31" selection-start-line="329" selection-start-column="31" selection-end-line="329" selection-end-column="31" />
-              <folding>
-                <element signature="n#li#0;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomePage.gsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/HomePage.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32457787">
-              <caret line="259" column="40" selection-start-line="259" selection-start-column="40" selection-end-line="259" selection-end-column="40" />
+            <state vertical-scroll-proportion="-13.2">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserCO.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/groovy/LinkSharing/UserCO.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopicVO.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.862069">
-              <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_login.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.9183674">
-              <caret line="133" column="0" selection-start-line="71" selection-start-column="14" selection-end-line="133" selection-end-column="0" />
-              <folding>
-                <element signature="n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1025,8 +168,28 @@
       <file leaf-file-name="_register.gsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5625">
-              <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.0875">
+              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomePage.gsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/HomePage.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12958963">
+              <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.gsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.541666">
+              <caret line="106" column="10" selection-start-line="106" selection-start-column="10" selection-end-line="106" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -1036,7 +199,7 @@
         <entry file="file://$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.875">
-              <caret line="10" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+              <caret line="10" column="22" selection-start-line="8" selection-start-column="10" selection-end-line="10" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -1045,21 +208,49 @@
       <file leaf-file-name="UserController.groovy" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.48">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.0">
+              <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourceController.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy">
+      <file leaf-file-name="SubscriptionController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.28">
-              <caret line="99" column="17" selection-start-line="99" selection-start-column="7" selection-end-line="101" selection-end-column="29" />
-              <folding>
-                <element signature="e#38#67#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-16.48">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkSharingTagLib.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.6">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UtilController.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UtilController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.4">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1077,7 +268,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="SecondAssesment" />
+        <entry key="$PROJECT_DIR$" value="GrailsView" />
       </map>
     </option>
   </component>
@@ -1109,8 +300,6 @@
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UtilController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/user/register.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp" />
         <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/TestService.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/LinkSharing/Custombean.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/spring/resources.groovy" />
@@ -1126,7 +315,6 @@
         <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/Enums/Seriousness.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp" />
         <option value="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" />
         <option value="$PROJECT_DIR$/web-app/css/style.css" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" />
@@ -1143,8 +331,11 @@
         <option value="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/LinkSharing/UserCO.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/HomePage.gsp" />
       </list>
     </option>
@@ -1550,6 +741,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taglib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linksharing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2169,7 +1382,7 @@
       <workItem from="1456652182248" duration="12935000" />
       <workItem from="1457158810858" duration="19067000" />
       <workItem from="1457246262655" duration="34532000" />
-      <workItem from="1457319863255" duration="72136000" />
+      <workItem from="1457319863255" duration="86023000" />
     </task>
     <servers />
   </component>
@@ -2206,7 +1419,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="397314000" />
+    <option name="totallyTimeSpent" value="411201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="24" width="1293" height="744" extended-state="6" />
@@ -2217,7 +1430,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21638331" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108191654" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2299,7 +1512,7 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2308,26 +1521,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/register.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.30612245">
-          <caret line="265" column="0" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -2344,17 +1541,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Link_Resource.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.53571427">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ReadingItem.groovy">
       <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
         <state />
       </provider>
@@ -2415,22 +1601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625">
-          <caret line="59" column="77" selection-start-line="59" selection-start-column="77" selection-end-line="59" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///opt/grails-2.4.4/src/grails-datastore-gorm-3.1.3.RELEASE-sources.jar!/org/grails/datastore/gorm/GormStaticApi.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2447,26 +1617,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SettingController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/LinkSharing/SearchCO.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UtilController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -2478,14 +1632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4107144">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.6">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -2536,26 +1682,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.28">
-          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/js/jquery.color.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8">
-          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -2690,28 +1820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9183674">
-          <caret line="133" column="0" selection-start-line="71" selection-start-column="14" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.862069">
           <caret line="58" column="47" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875">
-          <caret line="10" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -2734,14 +1846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.48">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/LinkSharing/UserCO.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2750,18 +1854,125 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/register.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.3125">
+          <caret line="264" column="8" selection-start-line="264" selection-start-column="8" selection-end-line="264" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SettingController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.25">
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ReadingItem.groovy">
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.6">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.2">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UtilController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.48">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="10" column="22" selection-start-line="8" selection-start-column="10" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5625">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.0875">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.541666">
+          <caret line="106" column="10" selection-start-line="106" selection-start-column="10" selection-end-line="106" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/HomePage.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32457787">
-          <caret line="259" column="40" selection-start-line="259" selection-start-column="40" selection-end-line="259" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.12958963">
+          <caret line="488" column="0" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
           <folding />
         </state>
       </provider>

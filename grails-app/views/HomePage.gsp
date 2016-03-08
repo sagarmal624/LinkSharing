@@ -465,17 +465,57 @@
 	});
 </script>
 
-<script>
-	$(function () {
-		$('input').iCheck({
-			checkboxClass: 'icheckbox_square-blue',
-			radioClass: 'iradio_square-blue',
-			increaseArea: '20%' // optional
-		});
+
+
+
+<script type="text/javascript">
+	$( document ).ajaxStart(function() {
+		$("#loaderId").show()
+	});
+	$( document ).ajaxStop(function() {
+		$("#loaderId").hide()
+	});
+	$("#registrationForm").submit(function(e)
+	{
+		var postData = $(this).serializeArray();
+		var formURL = "${g.createLink(action:"register",controller:"user" )}";
+		$.ajax(
+				{
+					url : formURL,
+					type: "POST",
+					data : postData,
+					success:function(data, textStatus, jqXHR)
+					{
+				console.log(data.message);
+if(data.message!="This Email-id or Username Already Exits!")
+							$("#spanmsg").addClass("alert alert-success")
+						else
+							$("#spanmsg").addClass("alert alert-danger")
+						$("#spanmsg").text(data.message)
+						$("#alertmsg").toggleClass('hidden');
+									$("#registrationForm")[0].reset();
+						setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 5000);
+					},
+					dataType: 'json',
+					error: function(jqXHR, textStatus, errorThrown)
+					{
+//						$("#spanmsg").addClass("alert alert-danger")
+//						$("#spanmsg").text(data.message);
+//						$("#alertmsg").toggleClass('hidden');
+//									$("#registrationForm")[0].reset();
+//						setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 5000);
+
+					}
+
+				});
+		e.preventDefault();	//STOP default action
 	});
 </script>
 
+
 %{--<g:render template="../templates/user/forgotpassword"/>--}%
+
+
 
 </body>
 
