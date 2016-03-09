@@ -6,7 +6,7 @@ static belongsTo = [resource:Resource,user:User]
     static constraints =
             {
       isRead(nullable:false,defaultValue:false)
-          resource(nullable: true)
-          user(nullable: true)
+          resource(nullable: false)
+          user(nullable: false)
    }
 }

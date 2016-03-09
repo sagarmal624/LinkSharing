@@ -44,7 +44,7 @@
           <li class="dropdown notifications-menu">
             <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
               <div class="input-group">
-                <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
                        class="col-md-12 form-control" placeholder="Search topics..."/>
 
                 <div class="input-group-btn ">
@@ -607,7 +607,7 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-
+<g:render template="../templates/resource/search"/>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>

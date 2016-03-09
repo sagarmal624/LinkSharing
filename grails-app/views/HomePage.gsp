@@ -465,25 +465,6 @@
 
 	});
 </script>
-<script>
-$('#save').click(function(){
-var oData = new FormData(document.forms.namedItem("registrationForm"));
-var url="${createLink(controller:'user',action:'register')}";
-$.ajax({
-url:url,
-type:'POST',
-data:oData,
-dataType:'json',
-processData: false,  // tell jQuery not to process the data
-contentType: false ,
-success:function (data,txtstatus) {
-console.log(data.message);
-	//alert(data);
-}
-});
-});
-
-</script>
 
 %{--<g:render template="../templates/user/forgotpassword"/>--}%
 
@@ -491,11 +472,11 @@ console.log(data.message);
 <script type="text/javascript">
 	function changeTopPost(days){
 		console.log("days----------------------"+days);
-		<g:remoteFunction  controller="resource" action="toppost"  params="\'description=\'+${days}" onSuccess="justDoIt(data,textStatus)"/>
+		<g:remoteFunction  controller="resource" action="toppost"  params="\'description=\'+${days}" onSuccess="toppostResponse(data,textStatus)"/>
 
 	};
 
-	function justDoIt(data, textStatus) {
+	function toppostResponse(data, textStatus) {
 		if (data) {
            var obj=eval(data);
          console.log(obj.topposts);
@@ -505,6 +486,57 @@ console.log(data.message);
 	}
 </script>
 
+<script type="text/javascript">
+	function checkMail(mailid) {
+		<g:remoteFunction  controller="user" action="finduser"  params="\'mailidOrUname=\'+ mailid " onSuccess="mailidResponse(data,textStatus)"/>
+	};
+	function mailidResponse(data, textStatus) {
+		if (data) {
+	//		console.log("iddddddd"+data.message)
+			if(data.message=="EmailId or UserName Already Exist") {
+				$("#emailspanmsg").addClass("alert alert-danger")
+				$("#emailspanmsg").text(data.message)
+				$("#emailalertmsg").toggleClass('hidden');
+				${flag=0}
+				setTimeout(function () {
+					$("#emailalertmsg").toggleClass('hidden');
+					$("#emailspanmsg").removeClass("alert alert-success")
+				}, 3000);
+				$('#save').prop("disabled", true);
+			}else {
+
+				$('#save').prop("disabled", false);
+
+			}
+			//obj);
+		}
+	};
+	function checkUsername(user) {
+		<g:remoteFunction  controller="user" action="finduser"  params="\'mailidOrUname=\'+ user " onSuccess="usernameResponse(data,textStatus)"/>
+	};
+
+	function usernameResponse(data, textStatus) {
+		if (data) {
+			console.log("iddddddd" + data.message)
+			if (data.message == "EmailId or UserName Already Exist") {
+				$("#unamespanmsg").addClass("alert alert-danger")
+				$("#unamespanmsg").text(data.message)
+				$("#unamealertmsg").toggleClass('hidden');
+				${flag=0}
+				setTimeout(function () {
+					$("#unamealertmsg").toggleClass('hidden');
+					$("#unamespanmsg").removeClass("alert alert-success")
+				}, 3000);
+				$('#save').prop("disabled", true);
+			} else {
+
+				$('#save').prop("disabled", false);
+
+			}
+			//obj);
+		}
+	}
+</script>
 
 
 </body>

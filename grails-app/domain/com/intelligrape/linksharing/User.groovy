@@ -62,15 +62,9 @@ class User {
         return topics
     }
 
-    boolean canDeleteResource(Resource resource)
+    boolean isSubscribed(long topicId)
     {
-        if(resource.createdBy==this || this.admin==true)
-        {
-            return true
-        }
-        else {
-            return false
-        }
+        return(Subscription.findByUserAndTopic(this,Topic.get(topicId)))
     }
 
 }

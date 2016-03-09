@@ -4,46 +4,36 @@ import LinkSharing.TopicVO
 
 class LinkSharingController {
 
+    def linkSharingService
+
     //TODO: Find usage of this action & remove if not used.
-    def Home()
-    {
-        render view:"/linkSharing/dashboard"
+    def Home() {
+        render view: "/linkSharing/dashboard"
 
     }
 
     //TODO: Remove commented codes.
     //TODO: Remove println & use log.
-    def showResource(){
-        List<Resource> resourceDetails=(List<Resource>)Resource.createCriteria().list{
-            projections{
-                property('createdBy')
-                'topic'{
-                    property('name')
-                    property('visibility')
-                }
-            }
-            eq('id',params.long('id'))
-        }
-
-
-
-          TopicVO topicVO=Topic.getSubscribedTopicDetail(resourceDetails[0]?.getAt(1))
-           List <Resource>resources=Resource.findAllByTopic(Topic.findByName(resourceDetails[0]?.getAt(1)))
-
-
-//        int countSubscriptions=Subscription.countByTopic(Topic.findByName('Grails'))
-//        int countPost=Resource.countByTopic(Topic.findByName('Grails'))
-//         List<Resource>posts= Resource.findAllByTopic(Topic.findByName('Grails'))
-//Resource.get(1).topic.name
-
-// println "..............................>"+Topic.getSubscribedUsersDatailOfTopic(resourceDetails[0].getAt(1))
-
-        render view:"/util/showResource",model:[resources:resources,topicDetails:topicVO,topicusersDetails:Topic.getSubscribedUsersDatailOfTopic(resourceDetails[0].getAt(1))]
+    def showResource() {
+        Map map= linkSharingService.fetchSearchData(params.long('id'),session.email)
+        render view: "/util/showResource", model: [resources: map.resources, topicDetails: map.topicVO, topicusersDetails:map.topicList,isSubscribed:map.isSubscribed]
 
     }
 
     def dashboard() {
-        render view: "dashboard"
+        User user = User.findByEmail(session.email)
+//        println "===========user------------"+user.subscriptions.topic
+        println "-----------------------------------------------------"
+        List<Topic> topicsName = user?.subscriptions?.topic
+        List<TopicVO> subscriptionList = [];
+        topicsName.each { Topic topic ->
+            println topic.name;
+            subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
+
+        }
+        println "----------------------->>>>>>>>>>>>>>>>>>>>.subscription lOst" + subscriptionList
+
+        render view: "dashboard", model: [subscriptions: subscriptionList]
     }
 
     def trendingPost() {
@@ -78,16 +68,16 @@ class LinkSharingController {
 
     }
 
-    def composemail()
-    {
+    def composemail() {
         render view: "/mailbox/compose"
 
     }
-    def readmail()
-    {
+
+    def readmail() {
         render view: "/mailbox/read-mail"
     }
-    def mainpage(){
-        render view:"../index"
+
+    def mainpage() {
+        render view: "../index"
     }
 }

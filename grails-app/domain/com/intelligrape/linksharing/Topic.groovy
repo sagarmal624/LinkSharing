@@ -35,7 +35,9 @@ class Topic {
         int countSubscriptions=Subscription.countByTopic(topic)
         String seriousness=Subscription.findByTopic(topic)?.seriousness;
          int countPost=Resource.countByTopic(topic)
-       return new TopicVO(id:topic.id,seriousness:seriousness,name:topicname,countPost:countPost,countSubscription:countSubscriptions,visibility:topic.visibility,createdBy:topic.createdBy);
+                  Resource resource= Resource.findByTopic(topic)
+                  long resourceId =resource?.id
+       return new TopicVO(id:topic.id,resourceId:resourceId,seriousness:seriousness,name:topicname,countPost:countPost,countSubscription:countSubscriptions,visibility:topic.visibility,createdBy:topic.createdBy);
 
      }
     public static List getSubscribedUsersDatailOfTopic(String topicname)
@@ -73,11 +75,16 @@ class Topic {
             }
             order('counter','desc')
         }
+
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex{it,index->
-            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countSubscription: it.getAt(1)))
+            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5),countPost:Resource.countByTopic(Topic.get(it.getAt(2))),countSubscription: it.getAt(1)))
         }
         return topicsvo
+    }
+    boolean isSubscribed(long topicId)
+    {
+        return(Subscription.findByUserAndTopic(this,Topic.read(topicId)))
     }
     def afterInsert(){
         Subscription.withNewSession {

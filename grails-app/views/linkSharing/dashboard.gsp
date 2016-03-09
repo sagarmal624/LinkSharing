@@ -63,7 +63,7 @@
                     <li class="dropdown notifications-menu">
                         <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
                             <div class="input-group">
-                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" name="searchtxt"
+                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
                                        class="col-md-12 form-control" placeholder="Search topics..."/>
 
                                 <div class="input-group-btn ">
@@ -107,7 +107,7 @@
                                                 <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                             </h4>
 
-                                            <p>Why not buy a new awesome theme?</p>
+                                            <p>Java Develoepr</p>
                                         </a>
                                     </li>
                                     <li>
@@ -451,18 +451,20 @@
                         </div>
 
                         <div class="box-body chat" id="chat-box">
-                            <!-- chat item -->
+                         <g:each in="${subscriptions}" var="topicVo">
                             <div class="item">
+                                <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
+
                                 <img src="../../dist/img/user8-128x128.jpg" alt="user image" class="online">
 
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        Grails
+                                        ${topicVo.name}
                                     </a>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
-                                            @Sagar
+                                            @ ${topicVo.createdBy}
                                         </span>
                                         <span class="text-info  col-lg-4">
 
@@ -484,11 +486,11 @@
                                         </span>
                                         <span class="col-lg-4">
                                             <span class="badge" style="color:aqua">
-                                                50</span>
+                                                ${topicVo.countSubscription}</span>
                                         </span>
                                         <span class="col-lg-4">
                                             <span class="badge" style="color:aqua">
-                                                50</span>
+                                                ${topicVo.countPost}</span>
                                         </span>
 
                                     </div>
@@ -498,11 +500,18 @@
                                         <div class="col-lg-4">
 
                                             <div class="form-group">
-                                                <select class="form-control">
 
-                                                    <option>Serious</option>
-                                                    <option>Very Serious</option>
-                                                    <option>Casual</option>
+                                                <select id="seriousnessID" class="form-control"
+                                                        onchange="resourceSeriousness(${topicVo.createdBy.id},'${topicVo.id}',this.value)">
+
+                                                        %{--onchange="resourceSeriousness(this.value)">--}%
+                                                        %{--onchange="resourceSeriousness(this.value)">--}%
+                                                        %{--params: '\'userId=\'+ '\"{topicDetails?.createdBy.id}\"' +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness' )}">--}%
+
+                                                <option id="1">${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option id="2">${Enums.Seriousness.SERIOUS}</option>
+                                                    <option id="3">${Enums.Seriousness.CASUAL}</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -539,93 +548,7 @@
                                 <!-- /.attachment -->
                             </div>
                             <!-- /.item -->
-                            <div class="item">
-                                <img src="../../dist/img/user3-128x128.jpg" alt="user image" class="online">
-
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        Grails
-                                    </a>
-                                    <span class="row">
-                                        <span class="text-info col-lg-4">
-                                            @Sagar
-                                        </span>
-                                        <span class="text-info col-lg-4">
-
-                                            Subscription
-                                        </span>
-                                        <span class="text-info col-lg-4">
-
-                                            Post
-                                        </span>
-                                    </span>
-
-                                </p>
-
-                                <div class="attachment">
-
-                                    <div class="row">
-                                        <span class="col-lg-4">
-                                            <a href="#">Unsubscribe
-                                            </a></span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                50</span>
-                                        </span>
-                                        <span class="col-lg-4">
-                                            <span class="badge" style="color:aqua">
-                                                50</span>
-                                        </span>
-
-                                    </div>
-                                    <br>
-
-                                    <div class="row">
-                                        <div class="col-lg-4">
-
-                                            <div class="form-group">
-                                                <select class="form-control">
-
-                                                    <option>Serious</option>
-                                                    <option>Very Serious</option>
-                                                    <option>Casual</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4">
-                                            <div class="form-group">
-                                                <select class="form-control">
-                                                    <option>Private</option>
-                                                    <option>Public</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4">
-                                            <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope"
-                                                      style="font-size:25px"></span>
-                                            </div>
-
-                                            <div class="col-lg-4">
-
-                                                <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
-                                            </div>
-
-                                            <div class="col-lg-4">
-
-                                                <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <!-- /.attachment -->
-                            </div>
-
+                       </g:each>
                             <!-- chat item -->
 
 
@@ -1023,48 +946,47 @@
 %{--<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>--}%
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
 
-<script type="text/javascript">
 
-    var topic = function searchTopic(description) {
-        <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        if($("option#1").val()=="${topicDetails?.seriousness}")
+            $('#seriousnessID').find("option#1").attr("selected",true);
+        else if($("option#2").val()=="${topicDetails?.seriousness}")
+            $('#seriousnessID').find("option#2").attr("selected",true);
+        else
+            $('#seriousnessID').find("option#3").attr("selected",true);
+
+
+
+    });
+
+    function resourceSeriousness(userid,topicid,seriouness) {
+        console.log("score----------------------"+seriouness)
+        %{--<g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>--}%
+        %{--// <g:remoteFunction  controller="resource" action="saveRating"  params="['resource':resource,'score':score]" onSuccess="justDoIt(data,textStatus)"/>--}%
+
+        <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&seriousness=\'+seriouness" onSuccess="changeSeriouness(data,textStatus)"/>
+        %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
     };
 
-    function justDoIt(data, textStatus) {
+    function changeSeriouness(data, textStatus) {
         if (data) {
+            console.log("iddddddd"+data.topicid)
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
 
-            var obj = eval(data.resources)
-            //var obj = JSON.parse(JSON.stringify(data));
-            //var ob=data['resources']
-            //console.log(ob[0].createdBy[0]);
-//        console.log(data['resources'][0]);
-            $("#searchform").addClass("dropdown-toggle");
-            $("#searchform").attr("data-toggle", "dropdown");
+            $("#spanmsg").text(data.message)
 
-            if ($("#searchform").val() == null || $("#searchform").val() == "") {
-                $("#dropdownsearch").empty();
-                $("#dropdownheader").text('Record not Found');
-            }
+            $("#alertmsg").toggleClass('hidden');
 
-            $.each(obj, function (key, value) {
-                $("#dropdownheader").text(obj.length+" Matching Records are Found");
-                console.log(key + ": " + value.id);
-                %{--<g:set var="myval" value="[id:value?.id]"/>--}%
-
-                $("#dropdownsearch").append(
-                        "<li>" +
-                        "<a href='${createLink(controller:'linkSharing',action:'showResource')}?id="+value.id+"'>" +
-                        "<h4>" + value.description + "<small>" +
-                        "<i class='fa fa-clock-o'></i> 5 mins</small>" +
-                        "</h4>" +
-                        "<p>" + value+ "</p>" +
-                        "</a>" +
-                        "</li>");
-            });
-
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
         }
     }
 </script>
-
+<g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>

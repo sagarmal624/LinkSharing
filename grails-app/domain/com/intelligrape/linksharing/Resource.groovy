@@ -16,8 +16,8 @@ abstract class Resource {
         description(nullable: false,blank: false,validator:{val,obj->!(val.isInteger())})
         dateCreated(nullable:true)
         lastUpdated(nullable:true)
-        createdBy(nullable:true)
-        topic(nullable:true)
+        createdBy(nullable:false)
+        topic(nullable:false)
         resource_ratings(nullable:true)
         readingItems(nullable:true)
     }
@@ -41,10 +41,17 @@ abstract class Resource {
 
             }
             if(co.description){
-             'topic'{
-                 eq('name',co.description)
-                 eq("visibility",co.visibility)
-             }
+
+                    or{
+                      'topic'{
+                          ilike("name","%${co.description}%")
+                          eq("visibility",co.visibility)
+                         }
+                      ilike("description","%${co.description}%")
+
+                  }
+
+
 
             }
            }

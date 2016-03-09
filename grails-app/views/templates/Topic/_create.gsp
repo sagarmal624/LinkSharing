@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div id="alertmsg" class="hidden"><span id="spanmsg"></span></div>
-                <button  id="closetopic"type="button" class="close" data-dismiss="modal">&times;</button>
+                <button onclick="reloadPage()" id="closetopic"type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="addContactModalLabel">Create Topic</h4>
                 <div id="loaderId" style="display: none" %{--class="loader pull-left hidden"--}%>
                     <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
@@ -40,7 +40,7 @@
                         <div class="col-lg-4 col-lg-offset-2">
                             <button type="submit" id="save" class="btn btn-primary">Save</button> </div>
                         <div class="col-lg-3">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button type="button" onclick="reloadPage()" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                          </div>
                     </div>
                 </div>
@@ -50,6 +50,9 @@
 
 </div>
 <script type="text/javascript">
+      function reloadPage() {
+          location.reload();
+      };
     $( document ).ajaxStart(function() {
         $("#loaderId").show()
     });

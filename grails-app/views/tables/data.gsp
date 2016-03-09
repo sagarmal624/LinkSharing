@@ -620,6 +620,6 @@
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
-
+<g:render template="../templates/resource/search"/>
 </body>
 </html>

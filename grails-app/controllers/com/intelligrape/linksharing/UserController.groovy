@@ -58,14 +58,21 @@ class UserController extends UtilController {
         if (user){
             if (user.validate()) {
                 message="Record is Successfully Saved!"
-                Thread.sleep(500)
+                //Thread.sleep(500)
                 user.save(flush:true)
+                session.username = user.name;
+                session.email = user.email;
+
+                forward(action:"dashboard",controller:"linkSharing");
             }
+        }else {
+
+            Map map =[message:message]
+            println "-------------------map=="+map;
+            groovy.lang.Closure closure = { map }
+            renderAsJSON(closure)
+
         }
-        Map map =[message:message]
-        println "-------------------map=="+map;
-        groovy.lang.Closure closure = { map }
-        renderAsJSON(closure)
 
     }
 
@@ -75,5 +82,17 @@ class UserController extends UtilController {
         List<User> users = User.list(params)
         render([view: "../tables/data", model: [userCount: User.count(), users: users]])
     }
+  def finduser(String mailidOrUname)
+  {   flash.message="User is not found"
+      User user=User.findByEmailOrUsername(mailidOrUname,mailidOrUname)
+       if(user) {
+           flash.message = "EmailId or UserName Already Exist"
+       }
 
+      Map map =[message:flash.message]
+      println "-------------------map=="+map;
+      groovy.lang.Closure closure = { map }
+      renderAsJSON(closure)
+
+  }
 }

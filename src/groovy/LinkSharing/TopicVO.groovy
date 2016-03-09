@@ -13,6 +13,6 @@ class TopicVO {
     Integer countSubscription
     User createdBy
     String seriousness
-
+    long resourceId
 
 }

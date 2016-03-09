@@ -34,7 +34,7 @@
                                     </div>
 
                                     <g:if test="${it[4]}">
-                                        <span><a href="#">${it[4]}</a></span>
+                                        <span>${it[4]}</span>
                                     </g:if>
 
                                     <div class="row">

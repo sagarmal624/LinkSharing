@@ -36,19 +36,19 @@
         <div class="col-lg-4">
             <div class="login-box" style="border: 1px solid gray">
                 <div class="login-box-body">
-                    <div id="alertmsg" class="hidden"><span id="spanmsg"></span>
                     </div>
 
                     <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2>
                     </strong></p>
 
-                    <form id="registrationForm" enctype="multipart/form-data" name="registrationForm" method="post">
+                    <g:form  controller="user" action="register" id="registrationForm" enctype="multipart/form-data" name="registrationForm" method="post">
                         <div class="form-group">
                             <input type="text" class="form-control" value="${user?.firstname}" name="firstname" id="firstname" required="true" placeholder="FirstName"/>
                             <span class="text-danger">
                                 <g:fieldError field="firstname" bean="${user}"></g:fieldError>
                             </span>
                         </div>
+
                         <div class="form-group">
                             <input type="text"  class="form-control" name="lastname" id="lastname" placeholder="LastName" value="${user?.lastname}"/>
 
@@ -57,17 +57,23 @@
                         </div>
                         <div class="form-group">
 
-                            <input type="email" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
-                            <span class="text-danger">            <g:fieldError field="email" bean="${user}"></g:fieldError>
-                            </span>
-                        </div>
+                            <input type="email" onblur="checkMail(this.value)" class="form-control" name="email" id="email" required="true" placeholder="Email"  value="${user?.email}"/>
+                            <span class="text-danger"><g:fieldError field="email" bean="${user}">
+                            </g:fieldError></span>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
-                            <span class="text-danger"><g:fieldError field="username" bean="${user}"></g:fieldError>
-                            </span>
-                        </div>
+                            <br>
 
+                            <div id="emailalertmsg" class="hidden"><span id="emailspanmsg"></span>
+                            </div>
+
+                            <div class="form-group">
+                            <input type="text" class="form-control"  onblur="checkUsername(this.value)" name="username" id="username" required="true" placeholder="username"  value="${user?.username}"/>
+                                <span class="text-danger"><g:fieldError field="username" bean="${user}">
+                                </g:fieldError></span>
+
+                                <br>
+                            <div id="unamealertmsg" class="hidden"><span id="unamespanmsg"></span>
+                        </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" id="password" required="true" name="password"/>
                             <span class="text-danger"><g:fieldError field="password" bean="${user}">
@@ -85,7 +91,6 @@
                             <input type="file" class="form-control" id="photo" name="photo"/>
                             <span class="text-danger">
                                 <g:fieldError field="photo" bean="${user}">
-
                             </g:fieldError>
                             </span>
                         </div>
@@ -105,7 +110,7 @@
                             </div>
                             <!-- /.col -->
                         </div>
-                    </form>
+                    </g:form>
                     %{--<div class="col-lg-8">--}%
                         %{--<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"--}%
                     %{--size="large">Sign up using--}%
