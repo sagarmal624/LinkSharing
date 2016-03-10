@@ -45,13 +45,23 @@ class UserController extends UtilController {
         render view: "/mailbox/mailbox"
     }
 
-    def register(UserCO co) {
+    def register() {
 //        MultipartFile multipartFile = params.photo
 //        println("->>>>>file uploadinggggggg>>>>>>>>>>>>>>>>"+multipartFile?.originalFilename)
-        User user = new User(co.properties)
+        //User user = new User(co.properties)
   //      user.properties = params;
         String message = "This Email-id or Username Already Exits!"
        // println "flash---------------------"+user.properties
+
+
+
+        MultipartFile inputImage = params.photo
+        String extention = inputImage.originalFilename.tokenize(".")?.last()
+        String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention?".${extention}":""}"
+        File userImage = new File(filePath)
+        inputImage.transferTo(userImage)
+        params.imagePath = userImage.absolutePath
+        User user = new User(params)
 
         println "flash---------------------"+user.validate();
         //user.save(flush: true,failOnError:true);
@@ -62,7 +72,7 @@ class UserController extends UtilController {
                 user.save(flush:true)
                 session.username = user.name;
                 session.email = user.email;
-
+                session.user=user;
                 forward(action:"dashboard",controller:"linkSharing");
             }
         }else {
@@ -74,6 +84,16 @@ class UserController extends UtilController {
 
         }
 
+    }
+    def renderFromDirectory(long id)
+    {
+        User user = User.read(id)
+        String filePath = user.imagePath
+        File file = new File(filePath)
+        byte[] imageBytes = file.bytes
+        response.setHeader("Content-length",imageBytes.length.toString())
+        response.outputStream << imageBytes
+        response.outputStream.flush()
     }
 
     def show(SearchCO searchCO) {

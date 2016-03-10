@@ -96,6 +96,8 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        userImageFolder="/home/sagar/Desktop/userImageFolder"
+        documentFolder="/home/sagar/Desktop/documentFolder"
     }
     production {
         grails.logging.jul.usebridge = false

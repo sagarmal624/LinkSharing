@@ -17,8 +17,7 @@ class SubscriptionController extends UtilController{
 
         }
     }
-
-    def save(long id) {
+        def save(long id) {
 
         Subscription subscription=Subscription.findByUserAndTopic(User.findByEmail(session.email),Topic.get(id))
        if(!subscription)

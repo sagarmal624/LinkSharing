@@ -22,5 +22,9 @@ static namespace = "ls"
             out << "helloabc"
         }
     }
+    def userImage = { attr, body ->
+        out << "<img class='${attr.imageType}' alt='User Image' src='${createLink(controller: "user", action: "renderFromDirectory", id: "${attr.userId}")}' width=100 height=100 >"
+    }
+
 
 }

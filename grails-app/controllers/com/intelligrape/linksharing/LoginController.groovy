@@ -18,7 +18,10 @@ class LoginController {
         if (user) {
             session.username = user.name;
             session.email = user.email;
-            render(view: '/linkSharing/dashboard')
+            session.user=user;
+       //     render(view: '/linkSharing/dashboard')
+            forward(action:"dashboard",controller:"linkSharing");
+
         } else {
             flash.error = "Invalid UserName or Password"
             redirect(action: "index", controller: "login", model: [user: user])

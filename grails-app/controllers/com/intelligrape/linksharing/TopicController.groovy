@@ -8,7 +8,22 @@ class TopicController extends UtilController {
 
         render template:"/templates/Topic/create"
     }
+    def updatevisibility(long userId,long topicId,String visibility )
+    {
 
+      Topic topic=Topic.findByCreatedByAndId(User.get(userId),topicId)
+      topic.visibility=Visibility.toEnum(visibility)
+      if(topic.save(flush:true)){
+        flash.message="Visibility is successfully Updated"
+    } else {
+        flash.message="Visibility is not updated"
+    }
+    Map map = [message: flash.message,topicid:topicId]
+    groovy.lang.Closure closure = { map }
+    renderAsJSON(closure)
+
+
+}
     def save(){
         Map map=[:]
         println("SAVE >>>>>>>>")
@@ -46,29 +61,7 @@ class TopicController extends UtilController {
         List<Resource>resources=Resource.search(co).list()
 
         println "----------------====>>>>"+resources*.description
-        /*Topic topic=Topic.read(id)
 
-        if(topic==null)
-        {
-            flash.error="Topic is not found with given id"
-            redirect(action:"index",controller:"login")
-        }else{
-            if(topic.visibility==Visibility.PUBLIC)
-            {
-                render "Success"
-            }else {
-                Subscription subscription=Subscription.findByUserAndTopic(User.findByFirstname(session.user),topic)
-                if(subscription){
-                    flash.error="Topic is not private and not subscribe by loged in user"
-                    forward(controller:"login",action:"index")
-                }else {
-
-                    render "success"
-                }
-
-            }
-        }
-*/
     }
 
 }

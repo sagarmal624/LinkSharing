@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sagar Mal Shankhala | User Profile</title>
+  <title>${session.username} | User Profile</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
@@ -190,16 +190,19 @@
 
             <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Sagar Mal Shankhala</span>
+              %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+              <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
+              <span class="hidden-xs">${session.username}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                  Sagar Mal Shankhala - Web Developer Trainee
+                  ${session.username} - Web Developer Trainee
                   <small>@To The New Digital</small>
                 </p>
               </li>
@@ -221,7 +224,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"index")}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -241,10 +244,12 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+          <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+
         </div>
         <div class="pull-left info">
-          <p>Sagar Mal Shankhala</p>
+          <p>${session.username}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

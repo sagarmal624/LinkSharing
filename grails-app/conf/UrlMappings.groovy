@@ -5,7 +5,7 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/"(view:"/HomePage")
+        "/"(controller:"linkSharing",action: "loadmainpage" )
         "500"(view:'/error')
 	}
 }

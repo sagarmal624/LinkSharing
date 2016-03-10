@@ -27,8 +27,10 @@
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image">
-      <img src="../../dist/img/user1-128x128.jpg" alt="User Image">
-    </div>
+      %{--<img src="../../dist/img/user1-128x128.jpg" alt="User Image">--}%
+      <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+
+  </div>
     <form class="lockscreen-credentials">
       <div class="input-group">
         <input type="password" class="form-control" placeholder="password">

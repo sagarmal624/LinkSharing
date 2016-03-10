@@ -7,7 +7,7 @@ class User {
     String password
     Boolean admin
     Boolean active
-    byte[] photo
+    String imagePath
     Date dateCreated
     Date lastUpdated
     transient confirmPassword
@@ -23,7 +23,7 @@ class User {
         password (blank:true,nullable:false,size:5..10)
         email (email:true ,blank:true,nullable:false,unique:true)
         admin (defaultValue: true,nullable:true)
-        photo (size:0..5000000,nullable:true)
+        imagePath (nullable:true)
         active (defaultValue: true,nullable: true)
         dateCreated(nullable: true,blank:true)
         lastUpdated(nullable:true,blank:true)
@@ -67,4 +67,12 @@ class User {
         return(Subscription.findByUserAndTopic(this,Topic.get(topicId)))
     }
 
+    public static Map getTotalResourceAndSubscription(User user)
+    {
+        int totalSubscription=Subscription.countByUser(user)
+        int totalTopic=Topic.countByCreatedBy(user)
+        int totalPost=Resource.countByCreatedBy(user)
+     return [totalSubscription:totalSubscription,totalTopic:totalTopic,totalPost:totalPost]
+
+    }
 }

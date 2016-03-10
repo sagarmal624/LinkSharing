@@ -189,16 +189,19 @@
                     </li>
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            %{--<img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+                            <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
                             <span class="hidden-xs">Ritesh Jain</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
-                                    Ritesh Jain - Web Developer Trainee
+                                    ${session.username} - Web Developer Trainee
                                     <small>To The New Digital</small>
                                 </p>
                             </li>
@@ -241,10 +244,12 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+
+                    %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
                 </div>
                 <div class="pull-left info">
-                    <p>Ritesh Jain</p>
+                    <p>${session.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -411,7 +416,7 @@
                                         Java                  </a>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
-                                            @SagarMal
+                                            @Sagarmal
                                         </span>
                                         <span class="text-info  col-lg-4">
 

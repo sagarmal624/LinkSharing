@@ -145,15 +145,19 @@
           </li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Sagar Mal Shankhala</span>
+              %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+              <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
+              <span class="hidden-xs">${session.username}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+
                 <p>
-                 Sagar Mal Shankhala - Web Developer Trainee
+                 ${session.username} - Web Developer Trainee
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -175,7 +179,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"index")}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>

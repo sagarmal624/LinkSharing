@@ -21,14 +21,16 @@ abstract class Resource {
         resource_ratings(nullable:true)
         readingItems(nullable:true)
     }
-    RatingInfoVO getRatingInfo() {
+    RatingInfoVO getRatingInfo(long id) {
         List result = Resource_Rating.createCriteria().get {
             projections {
                 count('id')
                 sum('score')
                 avg('score')
+                property('score')
             }
-            eq('user', User.get(1))
+            eq('topic',Topic.get(id))
+            eq('user', User.get(id))
         }
         new RatingInfoVO(totalVotes: result[0], totalScore: result[1],averageScore: result[2])
     }
@@ -60,7 +62,7 @@ abstract class Resource {
     {
         List<Resource>resources=Resource.createCriteria().list(max:3) {
             projections{
-
+                property('id')
                 property('url')
                 property('filepath')
                 property('topic')
@@ -94,6 +96,7 @@ abstract class Resource {
                 property('description')
                 property('url')
                 property('filepath')
+                property('id')
 
             }
             order('avgScore','desc')
@@ -101,7 +104,7 @@ abstract class Resource {
 
         List toppostList=[];
      resources.each {
-         toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ))
+         toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ,id:it[7]))
 
      }
         return toppostList;
@@ -120,6 +123,8 @@ abstract class Resource {
                 property('description')
                 property('url')
                 property('filepath')
+                property('id')
+
                 between('lastUpdated',before,today)
             }
             order('avgScore','desc')
@@ -127,7 +132,7 @@ abstract class Resource {
 
         List toppostList=[];
         resources.each {
-            toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ))
+            toppostList.add(new TopPostVO(createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6],id:it[7] ))
 
         }
         return toppostList;

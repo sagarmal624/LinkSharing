@@ -490,6 +490,7 @@
 	function checkMail(mailid) {
 		<g:remoteFunction  controller="user" action="finduser"  params="\'mailidOrUname=\'+ mailid " onSuccess="mailidResponse(data,textStatus)"/>
 	};
+
 	function mailidResponse(data, textStatus) {
 		if (data) {
 	//		console.log("iddddddd"+data.message)
@@ -537,7 +538,6 @@
 		}
 	}
 </script>
-
 
 </body>
 

@@ -209,13 +209,16 @@
 
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+                            <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
                             <span class="hidden-xs">${session.username}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
                                     ${session.username} - Web Developer Trainee
@@ -263,7 +266,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
                 </div>
 
                 <div class="pull-left info">
@@ -362,7 +365,7 @@
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>${totalSubscription}</h3>
 
                             <p>Subscriptions</p>
                         </div>
@@ -377,7 +380,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53</h3>
+                            <h3>${totalTopic}</h3>
 
                             <p>Topics</p>
                         </div>
@@ -396,14 +399,11 @@
                         </div>
 
                         <div class="inner">
+                            <h3>${totalPost}</h3>
                             <h1>
-                                <a href=""><p>Create Resource</p>
+                                <a href=""><p>Total Post</p>
                                 </a>
-
-                                <a href="#"><p>Create Link
-
-                                    <p></a>
-                            </h1>
+ </h1>
                         </div>
 
                         <div class="icon">
@@ -455,12 +455,16 @@
                             <div class="item">
                                 <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
-                                <img src="../../dist/img/user8-128x128.jpg" alt="user image" class="online">
+                                %{--<img src="../../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+                                <ls:userImage userId="${topicVo?.createdBy?.id}" imageType="online"/>
 
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        ${topicVo.name}
+                                        %{--<a href="${createLink(controller:"linkSharing",action:"showResource")}?id="+topicVo?.id+">--}%
+                                    %{--<g:link controller="linkSharing" action="showResource" id="${topicVo?.id}" >${topicVo.name}</g:link>--}%
+                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicVo?.id])}">${topicVo?.name}</a>
+
                                     </a>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
@@ -482,7 +486,9 @@
 
                                     <div class="row">
                                         <span class="col-lg-4">
-                                            <a href="#">Unsubscribe</a>
+                                            <g:if test="${session.email!=topicVo?.createdBy?.email}">
+                                                <ls:showSubscribe topicId="${topicVo?.id}"></ls:showSubscribe>
+                                            </g:if>
                                         </span>
                                         <span class="col-lg-4">
                                             <span class="badge" style="color:aqua">
@@ -507,10 +513,24 @@
                                                         %{--onchange="resourceSeriousness(this.value)">--}%
                                                         %{--onchange="resourceSeriousness(this.value)">--}%
                                                         %{--params: '\'userId=\'+ '\"{topicDetails?.createdBy.id}\"' +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness' )}">--}%
+                                                      <g:if test="${topicVo?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
 
-                                                <option id="1">${Enums.Seriousness.VERY_SERIOUS}</option>
-                                                    <option id="2">${Enums.Seriousness.SERIOUS}</option>
-                                                    <option id="3">${Enums.Seriousness.CASUAL}</option>
+                                                     <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.CASUAL}</option>
+                                                      </g:if>
+                                                    <g:elseif test="${topicVo?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
+
+                                                        <option> ${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:elseif>
+                                                    <g:elseif test="${topicVo?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
+
+                                                        <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.CASUAL}</option>
+                                                   </g:elseif>
 
                                                 </select>
                                             </div>
@@ -518,10 +538,24 @@
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <select class="form-control">
-                                                    <option>Private</option>
-                                                    <option>Public</option>
+                                                <g:if test="${session.email==topicVo?.createdBy?.email}">
+
+                                                <select class="form-control"
+                                                        onchange="changeVisibility(${topicVo.createdBy.id},'${topicVo.id}',this.value)">
+                                                    <g:if test="${topicVo?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
+
+                                                    <option selected>${Enums.Visibility.PRIVATE}</option>
+
+                                                        <option>${Enums.Visibility.PUBLIC}</option>
+                                                    </g:if>
+                                                    <g:else>
+                                                    <option> ${Enums.Visibility.PRIVATE}</option>
+
+                                                    <option selected>${Enums.Visibility.PUBLIC}</option>
+                                                </g:else>
                                                 </select>
+                                                </g:if>
+
                                             </div>
                                         </div>
 
@@ -574,20 +608,25 @@
                         </div>
 
                         <div class="box-body">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                                </div>
+                            <g:form method="post"  action="sendMail" controller="user">
+                                <div class="box-body">
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject">
-                                </div>
+                                    <div class="form-group">
+                                        <g:field type="email" required="" class="form-control" name="emailto" placeholder="Email to:"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <g:field type="text" class="form-control"required="" name="subject" placeholder="Subject"/>
+                                    </div>
+                                    <div>
+                                        <g:textArea name="message" required="" class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></g:textArea>
+                                    </div>
 
-                                <div>
-                                    <textarea class="textarea" placeholder="Message"
-                                              style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
-                            </form>
+                                <div class="box-footer clearfix">
+                                    <g:actionSubmit controller="user" action="sendMail"  value="Send" class="pull-right btn btn-default" id="sendEmail">Send
+                                        <i class="fa fa-arrow-circle-right"></i></g:actionSubmit>
+                                </div>
+                            </g:form>
                         </div>
 
                         <div class="box-footer clearfix">
@@ -948,30 +987,14 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        if($("option#1").val()=="${topicDetails?.seriousness}")
-            $('#seriousnessID').find("option#1").attr("selected",true);
-        else if($("option#2").val()=="${topicDetails?.seriousness}")
-            $('#seriousnessID').find("option#2").attr("selected",true);
-        else
-            $('#seriousnessID').find("option#3").attr("selected",true);
 
-
-
-    });
 
     function resourceSeriousness(userid,topicid,seriouness) {
-        console.log("score----------------------"+seriouness)
-        %{--<g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>--}%
-        %{--// <g:remoteFunction  controller="resource" action="saveRating"  params="['resource':resource,'score':score]" onSuccess="justDoIt(data,textStatus)"/>--}%
-
         <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&seriousness=\'+seriouness" onSuccess="changeSeriouness(data,textStatus)"/>
-        %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
     };
 
     function changeSeriouness(data, textStatus) {
         if (data) {
-            console.log("iddddddd"+data.topicid)
             if(data.message!="Seriousness is not updated")
                 $("#spanmsg").addClass("alert alert-success")
             else
@@ -984,7 +1007,28 @@
             setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
             //obj);
         }
-    }
+    };
+    function changeVisibility(userid,topicid,visibility)
+    {
+        <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
+
+    };
+    function visibilityResponse(data, textStatus){
+        if (data) {
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
+
+            $("#spanmsg").text(data.message)
+
+            $("#alertmsg").toggleClass('hidden');
+
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
+        }
+
+    };
 </script>
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>

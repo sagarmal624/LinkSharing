@@ -7,6 +7,11 @@ class LinkSharingController {
     def linkSharingService
 
     //TODO: Find usage of this action & remove if not used.
+    def loadmainpage()
+    {
+        List<Resource>resources=Resource.getRecentResources()
+        render view:"/HomePage",model:[topPostResource:Resource.getToppost(),recentTopicShare:resources]
+    }
     def Home() {
         render view: "/linkSharing/dashboard"
 
@@ -14,26 +19,23 @@ class LinkSharingController {
 
     //TODO: Remove commented codes.
     //TODO: Remove println & use log.
-    def showResource() {
-        Map map= linkSharingService.fetchSearchData(params.long('id'),session.email)
+    def showResource(long id) {
+        Map map= linkSharingService.fetchSearchData(params.long('id'))
         render view: "/util/showResource", model: [resources: map.resources, topicDetails: map.topicVO, topicusersDetails:map.topicList,isSubscribed:map.isSubscribed]
-
     }
 
     def dashboard() {
         User user = User.findByEmail(session.email)
-//        println "===========user------------"+user.subscriptions.topic
-        println "-----------------------------------------------------"
+        Map totalResourceAndSubscription=User.getTotalResourceAndSubscription(user)
         List<Topic> topicsName = user?.subscriptions?.topic
+
         List<TopicVO> subscriptionList = [];
         topicsName.each { Topic topic ->
             println topic.name;
             subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
 
         }
-        println "----------------------->>>>>>>>>>>>>>>>>>>>.subscription lOst" + subscriptionList
-
-        render view: "dashboard", model: [subscriptions: subscriptionList]
+       render view: "dashboard", model: [subscriptions: subscriptionList,totalSubscription:totalResourceAndSubscription.totalSubscription,totalTopic:totalResourceAndSubscription.totalTopic,totalPost:totalResourceAndSubscription.totalPost]
     }
 
     def trendingPost() {

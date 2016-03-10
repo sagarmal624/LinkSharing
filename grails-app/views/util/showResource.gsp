@@ -198,13 +198,16 @@
                     </li>
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            %{--<img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+                            <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
                             <span class="hidden-xs">${session.username}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                            <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
                                     ${session.username}- Web Developer Trainee
@@ -254,7 +257,9 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                    <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+
                 </div>
 
                 <div class="pull-left info">
@@ -378,15 +383,17 @@
 
                             <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
 
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
+                                %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+                                <ls:userImage userId="${topicDetails?.createdBy.id}" imageType="online"/>
 
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicDetails?.id])}">${topicDetails?.name}(${topicDetails?.visibility})</a>
 
-                                        ${topicDetails?.name}(${topicDetails?.visibility})</a>
 
-                                    <span class="row">
+
+                                        <span class="row">
 
                                         <span class="text-info col-lg-4">
                                             @${topicDetails?.createdBy}
@@ -431,12 +438,28 @@
                                             <div class="form-group">
                                                 <select id="seriousnessID" class="form-control"
                                                         onchange="resourceSeriousness(this.value)">
-                                                    <option id="1">${Enums.Seriousness.VERY_SERIOUS}</option>
-                                                    <option id="2">${Enums.Seriousness.SERIOUS}</option>
-                                                    <option id="3">${Enums.Seriousness.CASUAL}</option>
+
+                                                <g:if test="${topicDetails?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
+
+                                                    <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.CASUAL}</option>
+                                                </g:if>
+                                                <g:elseif test="${topicDetails?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
+
+                                                    <option> ${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option selected>${Enums.Seriousness.SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.CASUAL}</option>
+                                                </g:elseif>
+                                                <g:elseif test="${topicDetails?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
+
+                                                    <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                    <option>${Enums.Seriousness.SERIOUS}</option>
+                                                    <option selected>${Enums.Seriousness.CASUAL}</option>
+                                                </g:elseif>
+
 
                                                 </select>
-
                                             </div>
                                         </div>
 
@@ -481,7 +504,8 @@
                             <g:each in="${topicusersDetails}" var="topic">
                                 <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px ">
 
-                                    <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
+                                    %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+                                    <ls:userImage userId="${topic?.user.id}" imageType="online"/>
 
                                     <p class="message">
                                         <a href="#" class="name">
@@ -770,9 +794,6 @@
             <!-- /.tab-pane -->
         </div>
     </aside>
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
 <script src="${resource(dir: 'plugins/jQuery/', file: 'jQuery-2.2.0.min.js')}"></script>
@@ -803,16 +824,6 @@
 <script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
 <g:render template="../templates/Topic/email"/>
 <script type="text/javascript">
-    $(document).ready(function () {
-        if ($("option#1").val() == "${topicDetails?.seriousness}")
-            $('#seriousnessID').find("option#1").attr("selected", true);
-        else if ($("option#2").val() == "${topicDetails?.seriousness}")
-            $('#seriousnessID').find("option#2").attr("selected", true);
-        else
-            $('#seriousnessID').find("option#3").attr("selected", true);
-
-
-    });
 
     function resourceSeriousness(seriouness) {
         console.log("score----------------------" + ${topicDetails?.id})
@@ -846,12 +857,10 @@
 
 </script>
 
-
-
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
-%{--<g:render template="../templates/resource/search"/>--}%
+<g:render template="../templates/resource/search"/>
 <script type="text/javascript">
 
     var searchResourceAndTopic=function searchPost(description) {
@@ -905,20 +914,23 @@
                         "<img src='../dist/img/google.png'/> &nbsp;&nbsp;"+
                         "<u><"+"ls:"+"isRead resource="+value.id+"/></u>&nbsp;&nbsp;"+
 
-                        "<g"+":"+"if test=$"+"{session.email=="+value.createdBy.email+"}>"+
+                        "<g"+":"+"if test=$"+"{'session.email=="+value.createdBy.email+"}>"+
                         "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;"+
+
                         "</g"+":"+"if>"+
                   "<g"+":"+"if test=$"+"{"+"("+value+"instanceof com.intelligrape.linksharing.Link_Resource)}'>"+
                         "<a href="+value.url+" target='_blank'><u>View Full Site</u></a>"+
                 "&nbsp;&nbsp;"+
                 "</g"+":"+"if>"+
                 "<g"+":"+"else>"+
-                "<a href='#' target='_blank'><u>Download</u></a>&nbsp;&nbsp;"+
-                "</g"+":"+"else>"+
-                "<a href='#'><u>View Post</u></a>&nbsp;&nbsp;"+
+//                "<a href='#' target='_blank'><u>Download</u></a>&nbsp;&nbsp;"+
+                        "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id="+value.id+"'>Donwload</a></u>&nbsp;&nbsp;" +
 
-
-                " </div>"+
+                        "</g"+":"+"else>"+
+//                "<a href='#'><u>View Post</u></a>&nbsp;&nbsp;"+
+                        %{--<a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:value.id])}">View Post</a>--}%
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id="+value.id+  "'>View Post</a></u>" +
+                        " </div>"+
                 "</div>"+
                 "<li>"
             )});

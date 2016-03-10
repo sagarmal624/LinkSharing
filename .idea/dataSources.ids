@@ -27,9 +27,11 @@
         <data-type>varchar(255)</data-type>
       </column>
       <column id="11" parent="2" name="topic_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <column id="12" parent="2" name="user_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <index id="13" parent="2" name="FK_aojatoh2ykivd0ukh09f4mn11">
@@ -183,9 +185,11 @@
         <data-type>bit(1)</data-type>
       </column>
       <column id="50" parent="5" name="resource_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <column id="51" parent="5" name="user_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <index id="52" parent="5" name="FK_93xit1asu8caf665svq0vqmeq">
@@ -221,6 +225,7 @@
         <data-type>bigint(20)</data-type>
       </column>
       <column id="59" parent="6" name="created_by_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <column id="60" parent="6" name="date_created">
@@ -234,16 +239,17 @@
         <data-type>datetime</data-type>
       </column>
       <column id="63" parent="6" name="topic_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <column id="64" parent="6" name="class">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="65" parent="6" name="url">
+      <column id="65" parent="6" name="filepath">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="66" parent="6" name="filepath">
+      <column id="66" parent="6" name="url">
         <data-type>varchar(255)</data-type>
       </column>
       <index id="67" parent="6" name="FK_29on5nwfvvdmtimh40b7tnsw5">
@@ -279,6 +285,7 @@
         <data-type>bigint(20)</data-type>
       </column>
       <column id="74" parent="7" name="resource_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <column id="75" parent="7" name="score">
@@ -286,6 +293,7 @@
         <data-type>int(11)</data-type>
       </column>
       <column id="76" parent="7" name="user_id">
+        <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
       <index id="77" parent="7" name="FK_hmnf6fb69j5w3nttui4g372w9">
