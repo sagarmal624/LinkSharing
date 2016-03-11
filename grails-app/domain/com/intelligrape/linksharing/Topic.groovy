@@ -86,7 +86,7 @@ class Topic {
 
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex { it, index ->
-            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription: it.getAt(1)))
+            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3)))))
         }
         return topicsvo
     }

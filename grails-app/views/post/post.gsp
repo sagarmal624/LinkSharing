@@ -462,12 +462,10 @@
 
                                             <span class="col-lg-4">
                                                 <g:if test="${session.email != trendingTopic?.createdBy?.email}">
-                                                    <ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>
+                   <ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>
                                                 </g:if>
 
                                             </span>
-
-
                                             <span class="col-lg-4">
                                                 <span class="badge" style="color:aqua">
                                                     ${trendingTopic?.countSubscription}
@@ -500,10 +498,23 @@
 
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <select class="form-control">
-                                                        <option>Private</option>
-                                                        <option>Public</option>
-                                                    </select>
+                                                    <g:if test="${session.email==topicVo?.createdBy?.email}">
+
+                                                        <select class="form-control"
+                                                                onchange="changeVisibility(${trendingTopic.createdBy.id},'${trendingTopic.id}',this.value)">
+                                                            <g:if test="${trendingTopic?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
+
+                                                                <option selected>${Enums.Visibility.PRIVATE}</option>
+
+                                                                <option>${Enums.Visibility.PUBLIC}</option>
+                                                            </g:if>
+                                                            <g:else>
+                                                                <option> ${Enums.Visibility.PRIVATE}</option>
+
+                                                                <option selected>${Enums.Visibility.PUBLIC}</option>
+                                                            </g:else>
+                                                        </select>
+                                                    </g:if>
                                                 </div>
                                             </div>
 
@@ -594,9 +605,8 @@
                                     <img src="../dist/img/google.png"/> &nbsp;&nbsp;
                                     <a href="#"><u>Delete</u></a>&nbsp;&nbsp;
                                     <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
-                                    <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
-                                        <a href="#"><u>View Full</u></a>
-
+                                    <g:if test="${resource?.url}">
+                                        <a href="${resource?.url}"><u>View Full Site</u></a>
                                     </g:if>
                               <g:else>
                                   <a href="#"><u>Download</u></a>&nbsp;&nbsp;
@@ -871,143 +881,9 @@
     }
 </script>
 
-<div class="modal fade" id="sendInv" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Send Invitation</h4>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <div class="col-lg-3">
-                            <label for="email">Email-Id<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-8">
-
-                            <input type="email" class="form-control" id="email" placeholder="Enter your Email-Id">
-                        </div>
-                    </div>
-                    <br><br><br>
-
-                    <div class="form-group">
-                        <div class="col-lg-3">
-                            <label>Topic<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <select class="form-control">
-
-                                %
-                                <option>Software Engineering</option>
-
-                                %
-                                <option>Autometa</option>
-
-                            </select>
-                        </div>
-                        <br><br>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <div class="row">
-
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <button type="button" class="btn btn-info">Invite</button>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript" src="/js/jquery-2.2.1.js"></script>
 
-<div class="modal fade" id="shareLink" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div id="alertmsg1" class="hidden"><span id="spanmsg1"></span></div>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" id="addContactModalLabel">Share Link</h4>
-
-                <div id="loaderId1" style="display: none">
-                    <img src="/assets/spinner.gif"/> Saving..
-                </div>
-            </div>
-
-            <form id="linkshareform">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <div class="col-lg-2">
-                            <label for="url">Link<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <input type="url" required="" class="form-control" id="url" name="url"
-                                   placeholder="Link..."/>
-                        </div>
-                    </div>
-                    <br><br>
-
-                    <div class="form-group">
-                        <div class="col-lg-2">
-                            <label for="description">Description<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <textarea required="" cols="12" class="form-control" id="description" name="description"
-                                      placeholder="Description..."></textarea>
-                        </div>
-                    </div>
-                    <br><br><br><br>
-
-                    <div class="form-group">
-                        <div class="col-lg-2">
-                            <label>Topic:</label>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <select class="form-control" id="topicname" name="topicname" data-toggle="tooltip"
-                                    title="Share Link with Given Topic Name">
-
-                                --}%
-
-                                <option>Software Engineering</option>
-                                --}%
-
-                                <option>Autometa</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <br><br>
-                </div>
-
-                <div class="modal-footer">
-                    <div class="row">
-
-                        <div class="col-lg-4 col-lg-offset-2">
-                            <button type="submit" id="save" class="btn btn-primary">Save</button></div>
-
-                        <div class="col-lg-3">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <script type="text/javascript">
     $(document).ajaxStart(function () {
         $("#loaderId1").show()
@@ -1057,73 +933,6 @@
     });
 </script>
 
-<div class="modal fade" id="shareDoc" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Share Document</h4>
-            </div>
-
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <div class="col-lg-3">
-                            <label>Document Name<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <input type="text" class="form-control offset-5" id="url" placeholder="Enter URL">
-                        </div>
-                    </div>
-                    <br><br><br>
-
-                    <div class="form-group">
-                        <div class="col-lg-3">
-                            <label>Description:</label>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <textarea class="form-control" cols="15"></textarea>
-                        </div>
-                    </div>
-                    <br><br><br>
-
-                    <div class="form-group">
-                        <div class="col-lg-3">
-                            <label></label>Topic<span style="color:red">*</span>:</label>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <select class="form-control">
-                                --}%
-
-                                <option>Software Engineering</option>
-                                --}%
-
-                                <option>Autometa</option>
-
-                            </select>
-                        </div>
-                        <br><br>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <button type="button" class="btn btn-info">Share</button>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript" src="/js/jquery-2.2.1.js"></script>
 
@@ -1274,9 +1083,35 @@
         }
     };
 
+    function changeVisibility(userid,topicid,visibility)
+    {
+        <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
+
+    };
+    function visibilityResponse(data, textStatus){
+        if (data) {
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
+
+            $("#spanmsg").text(data.message)
+
+            $("#alertmsg").toggleClass('hidden');
+
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
+        }
+
+    };
+
+
 </script>
-
 <g:render template="../templates/resource/search"/>
-
+<g:render template="../templates/message"/>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
 </body>
 </html>

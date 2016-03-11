@@ -6,7 +6,7 @@ class LoginController {
         if (!session.username) {
             render view: "/HomePage"
         } else
-            render view: "/linkSharing/dashboard"
+            forward(action:"dashboard" ,controller:"linkSharing")
 
     }
 

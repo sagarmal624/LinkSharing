@@ -266,7 +266,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+                    <ls:userImage userId="${session?.user?.id}" imageType="img-circle" alt="user-Image"/>
                 </div>
 
                 <div class="pull-left info">
@@ -1033,7 +1033,7 @@
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>
-<g:render template="../templates/LinkResource/create"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 

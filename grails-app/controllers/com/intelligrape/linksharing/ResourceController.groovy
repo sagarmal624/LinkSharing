@@ -1,5 +1,6 @@
 package com.intelligrape.linksharing
 
+import Enums.Visibility
 import LinkSharing.Custombean
 import LinkSharing.RatingInfoVO
 import LinkSharing.ResourceSearchCO
@@ -12,7 +13,7 @@ class ResourceController extends UtilController {
     def delete(long id) {
         log.info "befor delete the resource"
         def resource = Resource.load(id)
-        println "--------------resource object----->" + resource
+        println "--------------resource object----->" +resource
         if (resource == null) {
             flash.error = "ResourceNotFound"
             render flash.error
@@ -28,12 +29,18 @@ class ResourceController extends UtilController {
     //TODO: Improper use of Enum in code.
     def search(ResourceSearchCO co) {
         Map map = [:]
-        //co.topicName=params.topicName;
-        //       println "topic name->>>>>>>>>>>>>>>>>>>>"+co.description;
-        co.visibility = 'PUBLIC'
+        co.visibility = Visibility.PUBLIC.toString()
         List<Resource> resources = Resource.search(co).list()
 
-        map = [resources: resources]
+
+        List<Resource>readResources =    ReadingItem.findAllByUserAndIsRead(session.user,true)*.resource.intersect(resources)
+
+       List<Topic>subscriptionList=Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
+
+        println "list>>====================>>>>>readking item>>>>>>"+subscriptionList.name
+
+
+        map = [resources: resources,userId:resources.createdBy.id,topics:resources.topic,readResources:readResources,subscriptionList:subscriptionList]
         Closure closure = { map }
         renderAsJSON(closure)
     }
@@ -46,10 +53,20 @@ class ResourceController extends UtilController {
 
     def show(long id) {
         Resource_Rating resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id), session.user);
-        Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(session.user)
 
+        Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(session.user)
         int score;
+        println "asssssssss-----------------------------sssss"+session.user
         if (!resource_rating?.score) {
+            resource_rating=new Resource_Rating(resource:Resource.get(id),user:session.user,score:2)
+            resource_rating.save(flush:true)
+            println("res <>>>> "+resource_rating.properties)
+            println("Eroors "+resource_rating.errors)
+
+          //  println(" >>> "+Resource_Rating.get(1).properties)
+
+//            resource_rating.save(flush:true,failOnError:true)
+
             score = 2;
         } else
             score = resource_rating?.score
@@ -59,7 +76,7 @@ class ResourceController extends UtilController {
 //        trendingTopics.each{
 //            concatTopic.add (new TopicVO(id:${it.id},name:${it.name},createdBy:${it.createdBy},countSubscription:${it.countSubscription},countPost:${it.countPost}))
 //        }
-        render view: "/post/post", model: [trendingTopicsList: trendingTopics, score: score, resource: resource_rating?.resource, totalSubscription: totalResourceAndSubscription.totalSubscription, totalTopics: totalResourceAndSubscription.totalTopic, totalPost: totalResourceAndSubscription.totalPost]
+        render view: "/post/post", model: [trendingTopicsList: trendingTopics, score: score, resource: resource_rating?.resource, totalSubscription: totalResourceAndSubscription.totalSubscription, totalTopics: totalResourceAndSubscription.totalTopic, totalPost: totalResourceAndSubscription.totalPost,SubscribedTopicList:User.getSubscribedTopic(session.email)]
 
     }
 
@@ -75,7 +92,7 @@ class ResourceController extends UtilController {
         if (resource.validate()) {
             Thread.sleep(1000)
             resource.save(flush: true)
-            flash.message = "Link Resource is Created with ${url}"
+            flash.message = "Link Resource is Successfully Created "
 
             //render view:"/linkSharing/dashboard"
 
@@ -96,22 +113,19 @@ class ResourceController extends UtilController {
         File resourceDocument = new File(filePath)
         inputDocument.transferTo(resourceDocument)
         User createdBy = session.user
-
+        Thread.sleep(1000);
         Resource resource = new Document_Resource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
         if (resource.validate()) {
-            flash.message = "File is Successfully Uploaded"
+
             resource.save(flush:true)
             ResourceController.addToReadingItems(resource)
+            flash.message = "File is Successfully Uploaded"
         } else {
-            flash.message = "Resource could not be saved"
+            flash.message = "Document is not Uploaded due to Some Error"
         }
-        //redirect(controller: "linkSharing", action: "dashboard")
         Map map = [message: flash.message]
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
-
-
-
 
     }
     protected static addToReadingItems(Resource resource)

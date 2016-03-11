@@ -4,6 +4,7 @@ class LinkSharingTagLib {
 static namespace = "ls"
     def showSubscribe = { attr, body ->
         User loggedInUser = User.findByEmail(session.email)
+        println("attr.topicId >>> "+attr.topicId)
         (loggedInUser?.isSubscribed(attr.topicId)) ? out << g.link(controller: "subscription", action: "delete", id: "${attr.topicId}", "Unsubscribe") : out << g.link(controller: "subscription", action: "save",id: "${attr.topicId}", "Subscribe")
     }
     def isRead = { attr, body ->
@@ -23,7 +24,7 @@ static namespace = "ls"
         }
     }
     def userImage = { attr, body ->
-        out << "<img class='${attr.imageType}' alt='User Image' src='${createLink(controller: "user", action: "renderFromDirectory", id: "${attr.userId}")}' width=100 height=100 >"
+        out << "<img class='${attr.imageType}' alt='User Image' src='${createLink(controller: "user", action: "renderFromDirectory", id: "${attr.userId}")}' width=128 height=128 >"
     }
 
 

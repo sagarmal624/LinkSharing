@@ -49,7 +49,7 @@ abstract class Resource {
                           ilike("name","%${co.description}%")
                           eq("visibility",co.visibility)
                          }
-                      ilike("description","%${co.description}%")
+                       ilike("description","%${co.description}%")
 
                   }
 
@@ -90,7 +90,6 @@ abstract class Resource {
                 avg('score','avgScore')
             }
             'resource'{
-
                 property('createdBy')
                 'topic'{property('name')}
                 property('description')

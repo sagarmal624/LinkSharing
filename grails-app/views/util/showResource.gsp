@@ -51,12 +51,14 @@
                     <li class="dropdown notifications-menu">
                         <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
                             <div class="input-group">
-                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
+                                <input id="searchtxt" type="text" onkeyup="topic(this.value)"
+                                       onfocus="topic(this.value)" name="searchtxt"
                                        class="col-md-12 form-control" placeholder="Search topics..."/>
 
                                 <div class="input-group-btn ">
 
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    <button class="btn btn-default" type="submit"><i
+                                            class="glyphicon glyphicon-search"></i></button>
                                 </div>
 
                             </div>
@@ -207,7 +209,7 @@
                             <!-- User image -->
                             <li class="user-header">
                                 %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
-                            <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+                                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
                                     ${session.username}- Web Developer Trainee
@@ -389,24 +391,23 @@
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicDetails?.id])}">${topicDetails?.name}(${topicDetails?.visibility})</a>
-
+                                        <a href="${createLink(controller: "linkSharing", action: "showResource", params: [id: topicDetails?.id])}">${topicDetails?.name}(${topicDetails?.visibility})</a>
 
 
                                         <span class="row">
 
-                                        <span class="text-info col-lg-4">
-                                            @${topicDetails?.createdBy}
-                                        </span>
-                                        <span class="text-info  col-lg-4">
+                                            <span class="text-info col-lg-4">
+                                                @${topicDetails?.createdBy}
+                                            </span>
+                                            <span class="text-info  col-lg-4">
 
-                                            Subscription
-                                        </span>
-                                        <span class="text-info col-lg-4">
+                                                Subscription
+                                            </span>
+                                            <span class="text-info col-lg-4">
 
-                                            Post
+                                                Post
+                                            </span>
                                         </span>
-                                    </span>
 
                                 </p>
 
@@ -415,7 +416,7 @@
                                     <div class="row">
                                         <span class="col-lg-4">
 
-                                            <g:if test="${session.email!=topicDetails?.createdBy?.email}">
+                                            <g:if test="${session.email != topicDetails?.createdBy?.email}">
                                                 <ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>
                                             </g:if>
 
@@ -439,25 +440,26 @@
                                                 <select id="seriousnessID" class="form-control"
                                                         onchange="resourceSeriousness(this.value)">
 
-                                                <g:if test="${topicDetails?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
+                                                    <g:if test="${topicDetails?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
 
-                                                    <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
-                                                    <option>${Enums.Seriousness.SERIOUS}</option>
-                                                    <option>${Enums.Seriousness.CASUAL}</option>
-                                                </g:if>
-                                                <g:elseif test="${topicDetails?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
+                                                        <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:if>
+                                                    <g:elseif
+                                                            test="${topicDetails?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
 
-                                                    <option> ${Enums.Seriousness.VERY_SERIOUS}</option>
-                                                    <option selected>${Enums.Seriousness.SERIOUS}</option>
-                                                    <option>${Enums.Seriousness.CASUAL}</option>
-                                                </g:elseif>
-                                                <g:elseif test="${topicDetails?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
+                                                        <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:elseif>
+                                                    <g:elseif
+                                                            test="${topicDetails?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
 
-                                                    <option>${Enums.Seriousness.VERY_SERIOUS}</option>
-                                                    <option>${Enums.Seriousness.SERIOUS}</option>
-                                                    <option selected>${Enums.Seriousness.CASUAL}</option>
-                                                </g:elseif>
-
+                                                        <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:elseif>
 
                                                 </select>
                                             </div>
@@ -565,25 +567,24 @@
                             <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search"
                                   style="padding-left:30px">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" onkeyup="searchResourceAndTopic(this.value)"  placeholder="Search" id="searchposts"/>
+                                    <input type="text" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
+                                           placeholder="Search" id="searchposts"/>
 
                                     <div class="input-group-btn ">
                                         %{--<button class="btn btn-default" type="submit"><i--}%
-                                                %{--class="glyphicon glyphicon-search"></i></button>--}%
+                                        %{--class="glyphicon glyphicon-search"></i></button>--}%
                                     </div>
 
                                 </div>
 
                             </form>
                             <ul class="dropdown-menu">
-                          <li>
-                         <div class="box-body chat" id="chat-box" name="postsbox">
+                                <li>
+                                    <div class="box-body chat" id="chat-box" name="postsbox">
 
-
-
-                        </div>
-                         </li>
-                          </ul>
+                                    </div>
+                                </li>
+                            </ul>
                         </div> <!-- /.chat -->
 
                     </div>
@@ -773,7 +774,7 @@
                         </label>
                     </div>
                     <!-- /.form-group -->
-
+                    %{--<img src='../../../../../userImageFolder'/>--}%
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Turn off notifications
@@ -794,6 +795,7 @@
             <!-- /.tab-pane -->
         </div>
     </aside>
+
     <div class="control-sidebar-bg"></div>
 </div>
 <script src="${resource(dir: 'plugins/jQuery/', file: 'jQuery-2.2.0.min.js')}"></script>
@@ -833,10 +835,12 @@
         <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ ${topicDetails?.createdBy.id} +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness" onSuccess="seriousnessResponse(data,textStatus)"/>
         %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
 
-    };
+    }
+    ;
 
 
     function seriousnessResponse(data, textStatus) {
+
         if (data) {
             if (data.message != "Seriousness is not updated")
                 $("#spanmsg").addClass("alert alert-success")
@@ -853,7 +857,8 @@
             }, 3000);
             //obj);
         }
-    };
+    }
+    ;
 
 </script>
 
@@ -863,81 +868,113 @@
 <g:render template="../templates/resource/search"/>
 <script type="text/javascript">
 
-    var searchResourceAndTopic=function searchPost(description) {
+    var searchResourceAndTopic = function searchPost(description) {
         console.log(description);
         <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchPostResponse(data,textStatus)"/>
     };
 
-
+    var isEqualToJson = function (a, b) {
+        function check(a, b) {
+            for (var attr in a) {
+                if (a.hasOwnProperty(attr) && b.hasOwnProperty(attr)) {
+                    if (a[attr] != b[attr]) {
+                        switch (a[attr].constructor) {
+                            case Object:
+                                return isEqualToJson(a[attr], b[attr]);
+                            case Function:
+                                if (a[attr].toString() != b[attr].toString()) {
+                                    return false;
+                                }
+                                break;
+                            default:
+                                return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        };
+        return check(a, b) && check(b, a);
+    };
 
     function searchPostResponse(data, textStatus) {
+        console.log("DATA >>> " + data)
+
         if (data) {
 
             var obj = eval(data.resources);
-            $("#searchposts").addClass("dropdown-toggle");
-            $("#searchposts").attr("data-toggle", "dropdown");
-            $('[name="postsbox"]').empty();
+            var rtype = eval(data.resourceType);
 
-            if(data.resources=="")
-            {
+            var readResources = eval(data.readResources);
+
+            var subscriptionList = eval(data.subscriptionList);
+            console.log("subscription list----item->" + data.subscriptionList[0]);
+            console.log("subscription list----item-ss>" + subscriptionList.name);
+
+            $('[name="postsbox"]').empty();
+            if (data.resources == "") {
                 $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not found</span>");
 
             }
+            var flag;
+            var markAsRead;
+            var isSubscribed;
             $.each(obj, function (key, value) {
-//                $('[name="postsbox"]').empty();
+                markAsRead = "<u><a href='${createLink(controller: 'readingItem', action: 'changeIsRead')}?id=" + value.id + "&isRead=true'>Mark as Read</a></u>&nbsp;&nbsp;"
+                $.each(readResources, function (key1, value1) {
+                    console.log(">>>>>>>>>>" + value1);
+                    if (isEqualToJson(value, value1)) {
+                        markAsRead = "<u><a href='${createLink(controller: 'readingItem', action: 'changeIsRead')}?id=" + value.id + "&isRead=false'>Mark as Unread</a></u>&nbsp;&nbsp;"
+                        return false;
+                    }
 
-                // $('[name="postsbox"]').text(obj.length+" Matching Records are Found");
-                console.log(key + ": " + value.description);
+                })
+                if (value.url)
+                    flag = "<a href=" + value.url + " target='_blank'><u>View Full Site</u></a>"
+                else
+                    flag = "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id=" + value.id + "'>Donwload</a></u>&nbsp;&nbsp;"
+
+
                 $('[name="postsbox"]').append(
                         "<li>" +
 
-                        "<div class='item'>"+
-                        "<img src='../dist/img/user8-128x128.jpg' alt='user image' class='online'>"+
-                        "<p class='message'>"+
-                        "<a href='#' class='name'>"+
-                        "<small class='text-muted pull-right'><i class='fa fa-clock-o'></i> 2:15"+
-                        "</small>"+
-                        %{--"${topicDetails?.name}"+--}%
-                        "</a>"+
+                        "<div class='item' id='addhere'>" +
+                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
 
-                        "</p>"+
+                        "<p class='message'>" +
+                        "<a href='#' class='name'>" +
+                        "<small class='text-muted pull-right'><i class='fa fa-clock-o'></i> 2:15" +
+                        "</small>" +
+                        "</a>" +
 
-                        "<div class='attachment'>"+
+                        "</p>" +
 
-                        "<span class='text-justify'>"+
-                         value.description +
-                        "</span>"+
-                        "<br>"+
+                        "<div class='attachment'>" +
 
-                        "<img src='../dist/img/facebook.png'/>"+
-                        "<img src='../dist/img/twtr.png'/>"+
-                        "<img src='../dist/img/google.png'/> &nbsp;&nbsp;"+
-                        "<u><"+"ls:"+"isRead resource="+value.id+"/></u>&nbsp;&nbsp;"+
+                        "<span class='text-justify'>" +
+                        value.description +
+                        "</span>" +
+                        "<br>" +
 
-                        "<g"+":"+"if test=$"+"{'session.email=="+value.createdBy.email+"}>"+
-                        "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;"+
+                        "<img src='../dist/img/facebook.png'/>" +
+                        "<img src='../dist/img/twtr.png'/>" +
+                        "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
+                        markAsRead +
+                        "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;" +
+                        flag + "&nbsp;&nbsp;" +
 
-                        "</g"+":"+"if>"+
-                  "<g"+":"+"if test=$"+"{"+"("+value+"instanceof com.intelligrape.linksharing.Link_Resource)}'>"+
-                        "<a href="+value.url+" target='_blank'><u>View Full Site</u></a>"+
-                "&nbsp;&nbsp;"+
-                "</g"+":"+"if>"+
-                "<g"+":"+"else>"+
-//                "<a href='#' target='_blank'><u>Download</u></a>&nbsp;&nbsp;"+
-                        "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id="+value.id+"'>Donwload</a></u>&nbsp;&nbsp;" +
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
 
-                        "</g"+":"+"else>"+
-//                "<a href='#'><u>View Post</u></a>&nbsp;&nbsp;"+
-                        %{--<a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:value.id])}">View Post</a>--}%
-                        "<u><a href='${createLink(controller:'resource',action:'show')}?id="+value.id+  "'>View Post</a></u>" +
-                        " </div>"+
-                "</div>"+
-                "<li>"
-            )});
+                        " </div>" +
+                        "</div>" +
+                        "<li>"
+                )
+            });
 
         }
-        else
-        {
+        else {
             $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not fond</span>");
 
         }

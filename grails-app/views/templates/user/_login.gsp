@@ -9,7 +9,7 @@
             <div class="col-sm-8">
 
                 <div class="panel panel-default" >
-                    <div class="panel-heading" >Recent Shares</div>
+                        <div class="panel-heading" >Recent Shares</div>
                     <div class="panel-body">
 
      %{--<ls:recentshares></ls:recentshares>--}%
@@ -29,7 +29,10 @@
                                         <div class="col-lg-3">@ ${recentTopic[3].createdBy}</div>
                                         <div class="col-lg-2"> 5min</div>
                                         <div class="col-lg-3">
-                                            <span style="color:blue">${recentTopic[3].name}</span>
+                                            %{--<span style="color:blue">${recentTopic[3].name}</span>--}%
+                                            %{--<a href='${createLink(controller:"linkSharing",action:"showResource",id: "?id=${recentTopic[0]}")}'></a>--}%
+                                            <a href="${createLink(controller:"linkSharing",action:"showResource")}?id=${recentTopic[0]}">${recentTopic[3].name}</a>
+
                                         </div>
                                     </div>
 
@@ -51,7 +54,14 @@
                                              %{--recentTopic[0]--}%
                                             %{--<g:if test="${recentTopic[0]}">--}%
                                              %{--//   <a href="${recentTopic[0]}"><u>View Post</u></a>--}%
-                                             <a href="${createLink(controller:"resource",action:"show")}?="+${recentTopic[0]}>View Post</a>
+                                             %{--<g:set var="id" value="${[id:recentTopic[0]]}"></g:set>--}%
+                                              %{--${recentTopic[0]}--}%
+                                             %{--${recentTopic[0]}--}%
+                                             %{--${recentTopic[0]}--}%
+                                             %{--<a href="${createLink(controller:"resource",action:"show",id:"${recentTopic[0]}")}">View Post</a>--}%
+                                             <a href="${createLink(controller:"resource",action:"show")}?id=${recentTopic[0]}">View Post</a>
+
+                                             %{--<a href="${createLink(controller:"resource",action:"show",params:"${[id:recentTopic[0]]}" )}">View Post</a>--}%
 
                                              %{--</g:if>--}%
                                             %{--<g:else>--}%

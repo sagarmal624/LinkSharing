@@ -1,6 +1,6 @@
-<%@ page import="java.nio.file.Files" %>
 <g:each var="post" in="${topPostResource}">
-    <div class="row" style="border-bottom: 1px solid gray;padding-top: 10px;padding-bottom: 10px">
+
+<div class="row" style="border-bottom: 1px solid gray;padding-top: 10px;padding-bottom: 10px">
         <div class="col-lg-2">
             <span>
                 <asset:image src="1.png"  style="border:1px solid"></asset:image>
@@ -14,7 +14,8 @@
                 <div class="col-lg-3">@ ${post?.createdBy} </div>
                 <div class="col-lg-2"> 5min</div>
                 <div class="col-lg-3">
-                    <span style="color:blue">${post?.topicname}</span>
+                    <span style="color:blue">  <a href="${createLink(controller:"linkSharing",action:"showResource")}?id=${post?.id}">${post?.topicname}</a>
+                    </span>
                 </div>
             </div>
             ${post?.description}
@@ -25,18 +26,7 @@
                     <asset:image src="google.png"></asset:image>
                 </div>
                 <div class="col-lg-3">
-
-                    %{--<g:if test="${post?.url}">--}%
-                        %{--<a href="${post?.url}"><u>View Full Site</u></a>--}%
-                    %{--${post?.id}--}%
-                  <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:post?.id])}">View Post</a>
-                    %{--</g:if>--}%
-                    %{--<g:else>--}%
-                        %{--<a href="${post?.filepath}"><u>Download</u></a>--}%
-                    %{--</g:else>--}%
-                    %{----}%
-                    %{--<a href="${post?.url}"><u>View Post</u></a>--}%
-
+                    <a href="${createLink(controller:"resource",action:"show")}?id=${post?.id}">View Post</a>
                 </div>
             </div>
         </div>

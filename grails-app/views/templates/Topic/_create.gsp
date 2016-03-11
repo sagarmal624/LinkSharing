@@ -3,10 +3,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div id="alertmsg" class="hidden"><span id="spanmsg"></span></div>
+                <div id="alertmsg4" class="hidden"><span id="spanmsg4"></span></div>
                 <button id="closetopic"type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="addContactModalLabel">Create Topic</h4>
-                <div id="loaderId" style="display: none" %{--class="loader pull-left hidden"--}%>
+                <div id="loaderId4" style="display: none">
                     <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
                 </div>
             </div>
@@ -50,14 +50,10 @@
 
 </div>
 <script type="text/javascript">
-      $( document ).ajaxStart(function() {
-        $("#loaderId").show()
-    });
-    $( document ).ajaxStop(function() {
-        $("#loaderId").hide()
-    });
     $("#ajaxform").submit(function(e)
     {
+        $("#loaderId").show()
+
         var postData = $(this).serializeArray();
         var formURL = "${g.createLink(action:"save",controller:"topic" )}";
         $.ajax(
@@ -67,26 +63,30 @@
                     data : postData,
                     success:function(data, textStatus, jqXHR)
                     {
-                        if(data.message!="This Topic name is already Exist!.Please Change Topic Name!")
-                        $("#spanmsg").addClass("alert alert-success")
-                       else
-                            $("#spanmsg").addClass("alert alert-danger")
+                        if(data.message!="This Topic name is already Exist!.Please Change Topic Name!") {
+                            $("#spanmsg4").addClass("alert alert-success")
+                            $("#loaderId4").hide();
+                        }
+                        else
+                            $("#spanmsg4").addClass("alert alert-danger")
 
-                        $("#spanmsg").text(data.message)
+                        $("#spanmsg4").text(data.message)
 
-                        $("#alertmsg").toggleClass('hidden');
+                        $("#alertmsg4").toggleClass('hidden');
                         $("#ajaxform")[0].reset();
-                        setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                        setTimeout(function(){$("#alertmsg4").toggleClass('hidden');$("#spanmsg4").removeClass("alert alert-success")}, 3000);
 
                     },
                     dataType: 'json',
                     error: function(jqXHR, textStatus, errorThrown)
                     {
-                        $("#spanmsg").addClass("alert alert-danger")
-                        $("#spanmsg").text(data.message);
-                        $("#alertmsg").toggleClass('hidden');
+                        $("#loaderId").hide();
+
+                        $("#spanmsg4").addClass("alert alert-danger")
+                        $("#spanmsg4").text(data.message);
+                        $("#alertmsg4").toggleClass('hidden');
                         $("#ajaxform")[0].reset()
-                        setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                        setTimeout(function(){$("#alertmsg4").toggleClass('hidden');$("#spanmsg4").removeClass("alert alert-success")}, 3000);
 
                     }
 

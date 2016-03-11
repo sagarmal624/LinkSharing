@@ -75,4 +75,5 @@ class User {
      return [totalSubscription:totalSubscription,totalTopic:totalTopic,totalPost:totalPost]
 
     }
+
 }

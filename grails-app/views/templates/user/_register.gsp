@@ -25,7 +25,8 @@
 </div>
 </div>
 <div class="panel-body" id="toppostbox">
-    <g:render template="/templates/user/topPost" var="toppost" collection="${topPostResource}"/>
+    <g:render template="/templates/user/topPost" model="[topPostResource:topPostResource]"/>
+
 </div>
 </div>
 </div>
@@ -217,7 +218,11 @@
                         " <div class='col-lg-3'>@"+ value.createdBy+ "</div>"+
                         "<div class='col-lg-2'> 5min</div>"+
                         "<div class='col-lg-3'>"+
-                        "    <span style='color:blue'>"+value.topicname+"</span>"+
+                        "    <span style='color:blue'>"+
+                        "<a href='${createLink(controller:'linkSharing',action:'showResource')}?id="+value.id+"' class='col-lg-offset-6'>"
+                        +value.topicname+
+                       "</a>"+
+                        "</span>"+
                         "</div>"+
                         "   </div>"+
                         value.description+
@@ -228,7 +233,9 @@
                         "<img src='${resource(dir:'images',file:'google.png')}'>"+
 //                        value.id+
                         "<a href='${createLink(controller:'resource',action:'show')}?id="+value.id+"' class='col-lg-offset-6'>" +
-                         "View Post</a>"+
+                        %{--"<a href='${createLink(controller:'resource',action:'show')}?id='post?.id'>View Post</a>--}%
+
+                "View Post</a>"+
                         "</div>"+
                 "<div class='col-lg-3'>"+
 
