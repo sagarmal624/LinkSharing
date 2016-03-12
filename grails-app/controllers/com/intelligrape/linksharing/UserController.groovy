@@ -30,10 +30,31 @@ class UserController extends UtilController {
 
     }
 
+    def sendinvitation(String emailto, String topicname) {
+        List<String> to = [params.emailto];
+        String subject="Invitation to Join Topic on LinkSharing"
+        String message="<p>On behalf of To The New Digital Enterprise, it is my pleasure to extend the invitation to join our" +
+                " new topic <h2><a href='#'>${params.topicname}</a><h2>"+
+                "</p>"
+        boolean flag = MailSender.sendMail("sagarmal624@gmail.com", "ubprpuraifiykixj",subject, to,message);
+        if (flag)
+            flash.message = "Mail is sent Successfully"
+        else
+            flash.message = "Error During Mail Sending!"
+
+        Map map = [message: flash.message]
+        println "-------------------map==" + map;
+        groovy.lang.Closure closure = { map }
+        renderAsJSON(closure)
+
+    }
+
     def sendMail() {
         List<String> to = [params.emailto];
         boolean flag = MailSender.sendMail("sagarmal624@gmail.com", "ubprpuraifiykixj", params.subject, to, params.message);
-        if (flag) flash.message = "Mail is sent Successfully" else flash.error = "Error During Mail Sending!"
+        if (flag) flash.message = "Mail is sent Successfully"
+        else
+            flash.error = "Error During Mail Sending!"
         render view: "/linkSharing/dashboard"
 
     }
@@ -41,7 +62,9 @@ class UserController extends UtilController {
     def sendAttechMail() {
         List<String> to = [params.emailto];
         boolean flag = MailSender.sendAttechedMail("sagarmal624@gmail.com", "ubprpuraifiykixj", params.subject, to);
-        if (flag) flash.message = "Mail is sent Successfully" else flash.error = "Error During Mail Sending!"
+        if (flag) flash.message = "Mail is sent Successfully"
+        else
+            flash.error = "Error During Mail Sending!"
         render view: "/mailbox/mailbox"
     }
 
@@ -49,50 +72,49 @@ class UserController extends UtilController {
 //        MultipartFile multipartFile = params.photo
 //        println("->>>>>file uploadinggggggg>>>>>>>>>>>>>>>>"+multipartFile?.originalFilename)
         //User user = new User(co.properties)
-  //      user.properties = params;
+        //      user.properties = params;
         String message = "This Email-id or Username Already Exits!"
-       // println "flash---------------------"+user.properties
-
+        // println "flash---------------------"+user.properties
 
 
         MultipartFile inputImage = params.photo
         String extention = inputImage.originalFilename.tokenize(".")?.last()
-        String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention?".${extention}":""}"
+        String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention ? ".${extention}" : ""}"
         File userImage = new File(filePath)
         inputImage.transferTo(userImage)
         params.imagePath = userImage.absolutePath
         User user = new User(params)
 
-        println "flash---------------------"+user.validate();
+        println "flash---------------------" + user.validate();
         //user.save(flush: true,failOnError:true);
-        if (user){
+        if (user) {
             if (user.validate()) {
-                message="Record is Successfully Saved!"
+                message = "Record is Successfully Saved!"
                 //Thread.sleep(500)
-                user.save(flush:true)
-                session.username =User.findByEmail(user.email).name;
+                user.save(flush: true)
+                session.username = User.findByEmail(user.email).name;
                 session.email = user.email;
-                session.user=user;
-                forward(action:"dashboard",controller:"linkSharing");
+                session.user = user;
+                forward(action: "dashboard", controller: "linkSharing");
             }
-        }else {
+        } else {
 
-            Map map =[message:message]
-            println "-------------------map=="+map;
+            Map map = [message: message]
+            println "-------------------map==" + map;
             groovy.lang.Closure closure = { map }
             renderAsJSON(closure)
 
         }
 
     }
-    def update()
-    {
-        User user=User.findByEmail(session.email)
+
+    def update() {
+        User user = User.findByEmail(session.email)
         MultipartFile inputImage = params.photo
 
-        println"as photooasa--99---------asxa------" +inputImage.originalFilename
+        println "as photooasa--99---------asxa------" + inputImage.originalFilename
 
-        if(inputImage.originalFilename) {
+        if (inputImage.originalFilename) {
 
             String extention = inputImage.originalFilename.tokenize(".")?.last()
 
@@ -100,25 +122,25 @@ class UserController extends UtilController {
             File userImage = new File(filePath)
             inputImage.transferTo(userImage)
             params.imagePath = userImage.absolutePath
-            user.imagePath=params.imagePath
+            user.imagePath = params.imagePath
 
         }
-        user.firstname=params.firstname;
-        user.lastname=params.lastname;
-        user.confirmPassword=user.password
-        if(user.save(flush:true,failOnError:true))
-        {
-            flash.message="Record is Successfully updated"
-            session.user=user;
-            session.username=user.name
-        }else
-            flash.error="Record is not updated due to some validation"
-          forward(action: "accountSetting",controller:"linkSharing" )
+        user.firstname = params.firstname;
+        user.lastname = params.lastname;
+        user.confirmPassword = user.password
+        if (user.save(flush: true, failOnError: true)) {
+            flash.message = "Record is Successfully updated"
+            session.user = user;
+            session.username = user.name
+        } else
+            flash.error = "Record is not updated due to some validation"
+        forward(action: "accountSetting", controller: "linkSharing")
 
     }
-    def updatePassword(){
-        User user=User.findByEmail(params.email)
-        if(user) {
+
+    def updatePassword() {
+        User user = User.findByEmail(params.email)
+        if (user) {
             if (params.password) {
                 user.password = params.password
                 user.confirmPassword = params.confirmPassword;
@@ -127,22 +149,21 @@ class UserController extends UtilController {
                 else
                     flash.error1 = "Record is not updated due to some validation"
             }
-        }else
-        {
+        } else {
             flash.error1 = "Account not found"
 
         }
-        forward(action: "accountSetting",controller:"linkSharing" )
+        forward(action: "accountSetting", controller: "linkSharing")
 
 
     }
-    def renderFromDirectory(long id)
-    {
+
+    def renderFromDirectory(long id) {
         User user = User.read(id)
         String filePath = user.imagePath
         File file = new File(filePath)
         byte[] imageBytes = file.bytes
-        response.setHeader("Content-length",imageBytes.length.toString())
+        response.setHeader("Content-length", imageBytes.length.toString())
         response.outputStream << imageBytes
         response.outputStream.flush()
     }
@@ -153,17 +174,18 @@ class UserController extends UtilController {
         List<User> users = User.list(params)
         render([view: "../tables/data", model: [userCount: User.count(), users: users]])
     }
-  def finduser(String mailidOrUname)
-  {   flash.message="User is not found"
-      User user=User.findByEmailOrUsername(mailidOrUname,mailidOrUname)
-       if(user) {
-           flash.message = "EmailId or UserName Already Exist"
-       }
 
-      Map map =[message:flash.message]
-      println "-------------------map=="+map;
-      groovy.lang.Closure closure = { map }
-      renderAsJSON(closure)
+    def finduser(String mailidOrUname) {
+        flash.message = "User is not found"
+        User user = User.findByEmailOrUsername(mailidOrUname, mailidOrUname)
+        if (user) {
+            flash.message = "EmailId or UserName Already Exist"
+        }
 
-  }
+        Map map = [message: flash.message]
+        println "-------------------map==" + map;
+        groovy.lang.Closure closure = { map }
+        renderAsJSON(closure)
+
+    }
 }

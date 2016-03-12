@@ -15,7 +15,7 @@
                             </div>
 
                             <div class="col-lg-8">
-                                <input type="file" class="form-control offset-5" id="url" name="document"
+                                <input required="true" type="file" class="form-control offset-5" id="url" name="document"
                                        placeholder="Enter URL">
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="col-lg-8">
-                                <textarea class="form-control" cols="15" name="description"></textarea>
+                                <textarea required="true" class="form-control" cols="15" name="description"></textarea>
                             </div>
                         </div>
                         <br><br><br>
@@ -39,7 +39,7 @@
 
                             <div class="col-lg-8">
 
-                            <g:select name="topic" from="${SubscribedTopicList}" class="form-control"/>
+                            <g:select name="topic" required="" from="${SubscribedTopicList}" class="form-control"/>
 
                         </div>
                         <br><br>

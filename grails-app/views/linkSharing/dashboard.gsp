@@ -330,7 +330,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
                         <i class="fa fa-folder"></i> <span>User Profile</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -438,6 +438,9 @@
                             <i class="fa fa-comments-o"></i>
 
                             <h3 class="box-title">Subscriptions</h3>
+                            <g:if test="${flash.error}">
+                                <span class="alert alert-danger">${flash.error}</span>
+                            </g:if>
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                                 <div class="btn-group" data-toggle="btn-toggle">
@@ -455,7 +458,7 @@
                             <div class="item">
                                 <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
-                                %{--<img src="../../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+
                                 <ls:userImage userId="${topicVo?.createdBy?.id}" imageType="online"/>
 
                                 <p class="message">
@@ -482,6 +485,8 @@
 
                                 </p>
 
+
+
                                 <div class="attachment">
 
                                     <div class="row">
@@ -500,6 +505,19 @@
                                         </span>
 
                                     </div>
+                                    <br>
+                                    <div class="row" id="updateTopic">
+                                        <form>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <input type="submit" class="btn btn-success" value="Save">
+                                        </div>
+                                        </form>
+                                    </div>
+
                                     <br>
 
                                     <div class="row">
@@ -561,18 +579,24 @@
 
                                         <div class="col-lg-4">
                                             <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope"
-                                                      style="font-size:25px"></span>
+                                                <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                                                   data-toggle="dropdown">
+                                                    <span class="glyphicon glyphicon-envelope"
+                                                          style="font-size:25px"></span>
+
+                                                </a>
                                             </div>
 
                                             <div class="col-lg-4">
 
-                                                <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                <a href="#" id="updateTopicName"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                            </a>
                                             </div>
 
                                             <div class="col-lg-4">
-
-                                                <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
+                                               %{--<ls:deleteTopic topicId="${topicVo.id}"></ls:deleteTopic>--}%
+                                            <a href="" onclick="deleteTopic(${topicVo.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
+                                            </a>
                                             </div>
                                         </div>
 
@@ -1025,7 +1049,19 @@
             $("#alertmsg").toggleClass('hidden');
 
             setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
-            //obj);
+        }
+
+    };
+
+
+    function deleteTopic(id){
+        <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
+
+    };
+
+    function deleteTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
         }
 
     };
@@ -1036,7 +1072,17 @@
 <g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#updateTopic").hide();
+        $("#updateTopicName").click(function(){
 
+            $("#updateTopic").show();
+
+        });
+
+    });
+</script>
 </body>
 </html>
 

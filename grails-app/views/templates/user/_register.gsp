@@ -108,7 +108,8 @@
                 <!-- /.col -->
             </div>
         </g:form>
-<br><br>
+<a href="#pricingWrap" class="text-center">I already have a membership</a>
+    <br>
         <div class="col-lg-8">
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"
         size="large">Sign up using
@@ -117,11 +118,13 @@
 
         <div id="status"></div>
 
-        <a href="#pricingWrap" class="text-center">I already have a membership</a>
 
     </div>
     </div>
+
     </div>
+
+
 </div>
 
 
@@ -213,9 +216,9 @@
                         "<div class='col-lg-10'>"+
                         "<div class='row'>"+
                         "<div class='col-lg-4'>"+
-                        value.createdBy+
-                        "</div>"+
-                        " <div class='col-lg-3'>@"+ value.createdBy+ "</div>"+
+                        value.username+
+                "</div>"+
+                        " <div class='col-lg-3'>@"+ value.uname+ "</div>"+
                         "<div class='col-lg-2'> 5min</div>"+
                         "<div class='col-lg-3'>"+
                         "    <span style='color:blue'>"+

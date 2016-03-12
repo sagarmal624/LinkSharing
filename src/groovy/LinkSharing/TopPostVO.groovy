@@ -11,7 +11,11 @@ class TopPostVO {
    String description;
     String url;
     String filepath;
-    long id;
+    String username;
+    String uname;
+    long userid
+
+     long id;
 
 
 }

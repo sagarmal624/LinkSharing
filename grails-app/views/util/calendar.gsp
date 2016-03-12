@@ -213,10 +213,11 @@
                 <div class="pull-left">
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
-                <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"index")}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
+              <div class="pull-right">
+                <a href="${createLink(controller: "login", action: "logout")}"
+                   class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
             </ul>
           </li>
         </ul>

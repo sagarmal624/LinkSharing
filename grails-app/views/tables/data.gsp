@@ -299,7 +299,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>

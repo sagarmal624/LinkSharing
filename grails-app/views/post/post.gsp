@@ -237,11 +237,11 @@
                                 <div class="pull-left">
                                     <a href="/linkSharing/profile" class="btn btn-default btn-flat">Profile</a>
                                 </div>
-
-                                <div class="pull-right">
-                                    <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
+                            <div class="pull-right">
+                                <a href="${createLink(controller: "login", action: "logout")}"
+                                   class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
@@ -327,7 +327,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="#${createLink(controller: 'linkSharing', action: 'profile')}>
                         <i class="fa fa-folder"></i> <span>User Profile</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -501,7 +501,7 @@
                                                     <g:if test="${session.email==topicVo?.createdBy?.email}">
 
                                                         <select class="form-control"
-                                                                onchange="changeVisibility(${trendingTopic.createdBy.id},'${trendingTopic.id}',this.value)">
+                                                                onchange="changeVisibility(${trendingTopic?.createdBy?.id},'${trendingTopic?.id}',this.value)">
                                                             <g:if test="${trendingTopic?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
 
                                                                 <option selected>${Enums.Visibility.PRIVATE}</option>
@@ -520,8 +520,12 @@
 
                                             <div class="col-lg-4">
                                                 <div class="col-lg-4">
-                                                    <span class="glyphicon glyphicon-envelope"
-                                                          style="font-size:25px"></span>
+                                                    <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                                                       data-toggle="dropdown">
+                                                        <span class="glyphicon glyphicon-envelope"
+                                                              style="font-size:25px"></span>
+
+                                                    </a>
                                                 </div>
 
                                                 <div class="col-lg-4">
@@ -532,8 +536,9 @@
 
                                                 <div class="col-lg-4">
 
-                                                    <span class="glyphicon glyphicon-trash"
-                                                          style="font-size:25px"></span>
+                                                    <a href="" onclick="deleteTopic(${trendingTopic?.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
+
+
                                                 </div>
                                             </div>
 
@@ -571,10 +576,10 @@
 
                         <div class="box-body chat" id="chat-box">
                             <!-- chat item -->
-                            <div class="item">
+                            <div class="item" id="startRatingdiv">
                                 %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online"/>--}%
-
-                                <ls:userImage userId="${resource?.createdBy?.id}" imageType="online"/>
+                                %{--imageType="img-circle"--}%
+                                <ls:userImage userId="${resource?.createdBy?.id}" imageType="img-circle"/>
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
@@ -603,15 +608,15 @@
                                     <img src="../dist/img/facebook.png"/>
                                     <img src="../dist/img/twtr.png"/>
                                     <img src="../dist/img/google.png"/> &nbsp;&nbsp;
-                                    <a href="#"><u>Delete</u></a>&nbsp;&nbsp;
+                                    <a href="#" onclick="deleteResource(${resource?.id})"><u>Delete</u></a>&nbsp;&nbsp;
+
                                     <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
-                                    <g:if test="${resource?.url}">
-                                        <a href="${resource?.url}"><u>View Full Site</u></a>
+                                    <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                                        <a href="${resource.url}"><u>View Full Site</u></a>
                                     </g:if>
                               <g:else>
                                   <a href="#"><u>Download</u></a>&nbsp;&nbsp;
- <u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id="+${resource?.id}+"'>Donwload</a></u>&nbsp;&nbsp;
-
+                                  <u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id="+${resource?.id}+"'>Donwload</a></u>&nbsp;&nbsp;
                               </g:else>
 
                                 </div>
@@ -1101,6 +1106,31 @@
 
             setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
             //obj);
+        }
+
+    };
+
+    function deleteTopic(id){
+        <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
+
+    };
+
+    function deleteTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+
+    };
+    function deleteResource(id){
+        <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
+
+    };
+
+    function deleteResourceResponse(data, textStatus){
+        if (data) {
+              //location.reload();
+            $("#startRatingdiv").hide();
+            console.log("status-----------"+textStatus)
         }
 
     };

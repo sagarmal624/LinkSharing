@@ -52,7 +52,7 @@
 <script type="text/javascript">
     $("#ajaxform").submit(function(e)
     {
-        $("#loaderId").show()
+        $("#loaderId4").show()
 
         var postData = $(this).serializeArray();
         var formURL = "${g.createLink(action:"save",controller:"topic" )}";

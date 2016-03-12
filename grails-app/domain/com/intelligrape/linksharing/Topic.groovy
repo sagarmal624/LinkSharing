@@ -18,7 +18,6 @@ class Topic {
     }
     static constraints = {
         name(nullable: false, blank: false, unique: true)
-//,validator:{ val, obj -> !(Topic.findAllById(createdBy).any(val))})
         dateCreated(nullable: true)
         lastUpdated(nullable: true)
         visibility(blank: false, nullable: false, inList: Visibility.values() as List)
@@ -35,9 +34,14 @@ class Topic {
     public static TopicVO getSubscribedTopicDetail(String topicname) {
         Topic topic = Topic.findByName(topicname)
         int countSubscriptions = Subscription.countByTopic(topic)
+
+        println"countin----------------------->"+countSubscriptions
         String seriousness = Subscription.findByTopic(topic)?.seriousness;
         int countPost = Resource.countByTopic(topic)
+
         Resource resource = Resource.findByTopic(topic)
+        println"countin----------------------->"+resource
+
         long resourceId
         if (resource)
             resourceId =resource?.id

@@ -18,9 +18,21 @@ class LinkSharingController {
     //TODO: Remove commented codes.
     //TODO: Remove println & use log.
     def showResource(long id) {
-        Map map= linkSharingService.fetchSearchData(params.long('id'))
-        render view: "/util/showResource", model: [SubscribedTopicList:loadTopic(),resources: map.resources, topicDetails: map.topicVO, topicusersDetails:map.topicList,isSubscribed:map.isSubscribed]
-    }
+
+            Map map = linkSharingService.fetchSearchData(params.long('id'))
+
+           flash.error="Resourc not found of this topic"
+        //    forward(action:"dashboard")
+
+        println "ssizefff========================="+map.topicVO
+
+
+
+        //else
+        render view: "/util/showResource", model: [SubscribedTopicList:loadTopic(),resources: map.resources, topicDetails: map.topicVO, topicusersDetails:map.topicList,isSubscribed:map.isSubscribed,resourceId:map.topicVO.resourceId]
+
+
+        }
 
     def dashboard() {
         println "===========================================load topics----------before--------"
@@ -57,20 +69,30 @@ class LinkSharingController {
     }
 
     def inbox() {
-        List<Topic>topics=User.getSubscribedTopic(session.email)
-        List <Resource> resources=[];
-        List<Resource>unreadResources=[];
-        topics.each {topic->
-            resources.add(Resource.findAllByTopic(topic))
+//        List<Topic>topics=User.getSubscribedTopic(session.email)
+//        List <Resource> resources=[];
+//        List<Resource>unreadResources=[];
+//        topics.each {topic->
+//            resources.add(Resource.findAllByTopic(topic))
+//        }
+//        resources.each {resource->
+//
+//            unreadResources.add(ReadingItem.findAllByUserAndIsRead(session.user,false)*.resource.intersect(resource))
+//        }
+//
+    List<Resource> unreadResources = ReadingItem.createCriteria().list([max: 3]) {
+            projections {
+                 property("resource")
+
+            }
+
+            eq("user", session.user)
+            eq("isRead", false)
+//            order("dateCreated", "desc")
         }
-        resources.each {resource->
 
-            unreadResources.add(ReadingItem.findAllByUserAndIsRead(session.user,false)*.resource.intersect(resource))
-
-        }
-
-
-        render view: "/mailbox/mailbox",model:[SubscribedTopicList:loadTopic(),unreadResources:unreadResources.flatten()]
+        //render(template: "/user/inbox", model: [unreadPosts: unreadPosts])
+        render view: "/mailbox/mailbox",model:[SubscribedTopicList:loadTopic(),unreadResources:unreadResources]
     }
 
     def calender() {
@@ -79,8 +101,14 @@ class LinkSharingController {
     }
 
     def profile() {
+        Map totalResourceAndSubscription=User.getTotalResourceAndSubscription(session.user)
+           List<TopicVO>userTopics=[]
+          User.findByEmail(session.email).topics.each{topic->
 
-        render view: "/UserProfileAndLockScreen/profile",model:[SubscribedTopicList:loadTopic()]
+              userTopics.add(new TopicVO(id:topic.id,seriousness:Subscription.findByTopic(topic)?.seriousness,visibility:topic.visibility , createdDate:topic.dateCreated ,name:topic.name,countPost:Resource.countByTopic(topic),countSubscription:Subscription.countByTopic(topic)))
+          }
+
+        render view: "/UserProfileAndLockScreen/profile",model:[SubscribedTopicList:loadTopic(),userTopics:userTopics,totalResourceAndSubscription:totalResourceAndSubscription]
     }
 
     def lockscreen() {
@@ -88,13 +116,14 @@ class LinkSharingController {
 
     }
 
-    def composemail() {
-        render view: "/mailbox/compose",model:[SubscribedTopicList:loadTopic()]
+    def composemail(int totalUnreadMail) {
+        render view: "/mailbox/compose",model:[SubscribedTopicList:loadTopic(),totalUnreadMail:totalUnreadMail]
 
     }
 
-    def readmail() {
-        render view: "/mailbox/read-mail"
+    def readmail(long id,int totalUnreadMail) {
+
+        render view: "/mailbox/read-mail",model:[resource:Resource.get(id),totalUnreadMail:totalUnreadMail]
     }
 
     def mainpage() {
@@ -104,4 +133,6 @@ class LinkSharingController {
     {
         return User.getSubscribedTopic(session?.email)
     }
+
+
 }

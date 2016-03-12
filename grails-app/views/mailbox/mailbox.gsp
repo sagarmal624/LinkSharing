@@ -6,27 +6,23 @@
   <title>LinkSharing |Inbox</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  %{--<!-- Bootstrap 3.3.5 -->--}%
-  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  %{--<!-- fullCalendar 2.2.5-->--}%
-  <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.min.css">
-  <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  %{--<!-- AdminLTE Skins. Choose a skin from the css/skins--}%
-  %{--folder instead of downloading all of them to reduce the load. -->--}%
-  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
-  %{--<!-- iCheck -->--}%
-  <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
-  %{--<!-- bootstrap wysihtml5 - text editor -->--}%
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
   </script>
 
@@ -176,7 +172,8 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="${createLink(controller: "login", action: "logout")}"
+                     class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -249,19 +246,17 @@
           </a>
         </li>
         <li class="treeview active">
-          <a href="#">
+          <a href="${createLink(controller:'linkSharing', action: 'inbox')}">
             <i class="fa fa-envelope"></i> <span>Inbox</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">13</span></a>
+            <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">MainBox <span class="label label-primary pull-right">${unreadResources.size()}</span></a>
             </li>
-            <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
-            <li><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
           </ul>
         </li>
      <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -282,7 +277,7 @@
     <section class="content-header">
       <h1>
         Mailbox
-        <small>13 new messages</small>
+        <small>${unreadResources.size()} new messages</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -294,7 +289,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <a href="${createLink(controller: "linkSharing",action:"composemail")}" class="btn btn-primary btn-block margin-bottom">Compose</a>
+          <a href="${createLink(controller: "linkSharing",action:"composemail")}?totalUnreadMail=${unreadResources.size()}" class="btn btn-primary btn-block margin-bottom">Compose</a>
 
           <div class="box box-solid">
             <div class="box-header with-border">
@@ -307,8 +302,8 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox
-                  <span class="label label-primary pull-right">12</span></a></li>
+                <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}"><i class="fa fa-inbox"></i> Inbox
+                  <span class="label label-primary pull-right">${unreadResources.size()}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
@@ -383,7 +378,7 @@
                   <tr>
                     <td><input type="checkbox"></td>
                     <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">${unreadmail.createdBy}</a></td>
+                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}">${unreadmail.createdBy}</a></td>
                     <td class="mailbox-subject"><b>${unreadmail.topic}</b> - ${unreadmail.description}...
                     </td>
                     <td class="mailbox-attachment"></td>
@@ -635,21 +630,24 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
 <!-- jQuery 2.2.0 -->
-<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script src="../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/app.min.js"></script>
-<!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
-<!-- Page Script -->
+<script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script src="../plugins/fullcalendar/fullcalendar.min.js"></script>
+<!-- Page specific script -->
 <script>
   $(function () {
     //Enable iCheck plugin for checkboxes

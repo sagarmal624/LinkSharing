@@ -44,7 +44,6 @@ class SubscriptionController extends UtilController{
         println"------------->"+topicId
 
         println"------------->"+seriousness
-println "PPPPPPPPPPPPPPPPPPPPPP-------------->"+User.get(userId).getProperties()+"================="+Topic.get(topicId).getProperties()
         Subscription subscription = Subscription.findByUserAndTopic(User.get(userId), Topic.get(topicId))
         println"-------abcd ------>"+subscription.getProperties()
 

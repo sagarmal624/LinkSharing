@@ -24,6 +24,12 @@ class TopicController extends UtilController {
 
 
 }
+    def delete(long id)
+    {
+      Topic.get(id).delete(flush:true);
+       forward(action:"dashboard" ,controller:"linkSharing" )
+
+    }
     def save(){
         Map map=[:]
         println("SAVE >>>>>>>>")
@@ -52,7 +58,17 @@ class TopicController extends UtilController {
         groovy.lang.Closure closure={ map}
         renderAsJSON(closure)
     }
+     def update(long id,String name){
+     Topic topic=Topic.get(id)
+     topic.name=name;
+flash.message="Record is not Updated due to Validation Error"
 
+         if(topic.save(flush:true))
+     flash.message="Record is Successfully Updated"
+
+
+     forward(action:"profile" ,controller:"linkSharing" )
+     }
 
     def show(ResourceSearchCO co){
 //        co.name='J00aa0ava'

@@ -56,6 +56,7 @@
         <ul class="nav navbar-nav">
           <li class="dropdown notifications-menu">
             <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+
               <div class="input-group">
                 <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
                        class="col-md-12 form-control" placeholder="Search topics..."/>
@@ -177,10 +178,11 @@
                 <div class="pull-left">
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
-                <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
+              <div class="pull-right">
+                <a href="${createLink(controller: "login", action: "logout")}"
+                   class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
@@ -261,7 +263,7 @@
       <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
-      <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">13</span></a>
+      <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">${totalUnreadMail}</span></a>
       </li>
       <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
       <li><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
@@ -269,7 +271,7 @@
   </li>
 
   <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -296,13 +298,10 @@
         <li class="active">Mailbox</li>
       </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-md-3">
-          <a href="mailbox.gsp" class="btn btn-primary btn-block margin-bottom">Back to Inbox</a>
-
+          <a href="${createLink(controller:'linkSharing', action: 'inbox')}" class="btn btn-primary btn-block margin-bottom">Back to Inbox</a>
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Folders</h3>
@@ -314,8 +313,8 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="mailbox.gsp"><i class="fa fa-inbox"></i> Inbox
-                  <span class="label label-primary pull-right">12</span></a></li>
+                <li><a href="${createLink(controller:'linkSharing', action: 'inbox')}"><i class="fa fa-inbox"></i> Inbox
+                  <span class="label label-primary pull-right">${totalUnreadMail}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
@@ -349,6 +348,7 @@
         </div>
         <!-- /.col -->
         <div class="col-md-9">
+        <g:form method="post"  action="sendMail" controller="user">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Compose New Message</h3>
@@ -356,28 +356,19 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <input class="form-control" placeholder="To:">
+                <input class="form-control"  required="true" name="emailto" placeholder="To:">
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Subject:">
+                <input class="form-control" required="true" name="subject" placeholder="Subject:">
               </div>
               <div class="form-group">
-                    <textarea id="compose-textarea" class="form-control" style="height: 300px">
+                    <textarea id="compose-textarea" required="true" name="message" class="form-control" style="height: 300px">
                       <h1><u>Heading Of Message</u></h1>
                       <h4>Subheading</h4>
-                      <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
-                        was born and I will give you a complete account of the system, and expound the actual teachings
-                        of the great explorer of the truth, the master-builder of human happiness. No one rejects,
-                        dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know
-                        how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again
-                        is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain,
-                        but because occasionally circumstances occur in which toil and pain can procure him some great
-                        pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise,
-                        except to obtain some advantage from it? But who has any right to find fault with a man who
-                        chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that
-                        produces no resultant pleasure? On the other hand, we denounce with righteous indignation and
-                        dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so
-                        blinded by desire, that they cannot foresee</p>
+                      <p>
+                        The fastest way to share your link with other
+                        websites, exhange links quickly and easily with this link exchange system.
+                      </p>
                       <ul>
                         <li>List item one</li>
                         <li>List item two</li>
@@ -385,7 +376,7 @@
                         <li>List item four</li>
                       </ul>
                       <p>Thank you,</p>
-                      <p>John Doe</p>
+                      <p>${session.username}</p>
                     </textarea>
               </div>
               <div class="form-group">
@@ -406,7 +397,7 @@
             </div>
             <!-- /.box-footer -->
           </div>
-          <!-- /. box -->
+        </g:form>
         </div>
         <!-- /.col -->
       </div>

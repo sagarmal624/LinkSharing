@@ -178,10 +178,11 @@
                 <div class="pull-left">
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
-                <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
+              <div class="pull-right">
+                <a href="${createLink(controller: "login", action: "logout")}"
+                   class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
             </ul>
           </li>
     
@@ -202,7 +203,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Sagar Mal Shankhala</p>
+          <p>${session.username}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -261,13 +262,13 @@
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">13</span></a></li>
+            <li><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">${totalUnreadMail}</span></a></li>
             <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
             <li class="active"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -311,8 +312,8 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="mailbox.gsp"><i class="fa fa-inbox"></i> Inbox
-                  <span class="label label-primary pull-right">12</span></a></li>
+                <li><a href="${createLink(controller:'linkSharing', action: 'inbox')}"><i class="fa fa-inbox"></i> Inbox
+                  <span class="label label-primary pull-right">${totalUnreadMail-1}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
@@ -357,109 +358,74 @@
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
-                <h3>Message Subject Is Placed Here</h3>
-                <h5>From: support@tothenew.com
-                  <span class="mailbox-read-time pull-right">15 Feb. 2016 11:03 PM</span></h5>
+                <h3>${resource.topic}</h3>
+                <h5>From: ${resource.createdBy}@tothenew.com
+                  <span class="mailbox-read-time pull-right">${resource.lastUpdated}</span></h5>
               </div>
               <!-- /.mailbox-read-info -->
               <div class="mailbox-controls with-border text-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
-                    <i class="fa fa-trash-o"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="deleteResource(${resource.id})" data-toggle="tooltip" data-container="body" title="Delete">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
                     <i class="fa fa-reply"></i></button>
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
                     <i class="fa fa-share"></i></button>
                 </div>
                 <!-- /.btn-group -->
-                                    
+
                 <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
                   <i class="fa fa-print"></i></button>
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
-                <p>Hello Sagar,</p>
+                <p>Hello ${session.username},</p>
 
-                <p>Great decisions are found at the intersection of just enough speed, just enough information and just the right context.
-                  
-                 </p>
+                <p>
+                  ${resource.description}
+                </p>
 
-                
 
-                
-                
-                <p>Thanks,<br>Sagar</p>
+
+
+
+                <p>Thanks,<br>${session.username}</p>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
             <!-- /.box-body -->
-            <div class="box-footer">
-              <ul class="mailbox-attachments clearfix">
-                <li>
-                  <span class="mailbox-attachment-icon"><i class="fa fa-file-pdf-o"></i></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> Sep2014-report.pdf</a>
-                        <span class="mailbox-attachment-size">
-                          1,245 KB
-                          <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
-                        </span>
-                  </div>
-                </li>
-                <li>
-                  <span class="mailbox-attachment-icon"><i class="fa fa-file-word-o"></i></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fa fa-paperclip"></i> App Description.docx</a>
-                        <span class="mailbox-attachment-size">
-                          1,245 KB
-                          <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
-                        </span>
-                  </div>
-                </li>
-                <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo1.png" alt="Attachment"></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fa fa-camera"></i> photo1.png</a>
-                        <span class="mailbox-attachment-size">
-                          2.67 MB
-                          <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
-                        </span>
-                  </div>
-                </li>
-                <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo2.png" alt="Attachment"></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fa fa-camera"></i> photo2.png</a>
-                        <span class="mailbox-attachment-size">
-                          1.9 MB
-                          <a href="#" class="btn btn-default btn-xs pull-right"><i class="fa fa-cloud-download"></i></a>
-                        </span>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <!-- /.box-footer -->
             <div class="box-footer">
               <div class="pull-right">
                 <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
                 <button type="button" class="btn btn-default"><i class="fa fa-share"></i> Forward</button>
               </div>
-              <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</button>
+              <button type="button" class="btn btn-default" onclick="deleteResource(${resource.id})"><i class="fa fa-trash-o"></i> Delete</button>
               <button type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
-              <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Download</button>
-              <button type="button" class="btn btn-default"><i class="fa fa-star"></i>Mark As Read</button>
-              
-                <a hreef="#"> <img src="../../dist/img/facebook.png"/></a>
-                 <a hreef="#"><img src="../../dist/img/twtr.png"/></a>
-                <a hreef="#">      <img src="../../dist/img/google.png"/>  </a>
+              <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                <button type="button" class="btn btn-default"><i class="fa fa-link"></i>
+                  <a href="${resource?.url}"> View Full Site</a>
+                </button>
+              </g:if>
+              <g:else>
+                <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Download</button>
+
+              </g:else>
+
+              ${resource.id}
+              <button type="button" class="btn btn-default"><i class="fa fa-star"></i>
+                <a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}"> Mark as Read</a></button>
+
+              <a hreef="#"> <img src="../../dist/img/facebook.png"/></a>
+              <a hreef="#"><img src="../../dist/img/twtr.png"/></a>
+              <a hreef="#">      <img src="../../dist/img/google.png"/>  </a>
             </div>
             <!-- /.box-footer -->
           </div>
           <!-- /. box -->
         </div>
+
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -682,6 +648,34 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+
+  function markAsRead(id){
+    <g:remoteFunction  controller="readingItem" action="changeIsRead"  params="\'id=\'+id+\'&isRead=\'+true" onSuccess="markASResponse(data,textStatus)"/>
+    %{--<a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}">--}%
+  };
+
+  function markASResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+  function deleteResource(id){
+    <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
+
+  };
+
+  function deleteResourceResponse(data, textStatus){
+    if (data) {
+      window.location=document.referrer;
+    }
+
+  };
+
+
+</script>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>

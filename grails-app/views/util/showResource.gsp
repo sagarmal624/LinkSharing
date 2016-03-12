@@ -237,11 +237,11 @@
                                        class="btn btn-default btn-flat">Profile</a>
                                 </div>
 
-                                <div class="pull-right">
-                                    <a href="${createLink(controller: "login", action: "index")}"
-                                       class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
+                            <div class="pull-right">
+                                <a href="${createLink(controller: "login", action: "logout")}"
+                                   class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
@@ -328,7 +328,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
                         <i class="fa fa-folder"></i> <span>User Profile</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -351,7 +351,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                All Topics
+                Topic Details
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -467,8 +467,16 @@
 
                                         <div class="col-lg-3">
                                             <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope"
-                                                      style="font-size:25px"></span>
+
+
+                                                <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                                                   data-toggle="dropdown">
+                                                    <span class="glyphicon glyphicon-envelope"
+                                                          style="font-size:25px"></span>
+
+                                                </a>
+
+
                                             </div>
                                         </div>
 
@@ -594,7 +602,7 @@
             <!-- /.row -->
 
         </section>
-        <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
 

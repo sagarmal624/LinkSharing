@@ -211,10 +211,11 @@
                 <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
-                <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
+              <div class="pull-right">
+                <a href="${createLink(controller: "login", action: "logout")}"
+                   class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
             </ul>
           </li>
           <li>
@@ -291,7 +292,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>

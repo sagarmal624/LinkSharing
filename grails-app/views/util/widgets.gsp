@@ -219,10 +219,11 @@
                                 <div class="pull-left">
                                     <a href="/linkSharing/profile" class="btn btn-default btn-flat">Profile</a>
                                 </div>
-                                <div class="pull-right">
-                                    <a href="/login/index" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
+                            <div class="pull-right">
+                                <a href="${createLink(controller: "login", action: "logout")}"
+                                   class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
@@ -305,7 +306,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
                         <i class="fa fa-folder"></i> <span>User Profile</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -514,15 +515,19 @@
 
                                         <div class="col-lg-4">
                                             <div class="col-lg-4">
-                                                <span class="glyphicon glyphicon-envelope" style="font-size:25px"></span>
+                                                <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                                                   data-toggle="dropdown">
+                                                    <span class="glyphicon glyphicon-envelope"
+                                                          style="font-size:25px"></span>
+
+                                                </a>
                                             </div>
                                             <div class="col-lg-4">
 
                                                 <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
                                             </div>
                                             <div class="col-lg-4">
-
-                                                <span class="glyphicon glyphicon-trash"style="font-size:25px" ></span>
+                                                <a href="" onclick="deleteTopic(${trendingTopic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
                                             </div>
                                         </div>
 
@@ -589,13 +594,12 @@
 
                                         <br>
                                         <br>
-
-
                                         <img src="../dist/img/facebook.png"/>
                                         <img src="../dist/img/twtr.png"/>
                                         <img src="../dist/img/google.png"/> &nbsp;&nbsp;
 
-                                        <a href="#"><u>Delete</u></a>&nbsp;&nbsp;
+                                        <a href="#" onclick="deleteResource(${topPost.id})"><u>Delete</u></a>&nbsp;&nbsp;
+
                                         <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
                                         <g:if test="${topPost?.url}">
                                             <a href="${topPost?.url}"><u>View Full Site</u></a>&nbsp;&nbsp;
@@ -1064,6 +1068,34 @@
 
         }
     }
+</script>
+<script>
+
+
+
+    function deleteTopic(id){
+        <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
+
+    };
+
+    function deleteTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+
+    };
+
+    function deleteResource(id){
+        <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
+
+    };
+
+    function deleteResourceResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+
+    };
 </script>
 
 </body>

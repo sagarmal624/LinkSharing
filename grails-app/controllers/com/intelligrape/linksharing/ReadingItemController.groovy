@@ -13,20 +13,13 @@ class ReadingItemController {
         if (readingItem) {
 
             int result = ReadingItem.executeUpdate("update ReadingItem set isRead=${isRead} where resource=${id}")
-            if (result)
-              forward(action:"showResource",controller:"linkSharing",params: "[id:${resource?.topic.id}]" )
-
-
-            else
-                forward(action:"showResource",controller:"linkSharing",params: "[id:${resource?.topic.id}]" )
+                forward(action:"inbox",controller:"linkSharing")
 
         } else {
-            if (new ReadingItem(resource: resource, user: user, isRead: isRead).save(flash: true))
-                forward(action:"showResource",controller:"linkSharing",params: "[id:${resource?.topic.id}]" )
-            else
-                forward(action:"showResource",controller:"linkSharing",params: "[id:${resource?.topic.id}]" )
-        }
+            new ReadingItem(resource: resource, user: user, isRead: isRead).save(flash: true)
+                forward(action:"inbox",controller:"linkSharing")
 
+        }
     }
     def inbox()
     {

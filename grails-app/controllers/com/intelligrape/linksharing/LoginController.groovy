@@ -23,7 +23,7 @@ class LoginController {
             forward(action:"dashboard",controller:"linkSharing");
 
         } else {
-            flash.error = "Invalid UserName or Password"
+//            flash.error = "Invalid UserName or Password"
             redirect(action: "index", controller: "login", model: [user: user])
         }
     }

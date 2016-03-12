@@ -223,10 +223,11 @@
                 <div class="pull-left">
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
-                <div class="pull-right">
-                  <a href="${createLink(controller:"login",action:"logout")}" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
+              <div class="pull-right">
+                <a href="${createLink(controller: "login", action: "logout")}"
+                   class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
@@ -314,13 +315,9 @@
           <ul class="treeview-menu">
             <li class="active"><a href="${createLink(controller:'linkSharing', action: 'profile')}"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="lockscreen.gsp"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-           
           </ul>
         </li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -348,22 +345,23 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user2-160x160.jpg" alt="User profile picture">
+              %{--<img class="profile-user-img img-responsive img-circle" src="../../dist/img/user2-160x160.jpg" alt="User profile picture">--}%
+              <ls:userImage userId="${session.user.id}" imageType="profile-user-img img-responsive img-circle"/>
 
-              <h3 class="profile-username text-center">Sagar Mal Shankhala</h3>
+              <h3 class="profile-username text-center">${session.username}</h3>
 
               <p class="text-muted text-center">Software Engineer Trainee</p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Subscriptions</b> <a class="pull-right">1,322</a>
+                  <b>Subscriptions</b> <a class="pull-right">${totalResourceAndSubscription.totalSubscription}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Topics</b> <a class="pull-right">543</a>
+                  <b>Topics</b> <a class="pull-right">${totalResourceAndSubscription.totalTopic}</a>
                 </li>
                 
               </ul>
-              <a href="#" class="btn btn-primary btn-block"><b>Subscribe</b></a>
+              <a href="#" class="btn btn-primary btn-block"><b>To The New Digital</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -422,64 +420,104 @@
             </ul>
             <div class="tab-content">
               <div class="active tab-pane" id="activity">
-                <!-- Post -->
+              <g:each in="${userTopics}" var="topic">
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                        
-                      <div class="row">
-                    <form>
-                        
-                        <div class="form-group col-lg-4 col-lg-offset-2">
-                  <input type="text" class="form-control" placeholder="Topic Name.... ">
+                    %{--<img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">--}%
+                    <ls:userImage userId="${session.user.id}" imageType="img-circle img-bordered-sm"/>
+
+
+
+                    <div class="row">
+ <g:form controller="topic" action="update">
+                    <div class="form-group col-lg-4 col-lg-offset-2">
+                  <input type="hidden" name="id" id="id" value="${topic.id}">
+                      <input type="text" class="form-control" required="true" name="name" id="name" placeholder="Topic Name.... ">
                          </div>
                                     <div class="form-group col-lg-2">
-                            <input type="submit" class="form-control btn btn-info" value="Save"></div>
-                                        
-                                        </form>        
+                            <input type="submit" class="form-control btn btn-success  " value="Save" id="Save"/>
+                                    </div>
+ </g:form>
                   </div>
                 
                       
                       <span class="username">
-                          <a href="#">@Sagar</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    
-                      <span class="description">Shared publicly - 7:30 PM today</span>
+
+
+                <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topic?.id])}">${topic?.name}</a>
+
+    </span>
+
+                      <span class="description">Shared publicly -${topic.createdDate}</span>
                       <div class="row">
-                          <span class="text-success col-lg-3 col-lg-offset-4">Subscription</span>
+                        <span class="text-success col-lg-4">
+                          @${session.user.username}</span>
+
+                        <span class="text-success col-lg-3">Subscriptions</span>
                           <span class="text-success col-lg-5">
-                          Topic</span>
+                          Posts</span>
                       </div>
                     
                     <div class="row">
-                        <a href="#"><span class="text-info col-lg-2 col-lg-offset-2">Unsubscribe</span></a>
-                           <span class="col-lg-3 text-info">
-                          550</span>
+                           <span class="col-lg-3 col-lg-offset-4">
+                          ${topic.countSubscription}</span>
                         
-                        <span class="col-lg-3 text-info">
-                          520</span>
+                        <span class="col-lg-5 text-info">
+                          ${topic.countPost}</span>
                         </div>
-                    
-                    
+
                     </div>
                   <!-- /.user-block -->
                     <div class="row">
                      <div class="col-lg-3 form-group">
-                        <select class="dropdown form-control">
-                         <option>Serious</option>
-                         <option>Very Serious</option>
-                         <option>Casual</option>
-                         </select>
+                       <select id="seriousnessID" class="form-control"
+                               onchange="resourceSeriousness(${session.user.id},'${topic.id}',this.value)">
+
+                       %{--onchange="resourceSeriousness(this.value)">--}%
+                       %{--onchange="resourceSeriousness(this.value)">--}%
+                       %{--params: '\'userId=\'+ '\"{topicDetails?.createdBy.id}\"' +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness' )}">--}%
+                         <g:if test="${topic?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
+
+                           <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
+                           <option>${Enums.Seriousness.SERIOUS}</option>
+                           <option>${Enums.Seriousness.CASUAL}</option>
+                         </g:if>
+                         <g:elseif test="${topic?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
+
+                           <option> ${Enums.Seriousness.VERY_SERIOUS}</option>
+                           <option selected>${Enums.Seriousness.SERIOUS}</option>
+                           <option>${Enums.Seriousness.CASUAL}</option>
+                         </g:elseif>
+                         <g:elseif test="${topic?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
+
+                           <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                           <option>${Enums.Seriousness.SERIOUS}</option>
+                           <option selected>${Enums.Seriousness.CASUAL}</option>
+                         </g:elseif>
+
+                       </select>
                         
                         </div>
-                    
                         <div class="col-lg-3 form-group">
-                        <select class="dropdown form-control">
-                         <option>Private</option>
-                         <option>Public</option>
-                         </select>
-                        
+                          <g:if test="${session.email}">
+
+                            <select class="form-control"
+                                    onchange="changeVisibility(${session.user.id},${topic.id},this.value)">
+                              <g:if test="${topic?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
+
+                                <option selected>${Enums.Visibility.PRIVATE}</option>
+
+                                <option>${Enums.Visibility.PUBLIC}</option>
+                              </g:if>
+                              <g:else>
+                                <option> ${Enums.Visibility.PRIVATE}</option>
+
+                                <option selected>${Enums.Visibility.PUBLIC}</option>
+                              </g:else>
+                            </select>
+                          </g:if>
+
+
                         </div>
                     
                         
@@ -489,8 +527,11 @@
                              
                              <span class="col-lg-4 glyphicon glyphicon-envelope" style="font-size:23px"></span>
                                  <span class="col-lg-4 glyphicon glyphicon-file" style="font-size:23px"></span>
-                                 <span class="col-lg-4 glyphicon glyphicon-trash"style="font-size:23px" ></span>          
-                              </div>
+
+                           <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
+
+
+                         </div>
                            
                         
                         
@@ -501,6 +542,7 @@
                     
                 
                    </div>
+              </g:each>
                 </div>
             <div class="tab-pane" id="timeline">
                 <!-- The timeline -->
@@ -880,6 +922,92 @@
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
+<script type="text/javascript">
 
+
+  function resourceSeriousness(userid,topicid,seriouness) {
+    <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&seriousness=\'+seriouness" onSuccess="changeSeriouness(data,textStatus)"/>
+  };
+
+  function changeSeriouness(data, textStatus) {
+    if (data) {
+      if(data.message!="Seriousness is not updated")
+        $("#spanmsg").addClass("alert alert-success")
+      else
+        $("#spanmsg").addClass("alert alert-danger")
+
+      $("#spanmsg").text(data.message)
+
+      $("#alertmsg").toggleClass('hidden');
+
+      setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 1000);
+      //obj);
+    }
+  };
+  function changeVisibility(userid,topicid,visibility)
+  {
+    <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
+
+  };
+  function visibilityResponse(data, textStatus) {
+    if (data) {
+      if (data.message != "Seriousness is not updated")
+        $("#spanmsg").addClass("alert alert-success")
+      else
+        $("#spanmsg").addClass("alert alert-danger")
+
+      $("#spanmsg").text(data.message)
+
+      $("#alertmsg").toggleClass('hidden');
+
+      setTimeout(function () {
+        $("#alertmsg").toggleClass('hidden');
+        $("#spanmsg").removeClass("alert alert-success")
+      }, 1000);
+      //obj);
+    }
+  };
+    function saveTopic(topicid,name)
+    {
+      <g:remoteFunction  controller="topic" action="update"  params="\'id=\'+ topicid +\'&name=\'+name" onSuccess="saveTopicResponse(data,textStatus)"/>
+
+    };
+    function saveTopicResponse(data, textStatus) {
+      if (data) {
+        if (data.message != "Seriousness is not updated")
+          $("#spanmsg").addClass("alert alert-success")
+        else
+          $("#spanmsg").addClass("alert alert-danger")
+
+        $("#spanmsg").text(data.message)
+
+        $("#alertmsg").toggleClass('hidden');
+
+        setTimeout(function () {
+          $("#alertmsg").toggleClass('hidden');
+          $("#spanmsg").removeClass("alert alert-success")
+        }, 1000);
+        //obj);
+      }
+
+
+  }
+</script>
+<script>
+
+  function deleteTopic(id){
+    <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
+
+  };
+
+  function deleteTopicResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+
+
+</script>
 </body>
 </html>

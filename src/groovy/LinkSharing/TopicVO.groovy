@@ -14,5 +14,6 @@ class TopicVO {
     User createdBy
     String seriousness
     long resourceId
+    Date createdDate
 
 }
