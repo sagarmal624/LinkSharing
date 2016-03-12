@@ -35,7 +35,6 @@
     <div class="login-box" style="border: 1px solid gray">
         <div class="login-box-body">
         </div>
-
         <p class="login-logo"><strong class="text-center"><h2>Sign Up</h2>
         </strong></p>
 
@@ -104,16 +103,17 @@
                     <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
                 </div>
                 <div class="col-xs-4">
-                    <input type="submit" id="save" class="btn btn-success btn-block btn-flat" name="Sign Up" value="Register"/>
+                    <input type="submit" id="save" class="btn btn-success btn-block btn-flat col-lg-offset-12" name="Sign Up" value="Register"/>
                 </div>
                 <!-- /.col -->
             </div>
         </g:form>
-        %{--<div class="col-lg-8">--}%
-        %{--<fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"--}%
-        %{--size="large">Sign up using--}%
-        %{--Facebook</fb:login-button>--}%
-        %{--</div>--}%
+<br><br>
+        <div class="col-lg-8">
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState()" style="height: 50px"
+        size="large">Sign up using
+        Facebook</fb:login-button>
+        </div>
 
         <div id="status"></div>
 

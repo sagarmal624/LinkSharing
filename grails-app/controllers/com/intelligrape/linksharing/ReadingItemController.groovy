@@ -28,4 +28,20 @@ class ReadingItemController {
         }
 
     }
+    def inbox()
+    {
+        List<Topic>topics=User.getSubscribedTopic(session.email)
+        List <Resource> resources=[];
+        List<Resource>unreadResources=[];
+        topics.each {topic->
+            resources.add(Resource.findAllByTopic(topic))
+         }
+        resources.each {resource->
+
+            unreadResources.add(ReadingItem.findAllByUserAndIsRead(session.user,false)*.resource.intersect(resource))
+
+        }
+
+          render unreadResources.flatten()
+    }
 }

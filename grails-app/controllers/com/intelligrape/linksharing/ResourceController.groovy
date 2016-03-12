@@ -31,15 +31,9 @@ class ResourceController extends UtilController {
         Map map = [:]
         co.visibility = Visibility.PUBLIC.toString()
         List<Resource> resources = Resource.search(co).list()
-
-
         List<Resource>readResources =    ReadingItem.findAllByUserAndIsRead(session.user,true)*.resource.intersect(resources)
-
-       List<Topic>subscriptionList=Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
-
+        List<Topic>subscriptionList=Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
         println "list>>====================>>>>>readking item>>>>>>"+subscriptionList.name
-
-
         map = [resources: resources,userId:resources.createdBy.id,topics:resources.topic,readResources:readResources,subscriptionList:subscriptionList]
         Closure closure = { map }
         renderAsJSON(closure)

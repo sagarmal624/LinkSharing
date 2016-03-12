@@ -67,7 +67,6 @@ class Topic {
     public static Integer getTotalSubscriptionsOfUser(User user) {
         return Subscription.countByUser(user)
     }
-
     public static List<TopicVO> getTrendingTopics() {
         List<Resource> topicList = Resource.createCriteria().list() {
             projections {
@@ -86,7 +85,7 @@ class Topic {
 
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex { it, index ->
-            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3)))))
+            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3))),seriousness:Subscription.findByUserAndTopic(User.findByUsername(it.getAt(5)),Topic.findByName(it.getAt(3))).seriousness))
         }
         return topicsvo
     }
@@ -100,7 +99,7 @@ class Topic {
             Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
             //log.info(subscription.validate())
             if (subscription.validate()) {
-                subscription.save()
+                subscription.save(flush:true)
             } else {
                 log.error("Validation failed")
             }

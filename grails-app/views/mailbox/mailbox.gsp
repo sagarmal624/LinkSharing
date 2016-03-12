@@ -379,27 +379,19 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>
-
+<g:each in="${unreadResources}" var="unreadmail">
                   <tr>
                     <td><input type="checkbox"></td>
                     <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Sagar Mal Shankhala</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
+                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">${unreadmail.createdBy}</a></td>
+                    <td class="mailbox-subject"><b>${unreadmail.topic}</b> - ${unreadmail.description}...
                     </td>
                     <td class="mailbox-attachment"></td>
                     <td class="mailbox-date">5 mins ago</td>
                   </tr>
-                  <tr>
-                    <td><input type="checkbox"></td>
+        </g:each>
 
 
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Sagar Mal Shankhala</a></td>
-                    <td class="mailbox-subject"><b>Grails</b> - Trying to find a solution to this problem...
-                    </td>
-                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-                    <td class="mailbox-date">28 mins ago</td>
-                  </tr>
 
                   </tbody>
                 </table>

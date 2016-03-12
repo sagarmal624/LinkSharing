@@ -132,19 +132,19 @@
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="37" parent="4" name="last_updated">
+      <column id="37" parent="4" name="image_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="38" parent="4" name="last_updated">
         <data-type>datetime</data-type>
       </column>
-      <column id="38" parent="4" name="lastname">
+      <column id="39" parent="4" name="lastname">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="39" parent="4" name="password">
+      <column id="40" parent="4" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(10)</data-type>
-      </column>
-      <column id="40" parent="4" name="photo">
-        <data-type>mediumblob</data-type>
       </column>
       <column id="41" parent="4" name="username">
         <mandatory>1</mandatory>
@@ -296,9 +296,10 @@
         <mandatory>1</mandatory>
         <data-type>bigint(20)</data-type>
       </column>
-      <index id="77" parent="7" name="FK_hmnf6fb69j5w3nttui4g372w9">
+      <index id="77" parent="7" name="UK_hmnf6fb69j5w3nttui4g372w9">
         <columns>resource_id</columns>
         <desc-columns></desc-columns>
+        <unique>1</unique>
       </index>
       <index id="78" parent="7" name="UK_qae5oa07q1791tfyocrc7w995">
         <columns>user_id</columns>
@@ -309,17 +310,21 @@
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="80" parent="7" name="UK_qae5oa07q1791tfyocrc7w995">
+      <key id="80" parent="7" name="UK_hmnf6fb69j5w3nttui4g372w9">
+        <columns>resource_id</columns>
+        <underlying-index>UK_hmnf6fb69j5w3nttui4g372w9</underlying-index>
+      </key>
+      <key id="81" parent="7" name="UK_qae5oa07q1791tfyocrc7w995">
         <columns>user_id</columns>
         <underlying-index>UK_qae5oa07q1791tfyocrc7w995</underlying-index>
       </key>
-      <foreign-key id="81" parent="7" name="FK_hmnf6fb69j5w3nttui4g372w9">
+      <foreign-key id="82" parent="7" name="FK_hmnf6fb69j5w3nttui4g372w9">
         <columns>resource_id</columns>
         <ref-key>~.resource.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="82" parent="7" name="FK_qae5oa07q1791tfyocrc7w995">
+      <foreign-key id="83" parent="7" name="FK_qae5oa07q1791tfyocrc7w995">
         <columns>user_id</columns>
         <ref-key>~.user.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

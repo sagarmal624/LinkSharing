@@ -9,7 +9,6 @@ class LinkSharingController {
     def loadmainpage()
     {
         List<Resource>resources=Resource.getRecentResources()
-       println "kkkkkkkkkkkkkkkkkkkkkkkkkkkkk=>>"+Resource.getToppost()
         render view:"/HomePage",model:[topPostResource:Resource.getToppost(),recentTopicShare:resources]
     }
     def Home() {
@@ -41,7 +40,11 @@ class LinkSharingController {
 
     def trendingPost() {
 
-        render view: "/util/widgets",model:[SubscribedTopicList:loadTopic()]
+        Map totalResourceAndSubscription=User.getTotalResourceAndSubscription(session.user)
+
+        List<TopicVO>trendingTopicList=Topic.getTrendingTopics()
+
+        render view: "/util/widgets",model:[SubscribedTopicList:loadTopic(),trendingTopicList:trendingTopicList,topPostResource:Resource.getToppost(),totalSubscription:totalResourceAndSubscription.totalSubscription,totalTopic:totalResourceAndSubscription.totalTopic,totalPost:totalResourceAndSubscription.totalPost]
     }
 
     def accountSetting() {
@@ -54,7 +57,20 @@ class LinkSharingController {
     }
 
     def inbox() {
-        render view: "/mailbox/mailbox",model:[SubscribedTopicList:loadTopic()]
+        List<Topic>topics=User.getSubscribedTopic(session.email)
+        List <Resource> resources=[];
+        List<Resource>unreadResources=[];
+        topics.each {topic->
+            resources.add(Resource.findAllByTopic(topic))
+        }
+        resources.each {resource->
+
+            unreadResources.add(ReadingItem.findAllByUserAndIsRead(session.user,false)*.resource.intersect(resource))
+
+        }
+
+
+        render view: "/mailbox/mailbox",model:[SubscribedTopicList:loadTopic(),unreadResources:unreadResources.flatten()]
     }
 
     def calender() {

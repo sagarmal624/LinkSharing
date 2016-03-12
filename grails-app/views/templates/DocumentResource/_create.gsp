@@ -5,8 +5,6 @@
                 <div id="alertmsg2" class="hidden"><span id="spanmsg2"></span></div>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Share Document</h4>
-
-
             </div>
             <g:form enctype="multipart/form-data" class="upload" name="fileinfodata">
 

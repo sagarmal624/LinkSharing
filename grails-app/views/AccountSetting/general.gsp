@@ -21,6 +21,8 @@
   <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
   <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -325,74 +327,81 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Change Password</h3>
+              <g:if test="${flash.message1}">
+
+                <span class="alert alert-success">${flash.message1}</span>
+              </g:if>
+              <g:if test="${flash.error1}">
+                <span class="alert alert-danger">${flash.error1}</span>
+
+              </g:if>
             </div>
-            <form role="form">
+            <g:form controller="user" action="updatePassword" role="form" name="updatePasswordForm" id="updatePasswordForm">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control"  required="true" id="email" name="email"placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <label for="password">Password</label>
+                  <input type="password" name="password"  required="true" class="form-control" id="password" placeholder="Password">
                 </div>
                  <div class="form-group">
-                  <label for="exampleInputPassword1">Confirm Password</label>
-                  <input type="password" class="form-control" id="exampleInputPasswor1" placeholder="Confirm Password">
+                  <label for="password">Confirm Password</label>
+                  <input type="password" class="form-control"  required="true" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
                 </div>
                  </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger col-lg-offset-2">Cancel</button>
+                <button type="submit" class="btn btn-success col-lg-offset-2">Update</button>
               </div>
-            </form>
+            </g:form>
           </div>
-         
         </div>
           <div class="col-md-6">
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title">User Profile</h3>
+        <g:if test="${flash.message}">
+
+          <span class="alert alert-success">${flash.message}</span>
+        </g:if>
+            <g:if test="${flash.error}">
+              <span class="alert alert-danger">${flash.error}</span>
+
+            </g:if>>
+
             </div>
-            <form class="form-horizontal">
+            <g:form enctype="multipart/form-data" class="form-horizontal" controller="user" action="update" name="updateUserDetailForm" id="updateUserDetailForm">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputFirstname" class="col-sm-2 control-label">FirstName</label>
-
+                  <label for="firstname" class="col-sm-2 control-label">FirstName</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="First Name">
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
                   </div>
                 </div>
-                
-                  
                   <div class="form-group">
-                  <label for="inputLastName" class="col-sm-2 control-label">LastName</label>
-
+                  <label for="lastname" class="col-sm-2 control-label">LastName</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputUsername" class="col-sm-2 control-label">UserName</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputUsername" placeholder="User Name">
-                  </div>
-                </div>
-              
                   <div class="form-group">
-                  <label for="exampleInputFile" class="col-sm-2 control-label">Photo</label>
-                  <input type="file" id="photo">
-
+                  <label for="photo" class="col-sm-2 control-label">Photo</label>
+                  <input type="file" id="photo" name="photo">
                 </div>
-                
-                  
               </div>
         <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Update</button>
+
+                <button type="Cancel" class="btn btn-danger col-lg-offset-2">Cancel</button>
+          <div id="loaderId5" clas="col-lg-2" style="display: none" %{--class="loader pull-left hidden"--}%>
+            <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
+          </div>
+
+          <g:actionSubmit controller="user" action="update" value="Update" id="userDetails" class="btn btn-success col-lg-offset-4">Update</g:actionSubmit>
               </div>
               <!-- /.box-footer -->
-            </form>
+            </g:form>
           </div>
           
       </div>
@@ -610,7 +619,114 @@
 <!-- AdminLTE App -->
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
+
+
+
 <script src="../../dist/js/demo.js"></script>
+
+<script>
+  $('#updateUserDetailForm').bootstrapValidator({
+    fields: {
+
+      firstname: {
+        message: 'This FirstName is not valid',
+        validators: {
+
+          regexp: {
+            regexp: /^[a-zA-Z]+[\-'\s]?[a-zA-Z ]+$/,
+            message: 'The Firstname can only consist of alphabetical'
+
+          },
+          notEmpty: {
+            message: 'The First Name is required and can\'t be empty'
+          },
+          stringLength: {
+            min: 3,
+            message: 'The First name must be more than 3 characters long'
+          }
+        }
+
+      },
+      lastname: {
+        message: 'This Last Name is not valid',
+        validators: {
+
+          regexp: {
+            regexp: /^[a-zA-Z]+[\-'\s]?[a-zA-Z ]+$/,
+            message: 'The Lastname can only consist of alphabetical'
+
+          },
+        }
+      },
+    }
+
+    });
+
+
+
+
+
+  $('#updatePasswordForm').bootstrapValidator({
+    fields: {
+      email: {
+        validators: {
+          notEmpty: {
+            message: 'The email address is required and can\'t be empty'
+          },
+          regexp: {
+            regexp: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+            message: 'Email id is not Valid.Please try Again'
+
+          }
+
+        }
+      },
+      password: {
+        validators: {
+          notEmpty: {
+            message: 'The password is required and can\'t be empty'
+          },
+          identical: {
+            field: 'confirmPassword',
+            message: 'The password and its confirm are not the same'
+          },
+          different: {
+            field: 'username',
+            message: 'The password can\'t be the same as username'
+          }
+        }
+      },
+      confirmPassword: {
+        validators: {
+          notEmpty: {
+            message: 'The confirm password is required and can\'t be empty'
+          },
+          identical: {
+            field: 'password',
+            message: 'The password and its confirm are not the same'
+          },
+          different: {
+            field: 'username',
+            message: 'The password can\'t be the same as username'
+          }
+        }
+      }
+
+    }
+
+  });
+
+
+
+
+
+
+</script>
+<script>
+
+
+</script>
+
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>

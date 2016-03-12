@@ -16,7 +16,7 @@ class LoginController {
         String password = params.password;
         User user = User.findByEmailAndPassword(email, password)
         if (user) {
-            session.username = user.name;
+            session.username =user.name
             session.email = user.email;
             session.user=user;
        //     render(view: '/linkSharing/dashboard')

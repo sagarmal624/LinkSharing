@@ -55,7 +55,7 @@ class TopicController extends UtilController {
 
 
     def show(ResourceSearchCO co){
-        co.name='J00aa0ava'
+//        co.name='J00aa0ava'
         co.visibility='PUBLIC'
 
         List<Resource>resources=Resource.search(co).list()
@@ -63,6 +63,7 @@ class TopicController extends UtilController {
         println "----------------====>>>>"+resources*.description
 
     }
+
 
 }
 

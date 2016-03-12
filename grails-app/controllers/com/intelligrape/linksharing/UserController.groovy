@@ -70,7 +70,7 @@ class UserController extends UtilController {
                 message="Record is Successfully Saved!"
                 //Thread.sleep(500)
                 user.save(flush:true)
-                session.username = user.name;
+                session.username =User.findByEmail(user.email).name;
                 session.email = user.email;
                 session.user=user;
                 forward(action:"dashboard",controller:"linkSharing");
@@ -83,6 +83,57 @@ class UserController extends UtilController {
             renderAsJSON(closure)
 
         }
+
+    }
+    def update()
+    {
+        User user=User.findByEmail(session.email)
+        MultipartFile inputImage = params.photo
+
+        println"as photooasa--99---------asxa------" +inputImage.originalFilename
+
+        if(inputImage.originalFilename) {
+
+            String extention = inputImage.originalFilename.tokenize(".")?.last()
+
+            String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention ? ".${extention}" : ""}"
+            File userImage = new File(filePath)
+            inputImage.transferTo(userImage)
+            params.imagePath = userImage.absolutePath
+            user.imagePath=params.imagePath
+
+        }
+        user.firstname=params.firstname;
+        user.lastname=params.lastname;
+        user.confirmPassword=user.password
+        if(user.save(flush:true,failOnError:true))
+        {
+            flash.message="Record is Successfully updated"
+            session.user=user;
+            session.username=user.name
+        }else
+            flash.error="Record is not updated due to some validation"
+          forward(action: "accountSetting",controller:"linkSharing" )
+
+    }
+    def updatePassword(){
+        User user=User.findByEmail(params.email)
+        if(user) {
+            if (params.password) {
+                user.password = params.password
+                user.confirmPassword = params.confirmPassword;
+                if (user.save(flush: true))
+                    flash.message1 = "Record is Successfully updated"
+                else
+                    flash.error1 = "Record is not updated due to some validation"
+            }
+        }else
+        {
+            flash.error1 = "Account not found"
+
+        }
+        forward(action: "accountSetting",controller:"linkSharing" )
+
 
     }
     def renderFromDirectory(long id)

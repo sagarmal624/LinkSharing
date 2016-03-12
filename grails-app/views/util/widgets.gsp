@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +7,8 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
-    <script src="../dist/js/star-rating.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -348,7 +344,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Subscriptions</span>
-                            <span class="info-box-number">1,410</span>
+                            <span class="info-box-number">${totalSubscription}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -361,7 +357,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Topics</span>
-                            <span class="info-box-number">410</span>
+                            <span class="info-box-number">${totalTopic}</span>
                         </div>
                     </div>
 
@@ -371,8 +367,8 @@
                         <span class="info-box-icon bg-yellow"><i class="glyphicon glyphicon-link"></i></span>
 
                         <div class="info-box-content">
-                            <a href="#">      <span class="info-box-text">Create Link</span>
-                            </a>
+                            <span class="info-box-text">Posts</span>
+                            <span class="info-box-number">${totalPost}</span>
                         </div>
                     </div>
                 </div>
@@ -394,7 +390,7 @@
                     <div class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
-                            <h3 class="box-title">Subscriptions</h3>
+                            <h3 class="box-title">Trending Topics</h3>
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                                 <div class="btn-group" data-toggle="btn-toggle">
@@ -405,18 +401,21 @@
                             </div>
                         </div>
                         <div class="box-body chat" id="chat-box" >
-
-
+                                     <g:each in="${trendingTopicList}" var="trendingTopic">
                             <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
+                                %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+                                <ls:userImage userId="${trendingTopic?.createdBy?.id}" imageType="online"/>
+
+                                <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        Java                  </a>
+                                        ${trendingTopic?.name}
+                                    </a>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
-                                            @Sagarmal
+                                            @${trendingTopic?.createdBy}
                                         </span>
                                         <span class="text-info  col-lg-4">
 
@@ -433,19 +432,22 @@
                                     <div class="row">
 
                                         <span class="col-lg-4">
-                                            <a href="#">Subscribe</a>
+                                            <g:if test="${session.email != trendingTopic?.createdBy?.email}">
+                                                <ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>
+                                            </g:if>
+
                                         </span>
 
 
                                         <span class="col-lg-4">
                                             <span class="badge" style="color:aqua">
-                                                2
+                                                ${trendingTopic?.countSubscription}
                                             </span>
                                         </span>
                                         <span class="col-lg-4">
                                             <span class="badge" style="color:aqua">
 
-                                                2
+                                                ${trendingTopic?.countPost}
 
                                             </span>
                                         </span>
@@ -457,21 +459,56 @@
                                         <div class="col-lg-4">
 
                                             <div class="form-group">
-                                                <select class="form-control">
+                                                %{--${trendingTopic?.seriousness}--}%
+                                                <select id="seriousnessID" class="form-control"
+                                                        onchange="resourceSeriousness(${trendingTopic?.createdBy?.id},'${trendingTopic?.id}',this.value)">
 
-                                                    <option>Serious</option>
-                                                    <option>Very Serious</option>
-                                                    <option>Casual</option>
+                                                %{--onchange="resourceSeriousness(this.value)">--}%
+                                                %{--onchange="resourceSeriousness(this.value)">--}%
+                                                %{--params: '\'userId=\'+ '\"{topicDetails?.createdBy.id}\"' +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness' )}">--}%
+                                                    <g:if test="${trendingTopic?.seriousness.equals(Enums.Seriousness.VERY_SERIOUS.toString())}">
+
+                                                        <option selected>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:if>
+                                                    <g:elseif test="${trendingTopic?.seriousness.equals(Enums.Seriousness.SERIOUS.toString())}">
+
+                                                        <option> ${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:elseif>
+                                                    <g:elseif test="${trendingTopic?.seriousness.equals(Enums.Seriousness.CASUAL.toString())}">
+
+                                                        <option>${Enums.Seriousness.VERY_SERIOUS}</option>
+                                                        <option>${Enums.Seriousness.SERIOUS}</option>
+                                                        <option selected>${Enums.Seriousness.CASUAL}</option>
+                                                    </g:elseif>
+
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <select class="form-control">
-                                                    <option>Private</option>
-                                                    <option>Public</option>
-                                                </select>
+                                                <g:if test="${session.email==trendingTopic?.createdBy?.email}">
+
+                                                    <select class="form-control"
+                                                            onchange="changeVisibility(${trendingTopic?.createdBy?.id},'${trendingTopic?.id}',this.value)">
+                                                        <g:if test="${trendingTopic?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
+
+                                                            <option selected>${Enums.Visibility.PRIVATE}</option>
+
+                                                            <option>${Enums.Visibility.PUBLIC}</option>
+                                                        </g:if>
+                                                        <g:else>
+                                                            <option> ${Enums.Visibility.PRIVATE}</option>
+
+                                                            <option selected>${Enums.Visibility.PUBLIC}</option>
+                                                        </g:else>
+                                                    </select>
+                                                </g:if>
+
                                             </div>
                                         </div>
 
@@ -495,18 +532,12 @@
                                 </div>
                                 <!-- /.attachment -->
                             </div>
-
+                                     </g:each>
 
                         </div>
                         <!-- /.chat -->
 
                     </div>
-
-
-
-                </div>
-                <!-- /.col -->
-                <div class="col-md-6">
                     <div class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
@@ -522,66 +553,115 @@
                             </div>
                         </div>
                         <div class="box-body chat" id="chat-box">
-                            <!-- chat item -->
-                            <div class="item">
-                                <img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">
 
-                                <p class="message">
-                                    <a href="#" class="name">
-                                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        Grails
-                                    </a>
-                                    <span class="row">
-                                        <span class="text-info col-lg-4">
-                                            @Sagar
+                            <g:each in="${topPostResource}" var="topPost">
+                                <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
+                                    %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
+                                    <ls:userImage userId="${topPost?.createdBy?.id}" imageType="online"/>
+
+                                    <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
+
+                                    <p class="message">
+                                        <a href="#" class="name">
+                                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                            ${topPost.topicname}
+                                        </a>
+                                        <span class="row">
+                                            <span class="text-info col-lg-5">
+                                                ${topPost?.createdBy?.name}
+                                            </span>
+                                            <span class="text-info  col-lg-4">
+
+                                                @${topPost.createdBy}
+                                            </span>
+                                            <span class="text-info col-lg-3">
+
+                                                ${topPost.topicname}
+                                            </span>
                                         </span>
-                                        <span class="text-info  col-lg-4">
 
+                                    </p>
+                                    <div class="attachment">
 
-                                            <div class="col-lg-1"></div>
-                                            <input id="input-21d" type="number" onchange="ratingResource(this.value)" class="rating" min=0 max=5 step=0.5 data-size="sm">
-
-
-
+                                        <span>
+                                            ${topPost.description}
                                         </span>
-                                    </span>
 
-                                </p>
-                                <div class="attachment">
-
-                                    <div class="row">
-                                        <span>Life is like a game of chess. To win you have to make a move. Knowing which move to make comes with IN-SIGHT and knowledge, and by learning the lessons that are acculated along the way. </span>
-                                    </div>
-                                    <br>
-                                    <div class="row">
+                                        <br>
+                                        <br>
 
 
                                         <img src="../dist/img/facebook.png"/>
                                         <img src="../dist/img/twtr.png"/>
                                         <img src="../dist/img/google.png"/> &nbsp;&nbsp;
+
                                         <a href="#"><u>Delete</u></a>&nbsp;&nbsp;
                                         <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
-                                        <a href="#"><u>Download</u></a>&nbsp;&nbsp;
-                                        <a href="#"><u>View Full</u></a>
+                                        <g:if test="${topPost?.url}">
+                                            <a href="${topPost?.url}"><u>View Full Site</u></a>&nbsp;&nbsp;
+
+                                        </g:if>
+                                        <g:else>
+                                            <a href="#"><u>Download</u></a>&nbsp;&nbsp;
+
+                                        </g:else>
+                                        <a href="#"><u>View Post</u></a>
+
 
                                     </div>
 
 
 
 
+                                    <!-- chat item -->
+
                                 </div>
-                                <!-- /.attachment -->
+                            </g:each>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+
+                <div class="box box-success">
+                    <div class="box-header">
+                        <i class="fa fa-comments-o"></i>
+
+                        <h3 class="box-title">Posts:${topicDetails?.name}</h3>
+
+                        <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search"
+                              style="padding-left:30px">
+                            <div class="input-group">
+                                <input type="text" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
+                                       placeholder="Search" id="searchposts"/>
+
+                                <div class="input-group-btn ">
+                                    %{--<button class="btn btn-default" type="submit"><i--}%
+                                    %{--class="glyphicon glyphicon-search"></i></button>--}%
+                                </div>
+
                             </div>
 
-                        </div>
-                        <!-- /.chat -->
+                        </form>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="box-body chat" id="chat-box" name="postsbox">
 
-                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> <!-- /.chat -->
+
                 </div>
+
+
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-
+</div>
         </section>
         <!-- /.content -->
     </div>
@@ -770,8 +850,6 @@
                             <input type="checkbox" class="pull-right">
                         </label>
                     </div>
-                    <!-- /.form-group -->
-
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Delete chat history
@@ -819,8 +897,174 @@
 <script type="text/javascript" src="/js/jquery-2.2.1.js"></script>
 
 
+<script type="text/javascript">
+
+
+    function resourceSeriousness(userid,topicid,seriouness) {
+        <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&seriousness=\'+seriouness" onSuccess="changeSeriouness(data,textStatus)"/>
+    };
+
+    function changeSeriouness(data, textStatus) {
+        if (data) {
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
+
+            $("#spanmsg").text(data.message)
+
+            $("#alertmsg").toggleClass('hidden');
+
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
+        }
+    };
+    function changeVisibility(userid,topicid,visibility)
+    {
+        <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
+
+    };
+    function visibilityResponse(data, textStatus){
+        if (data) {
+            if(data.message!="Seriousness is not updated")
+                $("#spanmsg").addClass("alert alert-success")
+            else
+                $("#spanmsg").addClass("alert alert-danger")
+
+            $("#spanmsg").text(data.message)
+
+            $("#alertmsg").toggleClass('hidden');
+
+            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            //obj);
+        }
+
+    };
+</script>
+
+
 
 <g:render template="../templates/resource/search"/>
+<g:render template="../templates/message"/>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
+<script type="text/javascript">
+
+    var searchResourceAndTopic = function searchPost(description) {
+        console.log(description);
+        <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchPostResponse(data,textStatus)"/>
+    };
+
+    var isEqualToJson = function (a, b) {
+        function check(a, b) {
+            for (var attr in a) {
+                if (a.hasOwnProperty(attr) && b.hasOwnProperty(attr)) {
+                    if (a[attr] != b[attr]) {
+                        switch (a[attr].constructor) {
+                            case Object:
+                                return isEqualToJson(a[attr], b[attr]);
+                            case Function:
+                                if (a[attr].toString() != b[attr].toString()) {
+                                    return false;
+                                }
+                                break;
+                            default:
+                                return false;
+                        }
+                    }
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        };
+        return check(a, b) && check(b, a);
+    };
+
+    function searchPostResponse(data, textStatus) {
+        console.log("DATA >>> " + data)
+
+        if (data) {
+
+            var obj = eval(data.resources);
+            var rtype = eval(data.resourceType);
+
+            var readResources = eval(data.readResources);
+
+            var subscriptionList = eval(data.subscriptionList);
+            console.log("subscription list----item->" + data.subscriptionList[0]);
+            console.log("subscription list----item-ss>" + subscriptionList.name);
+
+            $('[name="postsbox"]').empty();
+            if (data.resources == "") {
+                $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not found</span>");
+
+            }
+            var flag;
+            var markAsRead;
+            var isSubscribed;
+            $.each(obj, function (key, value) {
+                markAsRead = "<u><a href='${createLink(controller: 'readingItem', action: 'changeIsRead')}?id=" + value.id + "&isRead=true'>Mark as Read</a></u>&nbsp;&nbsp;"
+                $.each(readResources, function (key1, value1) {
+                    console.log(">>>>>>>>>>" + value1);
+                    if (isEqualToJson(value, value1)) {
+                        markAsRead = "<u><a href='${createLink(controller: 'readingItem', action: 'changeIsRead')}?id=" + value.id + "&isRead=false'>Mark as Unread</a></u>&nbsp;&nbsp;"
+                        return false;
+                    }
+
+                })
+                if (value.url)
+                    flag = "<a href=" + value.url + " target='_blank'><u>View Full Site</u></a>"
+                else
+                    flag = "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id=" + value.id + "'>Download</a></u>&nbsp;&nbsp;"
+
+
+                $('[name="postsbox"]').append(
+                        "<li>" +
+
+                        "<div class='item' id='addhere'>" +
+                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
+
+                        "<p class='message'>" +
+                        "<a href='#' class='name'>" +
+                        "<small class='text-muted pull-right'><i class='fa fa-clock-o'></i> 2:15" +
+                        "</small>" +
+                        "</a>" +
+
+                        "</p>" +
+
+                        "<div class='attachment'>" +
+
+                        "<span class='text-justify'>" +
+                        value.description +
+                        "</span>" +
+                        "<br>" +
+
+                        "<img src='../dist/img/facebook.png'/>" +
+                        "<img src='../dist/img/twtr.png'/>" +
+                        "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
+                        markAsRead +
+                        "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;" +
+                        flag + "&nbsp;&nbsp;" +
+
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
+
+                        " </div>" +
+                        "</div>" +
+                        "<li>"
+                )
+            });
+
+        }
+        else {
+            $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not fond</span>");
+
+        }
+    }
+</script>
 
 </body>
 </html>
