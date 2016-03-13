@@ -63,12 +63,27 @@ class LinkSharingService {
 
     Map fetchLoadMainPageData() {
         List<Resource> resources = Resource.getRecentResources()
-        List userId=[]
-        println "->>>>>>>>>>>>>>>>>>>>>>"+resources
+//        List userId=resources.createdBy.id
+// println "------------------->"+userId
+//        List username=[]
+
+//        println "->>>>>>>>>>>>>>>>>>>>>>-"+resources.flatten().id
+//        resources.each {resource->
+//            println "->>>>>>>>>>>>7777777777777777>>>>>>>>>>"+resource[0];
+//            resource.each {resourceSub->
+//                username.add(resourceSub)
+//                return false
+//            }
+//            username.each {info->
+//            println" info---------------->"+info[0]
+//
+//          }
+//
+//        }
 //        .each{user->
 //        userId.add(user.id)
 //        }
-        Map map=[userId:userId,resources:resources]
+        Map map=[resources:resources]
         return map
     }
 

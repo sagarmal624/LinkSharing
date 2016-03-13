@@ -18,7 +18,10 @@
                             <div class="row" style="border-bottom: 1px solid gray;padding-bottom:10px ">
                                 <div class="col-lg-2 col-md-2 col-sm-2">
                                     <span>
-                                        <asset:image src="1.png"  style="border:1px solid"></asset:image>
+                                        <ls:userImage userId="${recentTopic[3].createdBy?.id}" imageType="img-circle"/>
+
+                                        %{--<asset:image src="1.png"  style="border:1px solid"></asset:image>--}%
+
                                     </span>
                                 </div>
                                 <div class="col-lg-10 col-md-10 col-sm-10">

@@ -982,7 +982,7 @@
                         "<li>" +
 
                         "<div class='item' id='addhere'>" +
-                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
+                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key]+"' width=100 height=100 />" +
 
                         "<p class='message'>" +
                         "<a href='#' class='name'>" +

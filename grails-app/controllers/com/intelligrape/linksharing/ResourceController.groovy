@@ -166,8 +166,7 @@ class ResourceController extends UtilController {
     }
 
     def toppost() {
-        println "working-------------------------" + params.time
-        List<TopicVO> topposts;
+      List<TopicVO> topposts;
         if (params.time == "Today")
             topposts = Resource.getToppost()
         else {
@@ -183,7 +182,8 @@ class ResourceController extends UtilController {
                 topposts = Resource.getToppost(currentDate, currentDate - 365)
             }
         }
-        Map map = [topposts: topposts]
+        List userId=topposts?.createdBy?.id
+        Map map = [topposts: topposts,userId:userId]
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
 

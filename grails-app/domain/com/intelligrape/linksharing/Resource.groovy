@@ -60,7 +60,7 @@ abstract class Resource {
     }
     public static List<Resource>getRecentResources()
     {
-        List<Resource>resources=Resource.createCriteria().list(max:3) {
+        List<Resource>resources=Resource.createCriteria().list(max:5) {
             projections{
                 property('id')
                 property('url')
@@ -71,6 +71,7 @@ abstract class Resource {
             }
             order('dateCreated','desc')
         }
+
         return resources
     }
     String whichResource()
