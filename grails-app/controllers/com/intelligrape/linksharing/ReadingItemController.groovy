@@ -9,6 +9,7 @@ class ReadingItemController {
     def changeIsRead(Long id, Boolean isRead) {
         Resource resource = Resource.get(id)
         User user = User.findByEmail(session.email)
+
         ReadingItem readingItem = ReadingItem.findByResourceAndUser(resource, user)
         if (readingItem) {
 

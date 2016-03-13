@@ -7,5 +7,6 @@ class UrlMappings {
         }
         "/"(controller:"linkSharing",action: "loadmainpage" )
         "500"(view:'/error')
+
 	}
 }

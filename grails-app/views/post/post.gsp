@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LinkSharing | Trending Topics</title>
-    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
@@ -31,7 +30,6 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <!-- Logo -->
         <a href="/linkSharing/mainpage" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>S</span>
@@ -304,7 +302,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
                         <i class="fa fa-table"></i> <span>Admin</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -491,7 +489,19 @@
 
                                         </div>
                                         <br>
+                                        <div class="row" id="updateTopic${trendingTopic?.id}" style="display: none">
+                                            <form id="updateTopicForm${trendingTopic?.id}">
+                                                <div class="col-lg-6">
+                                                    <input type="hidden" name="id" value="${trendingTopic?.id}">
+                                                    <input type="text" class="form-control" name="name">
+                                                </div>
+                                                <div class="col-lg-4">
 
+                                                    <input type="submit" class="btn btn-success" value="Save">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br>
                                         <div class="row">
                                             <div class="col-lg-4">
 
@@ -509,7 +519,7 @@
 
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <g:if test="${session.email==topicVo?.createdBy?.email}">
+                                                    <g:if test="${session.email==trendingTopic?.createdBy?.email}">
 
                                                         <select class="form-control"
                                                                 onchange="changeVisibility(${trendingTopic?.createdBy?.id},'${trendingTopic?.id}',this.value)">
@@ -540,14 +550,18 @@
                                                 </div>
 
                                                 <div class="col-lg-4">
+                                                    <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
+                                                        <a href="#"  class="update" id="updateTopicName_${trendingTopic?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                        </a>
 
-                                                    <span class="glyphicon glyphicon-file"
-                                                          style="font-size:25px"></span>
-                                                </div>
+                                                    </g:if>
+               </div>
 
                                                 <div class="col-lg-4">
+                                <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
 
                                                     <a href="" onclick="deleteTopic(${trendingTopic?.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
+                                </g:if>
 
 
                                                 </div>
@@ -1128,9 +1142,7 @@
     };
 
     function deleteTopicResponse(data, textStatus){
-        if (data) {
             location.reload();
-        }
 
     };
     function deleteResource(id){
@@ -1170,6 +1182,63 @@
     };
 
 
+
+</script>
+<script>
+    var id;
+    //    $(document).ready(function(){alert('ddd')});
+    $('.update').on('click',function(){
+        //updateTopicName_
+        id=($(this).attr('id')).substr(16);
+        $("#updateTopic"+id).show();
+
+
+        $("#updateTopicForm"+id).submit(function(e)
+        {
+
+            var postData = $(this).serializeArray();
+            var formURL = "${g.createLink(action:"update",controller:"topic" )}";
+            $.ajax(
+                    {
+                        url : formURL,
+                        type: "POST",
+                        data : postData,
+                        success:function(data, textStatus, jqXHR)
+                        {
+                            if(data.message!="Topic Name is already Exist") {
+                                $("#spanmsg").addClass("alert alert-success")
+                            }
+                            else
+                                $("#spanmsg").addClass("alert alert-danger")
+                            $("#spanmsg").text(data.message)
+
+                            $("#alertmsg").toggleClass('hidden');
+                            $("#updateTopicForm"+id)[0].reset();
+                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                            location.reload();
+                        },
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown)
+                        {
+
+                            $("#spanmsg").addClass("alert alert-danger")
+                            $("#spanmsg").text(data.message);
+                            $("#alertmsg").toggleClass('hidden');
+                            $("#updateTopicForm"+id)[0].reset()
+                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+
+                        }
+
+                    });
+            e.preventDefault();	//STOP default action
+        });
+
+
+
+
+
+
+    });
 
 </script>
 <g:render template="../templates/resource/search"/>

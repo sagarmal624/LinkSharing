@@ -242,7 +242,7 @@
             
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
             <i class="fa fa-table"></i> <span>Admin</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -412,10 +412,9 @@
                 <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Download</button>
 
               </g:else>
-
-              ${resource.id}
-              <button type="button" class="btn btn-default"><i class="fa fa-star"></i>
-                <a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}"> Mark as Read</a></button>
+           <button type="button" class="btn btn-default" onclick="markAsRead(${resource.id})"><i class="fa fa-star"></i>
+                  Mark as Read
+              </button>
 
               <a hreef="#"> <img src="../../dist/img/facebook.png"/></a>
               <a hreef="#"><img src="../../dist/img/twtr.png"/></a>

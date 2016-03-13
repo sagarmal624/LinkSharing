@@ -15,16 +15,17 @@ class ApplicationFilters {
             }
         }
 
-       /*notLogin(controllerExclude:'login',action: '*')
-                {
-                before={
-                    if(!session.username){
-                        flash.error="Please Sign In...."
-                        render view:"/grails-app/views/login/login"
-                    }
+//       notLogin(controller:'linkSharing',action:'loadmainpage',invert:true)
+//                {
+//                before={
+//                    if(!session.username){
+//                        flash.error="Please Sign In...."
+//                         redirect(controller:"linkSharing",action:"loadmainpage")
+//                          return false
+//                    }
+//
+//                  }
+//             }
 
-                }
-
-                }
-    */}
+    }
 }

@@ -6,24 +6,26 @@ import grails.transaction.Transactional
 @Transactional
 class LinkSharingService {
 
-  Map fetchDashboardData(String email)
-  {   Map map = [:]
+    Map fetchDashboardData(String email) {
+        Map map = [:]
+        User user = User.findByEmail(email)
+        Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
+        List<Topic> topicsName
+        if (user.admin)
+            topicsName = Subscription.list()*.topic
+        else
+            topicsName = user?.subscriptions?.topic
 
-      User user = User.findByEmail(email)
-      Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
-      List<Topic> topicsName = user?.subscriptions?.topic
+        List<TopicVO> subscriptionList = [];
+        topicsName.each { Topic topic ->
+            subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
 
-      List<TopicVO> subscriptionList = [];
-      topicsName.each { Topic topic ->
-          println topic.name;
-          subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
+        }
+        map = [totalResourceAndSubscription: totalResourceAndSubscription, subscriptionList: subscriptionList]
+        return map
+    }
 
-      }
-   map=[totalResourceAndSubscription:totalResourceAndSubscription,subscriptionList:subscriptionList]
-return map
-  }
-    List fetchInboxData(User user)
-    {
+    List fetchInboxData(User user) {
         List<Resource> unreadResources = ReadingItem.createCriteria().list([max: 10]) {
             projections {
                 property("resource")
@@ -36,28 +38,45 @@ return map
         }
         return unreadResources
     }
-    Map fetchProfileData(User user)
-    {
+
+    Map fetchProfileData(User user) {
         Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
         List<TopicVO> userTopics = []
-        User.findByEmail(user.email).topics.each { topic ->
 
-            userTopics.add(new TopicVO(id: topic.id, seriousness: Subscription.findByTopic(topic)?.seriousness, visibility: topic.visibility, createdDate: topic.dateCreated, name: topic.name, countPost: Resource.countByTopic(topic), countSubscription: Subscription.countByTopic(topic)))
+        if (user.admin) {
+
+            Topic.list().each { topic ->
+
+                userTopics.add(new TopicVO(createdBy:topic.createdBy,id: topic.id, seriousness: Subscription.findByTopic(topic)?.seriousness, visibility: topic.visibility, createdDate: topic.dateCreated, name: topic.name, countPost: Resource.countByTopic(topic), countSubscription: Subscription.countByTopic(topic)))
+            }
+
+        } else {
+            User.findByEmail(user.email).topics.each { topic ->
+
+                userTopics.add(new TopicVO(createdBy:topic.createdBy,  id: topic.id, seriousness: Subscription.findByTopic(topic)?.seriousness, visibility: topic.visibility, createdDate: topic.dateCreated, name: topic.name, countPost: Resource.countByTopic(topic), countSubscription: Subscription.countByTopic(topic)))
+            }
+
         }
-             Map map=[totalResourceAndSubscription:totalResourceAndSubscription,userTopics:userTopics]
-return map
+        Map map = [totalResourceAndSubscription: totalResourceAndSubscription, userTopics: userTopics]
+        return map
     }
-    List fetchLoadMainPageData()
-    {
+
+    Map fetchLoadMainPageData() {
         List<Resource> resources = Resource.getRecentResources()
-return resources
+        List userId=[]
+        println "->>>>>>>>>>>>>>>>>>>>>>"+resources
+//        .each{user->
+//        userId.add(user.id)
+//        }
+        Map map=[userId:userId,resources:resources]
+        return map
     }
-    Map fetchTrendingPostData(User user)
-    {
+
+    Map fetchTrendingPostData(User user) {
         Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
         List<TopicVO> trendingTopicList = Topic.getTrendingTopics()
-      Map map=[totalResourceAndSubscription:totalResourceAndSubscription,trendingTopicList:trendingTopicList]
-     return map
+        Map map = [totalResourceAndSubscription: totalResourceAndSubscription, trendingTopicList: trendingTopicList]
+        return map
     }
 
     Map fetchSearchData(long id) {
@@ -75,8 +94,8 @@ return resources
         }
         TopicVO topicVO = Topic.getSubscribedTopicDetail(resourceDetails[0]?.getAt(1))
         List<Resource> resources = Resource.findAllByTopic(Topic.findByName(resourceDetails[0]?.getAt(1)))
-        List<Topic> topicList=Topic.getSubscribedUsersDatailOfTopic(resourceDetails[0]?.getAt(1))
-        map = [topicVO: topicVO, resources: resources,topicList:topicList]
+        List<Topic> topicList = Topic.getSubscribedUsersDatailOfTopic(resourceDetails[0]?.getAt(1))
+        map = [topicVO: topicVO, resources: resources, topicList: topicList]
         map
     }
 

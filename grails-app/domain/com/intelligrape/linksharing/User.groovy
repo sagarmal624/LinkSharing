@@ -1,4 +1,5 @@
 package com.intelligrape.linksharing
+
 class User {
     String username
     String firstname
@@ -11,29 +12,29 @@ class User {
     Date dateCreated
     Date lastUpdated
     transient confirmPassword
-    static hasMany = [topics:Topic,subscriptions:Subscription,resources:Resource,resource_ratings:Resource_Rating,readingItems:ReadingItem]
+    static hasMany = [topics: Topic, subscriptions: Subscription, resources: Resource, resource_ratings: Resource_Rating, readingItems: ReadingItem]
     static mapping = {
-        sort id:"desc"
+        sort id: "desc"
     }
     static transients = ['name']
     static constraints = {
-        username(blank:true,nullable:false,unique:true)
-        firstname (blank: true, nullable: false)
-        lastname  (blank: true, nullable: false)
-        password (blank:true,nullable:false,size:5..10)
-        email (email:true ,blank:true,nullable:false,unique:true)
-        admin (defaultValue: true,nullable:true)
-        imagePath (nullable:true)
-        active (defaultValue: true,nullable: true)
-        dateCreated(nullable: true,blank:true)
-        lastUpdated(nullable:true,blank:true)
-        topics(nullable:true)
-        subscriptions(nullable:true)
-        resources(nullable:true)
-        resource_ratings(nullable:true)
-        readingItems(nullable:true)
+        username(blank: true, nullable: false, unique: true)
+        firstname(blank: true, nullable: false)
+        lastname(blank: true, nullable: true)
+        password(blank: true, nullable: false, size: 5..10)
+        email(email: true, blank: true, nullable: false, unique: true)
+        admin(defaultValue: true, nullable: true)
+        imagePath(nullable: true)
+        active(defaultValue: true, nullable: true)
+        dateCreated(nullable: true, blank: true)
+        lastUpdated(nullable: true, blank: true)
+        topics(nullable: true)
+        subscriptions(nullable: true)
+        resources(nullable: true)
+        resource_ratings(nullable: true)
+        readingItems(nullable: true)
         //confirmPassword(blank:true,nullable:true,validator:{val,obj-> return !val.equals(obj.password)})
-        confirmPassword bindable:true ,nullable:true, blank:true, validator: { val, object ->
+        confirmPassword bindable: true, nullable: true, blank: true, validator: { val, object ->
             if ((val != object.password)) {
                 return false
             }
@@ -41,39 +42,40 @@ class User {
         }
 
     }
-    public String toString()
-    {
+
+    public String toString() {
         return username
 
     }
-    public String getName()
-    {
-        return "${firstname} ${lastname}"
-    }
-    public static List<Subscription> getSubscribedTopic(String emailid)
-    {
 
-        List<Subscription>topics= Subscription.createCriteria().list {
+    public String getName() {
+        if (lastname)
+            return "${firstname} ${lastname}"
+        else
+            return "${firstname}"
+
+    }
+
+    public static List<Subscription> getSubscribedTopic(String emailid) {
+
+        List<Subscription> topics = Subscription.createCriteria().list {
             projections {
                 property('topic')
             }
-            eq('user',User.findByEmail(emailid))
+            eq('user', User.findByEmail(emailid))
         }
         return topics
     }
 
-    boolean isSubscribed(long topicId)
-    {
-        return(Subscription.findByUserAndTopic(this,Topic.get(topicId)))
+    boolean isSubscribed(long topicId) {
+        return (Subscription.findByUserAndTopic(this, Topic.get(topicId)))
     }
 
-    public static Map getTotalResourceAndSubscription(User user)
-    {
-        int totalSubscription=Subscription.countByUser(user)
-        int totalTopic=Topic.countByCreatedBy(user)
-        int totalPost=Resource.countByCreatedBy(user)
-     return [totalSubscription:totalSubscription,totalTopic:totalTopic,totalPost:totalPost]
-
+    public static Map getTotalResourceAndSubscription(User user) {
+        int totalSubscription = Subscription.countByUser(user)
+        int totalTopic = Topic.countByCreatedBy(user)
+        int totalPost = Resource.countByCreatedBy(user)
+        return [totalSubscription: totalSubscription, totalTopic: totalTopic, totalPost: totalPost]
     }
 
 }

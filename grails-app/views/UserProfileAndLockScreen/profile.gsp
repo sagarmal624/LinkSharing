@@ -286,7 +286,7 @@
           </a>
            </li>
         <li class="treeview">
-          <a href="#">
+          <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
             <i class="fa fa-table"></i> <span>Admin</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
@@ -450,7 +450,7 @@
                       <span class="description">Shared publicly -${topic.createdDate}</span>
                       <div class="row">
                         <span class="text-success col-lg-4">
-                          @${session.user.username}</span>
+                          @${topic?.createdBy}</span>
 
                         <span class="text-success col-lg-3">Subscriptions</span>
                           <span class="text-success col-lg-5">
@@ -530,8 +530,10 @@
                                    style="font-size:25px"></span>
 
                            </a>&nbsp;&nbsp;&nbsp;
-           <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
+                <g:if test="${(session.email==topic?.createdBy?.email)|| session.user.admin}">
 
+                  <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
+                </g:if>
 
                          </div>
                            
@@ -1032,9 +1034,7 @@
                 }
                 else
                   $("#spanmsg").addClass("alert alert-danger")
-
                 $("#spanmsg").text(data.message)
-
                 $("#alertmsg").toggleClass('hidden');
                 $("#updateTopicForm")[0].reset();
                 setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
@@ -1043,7 +1043,6 @@
               dataType: 'json',
               error: function(jqXHR, textStatus, errorThrown)
               {
-
                 $("#spanmsg").addClass("alert alert-danger")
                 $("#spanmsg").text(data.message);
                 $("#alertmsg").toggleClass('hidden');

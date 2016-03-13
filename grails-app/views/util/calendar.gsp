@@ -291,14 +291,10 @@
       <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
-      <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">13</span></a>
+      <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">MailBox <span class="label label-primary pull-right"></span></a>
       </li>
-      <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
-      <li><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
-    </ul>
+     </ul>
   </li>
-
-
   <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>User Profile</span>

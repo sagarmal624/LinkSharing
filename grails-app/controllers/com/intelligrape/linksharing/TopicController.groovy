@@ -15,9 +15,9 @@ class TopicController extends UtilController {
       topic.visibility=Visibility.toEnum(visibility)
       if(topic.save(flush:true)){
         flash.message="Visibility is Updated"
-    } else {
+        } else {
         flash.message="Visibility is not updated"
-    }
+       }
     Map map = [message: flash.message,topicid:topicId]
     groovy.lang.Closure closure = { map }
     renderAsJSON(closure)

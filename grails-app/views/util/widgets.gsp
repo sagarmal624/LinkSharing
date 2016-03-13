@@ -283,7 +283,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
                         <i class="fa fa-table"></i> <span>Admin</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -464,7 +464,19 @@
 
                                     </div>
                                     <br>
+                                    <div class="row" id="updateTopic${trendingTopic?.id}" style="display: none">
+                                        <form id="updateTopicForm${trendingTopic?.id}">
+                                            <div class="col-lg-6">
+                                                <input type="hidden" name="id" value="${trendingTopic?.id}">
+                                                <input type="text" class="form-control" name="name">
+                                            </div>
+                                            <div class="col-lg-4">
 
+                                                <input type="submit" class="btn btn-success" value="Save">
+                                            </div>
+                                        </form>
+                                    </div>
+<br>
                                     <div class="row">
                                         <div class="col-lg-4">
 
@@ -533,11 +545,19 @@
                                             </div>
                                             <div class="col-lg-4">
 
-                                                <span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
+                                                    <a href="#"  class="update" id="updateTopicName_${trendingTopic?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                    </a>
+
+                                                </g:if>
+
                                             </div>
                                             <div class="col-lg-4">
+                                         <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
+
                                                 <a href="" onclick="deleteTopic(${trendingTopic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
-                                            </div>
+                                         </g:if>
+                                             </div>
                                         </div>
 
                                     </div>
@@ -1128,6 +1148,62 @@
 
 
 </script>
+<script>
+    var id;
+    //    $(document).ready(function(){alert('ddd')});
+    $('.update').on('click',function(){
+        //updateTopicName_
+        id=($(this).attr('id')).substr(16);
+        $("#updateTopic"+id).show();
 
+
+        $("#updateTopicForm"+id).submit(function(e)
+        {
+
+            var postData = $(this).serializeArray();
+            var formURL = "${g.createLink(action:"update",controller:"topic" )}";
+            $.ajax(
+                    {
+                        url : formURL,
+                        type: "POST",
+                        data : postData,
+                        success:function(data, textStatus, jqXHR)
+                        {
+                            if(data.message!="Topic Name is already Exist") {
+                                $("#spanmsg").addClass("alert alert-success")
+                            }
+                            else
+                                $("#spanmsg").addClass("alert alert-danger")
+                            $("#spanmsg").text(data.message)
+
+                            $("#alertmsg").toggleClass('hidden');
+                            $("#updateTopicForm"+id)[0].reset();
+                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                            location.reload();
+                        },
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown)
+                        {
+
+                            $("#spanmsg").addClass("alert alert-danger")
+                            $("#spanmsg").text(data.message);
+                            $("#alertmsg").toggleClass('hidden');
+                            $("#updateTopicForm"+id)[0].reset()
+                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+
+                        }
+
+                    });
+            e.preventDefault();	//STOP default action
+        });
+
+
+
+
+
+
+    });
+
+</script>
 </body>
 </html>

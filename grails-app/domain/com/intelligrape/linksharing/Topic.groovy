@@ -45,7 +45,7 @@ class Topic {
         if (resource)
             resourceId =resource?.id
         else
-            resourceId = 1
+            resourceId = 0
         return new TopicVO(id: topic.id, resourceId: resourceId, seriousness: seriousness, name: topicname, countPost: countPost, countSubscription: countSubscriptions, visibility: topic.visibility, createdBy: topic.createdBy);
 
     }

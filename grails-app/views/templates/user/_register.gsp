@@ -103,7 +103,7 @@
                     <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
                 </div>
                 <div class="col-xs-4">
-                    <input type="submit" id="save" class="btn btn-success btn-block btn-flat col-lg-offset-12" name="Sign Up" value="Register"/>
+                    <input type="submit" id="save" class="btn btn-success btn-block btn-flat col-lg-offset-4" name="Sign Up" value="Register"/>
                 </div>
                 <!-- /.col -->
             </div>
@@ -208,8 +208,9 @@
                         "<div class='row' style='border-bottom: 1px solid gray;padding-bottom: 10px'>"+
                         "<div class='col-lg-2'>"+
                         "<span>"+
+                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
 
-                        "<img src='${resource(dir:'images',file:'1.png')}'>"+
+                %{--"<img src='${resource(dir:'images',file:'1.png')}'>"+--}%
                         %{--"<asset:image src='1.png'  style="border:1px solid"></asset:image>"+--}%
                         "</span>"+
                         "</div>"+

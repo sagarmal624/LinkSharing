@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Data Tables</title>
+  <title>LinkSharing| Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
@@ -20,37 +20,51 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
-    <!-- Logo -->
-    <a href="../../index2.html" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+    <a href="${createLink(controller: "linkSharing", action: "mainpage")}" class="logo">
+      <span class="logo-mini"><b>L</b>S</span>
+      <span class="logo-lg"><b>Link</b>Sharing</span>
     </a>
-    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
       </a>
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown notifications-menu">
+            <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
+              <div class="input-group">
+                <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
+                       class="col-md-12 form-control" placeholder="Search topics..."/>
+
+                <div class="input-group-btn ">
+
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+
+              </div>
+
+            </form>
+            <ul class="dropdown-menu">
+              <li class="header" id="dropdownheader"></li>
+              <li>
+                <ul class="menu" id="dropdownsearch">
+                </ul>
+              </li>
+              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
+              </li>
+            </ul>
+            %{----}%
+
+          </li>
+
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
@@ -59,234 +73,164 @@
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
               <li>
-                <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                             alt="User Image">
                       </div>
                       <h4>
                         Support Team
                         <small><i class="fa fa-clock-o"></i> 5 mins</small>
                       </h4>
-                      <p>Why not buy a new awesome theme?</p>
+
+                      <p>Java Develoepr</p>
                     </a>
                   </li>
-                  <!-- end message -->
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                             alt="User Image">
                       </div>
                       <h4>
-                        AdminLTE Design Team
+                        To The New  Digital Design Team
                         <small><i class="fa fa-clock-o"></i> 2 hours</small>
                       </h4>
-                      <p>Why not buy a new awesome theme?</p>
+
+                      <p>new blog is uploaded....</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                             alt="User Image">
                       </div>
                       <h4>
                         Developers
                         <small><i class="fa fa-clock-o"></i> Today</small>
                       </h4>
-                      <p>Why not buy a new awesome theme?</p>
+
+                      <p>Today is Gorm session.</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
+                             alt="User Image">
                       </div>
                       <h4>
-                        Sales Department
+                        American Sawan Department
                         <small><i class="fa fa-clock-o"></i> Yesterday</small>
                       </h4>
-                      <p>Why not buy a new awesome theme?</p>
+
+                      <p>project is going on...</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
+                             alt="User Image">
                       </div>
                       <h4>
                         Reviewers
                         <small><i class="fa fa-clock-o"></i> 2 days</small>
                       </h4>
+
                       <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
+              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Messages</a></li>
             </ul>
           </li>
-          <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+            <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle"
+               data-toggle="dropdown">
+              <i class="fa fa-comment"></i>
+              <span class="label label-info"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                    page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
 
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
           </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+          <li class="dropdown notifications-menu">
+            <a href="#" data-target="#shareLink" data-toggle="modal" class="dropdown-toggle"
+               class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-link"></i>
+              <span class="label label-warning"></span>
+
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Create a nice theme
-                        <small class="pull-right">40%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Some task I need to do
-                        <small class="pull-right">60%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <h3>
-                        Make beautiful transitions
-                        <small class="pull-right">80%</small>
-                      </h3>
-                      <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
+
           </li>
-          <!-- User Account: style can be found in dropdown.less -->
+
+          <li class="dropdown tasks-menu">
+            <a href="#" data-target="#shareDoc" data-toggle="modal" class="dropdown-toggle"
+               data-toggle="dropdown">
+              <i class="fa fa-file-o"></i>
+              <span class="label label-success"></span>
+            </a>
+
+          </li>
+
+          <li class="dropdown tasks-menu">
+            <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+               data-toggle="dropdown">
+              <i class="fa fa-send-o"></i>
+              <span class="label label-success"></span>
+            </a>
+
+          </li>
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
+              <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+
+              <span class="hidden-xs">${session.username}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  ${session.username} - Web Developer Trainee
+                  <small>To The New Digital</small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                  <div class="col-xs-6 text-center">
+                    <a href="#">Subscriptions</a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
+
+                  <div class="col-xs-6 text-center">
+                    <a href="#">Topics</a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
+
                 </div>
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="${createLink(controller: "linkSharing", action: "profile")}"
+                     class="btn btn-default btn-flat">Profile</a>
                 </div>
+
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="${createLink(controller: "login", action: "logout")}"
+                     class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
@@ -294,17 +238,17 @@
       </div>
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <ls:userImage userId="${session?.user?.id}" imageType="img-circle" alt="user-Image"/>
         </div>
+
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>${session.username}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -313,157 +257,74 @@
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
-            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                    class="fa fa-search"></i>
             </button>
           </span>
         </div>
       </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+        <li class="header">LINK SHARING</li>
+        <li class="active treeview">
+          <a class="active" href="${createLink(controller: 'linkSharing', action: 'dashboard')}">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
+                  class="fa fa-angle-left pull-right"></i>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="label label-primary pull-right">4</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
         </li>
         <li>
-          <a href="../widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
+          <a href="${createLink(controller: 'linkSharing', action: 'trendingPost')}">
+            <i class="fa fa-th"></i> <span>Trending Post</span>
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
+
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
+          <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
+            <i class="fa fa-edit"></i> <span>Account Setting</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+          <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+            <i class="fa fa-table"></i> <span>Admin</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li class="active"><a href="data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+
+            <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                    class="fa fa-circle-o"></i> Data tables</a></li>
           </ul>
         </li>
         <li>
-          <a href="../calendar.html">
+          <a href="${createLink(controller: 'linkSharing', action: 'calender')}">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <small class="label pull-right bg-red">3</small>
           </a>
         </li>
         <li>
-          <a href="../mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <small class="label pull-right bg-yellow">12</small>
+          <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
+            <i class="fa fa-envelope"></i> <span>Inbox</span>
+            <small class="label pull-right bg-yellow"></small>
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
+          <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
+            <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="../examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="../examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="../examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="../examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="../examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="../examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="../examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+
+            <li><a href="${createLink(controller: 'linkSharing', action: 'profile')}"><i
+                    class="fa fa-circle-o"></i> Profile</a></li>
+            <li><a href="${createLink(controller: 'linkSharing', action: 'lockscreen')}"><i
+                    class="fa fa-circle-o"></i> Lockscreen</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li>
-              <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li>
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
-        <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Data Tables
@@ -475,448 +336,68 @@
         <li class="active">Data tables</li>
       </ol>
     </section>
-
-    <!-- Main content -->
-    <section class="content">
+   <section class="content">
       <div class="row">
         <div class="col-xs-12">
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Users List</h3>
             </div>
-            <!-- /.box-header -->
+
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Serial-No</th>
+                  <th>User Name</th>
+                  <th>Email-ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Admin</th>
+                  <th>Active</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                  Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                  Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                  Explorer 5.5
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                  Explorer 6
-                  </td>
-                  <td>Win 98+</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet Explorer 7</td>
-                  <td>Win XP SP2+</td>
-                  <td>7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>AOL browser (AOL desktop)</td>
-                  <td>Win XP</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.0</td>
-                  <td>OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.5</td>
-                  <td>OSX.3+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape 7.2</td>
-                  <td>Win 95+ / Mac OS 8.6-9.2</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Browser 8</td>
-                  <td>Win 98SE+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Navigator 9</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.1</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.2</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.2</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.3</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.4</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.4</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.5</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.6</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.7</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.8</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Seamonkey 1.1</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Epiphany 2.20</td>
-                  <td>Gnome</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.2</td>
-                  <td>OSX.3</td>
-                  <td>125.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.3</td>
-                  <td>OSX.3</td>
-                  <td>312.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 2.0</td>
-                  <td>OSX.4+</td>
-                  <td>419.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 3.0</td>
-                  <td>OSX.4+</td>
-                  <td>522.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>OmniWeb 5.5</td>
-                  <td>OSX.4+</td>
-                  <td>420</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>iPod Touch / iPhone</td>
-                  <td>iPod</td>
-                  <td>420.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>S60</td>
-                  <td>S60</td>
-                  <td>413</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.0</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.0</td>
-                  <td>Win 95+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.2</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.5</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera for Wii</td>
-                  <td>Wii</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nokia N800</td>
-                  <td>N800</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nintendo DS browser</td>
-                  <td>Nintendo DS</td>
-                  <td>8.5</td>
-                  <td>C/A<sup>1</sup></td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.1</td>
-                  <td>KDE 3.1</td>
-                  <td>3.1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.3</td>
-                  <td>KDE 3.3</td>
-                  <td>3.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.5</td>
-                  <td>KDE 3.5</td>
-                  <td>3.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 4.5</td>
-                  <td>Mac OS 8-9</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.1</td>
-                  <td>Mac OS 7.6-9</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.2</td>
-                  <td>Mac OS 8-X</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.1</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.4</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Dillo 0.8</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Links</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Lynx</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>IE Mobile</td>
-                  <td>Windows Mobile 6</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>PSP browser</td>
-                  <td>PSP</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
-                </tr>
+                <g:each in="${users}" var="user">
+                  <tr>
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.email}</td>
+                    <td>${user.firstname}</td>
+                    <td>${user.lastname}</td>
+                    <g:if test="${user.admin}">
+                    <td>Yes</td>
+                    </g:if>
+                    <g:else>
+                      <td>No</td>
+                    </g:else>
+                         <g:if test="${user.active}">
+                      <td><a href="#" onclick="activateUser(${user.id})">Active</a></td>
+                    </g:if>
+                    <g:else>
+                      <td><a href="#" onclick="deActivateUser(${user.id})">Deactive</a></td>
+                    </g:else>
+
+                  </tr>
+                </g:each>
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Serial-No</th>
+                  <th>User Name</th>
+                  <th>Email-ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Admin</th>
+                  <th>Active</th>
                 </tr>
+
                 </tfoot>
               </table>
+
             </div>
+            <!-- /.box-header -->
             <!-- /.box-body -->
           </div>
 
@@ -932,20 +413,18 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.2
     </div>
-    <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2016-2017 <a href="http://tothenew.com">To The New Digital</a>.</strong> All rights
   reserved.
   </footer>
 
-  <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
       <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
-    <!-- Tab panes -->
+
     <div class="tab-content">
-      <!-- Home tab content -->
       <div class="tab-pane" id="control-sidebar-home-tab">
         <h3 class="control-sidebar-heading">Recent Activity</h3>
         <ul class="control-sidebar-menu">
@@ -954,7 +433,7 @@
               <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                <h4 class="control-sidebar-subheading">Sagar's Birthday</h4>
 
                 <p>Will be 23 on April 24th</p>
               </div>
@@ -965,9 +444,9 @@
               <i class="menu-icon fa fa-user bg-yellow"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+                <h4 class="control-sidebar-subheading">Sagar Updated His Profile</h4>
 
-                <p>New phone +1(800)555-1234</p>
+                <p>New phone +91 9166338872</p>
               </div>
             </a>
           </li>
@@ -976,9 +455,9 @@
               <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+                <h4 class="control-sidebar-subheading">sagar Joined Mailing List</h4>
 
-                <p>nora@example.com</p>
+                <p>sagar@tothenew.com</p>
               </div>
             </a>
           </li>
@@ -987,14 +466,13 @@
               <i class="menu-icon fa fa-file-code-o bg-green"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+                <h4 class="control-sidebar-subheading">IT Job 254 Executed</h4>
 
                 <p>Execution time 5 seconds</p>
               </div>
             </a>
           </li>
         </ul>
-        <!-- /.control-sidebar-menu -->
 
         <h3 class="control-sidebar-heading">Tasks Progress</h3>
         <ul class="control-sidebar-menu">
@@ -1049,9 +527,9 @@
         </ul>
 
       </div>
+      <!-- Stats tab content -->
       <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
+
       <div class="tab-pane" id="control-sidebar-settings-tab">
         <form method="post">
           <h3 class="control-sidebar-heading">General Settings</h3>
@@ -1066,7 +544,6 @@
               Some information about this general settings option
             </p>
           </div>
-          <!-- /.form-group -->
 
           <div class="form-group">
             <label class="control-sidebar-subheading">
@@ -1078,7 +555,6 @@
               Other sets of options are available
             </p>
           </div>
-          <!-- /.form-group -->
 
           <div class="form-group">
             <label class="control-sidebar-subheading">
@@ -1090,7 +566,6 @@
               Allow the user to show his name in blog posts
             </p>
           </div>
-          <!-- /.form-group -->
 
           <h3 class="control-sidebar-heading">Chat Settings</h3>
 
@@ -1100,7 +575,6 @@
               <input type="checkbox" class="pull-right" checked>
             </label>
           </div>
-          <!-- /.form-group -->
 
           <div class="form-group">
             <label class="control-sidebar-subheading">
@@ -1108,7 +582,6 @@
               <input type="checkbox" class="pull-right">
             </label>
           </div>
-          <!-- /.form-group -->
 
           <div class="form-group">
             <label class="control-sidebar-subheading">
@@ -1116,15 +589,11 @@
               <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
             </label>
           </div>
-          <!-- /.form-group -->
         </form>
       </div>
-      <!-- /.tab-pane -->
     </div>
   </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
+
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
@@ -1144,7 +613,15 @@
 <script src="../../dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<!-- page script -->
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/DocumentResource/create"/>
+
+
+%{--<g:render template="../templates/LinkResource/create"/>--}%
+%{--<g:render template="../templates/Topic/create"/>--}%
+
+
+<g:render template="../templates/resource/search"/>
 <script>
   $(function () {
     $("#example1").DataTable();
@@ -1157,6 +634,29 @@
       "autoWidth": false
     });
   });
+</script>
+<script>
+  function activateUser(id){
+    <g:remoteFunction  controller="user" action="activeUser"  params="\'id=\'+id+\'&activeness=\'+false" onSuccess="activateUserResponse(data,textStatus)"/>
+
+  };
+
+  function activateUserResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+  };
+  function deActivateUser(id){
+    <g:remoteFunction  controller="user" action="activeUser"  params="\'id=\'+id+\'&activeness=\'+true" onSuccess="activateUserResponse(data,textStatus)"/>
+
+  };
+
+  function deActivateUserResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+  };
+
 </script>
 </body>
 </html>

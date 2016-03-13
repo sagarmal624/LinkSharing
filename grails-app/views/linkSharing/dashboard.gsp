@@ -6,33 +6,11 @@
     <title>LinkSharing | Dashboard</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}" rel="stylesheet">
-    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
-    %{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>--}%
     <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
     <script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
-    %{--<script src="${resource(dir:'js',file:'bootstrap-typeahead.js')}"></script>    <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
-    %{--<script src="${resource(dir:'js',file:'jquery.mockjax.js')}"></script>--}%
-    %{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--}%
-    %{--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'dist/css/skins', file: '_all-skins.min.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat', file: 'blue.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/morris', file: 'morris.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">--}%
-    %{--<link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">--}%
-    %{--<link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">--}%
-    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
-
-    %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
-
-
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
     <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="../dist/js/star-rating.js" type="text/javascript"></script>
-    %{--<link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">--}%
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">
@@ -43,7 +21,6 @@
     <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
     <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
-    %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>--}%
 
 </head>
 
@@ -308,7 +285,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
                         <i class="fa fa-table"></i> <span>Admin</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -602,7 +579,7 @@
 
                                             <div class="col-lg-4">
 
-                                                <g:if test="${session.email==topicVo?.createdBy?.email}">
+                                                <g:if test="${(session.email==topicVo?.createdBy?.email)|| session.user.admin}">
                                                     <a href="#"  class="update" id="updateTopicName_${topicVo?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
                                                 </a>
 
@@ -610,7 +587,7 @@
 
                                             </div>
                                             <div class="col-lg-4">
-                                            <g:if test="${session.email==topicVo?.createdBy?.email}">
+                                            <g:if test="${(session.email==topicVo?.createdBy?.email) || session.user.admin}">
                                                 %{--<ls:deleteTopic topicId="${topicVo.id}"></ls:deleteTopic>--}%
                                                <a href="" onclick="deleteTopic(${topicVo.id})">
                                                     <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
@@ -672,10 +649,6 @@
                             </g:form>
                         </div>
 
-                        <div class="box-footer clearfix">
-                            <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
-                                <i class="fa fa-arrow-circle-right"></i></button>
-                        </div>
                     </div>
 
                 </section>

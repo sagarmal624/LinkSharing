@@ -83,6 +83,7 @@ class ResourceController extends UtilController {
         if (resource.validate()) {
             Thread.sleep(1000)
             resource.save(flush: true)
+            ResourceController.addToReadingItems(resource)
             flash.message = "Link Resource is Successfully Created "
 
             //render view:"/linkSharing/dashboard"

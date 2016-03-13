@@ -1,10 +1,13 @@
 package com.intelligrape.linksharing
+
 class LinkSharingController {
     def linkSharingService
 
     def loadmainpage() {
-        List resources = linkSharingService.fetchLoadMainPageData()
-        render view: "/HomePage", model: [topPostResource: Resource.getToppost(), recentTopicShare: resources]
+
+        Map map = linkSharingService.fetchLoadMainPageData()
+        render view: "/HomePage", model: [topPostResource: Resource.getToppost(), recentTopicShare: map.resources,userId:map.userId]
+
     }
 
     def Home() {
@@ -32,7 +35,9 @@ class LinkSharingController {
     }
 
     def admin() {
-        render view: "/tables/data", model: [SubscribedTopicList: loadTopic()]
+        List<User> users = User.list()
+
+        render view: "/tables/data", model: [SubscribedTopicList: loadTopic(), users: users]
 
     }
 
@@ -72,7 +77,10 @@ class LinkSharingController {
     }
 
     private List<Subscription> loadTopic() {
-        return User.getSubscribedTopic(session?.email)
+        if (session.user.admin)
+            return Subscription.list()*.topic;
+        else
+            return User.getSubscribedTopic(session?.email)
     }
 
 }

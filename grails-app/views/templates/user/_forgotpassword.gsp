@@ -2,17 +2,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Enter Email-id to get Password on Email</h4>
+                <div id="alertmsg4" class="hidden"><span id="spanmsg4"></span></div>
+                <button id="closetopic"type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="addContactModalLabel">Create Topic</h4>
+                <div id="loaderId4" style="display: none">
+                    <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
+                </div>
             </div>
-            <g:form controller="topic" action="save" >
+
+            <g:form id="forgotPasswordform" controller="user" action="forgotPassword">
                 <div class="modal-body">
                     <div class="form-group">
                         <div class="col-lg-2">
-                            <label>Email-Id<span style="color:red">*</span>:</label>
+                            <label for="emailto">Email-Id<span style="color:red">*</span>:</label>
                         </div>
                         <div class="col-lg-10">
-                            <g:field type="email" required="" class="form-control" id="email" name="email" placeholder="Enter your Mail-id"/>
+                            <input type="email" required="" class="form-control" id="email" name="email" placeholder="Enter your Email-Id"/>
                         </div>
                     </div>
                     <br><br>
@@ -21,14 +26,13 @@
                     <div class="row">
 
                         <div class="col-lg-4 col-lg-offset-2">
-                            <g:actionSubmit value="Send" class="btn btn-info"></g:actionSubmit>
-                        </div>
+                            <input type="submit" id="send" class="btn btn-primary" value="Send"></div>
                         <div class="col-lg-3">
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                            <button type="button"  class="btn btn-danger" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
-            </g:form>
+                           </g:form>
         </div>
     </div>
 </div>
