@@ -10,10 +10,13 @@ class SubscriptionController extends UtilController{
         if (subscription) {
             subscription.delete(flush: true)
             //render("Success")
-              forward(controller:"linkSharing",action:"showResource",params: [id:id])
+//              forward(controller:"linkSharing",action:"showResource",params: [id:id])
         } else {
-            forward(controller:"linkSharing",action:"showResource",params: [id:id])
+//            forward(controller:"linkSharing",action:"showResource",params: [id:id])
 
+            Map map = [message: flash.message]
+            groovy.lang.Closure closure = { map }
+            renderAsJSON(closure)
 
         }
     }
@@ -27,15 +30,20 @@ class SubscriptionController extends UtilController{
                subscription.save(flush: true)
 
                flash.message="Success"
-               forward(controller:"linkSharing",action:"showResource",params: [id:id])
+//               forward(controller:"linkSharing",action:"showResource",params: [id:id])
            } else {
                flash.message="Cannot make subscription"
-               forward(controller:"linkSharing",action:"showResource",params: [id:id])
+//               forward(controller:"linkSharing",action:"showResource",params: [id:id])
 
            }
 
        }
+            else flash.message="Subscription is not found"
+            Map map = [message: flash.message]
+            groovy.lang.Closure closure = { map }
+            renderAsJSON(closure)
 
+//render flash.message
     }
 
     def update(long userId, long topicId, String seriousness) {
@@ -50,7 +58,7 @@ class SubscriptionController extends UtilController{
         if (subscription?.validate()) {
             subscription.seriousness = Seriousness.getSeriousness(seriousness);
             subscription.save(flush:true)
-         flash.message="Seriousness is successfully Updated"
+         flash.message="Seriousness is Updated"
         } else {
             flash.message="Seriousness is not updated"
         }

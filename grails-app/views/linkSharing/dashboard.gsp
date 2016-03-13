@@ -27,6 +27,7 @@
     %{--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>--}%
 
 
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="../dist/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
@@ -326,7 +327,7 @@
                 <li>
                     <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
-                        <small class="label pull-right bg-yellow">12</small>
+                        <small class="label pull-right bg-yellow"></small>
                     </a>
                 </li>
                 <li class="treeview">
@@ -492,7 +493,18 @@
                                     <div class="row">
                                         <span class="col-lg-4">
                                             <g:if test="${session.email!=topicVo?.createdBy?.email}">
-                                                <ls:showSubscribe topicId="${topicVo?.id}"></ls:showSubscribe>
+
+                                                <g:if test="${session.user?.isSubscribed(topicVo?.id)}">
+                                                    <button class="btn btn-link" onclick="unSubscribeTopic(${topicVo?.id})">UnSubscribe </button>
+
+                                                </g:if>
+                                                <g:else>
+                                                    <button class="btn btn-link" onclick="subscribeTopic(${topicVo?.id})">Subscribe </button>
+
+                                                </g:else>
+                                                %{--<ls:showSubscribe topicId="${topicVo?.id}"></ls:showSubscribe>--}%
+
+
                                             </g:if>
                                         </span>
                                         <span class="col-lg-4">
@@ -506,10 +518,11 @@
 
                                     </div>
                                     <br>
-                                    <div class="row" id="updateTopic">
-                                        <form>
+                                    <div class="row" id="updateTopic${topicVo?.id}" style="display: none">
+                                        <form id="updateTopicForm${topicVo?.id}">
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control">
+                                            <input type="hidden" name="id" value="${topicVo?.id}">
+                                            <input type="text" class="form-control" name="name">
                                         </div>
                                         <div class="col-lg-4">
 
@@ -589,14 +602,20 @@
 
                                             <div class="col-lg-4">
 
-                                                <a href="#" id="updateTopicName"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
-                                            </a>
-                                            </div>
+                                                <g:if test="${session.email==topicVo?.createdBy?.email}">
+                                                    <a href="#"  class="update" id="updateTopicName_${topicVo?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                </a>
 
+                                                </g:if>
+
+                                            </div>
                                             <div class="col-lg-4">
-                                               %{--<ls:deleteTopic topicId="${topicVo.id}"></ls:deleteTopic>--}%
-                                            <a href="" onclick="deleteTopic(${topicVo.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
-                                            </a>
+                                            <g:if test="${session.email==topicVo?.createdBy?.email}">
+                                                %{--<ls:deleteTopic topicId="${topicVo.id}"></ls:deleteTopic>--}%
+                                               <a href="" onclick="deleteTopic(${topicVo.id})">
+                                                    <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
+                                             </a>
+                                            </g:if>
                                             </div>
                                         </div>
 
@@ -1032,6 +1051,7 @@
             //obj);
         }
     };
+
     function changeVisibility(userid,topicid,visibility)
     {
         <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
@@ -1052,8 +1072,6 @@
         }
 
     };
-
-
     function deleteTopic(id){
         <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
 
@@ -1063,8 +1081,8 @@
         if (data) {
             location.reload();
         }
-
     };
+
 </script>
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
@@ -1073,16 +1091,88 @@
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#updateTopic").hide();
-        $("#updateTopicName").click(function(){
+    function subscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="save"  params="\'id=\'+id " onSuccess="subscribeTopicResponse(data,textStatus)"/>
+    };
+    function subscribeTopicResponse(data, textStatus){
+        if (data) {
+                 location.reload();
+        }
+    };
 
-            $("#updateTopic").show();
 
-        });
+    function unSubscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
 
-    });
+    };
+
+    function unSubscribeTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+    };
+
 </script>
+
+
+<script>
+var id;
+//    $(document).ready(function(){alert('ddd')});
+$('.update').on('click',function(){
+    //updateTopicName_
+  id=($(this).attr('id')).substr(16);
+    $("#updateTopic"+id).show();
+
+
+    $("#updateTopicForm"+id).submit(function(e)
+    {
+
+        var postData = $(this).serializeArray();
+        var formURL = "${g.createLink(action:"update",controller:"topic" )}";
+        $.ajax(
+                {
+                    url : formURL,
+                    type: "POST",
+                    data : postData,
+                    success:function(data, textStatus, jqXHR)
+                    {
+                     if(data.message!="Topic Name is already Exist") {
+                            $("#spanmsg").addClass("alert alert-success")
+               }
+                        else
+                            $("#spanmsg").addClass("alert alert-danger")
+                        $("#spanmsg").text(data.message)
+
+                        $("#alertmsg").toggleClass('hidden');
+                        $("#updateTopicForm"+id)[0].reset();
+                        setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                        location.reload();
+                    },
+                    dataType: 'json',
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+
+                        $("#spanmsg").addClass("alert alert-danger")
+                        $("#spanmsg").text(data.message);
+                        $("#alertmsg").toggleClass('hidden');
+                        $("#updateTopicForm"+id)[0].reset()
+                        setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+
+                    }
+
+                });
+        e.preventDefault();	//STOP default action
+    });
+
+
+
+
+
+
+});
+
+</script>
+
 </body>
 </html>
 

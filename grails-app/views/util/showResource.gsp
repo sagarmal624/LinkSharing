@@ -324,7 +324,7 @@
 
                     <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
-                        <small class="label pull-right bg-yellow">12</small>
+                        <small class="label pull-right bg-yellow"></small>
                     </a>
                 </li>
                 <li class="treeview">
@@ -417,7 +417,17 @@
                                         <span class="col-lg-4">
 
                                             <g:if test="${session.email != topicDetails?.createdBy?.email}">
-                                                <ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>
+                                                %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
+                                                <g:if test="${session.user?.isSubscribed(topicDetails?.id)}">
+
+                                                    <button class="btn btn-link" onclick="unSubscribeTopic(${topicDetails?.id})">UnSubscribe </button>
+
+                                                </g:if>
+                                                <g:else>
+                                                    <button class="btn btn-link" onclick="subscribeTopic(${topicDetails?.id})">Subscribe </button>
+
+                                                </g:else>
+
                                             </g:if>
 
                                         </span>
@@ -868,6 +878,28 @@
     }
     ;
 
+    function subscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="save"  params="\'id=\'+id " onSuccess="subscribeTopicResponse(data,textStatus)"/>
+
+    };
+
+    function subscribeTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+    };
+    function unSubscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
+
+    };
+
+    function unSubscribeTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+    };
+
+
 </script>
 
 <g:render template="../templates/LinkResource/create"/>
@@ -880,6 +912,7 @@
         console.log(description);
         <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchPostResponse(data,textStatus)"/>
     };
+
 
     var isEqualToJson = function (a, b) {
         function check(a, b) {
@@ -973,7 +1006,7 @@
                         "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +
 
-                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
+    "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
 
                         " </div>" +
                         "</div>" +
@@ -988,5 +1021,10 @@
         }
     }
 </script>
-</body>
-</html>
+<script>
+
+
+
+    </script>
+    </body>
+    </html>

@@ -53,7 +53,6 @@
     $("#ajaxform").submit(function(e)
     {
         $("#loaderId4").show()
-
         var postData = $(this).serializeArray();
         var formURL = "${g.createLink(action:"save",controller:"topic" )}";
         $.ajax(
@@ -65,11 +64,12 @@
                     {
                         if(data.message!="This Topic name is already Exist!.Please Change Topic Name!") {
                             $("#spanmsg4").addClass("alert alert-success")
-                            $("#loaderId4").hide();
+
                         }
                         else
                             $("#spanmsg4").addClass("alert alert-danger")
 
+                        $("#loaderId4").hide();
                         $("#spanmsg4").text(data.message)
 
                         $("#alertmsg4").toggleClass('hidden');

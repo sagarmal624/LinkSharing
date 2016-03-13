@@ -288,7 +288,7 @@
         <li>
           <a href="${createLink(controller:'linkSharing', action: 'inbox')}">
             <i class="fa fa-envelope"></i> <span>Inbox</span>
-            <small class="label pull-right bg-yellow">12</small>
+            <small class="label pull-right bg-yellow"></small>
           </a>
         </li>
         <li class="treeview">

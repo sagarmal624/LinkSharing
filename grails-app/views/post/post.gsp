@@ -461,9 +461,20 @@
                                         <div class="row">
 
                                             <span class="col-lg-4">
-                                                <g:if test="${session.email != trendingTopic?.createdBy?.email}">
-                   <ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>
-                                                </g:if>
+                                                         %{--<ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>--}%
+                                                    <g:if test="${session.email != trendingTopic?.createdBy?.email}">
+                                                    %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
+                                                        <g:if test="${session.user?.isSubscribed(trendingTopic?.id)}">
+
+                                                            <button class="btn btn-link" onclick="unSubscribeTopic(${trendingTopic?.id})">UnSubscribe </button>
+
+                                                        </g:if>
+                                                        <g:else>
+                                                            <button class="btn btn-link" onclick="subscribeTopic(${trendingTopic?.id})">Subscribe </button>
+
+                                                        </g:else>
+
+                                                    </g:if>
 
                                             </span>
                                             <span class="col-lg-4">
@@ -1088,6 +1099,7 @@
         }
     };
 
+
     function changeVisibility(userid,topicid,visibility)
     {
         <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
@@ -1134,6 +1146,29 @@
         }
 
     };
+    function subscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="save"  params="\'id=\'+id " onSuccess="subscribeTopicResponse(data,textStatus)"/>
+
+    };
+
+    function subscribeTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+    };
+
+
+    function unSubscribeTopic(id){
+        <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
+
+    };
+
+    function unSubscribeTopicResponse(data, textStatus){
+        if (data) {
+            location.reload();
+        }
+    };
+
 
 
 </script>

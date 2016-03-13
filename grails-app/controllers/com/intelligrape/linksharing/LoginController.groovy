@@ -1,7 +1,6 @@
 package com.intelligrape.linksharing
-
 class LoginController {
-
+def loginService
     def index() {
         if (!session.username) {
             render view: "/HomePage"
@@ -9,8 +8,6 @@ class LoginController {
             forward(action:"dashboard" ,controller:"linkSharing")
 
     }
-
-    //TODO: Use messgae.properties.
     def loginHandler() {
         String email = params.email;
         String password = params.password;
@@ -19,16 +16,12 @@ class LoginController {
             session.username =user.name
             session.email = user.email;
             session.user=user;
-       //     render(view: '/linkSharing/dashboard')
             forward(action:"dashboard",controller:"linkSharing");
 
         } else {
-//            flash.error = "Invalid UserName or Password"
             redirect(action: "index", controller: "login", model: [user: user])
         }
     }
-
-    //TODO: Log basic informations.
     def logout() {
         session.invalidate()
         redirect action: "index"

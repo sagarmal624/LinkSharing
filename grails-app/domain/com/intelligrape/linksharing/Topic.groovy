@@ -41,12 +41,11 @@ class Topic {
 
         Resource resource = Resource.findByTopic(topic)
         println"countin----------------------->"+resource
-
         long resourceId
         if (resource)
             resourceId =resource?.id
         else
-            resourceId = 0
+            resourceId = 1
         return new TopicVO(id: topic.id, resourceId: resourceId, seriousness: seriousness, name: topicname, countPost: countPost, countSubscription: countSubscriptions, visibility: topic.visibility, createdBy: topic.createdBy);
 
     }

@@ -304,7 +304,7 @@
         <li>
           <a href="${createLink(controller:'linkSharing', action: 'inbox')}">
             <i class="fa fa-envelope"></i> <span>Inbox</span>
-            <small class="label pull-right bg-yellow">12</small>
+            <small class="label pull-right bg-yellow"></small>
           </a>
         </li>
         <li class="treeview active">
@@ -425,19 +425,18 @@
                   <div class="user-block">
                     %{--<img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">--}%
                     <ls:userImage userId="${session.user.id}" imageType="img-circle img-bordered-sm"/>
-
-
-
-                    <div class="row">
- <g:form controller="topic" action="update">
+                 <div class="row">
+                <form id="updateTopicForm">
                     <div class="form-group col-lg-4 col-lg-offset-2">
                   <input type="hidden" name="id" id="id" value="${topic.id}">
                       <input type="text" class="form-control" required="true" name="name" id="name" placeholder="Topic Name.... ">
                          </div>
                                     <div class="form-group col-lg-2">
                             <input type="submit" class="form-control btn btn-success  " value="Save" id="Save"/>
-                                    </div>
- </g:form>
+   </div>
+                  <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
+
+                </form>
                   </div>
                 
                       
@@ -522,13 +521,16 @@
                     
                         
                          <div class="col-lg-3">
-                           
-                             
-                             
-                             <span class="col-lg-4 glyphicon glyphicon-envelope" style="font-size:23px"></span>
-                                 <span class="col-lg-4 glyphicon glyphicon-file" style="font-size:23px"></span>
 
-                           <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
+
+
+                           <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                              data-toggle="dropdown">
+                             <span class="glyphicon glyphicon-envelope"
+                                   style="font-size:25px"></span>
+
+                           </a>&nbsp;&nbsp;&nbsp;
+           <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
 
 
                          </div>
@@ -974,7 +976,7 @@
     };
     function saveTopicResponse(data, textStatus) {
       if (data) {
-        if (data.message != "Seriousness is not updated")
+        if (data.message != "Topic Name is already Exist")
           $("#spanmsg").addClass("alert alert-success")
         else
           $("#spanmsg").addClass("alert alert-danger")
@@ -1009,5 +1011,51 @@
 
 
 </script>
+
+
+<script type="text/javascript">
+  $("#updateTopicForm").submit(function(e)
+  {
+
+    var postData = $(this).serializeArray();
+    var formURL = "${g.createLink(action:"update",controller:"topic" )}";
+    $.ajax(
+            {
+              url : formURL,
+              type: "POST",
+              data : postData,
+              success:function(data, textStatus, jqXHR)
+              {
+                if(data.message!="Topic Name is already Exist") {
+                  $("#spanmsg").addClass("alert alert-success")
+
+                }
+                else
+                  $("#spanmsg").addClass("alert alert-danger")
+
+                $("#spanmsg").text(data.message)
+
+                $("#alertmsg").toggleClass('hidden');
+                $("#updateTopicForm")[0].reset();
+                setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                 location.reload();
+              },
+              dataType: 'json',
+              error: function(jqXHR, textStatus, errorThrown)
+              {
+
+                $("#spanmsg").addClass("alert alert-danger")
+                $("#spanmsg").text(data.message);
+                $("#alertmsg").toggleClass('hidden');
+                $("#updateTopicForm")[0].reset()
+                setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+
+              }
+
+            });
+    e.preventDefault();	//STOP default action
+  });
+</script>
+
 </body>
 </html>

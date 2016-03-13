@@ -14,15 +14,13 @@ class TopicController extends UtilController {
       Topic topic=Topic.findByCreatedByAndId(User.get(userId),topicId)
       topic.visibility=Visibility.toEnum(visibility)
       if(topic.save(flush:true)){
-        flash.message="Visibility is successfully Updated"
+        flash.message="Visibility is Updated"
     } else {
         flash.message="Visibility is not updated"
     }
     Map map = [message: flash.message,topicid:topicId]
     groovy.lang.Closure closure = { map }
     renderAsJSON(closure)
-
-
 }
     def delete(long id)
     {
@@ -32,7 +30,6 @@ class TopicController extends UtilController {
     }
     def save(){
         Map map=[:]
-        println("SAVE >>>>>>>>")
         String topicname=params.name;
         String visibility=params.visibility
         User user=User.findByEmail(session.email)
@@ -41,16 +38,11 @@ class TopicController extends UtilController {
         if(!topic.validate())
         {
             flash.message="This Topic name is already Exist!.Please Change Topic Name!"
-            /* renderAsJSON {
-                  flash.error
-           }*/
-
-
-        }else
+         }else
         {
 
             Thread.sleep(500)
-            flash.message="Topic is created with ${topicname} name successfully!"
+            flash.message="Topic is created successfully!"
             topic=topic.save(flush: true)
 
         }
@@ -61,13 +53,16 @@ class TopicController extends UtilController {
      def update(long id,String name){
      Topic topic=Topic.get(id)
      topic.name=name;
-flash.message="Record is not Updated due to Validation Error"
+         flash.message="Topic Name is already Exist"
 
          if(topic.save(flush:true))
-     flash.message="Record is Successfully Updated"
+         flash.message="Record is Updated"
+         //forward(action:"profile" ,controller:"linkSharing" )
+         Map map=[message:flash.message]
+         groovy.lang.Closure closure={ map}
+         renderAsJSON(closure)
 
 
-     forward(action:"profile" ,controller:"linkSharing" )
      }
 
     def show(ResourceSearchCO co){
