@@ -101,16 +101,22 @@ class UserController extends UtilController {
             params.imagePath = userImage.absolutePath
             user.imagePath = params.imagePath
         }
-        user.firstname = params.firstname;
-        user.lastname = params.lastname;
+        if(params.firstname)
+            user.firstname = params.firstname;
+
+        if(params.lastname)
+            user.lastname = params.lastname;
+
         user.confirmPassword = user.password
         if (user.save(flush: true, failOnError: true)) {
             flash.message = "Record is Successfully updated"
             session.user = user;
             session.username = user.name
+            session.email=user.email;
         } else
-            flash.error = "Record is not updated due to some validation"
-        forward(action: "accountSetting", controller: "linkSharing")
+            flash.error = "Record is not updated due to some Validation"
+            forward(action: "accountSetting", controller: "linkSharing")
+
     }
     def forgotPassword(String email) {
 

@@ -103,8 +103,10 @@ environments {
         grails.logging.jul.usebridge = false
         //TODO: grails.serverURL = "http://www.changeme.com"
     }
+    uploadDocumentFolder = "${userHome}/LinkSharing/upload/document/"
+    userProfileImageFolder = "${userHome}/LinkSharing/web-app/images/"
+    defaultUserImage = "user.png"
 }
-
 // log4j configuration
 log4j.main = {
     // Example of changing the log pattern for the default console appender:

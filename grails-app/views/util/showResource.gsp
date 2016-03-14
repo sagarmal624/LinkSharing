@@ -909,6 +909,8 @@
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 <g:render template="../templates/resource/search"/>
+<g:render template="../templates/LinkResource/editLinkResource"/>
+
 <script type="text/javascript">
 
     var searchResourceAndTopic = function searchPost(description) {
@@ -1006,7 +1008,7 @@
                         "<img src='../dist/img/twtr.png'/>" +
                         "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
                         markAsRead +
-                        "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;" +
+                        "<a href='#' data-target='#editLink' data-toggle='modal'><u>Edit</u></a>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +
 
     "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +

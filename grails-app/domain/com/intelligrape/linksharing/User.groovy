@@ -18,11 +18,11 @@ class User {
     }
     static transients = ['name']
     static constraints = {
-        username(blank: true, nullable: false, unique: true)
-        firstname(blank: true, nullable: false)
+        username(blank: false, nullable: false, unique: true)
+        firstname(blank:false, nullable: false)
         lastname(blank: true, nullable: true)
-        password(blank: true, nullable: false, size: 5..10)
-        email(email: true, blank: true, nullable: false, unique: true)
+        password(blank: false, nullable: false, size: 5..10)
+        email(email: true, blank: false, nullable: false, unique: true)
         admin(defaultValue: true, nullable: true)
         imagePath(nullable: true)
         active(defaultValue: true, nullable: true)

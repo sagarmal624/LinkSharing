@@ -44,9 +44,7 @@
 
                             <select class="form-control" id="topicname" name="topicname" data-toggle="tooltip"
                                     title="Share Link with Given Topic Name">
-
                                 <g:each in="${SubscribedTopicList}">
-
                                     <option>${it}</option>
                                 </g:each>
 

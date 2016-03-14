@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.multipart.MultipartFile
 
 class ResourceController extends UtilController {
+    def update(long id,String url,String description,String topic) {
+        Resource resource = Resource.get(id)
+        resource.url=url;
+    }
 
     def delete(long id) {
         def resource = Resource.get(id)
@@ -29,7 +33,7 @@ class ResourceController extends UtilController {
         List<Resource> resources = Resource.search(co).list()
         List<Resource> readResources = ReadingItem.findAllByUserAndIsRead(session.user, true)*.resource.intersect(resources)
         List<Topic> subscriptionList = Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
-        map = [resources: resources, userId: resources.createdBy.id,topicsId:resources.topic.id ,topics: resources.topic, readResources: readResources, subscriptionList: subscriptionList]
+        map = [resources: resources, userId: resources.createdBy.id, topicsId: resources.topic.id, topics: resources.topic, readResources: readResources, subscriptionList: subscriptionList]
         Closure closure = { map }
         renderAsJSON(closure)
     }
@@ -123,12 +127,11 @@ class ResourceController extends UtilController {
 
     def saveRating() {
         Resource_Rating resource_rating;
-        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(params.id),session.user)
+        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(params.id), session.user)
         if (!resource_rating) {
             resource_rating = new Resource_Rating(resource: Resource.get(params.id), score: params.score, user: session.user)
-                    resource_rating.save(flush:true)
-        }
-                else {
+            resource_rating.save(flush: true)
+        } else {
             resource_rating.score = params.int('score')
             resource_rating.save(flush: true)
         }

@@ -5,174 +5,114 @@ import com.intelligrape.linksharing.ReadingItem
 import com.intelligrape.linksharing.Resource
 import com.intelligrape.linksharing.Resource_Rating
 import Enums.Seriousness
+import com.intelligrape.linksharing.Subscription
 import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
 import Enums.Visibility
+import jline.internal.Log
 
 class BootStrap {
-    def createResourceRatings() {
-        List<ReadingItem> readingItems = ReadingItem.findAllByIsReadNotEqual(true)
-        log.info "before resource rating............."
-        readingItems.each {
-            it.getUser().addToResource_ratings(new Resource_Rating(score: 2, resource: it.resource, user: it.user)).save(flush: true, failOnError: true)
-            log.info "resource rating is dont......................"
-        }
-    }
-    def subscribeTopics()
-    {
-        (1..2).each {i->
-
-            List<Topic>topics=Topic.findAllByCreatedByNotEqual(User.get(i))
-            log.info "------->>>>>"+topics.createdBy
-            topics.each {j->
-                afterInserted(i,j)
-            }
-        }
-
-
-    }
-    def createReadingItems(){
-        (1..2).each {i->
-               log.info "before reading item is created...."
-            List<Resource>resources=Resource.findAllByCreatedBy(User.get(i))
-            resources.eachWithIndex {j,index->
-                if(index%2)
-                j.getCreatedBy().addToReadingItems(new ReadingItem(isRead:true,resource:j)).save(flush:true,failOnError:true)
-                else
-                    j.getCreatedBy().addToReadingItems(new ReadingItem(isRead:false,resource:j)).save(flush:true,failOnError:true)
-
-                log.info "reading item:${j} is saved"
-
-            }
-
-        }
-
-    }
-    def createTopic() {
-        (1..2).each { int i ->
-            User user = User.get(i)
-
-            log.info(".....creating topic for .userid:.... ${user}...............................")
-            if (Topic.countByCreatedBy(user) == 0) {
-                (1..5).each {
-                    Topic topic = new Topic(name: "Grails${it}", visibility: Visibility.PUBLIC)
-                    user = User.get(i).addToTopics(topic).save(flush: true, failOnError: true)
-                    if (user == null) {
-                        log.error "error during inserting topics to user:${user}"
-                    } else {
-
-                        log.info "....Topic is inserted..for User:${user}.."
-                        afterInserted(i, topic)
-                    }
-                }
-                log.info "all topics for ${user} are inserted successfullyy...... "
-
-            }
-            log.info "....Topics are already exist..for User:${user}.."
-        }
-    }
-
-    def createResources() {
-        (1..2).each { int i ->
-            User user = User.get(i)
-
-            log.info(".....creating Link Resources for .userid:.... ${user}...............................")
-            if (Resource.countByCreatedBy(user) == 0) {
-                (1..5).each {
-                    List<Topic> topics = Topic.findAllByName("Grails${it}")
-
-                    topics.each { topic ->
-
-                        (1..2).each {
-                            if (linkResource(topic))
-                               log.info"....Link resources is inserted..for User:${user}.."
-                            else
-                                log.info "link resources is not inserted...for user ${user}....."
-                        }
-
-                        (1..2).each {
-                            if (documentResource(topic))
-                                log.info"....document resources is inserted..for User:${user}.."
-                            else
-                                log.info "document resources is not inserted...for user ${user}....."
-                        }
-
-
-                    }
-                }
-                log.info "all  resources for ${user} are inserted successfullyy...... "
-
-            }
-            log.info "....Topics are already  exist..for User:${user}.."
-        }
-    }
-Boolean linkResource(Topic topic)
-{
-
-    Link_Resource link_resource = new Link_Resource(topic:topic ,url: "https://www.google.co.in/", description:topic.getName())
-   User user = User.get(topic.getCreatedBy().id).addToResources(link_resource).save(flush: true, failOnError: true)
-
-
-    if (user == null) {
-        log.error "error during inserting Link resources to user:${user}"
-      return false
-    } else {
-
-     return true
-     }
-
-
-}
-    Boolean documentResource(Topic topic)
-    {
-        Document_Resource document_resource = new Document_Resource(topic:topic ,filepath: "/home/sagar/sg.txt", description:topic.getName())
-        User user = User.get(topic.getCreatedBy().id).addToResources(document_resource).save(flush: true, failOnError: true)
-
-
-        if (user == null) {
-            log.error "error during inserting document resources to user:${user}"
-            return false
-        } else {
-
-            return true
-        }
-    }
-
-    def afterInsert(int i, Topic topic) {
-        log.info "before subscriptions..........."
-        topic = topic.addToSubscriptions(user: i, seriousness: Seriousness.VERY_SERIOUS).save(flush: true, failOnError: true)
-        if (topic)
-            log.info "after subscription................."
-        else
-            log.error "error during inserting automatic subscriptions...."
-    }
-
-    def createUser() {
-
-            User user = new User(username: "sagar1201624", firstname: "sagar", lastname: "shankhala", password: PasswordConstant.PASSWORD, email: "sagarmal624@gmail.com", admin: false)
-            log.info "................before normal user is inserted........."
-            if (!user.save(flush: true))
-                log.error(".........Error during normal user is inserted..............")
-            else
-                log.info ".....normal user is inserted......."
-
-            log.info ".....before admin user is inserted......."
-            User admin = new User(username: "Admin_Sagar", firstname: "Admin",password: PasswordConstant.PASSWORD, email: "sagarmal@tothenew.com", admin: true)
-            if (!admin.save(flush: true))
-                log.error(".........Error during admin is inserted..............")
-            else
-                log.info "admin User is inserted"
-
-    }
+    def grailsApplication
     def init = {
-        log.info "bootstrap is started............."
+     log.info "boostrap is stared"
         createUser()
-//        createTopic()
-//        createResources()
-//        subscribeTopics()
-//        createReadingItems()
-//        createResourceRatings()
-        log.info "at the end of bootstrap......"
+        createTopics()
+        createResources()
+        subscribeTopic()
+        createReadingItems()
+        createResourceRating()
+    }
+
+    void createUser() {
+
+        User user = new User(firstname: "Sagarmal", lastname: "Shankhala", email: "sagar@gmail.com", username: "Sagarmal624", password:"sagar",confirmPassword:"sagar",admin: true,active:true,imagePath:"");
+        Log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${user.name}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        User admin = new User(firstname: "User2", lastname: "User2", email: "user2@gmail.com", username: "User2", password: "admin",confirmPassword: "admin", admin: false,active:false);
+        if (User.count() == 0) {
+            if (user.validate())
+                user.save(flush: true, failOnError: true)
+            else
+                log.error("Could not Validate")
+
+            if (admin.validate()) {
+                User userReturned = admin.save(flush: true, failOnError: true)
+                log.info(userReturned)
+            } else
+                log.error("Could not Validate")
+        } else {
+            Log.info("Users already Exists")
+        }
+    }
+
+    void createTopics() {
+        User creater = User.findByFirstname("Sagarmal")
+        List topicsList = ["Grails","DevOps","AMC","Java","MeanStack"]
+        if (Topic.countByCreatedBy(creater) == 0) {
+            topicsList.each {
+                Topic topic = new Topic(name: it, createdBy: creater, visibility: Visibility.PUBLIC).save()
+            }
+        } else {
+            Log.info("User already has 5 topics")
+        }
+    }
+    void createResources() {
+        List topicList = Topic.getAll();
+        if (Resource.count() == 0) {
+            topicList.each {
+                Resource docResource1 = new Document_Resource(description: it.name, topic: it, createdBy: it.createdBy, filePath: "ftp://ftp.funet.fi/pub/standards/RFC/rfc959.txt").save()
+                Resource docResource2 = new Document_Resource(description: it.name, topic: it, createdBy: it.createdBy, filePath: "ftp://ftp.funet.fi/pub/standards/RFC/rfc960.txt").save()
+                Resource linkResource1 = new Link_Resource(description: it.name, topic: it, createdBy: it.createdBy, url: "https://en.wikipedia.org/wiki/Main_Page").save()
+                Resource linkResource2 = new Link_Resource(description: it.name, topic: it, createdBy: it.createdBy, url: "http://www.encyclopedia.com/").save()
+            }
+        } else {
+            Log.info("Resource count greater than zero")
+        }
+        Log.info("Resource count is"+Resource.count())
+
+    }
+
+    void subscribeTopic() {
+        User subscriber = User.findByFirstname("User2")
+        List topicsNotCreated = Topic.findAllByCreatedByNotEqual(subscriber)
+        topicsNotCreated.each {
+            if (Subscription.countByUserAndTopic(subscriber, it) == 0) {
+                Subscription subscription = new Subscription(seriousness: Seriousness.VERY_SERIOUS, user: subscriber, topic: it).save()
+            } else {
+                Log.info("${subscriber.name} is already subscribed to ${it.name}")
+            }
+        }
+    }
+
+    void createReadingItems() {
+        User user = User.findByFirstname("User2")
+        List resourceNotCreated = Resource.findAllByCreatedByNotEqual(user)
+
+        resourceNotCreated.each {
+            if (Subscription.countByUserAndTopic(user, it.topic) > 0) {
+                if (ReadingItem.countByUserAndResource(user, it) == 0)
+                    ReadingItem readingItem = new ReadingItem(isRead: false, resource: it, user: user).save()
+                else
+                    Log.info("${user.name} already has this Reading Item in his list")
+            } else {
+                Log.info("User is not subscribed to this topic")
+            }
+        }
+    }
+
+    void createResourceRating()
+    {
+        User user = User.findByFirstname("User2")
+        List unRead = ReadingItem.findAllByUserAndIsRead(user,false)
+        if(unRead.size()>0) {
+            unRead.each {
+                Resource_Rating rating = new Resource_Rating(score: 5, user:user, resource: it.resource).save()
+            }
+        }
+        else
+        {
+            Log.info("All the reading item has been read")
+        }
+
     }
     def destroy = {
            }

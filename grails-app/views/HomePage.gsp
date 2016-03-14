@@ -237,7 +237,6 @@
 
 		<p class="footer-company-name">ToTheNewDigital &copy; 2016</p>
 	</div>
-
 	<div class="footer-center">
 
 		<div>
@@ -275,9 +274,7 @@
 			<a href="https://github.com/"><i class="fa fa-github"></i></a>
 
 		</div>
-
 	</div>
-
 </footer>
 <g:render template="/templates/user/forgotpassword"/>
 

@@ -2,364 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad867845-b8b9-4094-b8e4-66a128373e40" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_Annotations$AnnotationChecker$1_2006.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_Annotations_6254.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_ConstructorBindingImpl_13930.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_DefaultConstructionProxyFactory$1_2160.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_DefaultConstructionProxyFactory_2000.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_InjectorImpl_34320.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_ProviderMethodsModule_7719.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_SingleFieldInjector_3751.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_SingleMethodInjector$1_1300.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_SingleMethodInjector_4029.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_TypeConverterBindingProcessor$5_2256.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_TypeConverterBindingProcessor_5802.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_internal_util_Classes_2349.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_matcher_Matchers_5242.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_google_inject_spi_InjectionPoint_18683.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/com_intellij_rt_execution_application_AppMain_4910.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/grails_build_logging_GrailsConsole_19763.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/grails_util_Holders_7985.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovy_grape_Grape_5162.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovy_lang_GroovyShell_18097.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovy_lang_MetaClassRegistry$MetaClassCreationHandle_2886.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovy_util_AntBuilder_14709.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovy_xml_XmlUtil_9864.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovyjarjarantlr_ASTFactory_6276.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovyjarjarantlr_CharScanner_8286.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/groovyjarjarantlr_Utils_1849.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/javassist_util_proxy_ProxyFactory_29782.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/javax_servlet_http_HttpServlet_8296.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/jline_TerminalFactory_4721.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_ivy_core_settings_IvySettings_42964.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_log4j_config_PropertySetter_8022.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_log4j_helpers_Loader_4244.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_log4j_helpers_OptionConverter_10730.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_log4j_spi_LoggingEvent_9937.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_maven_model_interpolation_StringSearchModelInterpolator$InterpolateObjectAction$CacheItem_4610.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_maven_model_interpolation_StringSearchModelInterpolator$InterpolateObjectAction$ListField_2678.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_maven_model_interpolation_StringSearchModelInterpolator$InterpolateObjectAction$MapField_3038.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_maven_model_interpolation_StringSearchModelInterpolator$InterpolateObjectAction$ObjectField_1869.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_maven_model_interpolation_StringSearchModelInterpolator$InterpolateObjectAction$StringField_1833.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_AntClassLoader_24091.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_AntTypeDefinition_7441.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_ComponentHelper_24103.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$10_2345.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$11_2942.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$13_1951.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$3_1433.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$5_1586.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$7_1504.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$8_1670.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$9_1944.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$AddNestedCreator_2311.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$AttributeSetter_2415.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper$CreateNestedCreator_1174.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_IntrospectionHelper_27155.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_ProjectHelperRepository$ConstructingIterator_1722.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_ProjectHelperRepository_7631.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_Project_34948.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_TaskAdapter_4324.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_dispatch_DispatchUtils_3253.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_taskdefs_Execute_15331.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_taskdefs_ProcessDestroyer_4865.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_taskdefs_Property_12965.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_types_EnumeratedAttribute_2731.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_types_Mapper_5689.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_types_Path_13759.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_types_selectors_ExtendSelector_4695.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_types_selectors_modifiedselector_ModifiedSelector_15818.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_util_ClasspathUtils_5819.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_ant_util_ReflectUtil_3716.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_apache_tools_zip_ExtraFieldUtils_6721.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_antlr_parser_GroovyLexer_61060.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_ast_ClassNode_37315.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_ast_FieldNode_4637.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_classgen_Verifier_40424.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_classgen_asm_MethodCaller_2645.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_classgen_asm_WriterController_13397.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_control_ParserPluginFactory_1977.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_control_ResolveVisitor_37506.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_cli_GrailsScriptRunner_31193.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_cli_api_BaseSettingsApi_17398.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_cli_support_ClasspathConfigurer_9884.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_cli_support_GrailsBuildEventListener_9661.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_cli_support_GrailsStarter_8744.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_AbstractGrailsClass_9426.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_AnnotationDomainClassArtefactHandler_1961.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_ArtefactHandlerAdapter_4855.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_ClassPropertyFetcher$GetterPropertyFetcher_1979.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_ClassPropertyFetcher_11162.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_DefaultGrailsControllerClass_13234.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_DomainClassArtefactHandler_5019.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_GrailsClassUtils_25895.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_compiler_DirectoryWatcher_3946.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_compiler_injection_GrailsAwareInjectionOperation_6460.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_io_support_GrailsResourceUtils_18011.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_orm_hibernate_cfg_AbstractGrailsDomainBinder_87416.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_AbstractGrailsPluginManager_17000.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_DefaultGrailsPluginManager_30892.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_DefaultGrailsPlugin_28004.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_GrailsVersionUtils_9323.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_log4j_web_util_Log4jConfigListener_3424.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_services_ServicesGrailsPlugin_7836.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_validation_ConstrainedProperty_27204.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_web_servlet_mvc_GrailsWebRequest_16939.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedClass$1$1_1336.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedClass$2$1_1042.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedClass$3$1_1340.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedClass_12483.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedConstructor_4586.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedField_2208.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_CachedMethod_9886.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_ClassLoaderForClassArtifacts_3821.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_GeneratedMetaMethod$Proxy_3278.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass$1_992.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_reflection_stdclasses_CachedSAMClass_7344.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_ConversionHandler_2550.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_DefaultGroovyMethods_250260.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_InvokerHelper_24599.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_AbstractCallSite_13071.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_CallSiteGenerator_9920.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce_1846.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrap_1980.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PogoMetaMethodSite$PogoCachedMethodSite_2183.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrapNoCoerce_1804.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PojoMetaMethodSite$PojoCachedMethodSiteNoUnwrap_1911.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_callsite_PojoMetaMethodSite$PojoCachedMethodSite_1995.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_m12n_StandardPropertiesModuleFactory_2376.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl$1_2317.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_metaclass_MetaClassRegistryImpl_18305.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_metaclass_ReflectionMetaMethod_2566.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_runtime_typehandling_DefaultTypeTransformation_19407.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_ASTTransformationCollectorCodeVisitor_11202.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_ASTTransformationVisitor_14195.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_trait_Traits_9558.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_vmplugin_VMPluginFactory_1740.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_vmplugin_v5_Java5_20257.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_vmplugin_v5_PluginDefaultGroovyMethods_3741.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_plexus_interpolation_reflection_ClassMap_7175.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_plexus_interpolation_reflection_ReflectionValueExtractor_3476.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_aether_impl_DefaultServiceLocator$Entry_4454.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_BeanProperties_1662.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_BeanPropertyField_3127.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_BeanPropertySetter_3709.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_DeclaredMembers$View$1_956.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_DeclaredMembers$View$2_946.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_bean_DeclaredMembers$View$3_944.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_inject_LazyBeanEntry_4333.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_inject_QualifyingStrategy$4_1905.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_inject_TypeArguments_4895.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_plexus_ClassRealmUtils_2913.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_plexus_PlexusAnnotatedBeanModule$PlexusAnnotatedBeanSource_1348.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_plexus_PlexusPropertyBinder_3645.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_plexus_PlexusXmlBeanConverter_11330.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_eclipse_sisu_space_QualifiedTypeBinder_10066.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_grails_plugins_web_rest_plugin_RestResponderGrailsPlugin_8393.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_hibernate_dialect_Dialect_35679.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_hibernate_mapping_Collection_18766.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_BeanUtils_15523.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_BeanWrapperImpl_31535.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_ExtendedBeanInfoFactory_1508.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_GenericTypeAwarePropertyDescriptor_4763.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_TypeConverterDelegate_19772.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_factory_support_AbstractBeanDefinition_19205.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_$Proxy17_2849.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_SerializableTypeWrapper$TypeProxyInvocationHandler_2610.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_annotation_AnnotationUtils_14381.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_convert_TypeDescriptor_14210.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_convert_support_IdToEntityConverter_4236.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_convert_support_ObjectToObjectConverter_4868.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_io_support_PathMatchingResourcePatternResolver_14116.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_io_support_SpringFactoriesLoader_5168.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_type_classreading_AbstractRecursiveAnnotationVisitor_3781.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_type_classreading_AnnotationAttributesReadingVisitor_3979.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_type_classreading_RecursiveAnnotationAttributesVisitor_3523.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_type_filter_AnnotationTypeFilter_3383.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_orm_jpa_support_PersistenceAnnotationBeanPostProcessor_15170.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_util_ClassUtils_24248.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_util_ReflectionUtils_14493.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_web_util_UrlPathHelper_11364.bytes" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/.index" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/jobs/com/intelligrape/linksharing/MyJob.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/EmailService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/ReadingItemService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/ResourceService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/SubscriptionService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/EmailDTO.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/EmailServiceSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/MyJobSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/ReadingItemServiceSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/ResourceServiceSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/SubscriptionServiceSpec.groovy" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SettingController.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$__clinit__closure4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$__clinit__closure4_closure11.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$__clinit__closure5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$__clinit__closure5_closure12.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$__clinit__closure5_closure12_closure13.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRatingInfo_closure1_closure6.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getRecentResources_closure2_closure7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure8.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource$_getToppost_closure3_closure9_closure10.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/javax_mail_Session_18772.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_classgen_AnnotationVisitor_13601.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_GrailsDomainConfigurationUtil_14761.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_commons_GrailsMetaClassUtils_7471.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_plugins_web_api_ControllersApi_20570.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_grails_web_binding_DataBindingUtils_19746.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_stc_GroovyTypeCheckingExtensionSupport_14701.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_stc_StaticTypeCheckingSupport_52112.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_codehaus_groovy_transform_stc_StaticTypeCheckingVisitor_131536.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_grails_datastore_gorm_finders_DynamicFinder_18945.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_grails_datastore_mapping_reflect_ClassPropertyFetcher_13909.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_grails_plugins_web_rest_api_ControllersRestApi_25321.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_factory_config_DependencyDescriptor_7937.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_factory_support_AbstractAutowireCapableBeanFactory_45932.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_beans_factory_support_SimpleInstantiationStrategy_7118.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_Constants_6802.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_MethodParameter_9306.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_core_SerializableTypeWrapper$MethodParameterTypeProvider_2775.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.slcache/org_springframework_util_MethodInvoker_6199.bytes" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/404.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/500.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/pageNotFoundError.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_editLinkResource.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/DiscountType.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/EmailService.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/Inventory.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/PasswordEncrypterService.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/Product.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/SaleException.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/Transaction.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/TransactionStatus.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/im/test/User.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/PersonSpec.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/TransactionSpec.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/UserSpec.groovy" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/DemoTagTagLibSpec.groovy" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/grails-app/assets/images/2.png" afterPath="$PROJECT_DIR$/grails-app/assets/images/user.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BootStrap$_closure1.class" afterPath="$PROJECT_DIR$/target/classes/BootStrap$_closure1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BootStrap$_closure2.class" afterPath="$PROJECT_DIR$/target/classes/BootStrap$_closure2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BootStrap.class" afterPath="$PROJECT_DIR$/target/classes/BootStrap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BuildConfig$_run_closure1_closure5.class" afterPath="$PROJECT_DIR$/target/classes/BuildConfig$_run_closure1_closure5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/BuildConfig.class" afterPath="$PROJECT_DIR$/target/classes/BuildConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Config$_run_closure2.class" afterPath="$PROJECT_DIR$/target/classes/Config$_run_closure2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Config$_run_closure3.class" afterPath="$PROJECT_DIR$/target/classes/Config$_run_closure3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Config$_run_closure3_closure9.class" afterPath="$PROJECT_DIR$/target/classes/Config$_run_closure3_closure9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Config.class" afterPath="$PROJECT_DIR$/target/classes/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DataSource.class" afterPath="$PROJECT_DIR$/target/classes/DataSource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Enums/Seriousness.class" afterPath="$PROJECT_DIR$/target/classes/Enums/Seriousness.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Enums/Visibility.class" afterPath="$PROJECT_DIR$/target/classes/Enums/Visibility.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/LinkSharing/PasswordConstant.class" afterPath="$PROJECT_DIR$/target/classes/LinkSharing/PasswordConstant.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/LinkSharing/RatingInfoVO.class" afterPath="$PROJECT_DIR$/target/classes/LinkSharing/RatingInfoVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/LinkSharing/SearchCO.class" afterPath="$PROJECT_DIR$/target/classes/LinkSharing/SearchCO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/LinkSharing/TopicVO.class" afterPath="$PROJECT_DIR$/target/classes/LinkSharing/TopicVO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/UrlMappings$__clinit__closure1.class" afterPath="$PROJECT_DIR$/target/classes/UrlMappings$__clinit__closure1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/UrlMappings.class" afterPath="$PROJECT_DIR$/target/classes/UrlMappings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2_closure4.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2_closure4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2_closure5.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters$_closure1_closure2_closure5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ApplicationFilters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Document_Resource.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Document_Resource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LinkSharingController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LinkSharingController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Link_Resource.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Link_Resource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItem.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItemController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ReadingItemController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ResourceController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/ResourceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating$__clinit__closure1.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating$__clinit__closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Resource_Rating.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SettingController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SettingController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Subscription.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Subscription.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SubscriptionController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/SubscriptionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure2.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic$_getTrendingTopics_closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/Topic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/TopicController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/TopicController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User$__clinit__closure3.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User$__clinit__closure3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UserController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UtilController.class" afterPath="$PROJECT_DIR$/target/classes/com/intelligrape/linksharing/UtilController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/resources.class" afterPath="$PROJECT_DIR$/target/classes/resources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/AssetPipelineBootStrap.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/AssetPipelineBootStrap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/AssetPipelineGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/AssetPipelineGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/AssetUrlMappings.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/AssetUrlMappings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/CacheGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/CacheGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/DatabaseMigrationGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/DatabaseMigrationGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/DbdocUrlMappings.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/DbdocUrlMappings.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/DefaultCacheConfig.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/DefaultCacheConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/DefaultWebXmlConfig.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/DefaultWebXmlConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/Hibernate4GrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/Hibernate4GrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JQueryConfig.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JQueryConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JQueryPluginResources.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JQueryPluginResources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JQueryResourceTagLib.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JQueryResourceTagLib.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JQueryService.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JQueryService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JQueryTagLib.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JQueryTagLib.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/JqueryGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/JqueryGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/ScaffoldingGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/ScaffoldingGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/WebxmlGrailsPlugin.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/WebxmlGrailsPlugin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AbstractAssetFile.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AbstractAssetFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AbstractProcessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AbstractProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetCompiler.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetCompiler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetHelper.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetMethodTagLib.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetMethodTagLib.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetPipelineFilter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetPipelineFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetProcessorService.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetProcessorService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetsController.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetsTagLib.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/AssetsTagLib.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/CacheManager.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/CacheManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/CssAssetFile.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/CssAssetFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/DirectiveProcessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/DirectiveProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/HtmlAssetFile.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/HtmlAssetFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/JsAssetFile.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/JsAssetFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/ManifestAssetFile.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/ManifestAssetFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/AssetResourceLocator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/AssetResourceLocator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/CachingLinkGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/CachingLinkGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/LinkGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/grails/LinkGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/CssMinifyPostProcessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/CssMinifyPostProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/CssProcessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/CssProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/UglifyJsProcessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/asset/pipeline/processors/UglifyJsProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/CacheTagLib.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/CacheTagLib.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/ConfigBuilder.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/ConfigBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/ConfigLoader.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/ConfigLoader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/GrailsCacheAdminService.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/cache/GrailsCacheAdminService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/ChangelogXml2Groovy.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/ChangelogXml2Groovy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/DbdocController.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/DbdocController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/DslBuilder.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/DslBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormColumn.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormColumn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabase.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabaseSnapshotGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabaseSnapshotGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabaseTypeConverter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDatabaseTypeConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDiff.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GormDiff.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChange$1.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChange$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChange.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChange.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChangeLogParser.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsChangeLogParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsClassLoaderResourceAccessor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsClassLoaderResourceAccessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsDiffStatusListener.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsDiffStatusListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsPrecondition$1.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsPrecondition$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsPrecondition.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GrailsPrecondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GroovyAwareStringChangeLogSerializer.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/GroovyAwareStringChangeLogSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/HibernateAwareTypeConverter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/HibernateAwareTypeConverter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MigrationRunner.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MigrationRunner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MigrationUtils.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MigrationUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MySQLCompatibleChangeLogSerializer.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MySQLCompatibleChangeLogSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MysqlAwareCreateTableGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/MysqlAwareCreateTableGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/NoopVisitor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/NoopVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/ScriptUtils.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/ScriptUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/Slf4jLogger.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/Slf4jLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/AuthorListWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/AuthorListWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/AuthorWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/AuthorWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ChangeLogListWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ChangeLogListWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ChangeLogWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ChangeLogWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ColumnWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/ColumnWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/HTMLListWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/HTMLListWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/HTMLWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/HTMLWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/MemoryDocVisitor.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/MemoryDocVisitor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/PendingChangesWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/PendingChangesWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/PendingSQLWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/PendingSQLWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/RecentChangesWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/RecentChangesWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/TableListWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/TableListWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/TableWriter.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/databasemigration/dbdoc/TableWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/webxml/FilterManager.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/grails/plugin/webxml/FilterManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryConfig.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryProvider.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/plugins/jquery/JQueryProvider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/scaffolding/DefaultGrailsTemplateGenerator.class" afterPath="$PROJECT_DIR$/target/work/plugin-classes/org/codehaus/groovy/grails/scaffolding/DefaultGrailsTemplateGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" afterPath="$PROJECT_DIR$/LinkSharing-grailsPlugins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LinkSharing.iml" afterPath="$PROJECT_DIR$/LinkSharing.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.slcache/.index" afterPath="$PROJECT_DIR$/.slcache/.index" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Topic.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Topic.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/AccountSetting/general.gsp" afterPath="$PROJECT_DIR$/grails-app/views/AccountSetting/general.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/HomePage.gsp" afterPath="$PROJECT_DIR$/grails-app/views/HomePage.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp" afterPath="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" afterPath="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/compose.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/compose.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/mailbox.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/mailbox.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp" afterPath="$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/post/post.gsp" afterPath="$PROJECT_DIR$/grails-app/views/post/post.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/tables/data.gsp" afterPath="$PROJECT_DIR$/grails-app/views/tables/data.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/resource/_search.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/resource/_search.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_create.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" afterPath="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/calendar.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/calendar.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/util/widgets.gsp" afterPath="$PROJECT_DIR$/grails-app/views/util/widgets.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" afterPath="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-reports/TESTS-TestSuites.xml" afterPath="$PROJECT_DIR$/target/test-reports/TESTS-TestSuites.xml" />
     </list>
     <ignored path="LinkSharing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -383,21 +95,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LinkSharingController.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy">
+      <file leaf-file-name="_editLinkResource.gsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/LinkResource/_editLinkResource.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.30612245">
+              <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkSharingService.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy">
+      <file leaf-file-name="Config.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -407,81 +119,81 @@
         <entry file="file://$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
+      <file leaf-file-name="500.gsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/500.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.88">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/groovy/com/im/test/User.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceServiceSpec.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/ResourceServiceSpec.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonSpec.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/PersonSpec.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransactionSpec.groovy" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/TransactionSpec.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
               <folding>
-                <element signature="e#38#67#0" expanded="true" />
+                <element signature="e#58#89#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_register.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp">
+      <file leaf-file-name="UserSpec.groovy" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/UserSpec.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2244898">
-              <caret line="183" column="60" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.58640224">
+              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding>
-                <marker date="1457896222566" expanded="true" signature="8601:8651" placeholder="..." />
+                <element signature="e#58#89#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginController.groovy" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy">
+      <file leaf-file-name="404.gsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/404.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36901408">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_topPost.gsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_topPost.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.755102">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkSharingTagLib.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="123" selection-start-line="25" selection-start-column="111" selection-end-line="25" selection-end-column="130" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginService.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionTemplate.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///opt/grails-2.4.4/lib/org.springframework/spring-tx/jars/spring-tx-4.0.7.RELEASE-sources.jar!/org/springframework/transaction/support/TransactionTemplate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.75">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -518,24 +230,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/lockscreen.gsp" />
-        <option value="$PROJECT_DIR$/src/groovy/LinkSharing/RatingInfoVO.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_create.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/util/trendingAndTopPost.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/user/userProfile.gsp" />
-        <option value="$PROJECT_DIR$/src/groovy/LinkSharing/TopPostVO.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/DocumentResource/_create.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/Topic/_email.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp" />
         <option value="$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/user/_forgotpassword.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/user/_topPost.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/ReadingItemService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy" />
@@ -547,28 +248,39 @@
         <option value="$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/util/calendar.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" />
         <option value="$PROJECT_DIR$/src/groovy/LinkSharing/TopicVO.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/EmailService.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/LinkSharing/EmailDTO.groovy" />
         <option value="$PROJECT_DIR$/grails-app/jobs/com/intelligrape/linksharing/MyJob.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/tables/data.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/TopicController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Topic.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/templates/resource/_search.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/util/widgets.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/post/post.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/HomePage.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_create.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/util/showResource.gsp" />
         <option value="$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/templates/LinkResource/_editLinkResource.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/404.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/pageNotFoundError.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/500.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy" />
+        <option value="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/PersonSpec.groovy" />
+        <option value="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/UserSpec.groovy" />
       </list>
     </option>
   </component>
@@ -613,9 +325,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -644,6 +355,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linksharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="linksharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unitTestingExcersie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -665,10 +438,6 @@
               <option name="myItemId" value="groovy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LinkSharing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -685,6 +454,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="groovy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -772,6 +545,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Topic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -799,6 +598,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkResource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LinkSharing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DocumentResource" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1078,13 +929,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Groovy" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../common-session-exercises--master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1092,6 +944,16 @@
     <property name="SearchEverywhereHistoryKey" value="con&#9;FILE&#9;file:///home/sagar/Desktop/LinkAndDocumentSharing/LinkSharing/grails-app/conf/Config.groovy" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie" />
+      <recent name="$PROJECT_DIR$/src/groovy" />
+      <recent name="$PROJECT_DIR$/web-app" />
+      <recent name="$PROJECT_DIR$/web-app/images" />
+      <recent name="$PROJECT_DIR$/web-app/js" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.intelligrape.linksharing" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/grails-app/views/topic" />
       <recent name="$PROJECT_DIR$/grails-app/views/linkSharing" />
@@ -1099,38 +961,8 @@
       <recent name="$PROJECT_DIR$/grails-app/views/DashBoard" />
       <recent name="$PROJECT_DIR$/grails-app/views/util" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.intelligrape.linksharing" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web-app" />
-      <recent name="$PROJECT_DIR$/web-app/images" />
-      <recent name="$PROJECT_DIR$/web-app/js" />
-      <recent name="$PROJECT_DIR$/web-app/css" />
-      <recent name="$PROJECT_DIR$/grails-app/assets/images" />
-    </key>
   </component>
-  <component name="RunManager" selected="Grails.Grails:LinkSharing">
-    <configuration default="false" name="UserSpec" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="LinkSharing" />
-      <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
-      <setting name="cmdLine" value="test-app unit: com.intelligrape.linksharing.UserSpec -echoOut" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Test User Validation()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
-      <module name="LinkSharing" />
-      <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
-      <setting name="cmdLine" value="test-app unit: &quot;com.intelligrape.linksharing.UserSpec.Test User Validation&quot; -echoOut" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Grails.Full name valid()">
     <configuration default="false" name="TopicSpec" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
       <module name="LinkSharing" />
       <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
@@ -1155,6 +987,26 @@
       <module name="LinkSharing" />
       <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
       <setting name="cmdLine" value="test-app unit: com.intelligrape.linksharing.Document_ResourceSpec -echoOut" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserSpec (1)" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
+      <module name="LinkSharing" />
+      <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
+      <setting name="cmdLine" value="test-app unit: com.intelligrape.linksharing.unitTestingExcersie.UserSpec -echoOut" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Full name valid()" type="GrailsRunConfigurationType" factoryName="Grails" temporary="true">
+      <module name="LinkSharing" />
+      <setting name="vmparams" value="-Dgrails.full.stacktrace=true" />
+      <setting name="cmdLine" value="test-app unit: &quot;com.intelligrape.linksharing.unitTestingExcersie.UserSpec.Full name valid&quot; -echoOut" />
       <setting name="depsClasspath" value="false" />
       <setting name="passParentEnv" value="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1545,19 +1397,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Grails.Grails:LinkSharing" />
-      <item index="1" class="java.lang.String" itemvalue="Grails.UserSpec" />
-      <item index="2" class="java.lang.String" itemvalue="Grails.Test User Validation()" />
-      <item index="3" class="java.lang.String" itemvalue="Grails.TopicSpec" />
-      <item index="4" class="java.lang.String" itemvalue="Grails.Link_ResourceSpec" />
-      <item index="5" class="java.lang.String" itemvalue="Grails.Document_ResourceSpec" />
+      <item index="1" class="java.lang.String" itemvalue="Grails.TopicSpec" />
+      <item index="2" class="java.lang.String" itemvalue="Grails.Link_ResourceSpec" />
+      <item index="3" class="java.lang.String" itemvalue="Grails.Document_ResourceSpec" />
+      <item index="4" class="java.lang.String" itemvalue="Grails.UserSpec (1)" />
+      <item index="5" class="java.lang.String" itemvalue="Grails.Full name valid()" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Grails.Document_ResourceSpec" />
-        <item index="1" class="java.lang.String" itemvalue="Grails.Link_ResourceSpec" />
-        <item index="2" class="java.lang.String" itemvalue="Grails.TopicSpec" />
-        <item index="3" class="java.lang.String" itemvalue="Grails.UserSpec" />
-        <item index="4" class="java.lang.String" itemvalue="Grails.Test User Validation()" />
+        <item index="0" class="java.lang.String" itemvalue="Grails.Full name valid()" />
+        <item index="1" class="java.lang.String" itemvalue="Grails.UserSpec (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Grails.Document_ResourceSpec" />
+        <item index="3" class="java.lang.String" itemvalue="Grails.Link_ResourceSpec" />
+        <item index="4" class="java.lang.String" itemvalue="Grails.TopicSpec" />
       </list>
     </recent_temporary>
   </component>
@@ -1615,31 +1467,29 @@
       <workItem from="1457836881030" duration="14247000" />
       <workItem from="1457861112473" duration="12310000" />
       <workItem from="1457874047431" duration="24799000" />
-      <workItem from="1457919303147" duration="35029000" />
+      <workItem from="1457919303147" duration="35611000" />
+      <workItem from="1457958333542" duration="1926000" />
+      <workItem from="1457963254857" duration="1414000" />
+      <workItem from="1457965648437" duration="8194000" />
+      <workItem from="1457975520643" duration="2373000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 00m 11s.xml">
-      <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 00m 42s.xml">
-      <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 00m 44s.xml">
-      <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 01m 15s.xml">
-      <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 02m 27s.xml">
-      <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
-    </history-entry>
     <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 03m 53s.xml">
       <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
     </history-entry>
     <history-entry file="Document_ResourceSpec - 2016.02.20 at 13h 04m 59s.xml">
       <configuration name="Document_ResourceSpec" configurationId="GrailsRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Full_name_valid() - 2016.03.14 at 23h 18m 23s.xml">
+      <configuration name="Full name valid()" configurationId="GrailsRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Full_name_valid() - 2016.03.14 at 23h 18m 57s.xml">
+      <configuration name="Full name valid()" configurationId="GrailsRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Full_name_valid() - 2016.03.14 at 23h 20m 51s.xml">
+      <configuration name="Full name valid()" configurationId="GrailsRunConfigurationType" />
     </history-entry>
     <history-entry file="Link_ResourceSpec - 2016.02.20 at 12h 53m 56s.xml">
       <configuration name="Link_ResourceSpec" configurationId="GrailsRunConfigurationType" />
@@ -1650,22 +1500,27 @@
     <history-entry file="Link_ResourceSpec - 2016.02.20 at 12h 56m 26s.xml">
       <configuration name="Link_ResourceSpec" configurationId="GrailsRunConfigurationType" />
     </history-entry>
+    <history-entry file="UserSpec_(1) - 2016.03.14 at 23h 15m 43s.xml">
+      <configuration name="UserSpec (1)" configurationId="GrailsRunConfigurationType" />
+    </history-entry>
+    <history-entry file="UserSpec_(1) - 2016.03.14 at 23h 17m 06s.xml">
+      <configuration name="UserSpec (1)" configurationId="GrailsRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="742223000" />
+    <option name="totallyTimeSpent" value="756712000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="73" y="24" width="1293" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31839257" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31839257" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44513136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1673,18 +1528,19 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39876354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985073" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2542101" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27202472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27185243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36939722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44513136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1737,21 +1593,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy</url>
-          <line>13</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy</url>
-          <line>8</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1760,197 +1602,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/Topic/_email.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0408163">
-          <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/Topic/_create.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5306122">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="95" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_forgotpassword.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0625">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.375">
-          <caret line="18" column="72" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/plugins/flot/excanvas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/ReadingItemService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12155592">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ReadingItemController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.4">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/ResourceService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding>
-            <element signature="e#38#61#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/SubscriptionService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/AccountSetting/general.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.325">
-          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/mailbox/compose.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.408163">
-          <caret line="256" column="0" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/mailbox/mailbox.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.265306">
-          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/mailbox/read-mail.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3125">
-          <caret line="256" column="0" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/profile.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4625">
-          <caret line="280" column="13" selection-start-line="280" selection-start-column="13" selection-end-line="280" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/UserProfileAndLockScreen/lockscreen.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6938777">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/util/calendar.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3375">
-          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/SubscriptionController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.464286">
-          <caret line="69" column="12" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/EmailService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="28" />
-          <folding>
-            <element signature="e#38#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/LinkSharing/EmailDTO.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/jobs/com/intelligrape/linksharing/MyJob.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/tables/data.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.4954128">
@@ -1963,7 +1614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.88">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1971,9 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="e#21#62#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1982,7 +1629,7 @@
         <state vertical-scroll-proportion="-1.2298851">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#38#62#0" expanded="true" />
+            <element signature="e#38#62#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1994,7 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.7755103">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2002,90 +1648,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Link_Resource.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.482143">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ReadingItem.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.53571427">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.142857">
-          <caret line="444" column="16" selection-start-line="444" selection-start-column="16" selection-end-line="444" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.821429">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource_Rating.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2142856">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.946429">
-          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/util/showResource.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.425">
-          <caret line="1012" column="0" selection-start-line="1011" selection-start-column="3" selection-end-line="1012" selection-end-column="0" />
-          <folding>
-            <marker date="1457930047159" expanded="true" signature="47628:47676" placeholder="..." />
-            <marker date="1457930047159" expanded="true" signature="47628:47689" placeholder="..." />
-            <marker date="1457930047159" expanded="true" signature="47628:47877" placeholder="..." />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/util/widgets.gsp">
@@ -2104,22 +1677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/HomePage.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4">
-          <caret line="134" column="86" selection-start-line="134" selection-start-column="86" selection-end-line="134" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/intelligrape/linksharing/LinkSharingTagLib.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2130,53 +1687,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_topPost.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.755102">
+        <state vertical-scroll-proportion="0.0">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp">
+    <entry file="jar:///opt/jdk1.7.0_79/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2244898">
-          <caret line="183" column="60" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="64" />
-          <folding>
-            <marker date="1457896222566" expanded="true" signature="8601:8651" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.88">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding>
-            <element signature="e#38#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.8606061">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -2184,23 +1703,329 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/grails-2.4.4/lib/org.springframework/spring-webmvc/jars/spring-webmvc-4.0.7.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36060607">
+          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LinkSharingService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LinkSharingController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04491018">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/grails-2.4.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-2.3.7-sources.jar!/groovy/lang/GroovyObjectSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/grails-2.4.4/lib/org.codehaus.groovy/groovy-all/jars/groovy-all-2.3.7-sources.jar!/groovy/lang/MetaObjectProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8746518">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/grails-2.4.4/lib/org.springframework/spring-webmvc/jars/spring-webmvc-4.0.7.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3939394">
+          <caret line="91" column="19" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/grails-2.4.4/lib/org.springframework/spring-webmvc/jars/spring-webmvc-4.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/SimpleControllerHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45454547">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/User.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/UserController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_login.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/HomePage.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/LinkResource/_create.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/linkSharing/dashboard.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5">
+          <caret line="1067" column="0" selection-start-line="1066" selection-start-column="0" selection-end-line="1067" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/util/showResource.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30612245">
+          <caret line="946" column="0" selection-start-line="946" selection-start-column="0" selection-end-line="946" selection-end-column="0" />
+          <folding>
+            <marker date="1457968327916" expanded="true" signature="47695:47743" placeholder="..." />
+            <marker date="1457968327916" expanded="true" signature="47695:47756" placeholder="..." />
+            <marker date="1457968327916" expanded="true" signature="47695:47944" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/intelligrape/linksharing/LoginService.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/LoginController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36901408">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Link_Resource.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Document_Resource.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/ReadingItem.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/intelligrape/linksharing/Resource.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/intelligrape/linksharing/ResourceController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/user/_register.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30612245">
+          <caret line="113" column="39" selection-start-line="113" selection-start-column="38" selection-end-line="113" selection-end-column="39" />
+          <folding>
+            <marker date="1457964171500" expanded="true" signature="8603:8653" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/_error.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/pageNotFoundError.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/error.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.806452">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/com/intelligrape/linksharing/ApplicationFilters.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/templates/LinkResource/_editLinkResource.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30612245">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/404.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/500.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/com/im/test/User.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/ResourceServiceSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/TransactionSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#58#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/PersonSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/com/intelligrape/linksharing/unitTestingExcersie/UserSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58640224">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding>
+            <element signature="e#58#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

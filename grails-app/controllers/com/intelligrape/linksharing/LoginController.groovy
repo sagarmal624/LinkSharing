@@ -14,13 +14,11 @@ class LoginController {
         String email = params.email;
         String password = params.password;
         User user = loginService.isUserExist(email, password)
-        println "------user=====------>"+user.getProperty();
         if (user) {
             if (user.active) {
                 session.username = user.name
                 session.email = user.email;
                 session.user = user;
-
                 forward(action: "dashboard", controller: "linkSharing");
             } else {
                 flash.error = "Your Account is not Active.Please Contact to Admin"
