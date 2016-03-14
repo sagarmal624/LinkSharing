@@ -57,21 +57,15 @@ class TopicController extends UtilController {
 
          if(topic.save(flush:true))
          flash.message="Record is Updated"
-         //forward(action:"profile" ,controller:"linkSharing" )
          Map map=[message:flash.message]
          groovy.lang.Closure closure={ map}
          renderAsJSON(closure)
-
-
      }
 
     def show(ResourceSearchCO co){
-//        co.name='J00aa0ava'
-        co.visibility='PUBLIC'
+        co.visibility=Enums.Visibility.PUBLIC.toString()
 
         List<Resource>resources=Resource.search(co).list()
-
-        println "----------------====>>>>"+resources*.description
 
     }
 

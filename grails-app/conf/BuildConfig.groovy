@@ -58,6 +58,8 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.55"
         compile "org.grails.plugins:mail:1.0.7"
         // plugins for the compile step
+        compile ":quartz:1.0.2"
+
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
         compile ":asset-pipeline:1.9.9"

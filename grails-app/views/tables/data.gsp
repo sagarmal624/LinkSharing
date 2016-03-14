@@ -616,7 +616,6 @@
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/DocumentResource/create"/>
 
-
 %{--<g:render template="../templates/LinkResource/create"/>--}%
 %{--<g:render template="../templates/Topic/create"/>--}%
 

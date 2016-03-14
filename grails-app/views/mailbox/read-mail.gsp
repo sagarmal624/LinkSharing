@@ -241,16 +241,21 @@
           
             
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
-            <i class="fa fa-table"></i> <span>Admin</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="${createLink(controller:'linkSharing', action: 'admin')}"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        <li>
+  <g:if test="${session.user.admin}">
+    <li class="treeview">
+      <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+        <i class="fa fa-table"></i> <span>Admin</span>
+        <i class="fa fa-angle-left pull-right"></i>
+      </a>
+      <ul class="treeview-menu">
+
+        <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                class="fa fa-circle-o"></i> Data tables</a></li>
+      </ul>
+    </li>
+  </g:if>
+
+  <li>
           <a href="${createLink(controller:'linkSharing', action: 'calender')}">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <small class="label pull-right bg-red">3</small>

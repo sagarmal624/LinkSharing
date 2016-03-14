@@ -19,7 +19,6 @@ class LinkSharingService {
         List<TopicVO> subscriptionList = [];
         topicsName.each { Topic topic ->
             subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
-
         }
         map = [totalResourceAndSubscription: totalResourceAndSubscription, subscriptionList: subscriptionList]
         return map
@@ -63,26 +62,6 @@ class LinkSharingService {
 
     Map fetchLoadMainPageData() {
         List<Resource> resources = Resource.getRecentResources()
-//        List userId=resources.createdBy.id
-// println "------------------->"+userId
-//        List username=[]
-
-//        println "->>>>>>>>>>>>>>>>>>>>>>-"+resources.flatten().id
-//        resources.each {resource->
-//            println "->>>>>>>>>>>>7777777777777777>>>>>>>>>>"+resource[0];
-//            resource.each {resourceSub->
-//                username.add(resourceSub)
-//                return false
-//            }
-//            username.each {info->
-//            println" info---------------->"+info[0]
-//
-//          }
-//
-//        }
-//        .each{user->
-//        userId.add(user.id)
-//        }
         Map map=[resources:resources]
         return map
     }
@@ -105,7 +84,7 @@ class LinkSharingService {
 
                 }
             }
-            eq('id', id)
+            eq('topic', Topic.get(id))
         }
         TopicVO topicVO = Topic.getSubscribedTopicDetail(resourceDetails[0]?.getAt(1))
         List<Resource> resources = Resource.findAllByTopic(Topic.findByName(resourceDetails[0]?.getAt(1)))

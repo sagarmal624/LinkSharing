@@ -4,7 +4,7 @@ class LinkSharingController {
     def linkSharingService
 
     def loadmainpage() {
-
+        println "before action--------------load main page----"
         Map map = linkSharingService.fetchLoadMainPageData()
         render view: "/HomePage", model: [topPostResource: Resource.getToppost(), recentTopicShare: map.resources,userId:map.userId]
 

@@ -132,7 +132,7 @@
 				<h3 class="sectionTitle">LinkSharing Docs-Online document management provides an easy, reliable and secure way to share files and folders. It acts as a centralized repository, where you can upload and store all your documents and share them with multiple users in your organization working in different locations.</h3>
 			</div>
 		</div>
-		<g:render template="/templates/user/register"></g:render>
+		<g:render template="/templates/user/register" model="[topPostResource:topPostResource]"></g:render>
 
 
 	</div>
@@ -151,16 +151,20 @@
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<div class="quote">"Etizzle laoreet doggy dope nisl. Dang pulvinizzle, ipsizzle dawg."</div>
-							<div class="author">Martin Nizzle</div>
+							<div class="quote">"
+							It’s all about creating the right kind of share permissions and the level of sharing. You can share any file or folder on Google Drive. The two-minute video sums up the process."
+							</div>
+							<div class="author">Sagar Mal Shankhala</div>
 						</li>
 						<li>
-							<div class="quote">"Crazy tellus urna, yo mamma check out this, eleifend you son of a bizzle."</div>
-							<div class="author">Jennifer Aliquizzle</div>
+							<div class="quote">"File sharing is the practice of distributing or providing access to digital media, such as computer programs, multimedia (audio, images and video), documents or electronic books.
+							File sharing may be achieved in a number of ways"</div>
+							<div class="author">Rahul Sharma</div>
 						</li>
 						<li>
-							<div class="quote">"Praesent i saw beyonces tizzles and my pizzle went crizzle turpizzle."</div>
-							<div class="author">William Lorizzle</div>
+							<div class="quote">"Share a link to a file or a folder. Sign in to Google Drive or a Docs, Sheets, or Slides home screen. Open the file you want to get a link for. Click Share for files or the share icon for folders in the top-right corner of the screen .
+							Click Get shareable link in the top-right corner of the sharing box."</div>
+							<div class="author">Ritesh Jain</div>
 						</li>
 					</ul>
 				</div>

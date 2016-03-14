@@ -268,7 +268,6 @@
                     <a href="/linkSharing/dashboard">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
                 <li class="active">
                     <a href="/linkSharing/trendingPost">
@@ -282,17 +281,21 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
-                        <i class="fa fa-table"></i> <span>Admin</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
+    <g:if test="${session.user.admin}">
+        <li class="treeview">
+            <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+                <i class="fa fa-table"></i> <span>Admin</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
 
-                        <li><a href="/linkSharing/admin"><i class="fa fa-circle-o"></i> Data tables</a></li>
-                    </ul>
-                </li>
-                <li>
+                <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                        class="fa fa-circle-o"></i> Data tables</a></li>
+            </ul>
+        </li>
+    </g:if>
+
+    <li>
                     <a href="/linkSharing/calender">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <small class="label pull-right bg-red">3</small>
@@ -412,7 +415,21 @@
                                 <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                        ${trendingTopic?.name}
+
+                                    <g:if test="${trendingTopic?.topic?.isExistResource(trendingTopic?.id)}">
+                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:trendingTopic?.id])}"> ${trendingTopic?.name}</a>
+                                        </a>
+                                    </g:if>
+                                    <g:else>
+                                        <a href="#" onclick="alert('Topic is not Subscribed')">${trendingTopic?.name}</a>
+                                    </g:else>
+
+
+
+
+
+
+
                                     </a>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
@@ -638,16 +655,8 @@
                                             <a href="#"><u>Download</u></a>&nbsp;&nbsp;
 
                                         </g:else>
-                                        <a href="#"><u>View Post</u></a>
-
-
+                                        <a href='${createLink(controller:'resource',action:'show')}?id=${topPost?.id}'><u>View Post</u></a>
                                     </div>
-
-
-
-
-                                    <!-- chat item -->
-
                                 </div>
                             </g:each>
                         </div>

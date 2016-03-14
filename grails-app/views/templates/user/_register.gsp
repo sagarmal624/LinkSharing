@@ -208,7 +208,7 @@
                         "<div class='row' style='border-bottom: 1px solid gray;padding-bottom: 10px'>"+
                         "<div class='col-lg-2'>"+
                         "<span>"+
-                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
+                        "<img alt='user image' class='img-circle' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=32 height=32 />" +
 
                 %{--"<img src='${resource(dir:'images',file:'1.png')}'>"+--}%
                         %{--"<asset:image src='1.png'  style="border:1px solid"></asset:image>"+--}%

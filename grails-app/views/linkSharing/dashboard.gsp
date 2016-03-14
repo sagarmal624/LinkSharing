@@ -284,6 +284,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                 </li>
+                <g:if test="${session.user.admin}">
                 <li class="treeview">
                     <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
                         <i class="fa fa-table"></i> <span>Admin</span>
@@ -295,6 +296,7 @@
                                 class="fa fa-circle-o"></i> Data tables</a></li>
                     </ul>
                 </li>
+                </g:if>
                 <li>
                     <a href="${createLink(controller: 'linkSharing', action: 'calender')}">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
@@ -302,6 +304,7 @@
                     </a>
                 </li>
                 <li>
+                    <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                     <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
                         <small class="label pull-right bg-yellow"></small>
@@ -443,10 +446,16 @@
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
                                         %{--<a href="${createLink(controller:"linkSharing",action:"showResource")}?id="+topicVo?.id+">--}%
-                                    %{--<g:link controller="linkSharing" action="showResource" id="${topicVo?.id}" >${topicVo.name}</g:link>--}%
-                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicVo?.id])}">${topicVo?.name}</a>
+                                        %{--<g:link controller="linkSharing" action="showResource" id="${topicVo?.id}" >${topicVo.name}</g:link>--}%
+                                        %{--${topicVo?.createdBy?.isSubscribed(topicVo?.id)}--}%
 
-                                    </a>
+                                    <g:if test="${topicVo?.topic?.isExistResource(topicVo?.id)}">
+                                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicVo?.id])}">${topicVo?.name}</a>
+                                        </a>
+                                        </g:if>
+                                         <g:else>
+                                         <a href="#" onclick="alert('Topic is not Subscribed')">${topicVo?.name}</a>
+                                         </g:else>
                                     <span class="row">
                                         <span class="text-info col-lg-4">
                                             @ ${topicVo.createdBy}
@@ -462,8 +471,6 @@
                                     </span>
 
                                 </p>
-
-
 
                                 <div class="attachment">
 

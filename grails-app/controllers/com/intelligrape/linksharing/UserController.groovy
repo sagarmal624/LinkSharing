@@ -18,17 +18,9 @@ class UserController extends UtilController {
 
         if (!session.username) {
 
-            // render view: "register"
             render view: "/HomePage"
         } else
             render view: "/linkSharing/dashboard"
-
-//     render new User(username:"sagarmal624",firstname: "sagar",lastname:"shankhala",email: "sa122125@gmk.com",password: "125633",admin:false,active:true)
-//             .addToTopics(new Topic(name:"Computer",visibility:Visibility.PUBLIC))
-//             .save(flush:true,failOnError:true )
-//User user=User.get(2)
-        //   user.delete(flush: true)
-
     }
 
     def sendinvitation(String emailto, String topicname) {
@@ -42,12 +34,10 @@ class UserController extends UtilController {
             flash.message = "Mail is sent Successfully"
         else
             flash.message = "Error During Mail Sending!"
-
         Map map = [message: flash.message]
         println "-------------------map==" + map;
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
-
     }
 
     def sendMail(String emailto, String subject, String message) {
@@ -68,7 +58,6 @@ class UserController extends UtilController {
             flash.error = "Error During Mail Sending!"
         render view: "/mailbox/mailbox"
     }
-
     def register() {
         String message = "This Email-id or Username Already Exits!"
         MultipartFile inputImage = params.photo
@@ -84,6 +73,7 @@ class UserController extends UtilController {
         if (user) {
             if (user.validate()) {
                 message = "Record is Successfully Saved!"
+                user.active=true
                 user.save(flush: true)
                 session.username = User.findByEmail(user.email).name;
                 session.email = user.email;
@@ -100,7 +90,6 @@ class UserController extends UtilController {
         }
 
     }
-
     def update() {
         User user = User.findByEmail(session.email)
         MultipartFile inputImage = params.photo
@@ -122,14 +111,12 @@ class UserController extends UtilController {
         } else
             flash.error = "Record is not updated due to some validation"
         forward(action: "accountSetting", controller: "linkSharing")
-
     }
-
     def forgotPassword(String email) {
 
         User user = User.findByEmail(email)
         if (user) {
-            String newPassword = new Random().nextInt(100000);
+            String newPassword =UserController.getRandomPassword();
             user.password = newPassword;
             user.confirmPassword = newPassword;
             user.save(flush: true)
@@ -141,17 +128,17 @@ class UserController extends UtilController {
         redirect(action: "loadmainpage", controller: "linkSharing");
 
     }
-
+    static String getRandomPassword()
+    {
+        return new Random().nextInt(100000);
+    }
     def activeUser(long id, boolean activeness) {
         User user = User.get(id)
         user.active = activeness
         user.confirmPassword = user.password;
         flash.message = "Record not updated"
-
         if (user.save(flush: true))
             flash.message = "Successfully Updated"
-
-
         Map map = [message: flash.message]
         println "-------------------map==" + map;
         groovy.lang.Closure closure = { map }
@@ -194,7 +181,6 @@ class UserController extends UtilController {
         response.outputStream << imageBytes
         response.outputStream.flush()
     }
-
     def show() {
         List<User> users = User.list()
         render([view: "../tables/data", model: [users: users]])

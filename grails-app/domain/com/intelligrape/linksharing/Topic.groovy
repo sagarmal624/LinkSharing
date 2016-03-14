@@ -35,18 +35,16 @@ class Topic {
         Topic topic = Topic.findByName(topicname)
         int countSubscriptions = Subscription.countByTopic(topic)
 
-        println"countin----------------------->"+countSubscriptions
         String seriousness = Subscription.findByTopic(topic)?.seriousness;
         int countPost = Resource.countByTopic(topic)
 
         Resource resource = Resource.findByTopic(topic)
-        println"countin----------------------->"+resource
         long resourceId
         if (resource)
             resourceId =resource?.id
         else
             resourceId = 0
-        return new TopicVO(id: topic.id, resourceId: resourceId, seriousness: seriousness, name: topicname, countPost: countPost, countSubscription: countSubscriptions, visibility: topic.visibility, createdBy: topic.createdBy);
+        return new TopicVO(topic:topic, id: topic.id, resourceId: resourceId, seriousness: seriousness, name: topicname, countPost: countPost, countSubscription: countSubscriptions, visibility: topic.visibility, createdBy: topic.createdBy);
 
     }
 
@@ -61,6 +59,13 @@ class Topic {
             topicSubscriptionDetails.add(userSubscriptionVO)
         }
         return topicSubscriptionDetails
+    }
+    Boolean isExistResource(long id){
+        if(Resource.findByTopic(Topic.get(id)))
+            return true
+        else
+            return false
+
     }
 
     public static Integer getTotalPostsOfUser(User user) {
@@ -88,7 +93,7 @@ class Topic {
 
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex { it, index ->
-            topicsvo.add(new TopicVO(id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3))),seriousness:Subscription.findByUserAndTopic(User.findByUsername(it.getAt(5)),Topic.findByName(it.getAt(3))).seriousness))
+            topicsvo.add(new TopicVO(topic:Topic.get(it.getAt(2)),id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3))),seriousness:Subscription.findByUserAndTopic(User.findByUsername(it.getAt(5)),Topic.findByName(it.getAt(3))).seriousness))
         }
         return topicsvo
     }

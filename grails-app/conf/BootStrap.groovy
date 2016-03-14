@@ -125,7 +125,6 @@ Boolean linkResource(Topic topic)
 }
     Boolean documentResource(Topic topic)
     {
-
         Document_Resource document_resource = new Document_Resource(topic:topic ,filepath: "/home/sagar/sg.txt", description:topic.getName())
         User user = User.get(topic.getCreatedBy().id).addToResources(document_resource).save(flush: true, failOnError: true)
 
@@ -149,29 +148,25 @@ Boolean linkResource(Topic topic)
     }
 
     def createUser() {
-        if (User.count() == 0) {
-            User user = new User(username: "sagar1201624", firstname: "sagar", lastname: "shankhala", password: PasswordConstant.PASSWORD, email: "sagar232112044a@gmail.com", admin: false)
+
+            User user = new User(username: "sagar1201624", firstname: "sagar", lastname: "shankhala", password: PasswordConstant.PASSWORD, email: "sagarmal624@gmail.com", admin: false)
             log.info "................before normal user is inserted........."
-            if (user.save(flush: true, failOnError: true) == null)
+            if (!user.save(flush: true))
                 log.error(".........Error during normal user is inserted..............")
             else
                 log.info ".....normal user is inserted......."
 
-
-
             log.info ".....before admin user is inserted......."
-            User admin = new User(username: "sag2ar1063mal", firstname: "sagar", lastname: "shankhala", password: PasswordConstant.PASSWORD, email: "sa123ga2r0a@gmail.com", admin: true)
-            if (admin.save(flush: true, failOnError: true) == null)
-
+            User admin = new User(username: "Admin_Sagar", firstname: "Admin",password: PasswordConstant.PASSWORD, email: "sagarmal@tothenew.com", admin: true)
+            if (!admin.save(flush: true))
                 log.error(".........Error during admin is inserted..............")
             else
                 log.info "admin User is inserted"
-        } else
-            log.info ".....already Records are exist................"
+
     }
     def init = {
         log.info "bootstrap is started............."
-//        createUser()
+        createUser()
 //        createTopic()
 //        createResources()
 //        subscribeTopics()

@@ -1,5 +1,6 @@
 package com.intelligrape.linksharing
 
+
 import Enums.Visibility
 import LinkSharing.Custombean
 import LinkSharing.RatingInfoVO
@@ -11,27 +12,24 @@ import org.springframework.web.multipart.MultipartFile
 class ResourceController extends UtilController {
 
     def delete(long id) {
-        log.info "befor delete the resource"
         def resource = Resource.get(id)
-        println "--------------resource object----->" +resource
+        println "--------------resource object----->" + resource
         if (resource == null) {
             flash.error = "ResourceNotFound"
-           } else {
+        } else {
             resource.delete(flush: true)
-         }
-         forward(action:"dashboard",controller:"linkSharing")
+        }
+        forward(action: "dashboard", controller: "linkSharing")
 
     }
 
-    //TODO: Improper use of Enum in code.
     def search(ResourceSearchCO co) {
         Map map = [:]
         co.visibility = Visibility.PUBLIC.toString()
         List<Resource> resources = Resource.search(co).list()
-        List<Resource>readResources =    ReadingItem.findAllByUserAndIsRead(session.user,true)*.resource.intersect(resources)
-        List<Topic>subscriptionList=Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
-        println "list>>====================>>>>>readking item>>>>>>"+subscriptionList.name
-        map = [resources: resources,userId:resources.createdBy.id,topics:resources.topic,readResources:readResources,subscriptionList:subscriptionList]
+        List<Resource> readResources = ReadingItem.findAllByUserAndIsRead(session.user, true)*.resource.intersect(resources)
+        List<Topic> subscriptionList = Subscription.findAllByUser(session.user)*.topic.intersect(resources.topic.unique())
+        map = [resources: resources, userId: resources.createdBy.id,topicsId:resources.topic.id ,topics: resources.topic, readResources: readResources, subscriptionList: subscriptionList]
         Closure closure = { map }
         renderAsJSON(closure)
     }
@@ -44,53 +42,33 @@ class ResourceController extends UtilController {
 
     def show(long id) {
         Resource_Rating resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id), session.user);
-
         Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(session.user)
         int score;
-        println "asssssssss-----------------------------sssss"+session.user
         if (!resource_rating?.score) {
-            resource_rating=new Resource_Rating(resource:Resource.get(id),user:session.user,score:2)
-            resource_rating.save(flush:true)
-            println("res <>>>> "+resource_rating.properties)
-            println("Eroors "+resource_rating.errors)
-
-          //  println(" >>> "+Resource_Rating.get(1).properties)
-
-//            resource_rating.save(flush:true,failOnError:true)
-
+            resource_rating = new Resource_Rating(resource: Resource.get(id), user: session.user, score: 2)
+            resource_rating.save(flush: true)
             score = 2;
         } else
             score = resource_rating?.score
 
         List<TopicVO> trendingTopics = Topic.getTrendingTopics()
-//        List concatTopic=[]
-//        trendingTopics.each{
-//            concatTopic.add (new TopicVO(id:${it.id},name:${it.name},createdBy:${it.createdBy},countSubscription:${it.countSubscription},countPost:${it.countPost}))
-//        }
-        render view: "/post/post", model: [trendingTopicsList: trendingTopics, score: score, resource: resource_rating?.resource, totalSubscription: totalResourceAndSubscription.totalSubscription, totalTopics: totalResourceAndSubscription.totalTopic, totalPost: totalResourceAndSubscription.totalPost,SubscribedTopicList:User.getSubscribedTopic(session.email)]
+        render view: "/post/post", model: [trendingTopicsList: trendingTopics, score: score, resource: resource_rating?.resource, totalSubscription: totalResourceAndSubscription.totalSubscription, totalTopics: totalResourceAndSubscription.totalTopic, totalPost: totalResourceAndSubscription.totalPost, SubscribedTopicList: User.getSubscribedTopic(session.email)]
 
     }
 
-    //TODO: Use CO .
     def save() {
 
         String url = params.url;
         String description = params.description
         String topicname = params.topicname
-
-        //     println ">>>>>>>>>>>>>>>>>>>>>>"+params
         Resource resource = new Link_Resource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(session.email), description: description, url: url)
         if (resource.validate()) {
             Thread.sleep(1000)
             resource.save(flush: true)
             ResourceController.addToReadingItems(resource)
             flash.message = "Link Resource is Successfully Created "
-
-            //render view:"/linkSharing/dashboard"
-
         } else {
             flash.message = "Record is not saved due to not Valid URL"
-            //render flash.error
         }
         Map map = [message: flash.message]
         groovy.lang.Closure closure = { map }
@@ -109,7 +87,7 @@ class ResourceController extends UtilController {
         Resource resource = new Document_Resource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
         if (resource.validate()) {
 
-            resource.save(flush:true)
+            resource.save(flush: true)
             ResourceController.addToReadingItems(resource)
             flash.message = "File is Successfully Uploaded"
         } else {
@@ -120,15 +98,14 @@ class ResourceController extends UtilController {
         renderAsJSON(closure)
 
     }
-    protected static addToReadingItems(Resource resource)
-    {
+
+    protected static addToReadingItems(Resource resource) {
         Topic resourceTopic = resource.topic
         List<Subscription> subscribedUser = Topic.getSubscribedUsers(resourceTopic.name)
-        subscribedUser.each {user->
-            ReadingItem userReadingItem = new ReadingItem(user:user,resource:resource,isRead:(user.id==resource.createdBy.id))
-            if(userReadingItem.validate())
-            {
-                userReadingItem.save(flush:true)
+        subscribedUser.each { user ->
+            ReadingItem userReadingItem = new ReadingItem(user: user, resource: resource, isRead: (user.id == resource.createdBy.id))
+            if (userReadingItem.validate()) {
+                userReadingItem.save(flush: true)
             }
         }
     }
@@ -146,27 +123,22 @@ class ResourceController extends UtilController {
 
     def saveRating() {
         Resource_Rating resource_rating;
-        resource_rating = Resource_Rating.get(params.id)
-        if (!resource_rating)
-            resource_rating = new Resource_Rating(resource: Resource.get(params.long('id')), score: params.score, user: User.findByEmail(session.email)).save(flush: true)
-        else {
-            println "resource rating score----------------------->"
+        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(params.id),session.user)
+        if (!resource_rating) {
+            resource_rating = new Resource_Rating(resource: Resource.get(params.id), score: params.score, user: session.user)
+                    resource_rating.save(flush:true)
+        }
+                else {
             resource_rating.score = params.int('score')
-            println "resource rating score----------------------->" + resource_rating
             resource_rating.save(flush: true)
         }
-
-        //    println resource_rating
-        println "----------------------->" + params.score
         Map map = [message: resource_rating]
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
-
-
     }
 
     def toppost() {
-      List<TopicVO> topposts;
+        List<TopicVO> topposts;
         if (params.time == "Today")
             topposts = Resource.getToppost()
         else {
@@ -182,8 +154,8 @@ class ResourceController extends UtilController {
                 topposts = Resource.getToppost(currentDate, currentDate - 365)
             }
         }
-        List userId=topposts?.createdBy?.id
-        Map map = [topposts: topposts,userId:userId]
+        List userId = topposts?.createdBy?.id
+        Map map = [topposts: topposts, userId: userId]
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
 

@@ -14,18 +14,18 @@ class ApplicationFilters {
 
             }
         }
+       notLogin(controller:'*',controllerExclude:'assets|user|login',action:'*',actionExclude:'loadmainpage|toppost|renderFromDirectory|loadmainpage|loginHandler|index|register')
+                {
+                before={
+                    println "before action-------${session.username}-----------"
+                    if(!session.username){
+                        flash.error="Please Sign In...."
+                         redirect(controller:"linkSharing",action:"loadmainpage")
+                        return false
+                    }
 
-//       notLogin(controller:'linkSharing',action:'loadmainpage',invert:true)
-//                {
-//                before={
-//                    if(!session.username){
-//                        flash.error="Please Sign In...."
-//                         redirect(controller:"linkSharing",action:"loadmainpage")
-//                          return false
-//                    }
-//
-//                  }
-//             }
+                  }
+             }
 
     }
 }

@@ -20,7 +20,7 @@
 
                 $("#dropdownsearch").append(
                         "<li>" +
-                        "<a href='${createLink(controller:'linkSharing',action:'showResource')}?id="+value.id+"'>" +
+                        "<a href='${createLink(controller:'linkSharing',action:'showResource')}?id="+data.topicsId[key]+"'>" +
                         "<h4>" + value.description + "<small>" +
                         "<i class='fa fa-clock-o'></i> 5 mins</small>" +
                         "</h4>" +

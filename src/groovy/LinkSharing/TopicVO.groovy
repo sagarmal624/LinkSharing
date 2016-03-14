@@ -1,5 +1,6 @@
 package LinkSharing
 
+import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
 
 /**
@@ -15,5 +16,5 @@ class TopicVO {
     String seriousness
     long resourceId
     Date createdDate
-
+    Topic topic
 }

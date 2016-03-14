@@ -6,7 +6,7 @@ class Resource_Rating {
     Integer score;
     static constraints = {
         score(validator: {Integer val->(1..5).contains(val) })
-        user(nullable:false,unique:true)
-        resource(nullable: false,unique:true)
+        user(nullable:false)
+        resource(nullable: false)
     }
 }
