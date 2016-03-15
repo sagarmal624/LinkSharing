@@ -1,4 +1,4 @@
-<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-2.2.1.js')}"></script>
+%{--<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-2.2.1.js')}"></script>--}%
 <%@ page import="com.intelligrape.linksharing.User; com.ttnd.LinkSharing.*" %>
 <div class="modal fade" id="shareLink" role="dialog">
     <div class="modal-dialog">
@@ -80,7 +80,7 @@
 
 
         var postData = $(this).serializeArray();
-        var formURL = "${g.createLink(action:"save",controller:"resource" )}";
+        var formURL = "${g.createLink(action:"save",controller:"link" )}";
         $.ajax(
                 {
                     url: formURL,

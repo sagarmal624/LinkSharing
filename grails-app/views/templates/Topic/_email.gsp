@@ -1,5 +1,3 @@
-SubscribedTopicList
-
 <div class="modal fade" id="sendInv" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">

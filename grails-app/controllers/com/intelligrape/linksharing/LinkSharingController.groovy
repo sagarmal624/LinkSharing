@@ -1,5 +1,7 @@
 package com.intelligrape.linksharing
 
+import grails.converters.JSON
+
 class LinkSharingController {
     def linkSharingService
 
@@ -38,7 +40,7 @@ class LinkSharingController {
         List<User> users = User.list()
 
         render view: "/tables/data", model: [SubscribedTopicList: loadTopic(), users: users]
-
+//        render(users as JSON)
     }
 
     def inbox() {

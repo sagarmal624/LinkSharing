@@ -1,8 +1,11 @@
 package com.intelligrape.linksharing
 
+import LinkSharing.DataTableVO
 import LinkSharing.MailSender
 import LinkSharing.SearchCO
 import LinkSharing.UserCO
+import grails.converters.JSON
+
 //import grails.doc.BoldFilter
 import org.codehaus.groovy.grails.web.binding.DataBindingUtils
 import org.springframework.web.multipart.MultipartFile
@@ -58,6 +61,7 @@ class UserController extends UtilController {
             flash.error = "Error During Mail Sending!"
         render view: "/mailbox/mailbox"
     }
+
     def register() {
         String message = "This Email-id or Username Already Exits!"
         MultipartFile inputImage = params.photo
@@ -73,7 +77,7 @@ class UserController extends UtilController {
         if (user) {
             if (user.validate()) {
                 message = "Record is Successfully Saved!"
-                user.active=true
+                user.active = true
                 user.save(flush: true)
                 session.username = User.findByEmail(user.email).name;
                 session.email = user.email;
@@ -90,6 +94,7 @@ class UserController extends UtilController {
         }
 
     }
+
     def update() {
         User user = User.findByEmail(session.email)
         MultipartFile inputImage = params.photo
@@ -101,10 +106,10 @@ class UserController extends UtilController {
             params.imagePath = userImage.absolutePath
             user.imagePath = params.imagePath
         }
-        if(params.firstname)
+        if (params.firstname)
             user.firstname = params.firstname;
 
-        if(params.lastname)
+        if (params.lastname)
             user.lastname = params.lastname;
 
         user.confirmPassword = user.password
@@ -112,17 +117,18 @@ class UserController extends UtilController {
             flash.message = "Record is Successfully updated"
             session.user = user;
             session.username = user.name
-            session.email=user.email;
+            session.email = user.email;
         } else
             flash.error = "Record is not updated due to some Validation"
-            forward(action: "accountSetting", controller: "linkSharing")
+        forward(action: "accountSetting", controller: "linkSharing")
 
     }
+
     def forgotPassword(String email) {
 
         User user = User.findByEmail(email)
         if (user) {
-            String newPassword =UserController.getRandomPassword();
+            String newPassword = UserController.getRandomPassword();
             user.password = newPassword;
             user.confirmPassword = newPassword;
             user.save(flush: true)
@@ -134,10 +140,11 @@ class UserController extends UtilController {
         redirect(action: "loadmainpage", controller: "linkSharing");
 
     }
-    static String getRandomPassword()
-    {
+
+    static String getRandomPassword() {
         return new Random().nextInt(100000);
     }
+
     def activeUser(long id, boolean activeness) {
         User user = User.get(id)
         user.active = activeness
@@ -168,10 +175,7 @@ class UserController extends UtilController {
             } else {
                 flash.error1 = "Account not found"
             }
-        }
-
-        else
-        {
+        } else {
             flash.error1 = "Please Enter Your Email-id"
 
         }
@@ -187,9 +191,29 @@ class UserController extends UtilController {
         response.outputStream << imageBytes
         response.outputStream.flush()
     }
+
     def show() {
-        List<User> users = User.list()
-        render([view: "../tables/data", model: [users: users]])
+
+println "--------------->data loadingggggggggg"
+
+        List<User> users = User.createCriteria().list(max:params.max, offset: params.offset){
+            projections{
+                property('username');
+                property('email');
+                property('firstname');
+                property('lastname');
+                property('admin');
+                property('active');
+
+            }
+        }
+        println "===========>--"+users
+        DataTableVO dataTableVO= new DataTableVO(data:users,draw:1,recordsFiltered:users.size(),recordsTotal: users.size()  )
+//        render([view: "../tables/data", model: [users: users]])
+        println "------------------------>>>>" + users
+//        Map map=[dataTableVO:dataTableVO]
+//        groovy.lang.Closure closure = {users }
+        render(dataTableVO as JSON)
     }
 
     def finduser(String mailidOrUname) {

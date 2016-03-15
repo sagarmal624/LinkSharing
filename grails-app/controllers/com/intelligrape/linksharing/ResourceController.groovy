@@ -1,30 +1,61 @@
 package com.intelligrape.linksharing
 
-
 import Enums.Visibility
 import LinkSharing.Custombean
 import LinkSharing.RatingInfoVO
 import LinkSharing.ResourceSearchCO
 import LinkSharing.TopicVO
+import org.codehaus.groovy.grails.compiler.injection.GrailsASTUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.multipart.MultipartFile
 
 class ResourceController extends UtilController {
-    def update(long id,String url,String description,String topic) {
+    ResourceService resourceService
+
+    def update(long id, String url, String description) {
         Resource resource = Resource.get(id)
-        resource.url=url;
+        if (url) {
+            resource.url = url;
+            resource.description = description;
+            if (resource.save(flush: true))
+                flash.message = "Record is Updated"
+            else
+                flash.message = "Record is not updated"
+        } else {
+            MultipartFile inputDocument=params.document
+            if (inputDocument.originalFilename) {
+                String extension = inputDocument.originalFilename.tokenize(".")?.last()
+                String filePath = "${grailsApplication.config.documentFolder}/${UUID.randomUUID().toString()}${extension ? ".${extension}" : ""}"
+                File resourceDocument = new File(filePath)
+                inputDocument.transferTo(resourceDocument)
+                resource.filepath = resourceDocument.absolutePath
+            }
+            resource.description = description;
+            if (resource.save(flush: true)) {
+                flash.message = "Record is Updated"
+            } else {
+                flash.message = "Record is not Updated"
+            }
+
+        }
+
+        Map map = [message: flash.message]
+        Closure closure = { map }
+        renderAsJSON(closure)
     }
 
     def delete(long id) {
-        def resource = Resource.get(id)
+
+        /*def resource = Resource.get(id)
         println "--------------resource object----->" + resource
         if (resource == null) {
             flash.error = "ResourceNotFound"
         } else {
             resource.delete(flush: true)
-        }
+        }*/
+        boolean status = resourceService.deleteResource(id)
+        status ?: (flash.error = "ResourceNotFound")
         forward(action: "dashboard", controller: "linkSharing")
-
     }
 
     def search(ResourceSearchCO co) {
@@ -60,48 +91,29 @@ class ResourceController extends UtilController {
 
     }
 
-    def save() {
 
-        String url = params.url;
-        String description = params.description
-        String topicname = params.topicname
-        Resource resource = new Link_Resource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(session.email), description: description, url: url)
-        if (resource.validate()) {
-            Thread.sleep(1000)
-            resource.save(flush: true)
-            ResourceController.addToReadingItems(resource)
-            flash.message = "Link Resource is Successfully Created "
-        } else {
-            flash.message = "Record is not saved due to not Valid URL"
-        }
-        Map map = [message: flash.message]
-        groovy.lang.Closure closure = { map }
-        renderAsJSON(closure)
-
-    }
-
-    def savedocument(String description, String topic) {
-        MultipartFile inputDocument = params.document
-        String extension = inputDocument.originalFilename.tokenize(".")?.last()
-        String filePath = "${grailsApplication.config.documentFolder}/${UUID.randomUUID().toString()}${extension ? ".${extension}" : ""}"
-        File resourceDocument = new File(filePath)
-        inputDocument.transferTo(resourceDocument)
-        User createdBy = session.user
-        Thread.sleep(1000);
-        Resource resource = new Document_Resource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
-        if (resource.validate()) {
-
-            resource.save(flush: true)
-            ResourceController.addToReadingItems(resource)
-            flash.message = "File is Successfully Uploaded"
-        } else {
-            flash.message = "Document is not Uploaded due to Some Error"
-        }
-        Map map = [message: flash.message]
-        groovy.lang.Closure closure = { map }
-        renderAsJSON(closure)
-
-    }
+//    def saveDocument(String description, String topic) {
+//        MultipartFile inputDocument = params.document
+//        String extension = inputDocument.originalFilename.tokenize(".")?.last()
+//        String filePath = "${grailsApplication.config.documentFolder}/${UUID.randomUUID().toString()}${extension ? ".${extension}" : ""}"
+//        File resourceDocument = new File(filePath)
+//        inputDocument.transferTo(resourceDocument)
+//        User createdBy = session.user
+//        Thread.sleep(300);
+//        Resource resource = new Document_Resource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
+//        if (resource.validate()) {
+//
+//            resource.save(flush: true)
+//            ResourceController.addToReadingItems(resource)
+//            flash.message = "File is Successfully Uploaded"
+//        } else {
+//            flash.message = "Document is not Uploaded due to Some Error"
+//        }
+//        Map map = [message: flash.message]
+//        groovy.lang.Closure closure = { map }
+//        renderAsJSON(closure)
+//
+//    }
 
     protected static addToReadingItems(Resource resource) {
         Topic resourceTopic = resource.topic
@@ -115,15 +127,6 @@ class ResourceController extends UtilController {
     }
 
 
-    def downloadDocument(long id) {
-        Resource resource = Resource.read(id)
-        String filePath = resource.filepath
-        File file = new File(filePath)
-        byte[] documentBytes = file.bytes
-        response.setHeader("Content-length", documentBytes.length.toString())
-        response.outputStream << documentBytes
-        response.outputStream.flush()
-    }
 
     def saveRating() {
         Resource_Rating resource_rating;

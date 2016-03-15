@@ -1,12 +1,14 @@
 package LinkSharing
 
+import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
 
 /**
  * Created by sagar on 3/8/16.
  */
 class TopPostVO {
-   User createdBy;
+    Topic topic;
+    User createdBy;
    String topicname;
    String description;
     String url;
@@ -14,8 +16,7 @@ class TopPostVO {
     String username;
     String uname;
     long userid
-
-     long id;
+    long id;
 
 
 }

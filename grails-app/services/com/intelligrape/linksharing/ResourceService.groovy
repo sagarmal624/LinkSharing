@@ -30,7 +30,6 @@ class ResourceService {
             }
         }
     }
-
     Boolean saveLinkResource(String email, String url, String description, String topicname) {
         Resource resource = new Link_Resource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(email), description: description, url: url)
         if (resource.validate()) {

@@ -391,10 +391,11 @@
             <h2 class="page-header">Trending Topics</h2>
             <div class="row">
                 <div class="col-md-6 container" >
-                    <div class="box box-success">
+                    <div style="max-height:500px; overflow-y:scroll" class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
                             <h3 class="box-title">Trending Topics</h3>
+                            <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
                                 <div class="btn-group" data-toggle="btn-toggle">
@@ -410,7 +411,6 @@
                                 %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
                                 <ls:userImage userId="${trendingTopic?.createdBy?.id}" imageType="online"/>
 
-                                <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                                 <p class="message">
                                     <a href="#" class="name">
@@ -589,7 +589,7 @@
                         <!-- /.chat -->
 
                     </div>
-                    <div class="box box-success">
+                    <div style="max-height:500px; overflow-y:scroll" class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
 
@@ -607,15 +607,25 @@
 
                             <g:each in="${topPostResource}" var="topPost">
                                 <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
+                                    <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
+
                                     %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
                                     <ls:userImage userId="${topPost?.createdBy?.id}" imageType="online"/>
 
-                                    <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                                     <p class="message">
                                         <a href="#" class="name">
                                             <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                                            ${topPost.topicname}
+
+                                           <g:if test="${topPost?.topic?.isExistResource(topPost?.id)}">
+                                            <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topPost?.id])}">${topPost?.topicname}</a>
+                                            </a>
+                                        </g:if>
+                                        <g:else>
+                                            <a href="#" onclick="alert('Topic is not Subscribed')">${topPost?.topicname}</a>
+                                        </g:else>
+
+
                                         </a>
                                         <span class="row">
                                             <span class="text-info col-lg-5">
@@ -646,13 +656,14 @@
 
                                         <a href="#" onclick="deleteResource(${topPost.id})"><u>Delete</u></a>&nbsp;&nbsp;
 
-                                        <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
+                                        <a href='${createLink(controller:'resource',action:'show')}?id=${topPost?.id}'><u>Edit</u></a>
+                                    &nbsp;&nbsp;
                                         <g:if test="${topPost?.url}">
                                             <a href="${topPost?.url}"><u>View Full Site</u></a>&nbsp;&nbsp;
 
                                         </g:if>
                                         <g:else>
-                                            <a href="#"><u>Download</u></a>&nbsp;&nbsp;
+                                            <u><a target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=${topPost?.id}'>Download</a></u>&nbsp;&nbsp;
 
                                         </g:else>
                                         <a href='${createLink(controller:'resource',action:'show')}?id=${topPost?.id}'><u>View Post</u></a>
@@ -690,7 +701,7 @@
                         </form>
                         <ul class="dropdown-menu">
                             <li>
-                                <div class="box-body chat" id="chat-box" name="postsbox">
+                                <div class="box-body chat" style="max-height:500px; overflow-y:scroll" id="chat-box" name="postsbox">
 
                                 </div>
                             </li>
@@ -1061,7 +1072,7 @@
                 if (value.url)
                     flag = "<a href=" + value.url + " target='_blank'><u>View Full Site</u></a>"
                 else
-                    flag = "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id=" + value.id + "'>Download</a></u>&nbsp;&nbsp;"
+                    flag = "<u><a target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=" + value.id + "'>Download</a></u>&nbsp;&nbsp;"
 
 
                 $('[name="postsbox"]').append(
@@ -1084,12 +1095,11 @@
                         value.description +
                         "</span>" +
                         "<br>" +
-
                         "<img src='../dist/img/facebook.png'/>" +
                         "<img src='../dist/img/twtr.png'/>" +
                         "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
                         markAsRead +
-                        "<a href='#'><u>Edit</u></a>&nbsp;&nbsp;" +
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>Edit</a></u>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +
 
                         "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +

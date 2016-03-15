@@ -111,6 +111,7 @@ class UserSpec extends Specification {
         then:
         user.purchasedProducts.size() > 0
 
+
     }
 
     void "Product Cancelled"() {

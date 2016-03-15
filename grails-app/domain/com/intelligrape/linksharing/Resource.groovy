@@ -104,7 +104,7 @@ abstract class Resource {
 
         List toppostList=[];
      resources.each {
-         toppostList.add(new TopPostVO(uname:it[2].username,username:it[2].name ,userid:it[2].id,createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ,id:it[7]))
+         toppostList.add(new TopPostVO(topic:Topic.findByName(it[3]),uname:it[2].username,username:it[2].name ,userid:it[2].id,createdBy: it[2], topicname: it[3], description: it[4],url:it[5],filepath:it[6] ,id:it[7]))
 
      }
         return toppostList;

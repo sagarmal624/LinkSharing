@@ -70,9 +70,8 @@
 <script>
     $('#shareDocument').click(function () {
         $("#loaderId2").show();
-    console.log("called ....");
         var oData = new FormData(document.forms.namedItem("fileinfodata"));
-        var url = "${createLink(controller:'resource',action:'savedocument')}";
+        var url = "${createLink(controller:'document',action:'saveDocument')}";
         $.ajax({
             url: url,
             type: 'POST',

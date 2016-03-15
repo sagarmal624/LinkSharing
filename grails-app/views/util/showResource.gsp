@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
     <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
     <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}%
     <script src="../dist/js/star-rating.js" type="text/javascript"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -601,7 +601,7 @@
                             </form>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <div class="box-body chat" id="chat-box" name="postsbox">
+                                    <div class="box-body chat" id="chat-box" name="postsbox" style="max-height:500px; overflow-y:scroll">
 
                                     </div>
                                 </li>
@@ -617,7 +617,85 @@
         </section>
 
     </div>
-    <!-- /.content-wrapper -->
+
+
+
+    <div class="modal fade" id="editLink" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div id="alertmsg1" class="hidden"><span id="spanmsg1"></span></div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="addContactModalLabel">Share Link</h4>
+                </div>
+
+                <form id="linkshareform">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-lg-2">
+                                <label for="url">Link<span style="color:red">*</span>:</label>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <input type="url" required="" class="form-control" id="url" name="url"
+                                       placeholder="Link..."/>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <div class="form-group">
+                            <div class="col-lg-2">
+                                <label for="description">Description<span style="color:red">*</span>:</label>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <g:textArea required="" cols="12" class="form-control" id="description" name="description"
+                                            placeholder="Description..."/>
+                            </div>
+                        </div>
+                        <br><br><br><br>
+
+                        <div class="form-group">
+                            <div class="col-lg-2">
+                                <label>Topic:</label>
+                            </div>
+
+                            <div class="col-lg-10">
+
+                                <select class="form-control" id="topicname" name="topicname" data-toggle="tooltip"
+                                        title="Share Link with Given Topic Name">
+                                    <g:each in="${SubscribedTopicList}">
+                                        <option>${it}</option>
+                                    </g:each>
+
+                                </select>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="row">
+
+                            <div id="loaderId1" style="display: none" class="col-lg-2">
+                                <img src="${resource(dir: 'images', file: 'spinner.gif')}"/> Saving..
+                            </div>
+
+                            <div class="col-lg-4 col-lg-offset-2">
+                                <button type="submit" id="save" class="btn btn-success">Save</button></div>
+
+                            <div class="col-lg-3">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
@@ -909,12 +987,12 @@
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 <g:render template="../templates/resource/search"/>
-<g:render template="../templates/LinkResource/editLinkResource"/>
+%{--<g:render template="../templates/LinkResource/editLinkResource"/>--}%
 
 <script type="text/javascript">
 
     var searchResourceAndTopic = function searchPost(description) {
-        console.log(description);
+        console.log(">>>>>> ",description);
         <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchPostResponse(data,textStatus)"/>
     };
 
@@ -956,10 +1034,9 @@
             var readResources = eval(data.readResources);
 
             var subscriptionList = eval(data.subscriptionList);
-            console.log("subscription list----item->" + data.subscriptionList[0]);
-            console.log("subscription list----item-ss>" + subscriptionList.name);
 
             $('[name="postsbox"]').empty();
+
             if (data.resources == "") {
                 $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not found</span>");
 
@@ -980,7 +1057,7 @@
                 if (value.url)
                     flag = "<a href=" + value.url + " target='_blank'><u>View Full Site</u></a>"
                 else
-                    flag = "<u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id=" + value.id + "'>Donwload</a></u>&nbsp;&nbsp;"
+                    flag = "<u><a target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=" + value.id + "'>Download</a></u>&nbsp;&nbsp;"
 
 
                 $('[name="postsbox"]').append(
@@ -1008,7 +1085,7 @@
                         "<img src='../dist/img/twtr.png'/>" +
                         "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
                         markAsRead +
-                        "<a href='#' data-target='#editLink' data-toggle='modal'><u>Edit</u></a>&nbsp;&nbsp;" +
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>Edit</a></u>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +
 
     "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
@@ -1022,14 +1099,8 @@
         }
         else {
             $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not fond</span>");
-
         }
     }
 </script>
-<script>
-
-
-
-    </script>
     </body>
     </html>

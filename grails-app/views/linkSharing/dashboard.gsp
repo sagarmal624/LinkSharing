@@ -434,7 +434,7 @@
                             </div>
                         </div>
 
-                        <div class="box-body chat" id="chat-box">
+                        <div class="box-body chat" id="chat-box" style="max-height:500px; overflow-y:scroll">
                          <g:each in="${subscriptions}" var="topicVo">
                             <div class="item">
                                 <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>

@@ -602,14 +602,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="box-body chat" id="chat-box">
                             <!-- chat item -->
                             <div class="item" id="startRatingdiv">
                                 %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online"/>--}%
                                 %{--imageType="img-circle"--}%
-                                <ls:userImage userId="${resource?.createdBy?.id}" imageType="img-circle"/>
-                                <p class="message">
+                            <ls:userImage userId="${resource?.createdBy?.id}" imageType="img-circle"/>
+                            <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
                                         ${resource?.topic}
@@ -625,27 +624,39 @@
                                                    min=0 max=5 step=0.5 data-size="sm">
                                         </span>
                                     </span>
-
                                 </p>
-
                                 <div class="attachment">
+                                    <div id="alertmsg7" class="hidden"><span id="spanmsg7"></span></div>
 
                                     <span>
-                                    ${resource?.description}
+                                        ${resource?.description}
                                     </span>
-                                    <br>
+                                    <div id="editLink" class="collapse">
+                                        <form id="updateResourceForm">
+                                        <input type="hidden" value="${resource?.id}" name="id" id="id">
+                                        <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                                          Link:<input type="url" value=" ${resource?.url}" class="form-control"name="url" required="">
+                                        </g:if>
+                                        <g:else>
+                                            File:<input required="true" type="file" class="form-control" id="document" name="document">
+
+                                        </g:else>
+                                            Description:<textarea name="description" cols="10" class="form-control" style="resize: none">${resource?.description}</textarea>
+                                       <br><input type="submit" name="updateDocumentBtn" id="updateDocumentBtn" class="btn btn-success col-lg-offset-5" value="Update">
+
+                                    </form>
+                                    </div>
+                                    <br><br>
                                     <img src="../dist/img/facebook.png"/>
                                     <img src="../dist/img/twtr.png"/>
                                     <img src="../dist/img/google.png"/> &nbsp;&nbsp;
                                     <a href="#" onclick="deleteResource(${resource?.id})"><u>Delete</u></a>&nbsp;&nbsp;
-
-                                    <a href="#"><u>Edit</u></a>&nbsp;&nbsp;
+                                    <a href="#" data-toggle="collapse" data-target="#editLink"><u>Edit</u></a>&nbsp;&nbsp;
                                     <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
                                         <a href="${resource.url}"><u>View Full Site</u></a>
                                     </g:if>
                               <g:else>
-                                  <a href="#"><u>Download</u></a>&nbsp;&nbsp;
-                                  <u><a target='_blank' href='${createLink(controller:'resource',action:'downloadDocument')}?id="+${resource?.id}+"'>Donwload</a></u>&nbsp;&nbsp;
+                                  <u><a target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=${resource?.id}'>Download</a></u>&nbsp;&nbsp;
                               </g:else>
 
                                 </div>
@@ -1245,6 +1256,52 @@
     });
 
 </script>
+<script>
+    $('#updateDocumentBtn').click(function () {
+        var oData = new FormData(document.forms.namedItem("updateResourceForm"));
+        var url = "${createLink(controller:'resource',action:'update')}";
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: oData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,
+            success: function (data, textStatus, jqXHR) {
+                if (data.message != "Record is not updated") {
+                    $("#spanmsg7").addClass("alert alert-success")
+                }
+                else
+                    $("#spanmsg7").addClass("alert alert-danger")
+
+                $("#spanmsg7").text(data.message)
+
+                $("#alertmsg7").toggleClass('hidden');
+                $("#updateResourceForm")[0].reset()
+                setTimeout(function () {
+                    $("#alertmsg7").toggleClass('hidden');
+                    $("#spanmsg7").removeClass("alert alert-success")
+                }, 1000);
+                location.reload();
+
+            },
+            dataType: 'json',
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#spanmsg7").addClass("alert alert-danger")
+                $("#spanmsg7").text(data.message)
+                $("#alertmsg7").toggleClass('hidden');
+                $("#updateResourceForm")[0].reset()
+                setTimeout(function () {
+                    $("#alertmsg7").toggleClass('hidden');
+                    $("#spanmsg7").removeClass("alert alert-success")
+                }, 3000);
+
+            }
+
+        });
+    });
+    </script>
+
+
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>

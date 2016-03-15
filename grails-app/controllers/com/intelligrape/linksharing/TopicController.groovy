@@ -8,6 +8,12 @@ class TopicController extends UtilController {
 
         render template:"/templates/Topic/create"
     }
+    def renderEditLinkTemplate(){
+        User user=sesson.user
+        println "-------------template calling--->"
+       render template:"/templates/LinkResource/editLinkResource" , model:[topicList:Topic.list()]
+    }
+
     def updatevisibility(long userId,long topicId,String visibility )
     {
 

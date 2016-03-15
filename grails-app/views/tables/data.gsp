@@ -1,3 +1,4 @@
+<%@ page import="java.nio.file.Files" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +17,15 @@
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  %{--<script src="${g.resource(dir:'js',file:'datatable.js') }"></script>--}%
+
+
+  <script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-2.2.1.js')}"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -188,7 +192,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
-              <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
+              %{--<ls:userImage userId="${session?.user?.id}" imageType="user-image"/>--}%
 
               <span class="hidden-xs">${session.username}</span>
             </a>
@@ -196,7 +200,7 @@
               <!-- User image -->
               <li class="user-header">
                 %{--<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
-                <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
+                %{--<ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>--}%
 
                 <p>
                   ${session.username} - Web Developer Trainee
@@ -244,7 +248,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <ls:userImage userId="${session?.user?.id}" imageType="img-circle" alt="user-Image"/>
+          %{--<ls:userImage userId="${session?.user?.id}" imageType="img-circle" alt="user-Image"/>--}%
         </div>
 
         <div class="pull-left info">
@@ -344,12 +348,10 @@
             <div class="box-header">
               <h3 class="box-title">Users List</h3>
             </div>
-
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Serial-No</th>
                   <th>User Name</th>
                   <th>Email-ID</th>
                   <th>First Name</th>
@@ -359,32 +361,31 @@
                 </tr>
                 </thead>
                 <tbody>
-                <g:each in="${users}" var="user">
-                  <tr>
-                    <td>${user.id}</td>
-                    <td>${user.username}</td>
-                    <td>${user.email}</td>
-                    <td>${user.firstname}</td>
-                    <td>${user.lastname}</td>
-                    <g:if test="${user.admin}">
-                    <td>Yes</td>
-                    </g:if>
-                    <g:else>
-                      <td>No</td>
-                    </g:else>
-                         <g:if test="${user.active}">
-                      <td><a href="#" onclick="activateUser(${user.id})">Active</a></td>
-                    </g:if>
-                    <g:else>
-                      <td><a href="#" onclick="deActivateUser(${user.id})">Deactive</a></td>
-                    </g:else>
+                %{--<g:each in="${users}" var="user">--}%
+                  %{--<tr>--}%
+                    %{--<td>${user.id}</td>--}%
+                    %{--<td>${user.username}</td>--}%
+                    %{--<td>${user.email}</td>--}%
+                    %{--<td>${user.firstname}</td>--}%
+                    %{--<td>${user.lastname}</td>--}%
+                    %{--<g:if test="${user.admin}">--}%
+                    %{--<td>Yes</td>--}%
+                    %{--</g:if>--}%
+                    %{--<g:else>--}%
+                      %{--<td>No</td>--}%
+                    %{--</g:else>--}%
+                         %{--<g:if test="${user.active}">--}%
+                      %{--<td><a href="#" onclick="activateUser(${user.id})">Active</a></td>--}%
+                    %{--</g:if>--}%
+                    %{--<g:else>--}%
+                      %{--<td><a href="#" onclick="deActivateUser(${user.id})">Deactive</a></td>--}%
+                    %{--</g:else>--}%
 
-                  </tr>
-                </g:each>
+                  %{--</tr>--}%
+                %{--</g:each>--}%
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Serial-No</th>
                   <th>User Name</th>
                   <th>Email-ID</th>
                   <th>First Name</th>
@@ -596,12 +597,13 @@
 
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery 2.2.0 -->
 <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
+
+<script src="${resource(dir:'js',file:'jQuery-2.2.0.min.js')}"></script>
+
 <!-- Bootstrap 3.3.5 -->
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
+%{--<script src="../../bootstrap/js/bootstrap.min.js"></script>--}%
 <!-- DataTables -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -610,7 +612,7 @@
 <!-- FastClick -->
 <script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/app.min.js"></script>
+%{--<script src="../../dist/js/app.min.js"></script>--}%
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <g:render template="../templates/Topic/email"/>
@@ -622,19 +624,7 @@
 
 <g:render template="../templates/resource/search"/>
 <script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
-<script>
+
   function activateUser(id){
     <g:remoteFunction  controller="user" action="activeUser"  params="\'id=\'+id+\'&activeness=\'+false" onSuccess="activateUserResponse(data,textStatus)"/>
 
@@ -655,7 +645,15 @@
       location.reload();
     }
   };
-
 </script>
+<script>
+  $(document).ready(function() {
+    $('#example1').DataTable( {
+      "processing": true,
+      "serverSide": true,
+      "ajax": "${createLink(controller:"user",action:"show")}"
+    } );
+  } );
+  </script>
 </body>
 </html>

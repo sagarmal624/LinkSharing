@@ -4006,3 +4006,17 @@ n:772:sl/org/objectweb/asm/tree/IntInsnNode
 n:1831:sl/org/objectweb/asm/tree/TryCatchBlockNode
 n:2181:org/springframework/util/ConcurrentReferenceHashMap$2
 n:3660:org/apache/log4j/NDC
+n:17781:grails/converters/JSON
+n:499:org/codehaus/groovy/grails/web/converters/IncludeExcludeConverter
+n:732:org/codehaus/groovy/grails/web/converters/ConfigurableConverter
+n:3082:org/codehaus/groovy/grails/web/converters/AbstractConverter
+n:1199:org/codehaus/groovy/grails/web/converters/configuration/ConverterConfiguration
+n:2141:org/codehaus/groovy/grails/web/converters/Converter$CircularReferenceBehaviour
+n:6057:org/codehaus/groovy/grails/web/json/JSONWriter
+n:812:org/codehaus/groovy/grails/web/json/JSONException
+n:167:org/codehaus/groovy/grails/web/json/JSONElement
+n:603:grails/validation/Validateable
+n:566:org/codehaus/groovy/grails/validation/Validateable
+n:2262:org/codehaus/groovy/tools/Utilities
+n:311:org/codehaus/groovy/grails/orm/support/TransactionManagerAware
+n:289:org/codehaus/groovy/classgen/asm/OptimizingStatementWriter$1
