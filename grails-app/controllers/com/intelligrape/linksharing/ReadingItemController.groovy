@@ -6,11 +6,8 @@ class ReadingItemController {
              readingItemService.changeIsRead(session.email,id,isRead)
              forward(action: "inbox", controller: "linkSharing")
     }
-
     def inbox() {
-
         List<Resource> unreadResources =readingItemService.fetchInboxData(session.email,seesion.user)
-
         render unreadResources.flatten()
     }
 }

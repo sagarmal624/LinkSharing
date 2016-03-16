@@ -20,16 +20,6 @@ class ResourceService {
         }
     }
 
-    protected static addToReadingItems(Resource resource) {
-        Topic resourceTopic = resource.topic
-        List<Subscription> subscribedUser = Topic.getSubscribedUsers(resourceTopic.name)
-        subscribedUser.each { user ->
-            ReadingItem userReadingItem = new ReadingItem(user: user, resource: resource, isRead: (user.id == resource.createdBy.id))
-            if (userReadingItem.validate()) {
-                userReadingItem.save(flush: true)
-            }
-        }
-    }
     Boolean saveLinkResource(String email, String url, String description, String topicname) {
         Resource resource = new Link_Resource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(email), description: description, url: url)
         if (resource.validate()) {
@@ -51,11 +41,11 @@ class ResourceService {
         return map
     }
 
-    Resource_Rating saveRating(long id, int score, String email) {
+    Resource_Rating saveRating(long id, int score, User user) {
         Resource_Rating resource_rating;
-        resource_rating = Resource_Rating.get(id)
+        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id),user)
         if (!resource_rating)
-            resource_rating = new Resource_Rating(resource: Resource.get(id), score: score, user: User.findByEmail(email)).save(flush: true)
+            resource_rating = new Resource_Rating(resource: Resource.get(id), score: score, user:user).save(flush: true)
         else {
             resource_rating.score = score
             resource_rating.save(flush: true)
@@ -99,7 +89,8 @@ class ResourceService {
         } else
             score = resource_rating?.score
         List<TopicVO> trendingTopics = Topic.getTrendingTopics()
-        Map map = [totalResourceAndSubscription: totalResourceAndSubscription, score: score, trendingTopics: trendingTopics]
+        Map map = [trendingTopicsList: trendingTopics, score: score, resource: resource_rating?.resource, totalSubscription: totalResourceAndSubscription.totalSubscription, totalTopics: totalResourceAndSubscription.totalTopic, totalPost: totalResourceAndSubscription.totalPost, SubscribedTopicList: User.getSubscribedTopic(user.email)]
+
         return map
     }
 }

@@ -11,7 +11,7 @@ class LinkSharingService {
         User user = User.findByEmail(email)
         Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
         List<Topic> topicsName
-        if (user.admin)
+        if (user?.admin)
             topicsName = Subscription.list()*.topic
         else
             topicsName = user?.subscriptions?.topic
@@ -33,7 +33,6 @@ class LinkSharingService {
 
             eq("user", user)
             eq("isRead", false)
-//            order("dateCreated", "desc")
         }
         return unreadResources
     }

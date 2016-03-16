@@ -3,71 +3,36 @@ import Enums.Visibility
 import LinkSharing.ResourceSearchCO
 
 class TopicController extends UtilController {
+    def topicService
     def create()
     {
-
-        render template:"/templates/Topic/create"
+   render template:"/templates/Topic/create"
     }
-    def renderEditLinkTemplate(){
-        User user=sesson.user
-        println "-------------template calling--->"
-       render template:"/templates/LinkResource/editLinkResource" , model:[topicList:Topic.list()]
-    }
-
     def updatevisibility(long userId,long topicId,String visibility )
     {
-
-      Topic topic=Topic.findByCreatedByAndId(User.get(userId),topicId)
-      topic.visibility=Visibility.toEnum(visibility)
-      if(topic.save(flush:true)){
-        flash.message="Visibility is Updated"
-        } else {
-        flash.message="Visibility is not updated"
-       }
-    Map map = [message: flash.message,topicid:topicId]
+     String message=topicService.updateVisibility(userId,topicId,visibility)
+    Map map = [message:message,topicid:topicId]
     groovy.lang.Closure closure = { map }
     renderAsJSON(closure)
 }
     def delete(long id)
     {
-      Topic.get(id).delete(flush:true);
+       topicService.deleteTopic(id)
        forward(action:"dashboard" ,controller:"linkSharing" )
 
     }
     def save(){
-        Map map=[:]
-        String topicname=params.name;
-        String visibility=params.visibility
-        User user=User.findByEmail(session.email)
-        Topic topic=new Topic(name:topicname,createdBy:user,visibility:Visibility.toEnum(visibility))
-        println("Callled *** ")
-        if(!topic.validate())
-        {
-            flash.message="This Topic name is already Exist!.Please Change Topic Name!"
-         }else
-        {
-
-            Thread.sleep(500)
-            flash.message="Topic is created successfully!"
-            topic=topic.save(flush: true)
-
-        }
-        map=[message:flash.message]
+        String message=topicService.saveTopic(params.name,params.visibility,session.email)
+        Map map=[message:message]
         groovy.lang.Closure closure={ map}
         renderAsJSON(closure)
     }
      def update(long id,String name){
-     Topic topic=Topic.get(id)
-     topic.name=name;
-         flash.message="Topic Name is already Exist"
-
-         if(topic.save(flush:true))
-         flash.message="Record is Updated"
+         flash.message=topicService.updateTopic(id,name)
          Map map=[message:flash.message]
          groovy.lang.Closure closure={ map}
          renderAsJSON(closure)
      }
-
     def show(ResourceSearchCO co){
         co.visibility=Enums.Visibility.PUBLIC.toString()
 

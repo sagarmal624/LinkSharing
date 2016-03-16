@@ -15,7 +15,7 @@
                             </div>
 
                             <div class="col-lg-8">
-                                <input required="true" type="file" class="form-control offset-5" id="url" name="document"
+                                <input required="" type="file" class="form-control offset-5" id="url" name="document"
                                        placeholder="Enter URL">
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="col-lg-8">
-                                <textarea required="true" class="form-control" cols="15" name="description"></textarea>
+                                <textarea required="" class="form-control" cols="15" name="description"></textarea>
                             </div>
                         </div>
                         <br><br><br>

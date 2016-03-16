@@ -12,7 +12,6 @@ abstract class Resource {
     static belongsTo = [createdBy:User,topic:Topic]
     static hasMany = [resource_ratings:Resource_Rating,readingItems:ReadingItem]
     static constraints = {
-
         description(nullable: false,blank: false,validator:{val,obj->!(val.isInteger())})
         dateCreated(nullable:true)
         lastUpdated(nullable:true)

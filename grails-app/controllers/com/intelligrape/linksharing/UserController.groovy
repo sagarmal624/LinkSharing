@@ -4,9 +4,9 @@ import LinkSharing.DataTableVO
 import LinkSharing.MailSender
 import LinkSharing.SearchCO
 import LinkSharing.UserCO
+import LinkSharing.UserServiceCo
 import grails.converters.JSON
 
-//import grails.doc.BoldFilter
 import org.codehaus.groovy.grails.web.binding.DataBindingUtils
 import org.springframework.web.multipart.MultipartFile
 
@@ -17,6 +17,7 @@ import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 
 class UserController extends UtilController {
+    def userService
     def index() {
 
         if (!session.username) {
@@ -27,12 +28,7 @@ class UserController extends UtilController {
     }
 
     def sendinvitation(String emailto, String topicname) {
-        List<String> to = [params.emailto];
-        String subject = "Invitation to Join Topic on LinkSharing"
-        String message = "<p>On behalf of To The New Digital Enterprise, it is my pleasure to extend the invitation to join our" +
-                " new topic <h2><a href='#'>${params.topicname}</a><h2>" +
-                "</p>"
-        boolean flag = MailSender.sendMail("sagarmal624@gmail.com", "ubprpuraifiykixj", subject, to, message);
+        boolean flag = userService.sendinvitation(emailto,topicname)
         if (flag)
             flash.message = "Mail is sent Successfully"
         else
@@ -44,76 +40,34 @@ class UserController extends UtilController {
     }
 
     def sendMail(String emailto, String subject, String message) {
-        List<String> to = [emailto];
-        boolean flag = MailSender.sendMail("sagarmal624@gmail.com", "ubprpuraifiykixj", subject, to, message);
+        boolean flag = userService.sendMail(emailto,subject,message)
         if (flag) flash.message = "Mail is sent Successfully"
         else
-
             flash.error = "Error During Mail Sending!"
         forward(action: "dashboard", controller: "linkSharing")
     }
-
-    def sendAttechMail() {
-        List<String> to = [params.emailto];
-        boolean flag = MailSender.sendAttechedMail("sagarmal624@gmail.com", "ubprpuraifiykixj", params.subject, to);
-        if (flag) flash.message = "Mail is sent Successfully"
-        else
-            flash.error = "Error During Mail Sending!"
-        render view: "/mailbox/mailbox"
-    }
-
     def register() {
+        UserServiceCo userServiceCo=new UserServiceCo(firstname:params.firstname,lastname:params.lastname,email:params.email,username: params.username,password:params.password,confirmPassword:params.confirmPassword ,imagePath:"" )
+        User user=userService.registerUser(userServiceCo,params.photo,grailsApplication.config.userImageFolder)
         String message = "This Email-id or Username Already Exits!"
-        MultipartFile inputImage = params.photo
-        if (inputImage.originalFilename) {
-            String extention = inputImage.originalFilename.tokenize(".")?.last()
-            String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention ? ".${extention}" : ""}"
-            File userImage = new File(filePath)
-            inputImage.transferTo(userImage)
-            params.imagePath = userImage.absolutePath
-        } else
-            params.imagePath = "/home/sagar/Desktop/LinkAndDocumentSharing/LinkSharing/web-app/images/2.png"
-        User user = new User(params)
+           Map map = [message: message]
         if (user) {
-            if (user.validate()) {
-                message = "Record is Successfully Saved!"
-                user.active = true
-                user.save(flush: true)
-                session.username = User.findByEmail(user.email).name;
-                session.email = user.email;
-                session.user = user;
-                forward(action: "dashboard", controller: "linkSharing");
-            }
-        } else {
-
-            Map map = [message: message]
-            println "-------------------map==" + map;
+            message = "Record is Successfully Saved!"
+            session.username = user.name;
+            session.user = user;
+            forward(action: "dashboard", controller: "linkSharing");
+            session.email = user.email;
+        }
+        println "-------------------map==" + map;
             groovy.lang.Closure closure = { map }
             renderAsJSON(closure)
-
-        }
-
     }
 
     def update() {
-        User user = User.findByEmail(session.email)
-        MultipartFile inputImage = params.photo
-        if (inputImage.originalFilename) {
-            String extention = inputImage.originalFilename.tokenize(".")?.last()
-            String filePath = "${grailsApplication.config.userImageFolder}/${UUID.randomUUID().toString()}${extention ? ".${extention}" : ""}"
-            File userImage = new File(filePath)
-            inputImage.transferTo(userImage)
-            params.imagePath = userImage.absolutePath
-            user.imagePath = params.imagePath
-        }
-        if (params.firstname)
-            user.firstname = params.firstname;
+             UserServiceCo userServiceCo=new UserServiceCo(email:session.email,imagePath:"",firstname:params.firstname,lastname:params.lastname)
+           User user=userService.update(userServiceCo,params.photo,grailsApplication.config.userImageFolder)
 
-        if (params.lastname)
-            user.lastname = params.lastname;
-
-        user.confirmPassword = user.password
-        if (user.save(flush: true, failOnError: true)) {
+        if (user) {
             flash.message = "Record is Successfully updated"
             session.user = user;
             session.username = user.name
@@ -126,13 +80,8 @@ class UserController extends UtilController {
 
     def forgotPassword(String email) {
 
-        User user = User.findByEmail(email)
+        User user = userService.forgotPassword(email)
         if (user) {
-            String newPassword = UserController.getRandomPassword();
-            user.password = newPassword;
-            user.confirmPassword = newPassword;
-            user.save(flush: true)
-            sendMail(email, "Regarding to Forgot Password", "<h2>Your New Password to Login in LinkSharing is:" + newPassword + "</h2>")
             flash.message = "New Password is sent on your Email"
         } else
             flash.error = "Account is not found"
@@ -146,17 +95,14 @@ class UserController extends UtilController {
     }
 
     def activeUser(long id, boolean activeness) {
-        User user = User.get(id)
-        user.active = activeness
-        user.confirmPassword = user.password;
+        User user = userService.activeUser(id,activeness)
         flash.message = "Record not updated"
-        if (user.save(flush: true))
+        if (user)
             flash.message = "Successfully Updated"
         Map map = [message: flash.message]
         println "-------------------map==" + map;
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
-
     }
 
     def updatePassword() {
@@ -183,7 +129,7 @@ class UserController extends UtilController {
     }
 
     def renderFromDirectory(long id) {
-        User user = User.read(id)
+        User user =userService.renderFromDirectory(id)
         String filePath = user.imagePath
         File file = new File(filePath)
         byte[] imageBytes = file.bytes
@@ -194,35 +140,16 @@ class UserController extends UtilController {
 
     def show() {
 
-println "--------------->data loadingggggggggg"
-
-        List<User> users = User.createCriteria().list(max:params.max, offset: params.offset){
-            projections{
-                property('username');
-                property('email');
-                property('firstname');
-                property('lastname');
-                property('admin');
-                property('active');
-
-            }
-        }
-        println "===========>--"+users
-        DataTableVO dataTableVO= new DataTableVO(data:users,draw:1,recordsFiltered:users.size(),recordsTotal: users.size()  )
-//        render([view: "../tables/data", model: [users: users]])
-        println "------------------------>>>>" + users
-//        Map map=[dataTableVO:dataTableVO]
-//        groovy.lang.Closure closure = {users }
+        DataTableVO dataTableVO=userService.fetchUsersList(params.max,params.offset)
         render(dataTableVO as JSON)
     }
 
     def finduser(String mailidOrUname) {
         flash.message = "User is not found"
-        User user = User.findByEmailOrUsername(mailidOrUname, mailidOrUname)
+        User user = userService.findUser(mailidOrUname)
         if (user) {
             flash.message = "EmailId or UserName Already Exist"
         }
-
         Map map = [message: flash.message]
         println "-------------------map==" + map;
         groovy.lang.Closure closure = { map }
