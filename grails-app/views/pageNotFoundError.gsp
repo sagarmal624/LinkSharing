@@ -1,18 +1,15 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
-    <meta name="layout" content="main">
-    <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
+    <title>LinkSharing</title>
 </head>
 <body>
-<g:if env="development">
-    <g:renderException exception="${exception}" />
-</g:if>
-<g:else>
-    <ul class="errors">
-        <li>An error has occurred</li>
-    </ul>
-</g:else>
+<h2>
+
+Page Not Found
+</h2>
+
+
+
 </body>
 </html>

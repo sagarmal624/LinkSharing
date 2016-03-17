@@ -23,8 +23,14 @@ class ResourceController extends UtilController {
         } else {
             MultipartFile inputDocument=params.document
             if (inputDocument.originalFilename) {
+
+                def applicationContext = grailsApplication.mainContext
+                String basePath = applicationContext.getResource("/").getFile().toString()
+                File documentFolder = new File("${basePath}/documentFolder")
+
+
                 String extension = inputDocument.originalFilename.tokenize(".")?.last()
-                String filePath = "${grailsApplication.config.documentFolder}/${UUID.randomUUID().toString()}${extension ? ".${extension}" : ""}"
+                String filePath = "${documentFolder}/${UUID.randomUUID().toString()}${extension ? ".${extension}" : ""}"
                 File resourceDocument = new File(filePath)
                 inputDocument.transferTo(resourceDocument)
                 resource.filepath = resourceDocument.absolutePath
@@ -75,7 +81,7 @@ Map map=resourceService.fetchShowData(id,session.user)
 
     def saveRating() {
         Resource_Rating resource_rating;
-        resource_rating =resourceService.saveRating(params.id,params.score,session.user)
+        resource_rating =resourceService.saveRating(params.long('id'),params.int('score'),session.email)
         Map map = [message: resource_rating]
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)

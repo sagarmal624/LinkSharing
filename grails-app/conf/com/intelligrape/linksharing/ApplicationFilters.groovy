@@ -14,6 +14,15 @@ class ApplicationFilters {
 
             }
         }
+//        consolecheck(uri:'/console/**'){
+//            before={
+//                if(session.username){
+//                    flash.error="Please Sign In...."
+//                    redirect(controller:"linkSharing",action:"loadmainpage")
+//                    return false
+//                }
+//            }
+//        }
        notLogin(controller:'*',controllerExclude:'assets|user|login',action:'*',actionExclude:'loadmainpage|toppost|renderFromDirectory|loadmainpage|loginHandler|index|register')
                 {
                 before={
@@ -23,8 +32,7 @@ class ApplicationFilters {
                          redirect(controller:"linkSharing",action:"loadmainpage")
                         return false
                     }
-
-                  }
+                }
              }
 
     }

@@ -42,16 +42,13 @@ abstract class Resource {
 
             }
             if(co.description){
-
-                    or{
-                      'topic'{
-                          ilike("name","%${co.description}%")
-                          eq("visibility",co.visibility)
+                     or {
+                         'topic' {
+                             ilike("name", "%${co.description}%")
+                             eq("visibility", co.visibility)
                          }
-                       ilike("description","%${co.description}%")
-
-                  }
-
+                         ilike("description", "%${co.description}%")
+                     }
 
 
             }

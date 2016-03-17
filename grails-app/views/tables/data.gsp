@@ -649,9 +649,10 @@
 <script>
   $(document).ready(function() {
     $('#example1').DataTable( {
-      "processing": true,
+//      "processing": true,
       "serverSide": true,
-      "ajax": "${createLink(controller:"user",action:"show")}"
+      "ajax": "${createLink(controller:"user",action:"show")}"/*,
+      "data" :{query:data.search.value}*/
     } );
   } );
   </script>

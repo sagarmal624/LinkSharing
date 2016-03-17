@@ -30,7 +30,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="${createLink(controller: "linkSharing", action: "mainpage")}" class="logo">
+        <a href="${createLink(controller: "linkSharing", action: "dashboard")}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -70,9 +70,7 @@
                                 <ul class="menu" id="dropdownsearch">
                                 </ul>
                             </li>
-                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
-                            </li>
-                        </ul>
+                         </ul>
                         %{----}%
 
                     </li>
@@ -588,7 +586,7 @@
                             <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search"
                                   style="padding-left:30px">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
+                                    <input type="text" value="${topicDetails.name}" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
                                            placeholder="Search" id="searchposts"/>
 
                                     <div class="input-group-btn ">
@@ -602,6 +600,9 @@
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="box-body chat" id="chat-box" name="postsbox" style="max-height:500px; overflow-y:scroll">
+
+
+
 
                                     </div>
                                 </li>

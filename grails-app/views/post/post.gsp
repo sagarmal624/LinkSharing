@@ -70,11 +70,7 @@
                                 <ul class="menu" id="dropdownsearch">
                                 </ul>
                             </li>
-                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
-                            </li>
                         </ul>
-                        %{----}%
-
                     </li>
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -235,11 +231,12 @@
                                 <div class="pull-left">
                                     <a href="/linkSharing/profile" class="btn btn-default btn-flat">Profile</a>
                                 </div>
-                            <div class="pull-right">
-                                <a href="${createLink(controller: "login", action: "logout")}"
-                                   class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
+
+                                <div class="pull-right">
+                                    <a href="${createLink(controller: "login", action: "logout")}"
+                                       class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
@@ -301,21 +298,21 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                 </li>
-    <g:if test="${session.user.admin}">
-        <li class="treeview">
-            <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
-                <i class="fa fa-table"></i> <span>Admin</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
+                <g:if test="${session.user.admin}">
+                    <li class="treeview">
+                        <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+                            <i class="fa fa-table"></i> <span>Admin</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
 
-                <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
-                        class="fa fa-circle-o"></i> Data tables</a></li>
-            </ul>
-        </li>
-    </g:if>
+                            <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                                    class="fa fa-circle-o"></i> Data tables</a></li>
+                        </ul>
+                    </li>
+                </g:if>
 
-    <li>
+                <li>
                     <a href="/linkSharing/calender">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <small class="label pull-right bg-red">3</small>
@@ -330,9 +327,9 @@
                 </li>
                 <li class="treeview">
                     <a href="#${createLink(controller: 'linkSharing', action: 'profile')}>
-                        <i class="fa fa-folder"></i> <span>User Profile</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
+                        <i class=" fa fa-folder"></i> <span>User Profile</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
                     <ul class="treeview-menu">
 
                         <li><a href="/linkSharing/profile"><i class="fa fa-circle-o"></i> Profile</a></li>
@@ -419,6 +416,7 @@
                             <i class="fa fa-comments-o"></i>
 
                             <h3 class="box-title">Subscriptions</h3>
+
                             <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                             <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
@@ -463,20 +461,22 @@
                                         <div class="row">
 
                                             <span class="col-lg-4">
-                                                         %{--<ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>--}%
-                                                    <g:if test="${session.email != trendingTopic?.createdBy?.email}">
-                                                    %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
-                                                        <g:if test="${session.user?.isSubscribed(trendingTopic?.id)}">
+                                            %{--<ls:showSubscribe topicId="${trendingTopic?.id}"></ls:showSubscribe>--}%
+                                                <g:if test="${session.email != trendingTopic?.createdBy?.email}">
+                                                %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
+                                                    <g:if test="${session.user?.isSubscribed(trendingTopic?.id)}">
 
-                                                            <button class="btn btn-link" onclick="unSubscribeTopic(${trendingTopic?.id})">UnSubscribe </button>
-
-                                                        </g:if>
-                                                        <g:else>
-                                                            <button class="btn btn-link" onclick="subscribeTopic(${trendingTopic?.id})">Subscribe </button>
-
-                                                        </g:else>
+                                                        <button class="btn btn-link"
+                                                                onclick="unSubscribeTopic(${trendingTopic?.id})">UnSubscribe</button>
 
                                                     </g:if>
+                                                    <g:else>
+                                                        <button class="btn btn-link"
+                                                                onclick="subscribeTopic(${trendingTopic?.id})">Subscribe</button>
+
+                                                    </g:else>
+
+                                                </g:if>
 
                                             </span>
                                             <span class="col-lg-4">
@@ -493,12 +493,14 @@
 
                                         </div>
                                         <br>
+
                                         <div class="row" id="updateTopic${trendingTopic?.id}" style="display: none">
                                             <form id="updateTopicForm${trendingTopic?.id}">
                                                 <div class="col-lg-6">
                                                     <input type="hidden" name="id" value="${trendingTopic?.id}">
                                                     <input type="text" class="form-control" name="name">
                                                 </div>
+
                                                 <div class="col-lg-4">
 
                                                     <input type="submit" class="btn btn-success" value="Save">
@@ -506,27 +508,27 @@
                                             </form>
                                         </div>
                                         <br>
+
                                         <div class="row">
                                             <div class="col-lg-4">
 
                                                 <div class="form-group">
                                                     <select id="seriousnessID" class="form-control"
-                                                            onchange="resourceSeriousness(${trendingTopic?.createdBy?.id},${trendingTopic.id},this.value)">
+                                                            onchange="resourceSeriousness(${trendingTopic?.createdBy?.id}, ${trendingTopic.id}, this.value)">
                                                         <option id="1">${Enums.Seriousness.VERY_SERIOUS}</option>
                                                         <option id="2">${Enums.Seriousness.SERIOUS}</option>
                                                         <option id="3">${Enums.Seriousness.CASUAL}</option>
                                                     </select>
-
 
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <g:if test="${session.email==trendingTopic?.createdBy?.email}">
+                                                    <g:if test="${session.email == trendingTopic?.createdBy?.email}">
 
                                                         <select class="form-control"
-                                                                onchange="changeVisibility(${trendingTopic?.createdBy?.id},'${trendingTopic?.id}',this.value)">
+                                                                onchange="changeVisibility(${trendingTopic?.createdBy?.id}, '${trendingTopic?.id}', this.value)">
                                                             <g:if test="${trendingTopic?.visibility.equals(Enums.Visibility.PRIVATE.toString())}">
 
                                                                 <option selected>${Enums.Visibility.PRIVATE}</option>
@@ -534,7 +536,7 @@
                                                                 <option>${Enums.Visibility.PUBLIC}</option>
                                                             </g:if>
                                                             <g:else>
-                                                                <option> ${Enums.Visibility.PRIVATE}</option>
+                                                                <option>${Enums.Visibility.PRIVATE}</option>
 
                                                                 <option selected>${Enums.Visibility.PUBLIC}</option>
                                                             </g:else>
@@ -545,7 +547,8 @@
 
                                             <div class="col-lg-4">
                                                 <div class="col-lg-4">
-                                                    <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
+                                                    <a href="#" data-target="#sendInv" data-toggle="modal"
+                                                       class="dropdown-toggle"
                                                        data-toggle="dropdown">
                                                         <span class="glyphicon glyphicon-envelope"
                                                               style="font-size:25px"></span>
@@ -554,19 +557,23 @@
                                                 </div>
 
                                                 <div class="col-lg-4">
-                                                    <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
-                                                        <a href="#"  class="update" id="updateTopicName_${trendingTopic?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
+                                                    <g:if test="${(session.email == trendingTopic?.createdBy?.email) || session.user.admin}">
+                                                        <a href="#" class="update"
+                                                           id="updateTopicName_${trendingTopic?.id}"><span
+                                                                class="glyphicon glyphicon-file"
+                                                                style="font-size:25px"></span>
                                                         </a>
 
                                                     </g:if>
-               </div>
+                                                </div>
 
                                                 <div class="col-lg-4">
-                                <g:if test="${(session.email==trendingTopic?.createdBy?.email)|| session.user.admin}">
+                                                    <g:if test="${(session.email == trendingTopic?.createdBy?.email) || session.user.admin}">
 
-                                                    <a href="" onclick="deleteTopic(${trendingTopic?.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
-                                </g:if>
-
+                                                        <a href="" onclick="deleteTopic(${trendingTopic?.id})">  <span
+                                                            class="glyphicon glyphicon-trash"
+                                                            style="font-size:25px"></span>
+                                                    </g:if>
 
                                                 </div>
                                             </div>
@@ -602,13 +609,14 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="box-body chat" id="chat-box">
                             <!-- chat item -->
                             <div class="item" id="startRatingdiv">
                                 %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online"/>--}%
                                 %{--imageType="img-circle"--}%
-                            <ls:userImage userId="${resource?.createdBy?.id}" imageType="img-circle"/>
-                            <p class="message">
+                                <ls:userImage userId="${resource?.createdBy?.id}" imageType="img-circle"/>
+                                <p class="message">
                                     <a href="#" class="name">
                                         <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
                                         ${resource?.topic}
@@ -625,39 +633,56 @@
                                         </span>
                                     </span>
                                 </p>
+
                                 <div class="attachment">
                                     <div id="alertmsg7" class="hidden"><span id="spanmsg7"></span></div>
 
                                     <span>
                                         ${resource?.description}
                                     </span>
+
                                     <div id="editLink" class="collapse">
                                         <form id="updateResourceForm">
-                                        <input type="hidden" value="${resource?.id}" name="id" id="id">
-                                        <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
-                                          Link:<input type="url" value=" ${resource?.url}" class="form-control"name="url" required="">
-                                        </g:if>
-                                        <g:else>
-                                            File:<input required="true" type="file" class="form-control" id="document" name="document">
+                                            <input type="hidden" value="${resource?.id}" name="id" id="id">
+                                            <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                                                Link:<input type="url" value=" ${resource?.url}" class="form-control"
+                                                            name="url" required="">
+                                            </g:if>
+                                            <g:else>
+                                                File:<input required="true" type="file" class="form-control"
+                                                            id="document" name="document">
 
-                                        </g:else>
-                                            Description:<textarea name="description" cols="10" class="form-control" style="resize: none">${resource?.description}</textarea>
-                                       <br><input type="submit" name="updateDocumentBtn" id="updateDocumentBtn" class="btn btn-success col-lg-offset-5" value="Update">
+                                            </g:else>
+                                            Description:<textarea name="description" cols="10" class="form-control"
+                                                                  style="resize: none">${resource?.description}</textarea>
+                                            <br><input type="submit" name="updateDocumentBtn" id="updateDocumentBtn"
+                                                       class="btn btn-success col-lg-offset-5" value="Update">
 
-                                    </form>
+                                        </form>
                                     </div>
                                     <br><br>
                                     <img src="../dist/img/facebook.png"/>
                                     <img src="../dist/img/twtr.png"/>
                                     <img src="../dist/img/google.png"/> &nbsp;&nbsp;
-                                    <a href="#" onclick="deleteResource(${resource?.id})"><u>Delete</u></a>&nbsp;&nbsp;
-                                    <a href="#" data-toggle="collapse" data-target="#editLink"><u>Edit</u></a>&nbsp;&nbsp;
+                                    <g:if test="${(resource?.createdBy?.id == session.user.id) || session.user.admin}">
+                                        <a href="#" onclick="deleteResource(${resource?.id})"><u>Delete</u>
+                                        </a>&nbsp;&nbsp;
+                                    </g:if>
+                                    <g:if test="${resource?.createdBy?.id == session.user.id}">
+
+                                        <a href="#" data-toggle="collapse" data-target="#editLink"><u>Edit</u>
+                                        </a>&nbsp;&nbsp;
+
+                                    </g:if>
+
                                     <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
                                         <a href="${resource.url}"><u>View Full Site</u></a>
                                     </g:if>
-                              <g:else>
-                                  <u><a target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=${resource?.id}'>Download</a></u>&nbsp;&nbsp;
-                              </g:else>
+                                    <g:else>
+                                        <u><a target='_blank'
+                                              href='${createLink(controller: 'document', action: 'downloadDocument')}?id=${resource?.id}'>Download</a>
+                                        </u>&nbsp;&nbsp;
+                                    </g:else>
 
                                 </div>
                             </div>
@@ -1100,7 +1125,7 @@
 
     });
 
-    function resourceSeriousness(userid,topicid,seriouness) {
+    function resourceSeriousness(userid, topicid, seriouness) {
         %{--console.log("score----------------------" + ${topicDetails?.id})--}%
 
         %{--<g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>--}%
@@ -1108,7 +1133,8 @@
         <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+userid +\'&topicId=\'+ topicid+ \'&seriousness=\'+seriouness" onSuccess="seriousnessResponse(data,textStatus)"/>
         %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
 
-    };
+    }
+    ;
     function seriousnessResponse(data, textStatus) {
         if (data) {
             if (data.message != "Seriousness is not updated")
@@ -1126,17 +1152,18 @@
             }, 3000);
             //obj);
         }
-    };
+    }
+    ;
 
 
-    function changeVisibility(userid,topicid,visibility)
-    {
+    function changeVisibility(userid, topicid, visibility) {
         <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
 
-    };
-    function visibilityResponse(data, textStatus){
+    }
+    ;
+    function visibilityResponse(data, textStatus) {
         if (data) {
-            if(data.message!="Seriousness is not updated")
+            if (data.message != "Seriousness is not updated")
                 $("#spanmsg").addClass("alert alert-success")
             else
                 $("#spanmsg").addClass("alert alert-danger")
@@ -1145,56 +1172,68 @@
 
             $("#alertmsg").toggleClass('hidden');
 
-            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+            setTimeout(function () {
+                $("#alertmsg").toggleClass('hidden');
+                $("#spanmsg").removeClass("alert alert-success")
+            }, 3000);
             //obj);
         }
 
-    };
+    }
+    ;
 
-    function deleteTopic(id){
+    function deleteTopic(id) {
         <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
 
-    };
+    }
+    ;
 
-    function deleteTopicResponse(data, textStatus){
-            location.reload();
+    function deleteTopicResponse(data, textStatus) {
+        location.reload();
 
-    };
-    function deleteResource(id){
+    }
+    ;
+    function deleteResource(id) {
         <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
 
-    };
+    }
+    ;
 
-    function deleteResourceResponse(data, textStatus){
+    function deleteResourceResponse(data, textStatus) {
         if (data) {
-              //location.reload();
+            //location.reload();
             $("#startRatingdiv").hide();
-            console.log("status-----------"+textStatus)
+            console.log("status-----------" + textStatus)
         }
 
-    };
-    function subscribeTopic(id){
+    }
+    ;
+    function subscribeTopic(id) {
         <g:remoteFunction  controller="subscription" action="save"  params="\'id=\'+id " onSuccess="subscribeTopicResponse(data,textStatus)"/>
 
-    };
+    }
+    ;
 
-    function subscribeTopicResponse(data, textStatus){
+    function subscribeTopicResponse(data, textStatus) {
         if (data) {
             location.reload();
         }
-    };
+    }
+    ;
 
 
-    function unSubscribeTopic(id){
+    function unSubscribeTopic(id) {
         <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
 
-    };
+    }
+    ;
 
-    function unSubscribeTopicResponse(data, textStatus){
+    function unSubscribeTopicResponse(data, textStatus) {
         if (data) {
             location.reload();
         }
-    };
+    }
+    ;
 
 
 
@@ -1202,25 +1241,23 @@
 <script>
     var id;
     //    $(document).ready(function(){alert('ddd')});
-    $('.update').on('click',function(){
+    $('.update').on('click', function () {
         //updateTopicName_
-        id=($(this).attr('id')).substr(16);
-        $("#updateTopic"+id).show();
+        id = ($(this).attr('id')).substr(16);
+        $("#updateTopic" + id).show();
 
 
-        $("#updateTopicForm"+id).submit(function(e)
-        {
+        $("#updateTopicForm" + id).submit(function (e) {
 
             var postData = $(this).serializeArray();
             var formURL = "${g.createLink(action:"update",controller:"topic" )}";
             $.ajax(
                     {
-                        url : formURL,
+                        url: formURL,
                         type: "POST",
-                        data : postData,
-                        success:function(data, textStatus, jqXHR)
-                        {
-                            if(data.message!="Topic Name is already Exist") {
+                        data: postData,
+                        success: function (data, textStatus, jqXHR) {
+                            if (data.message != "Topic Name is already Exist") {
                                 $("#spanmsg").addClass("alert alert-success")
                             }
                             else
@@ -1228,29 +1265,30 @@
                             $("#spanmsg").text(data.message)
 
                             $("#alertmsg").toggleClass('hidden');
-                            $("#updateTopicForm"+id)[0].reset();
-                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                            $("#updateTopicForm" + id)[0].reset();
+                            setTimeout(function () {
+                                $("#alertmsg").toggleClass('hidden');
+                                $("#spanmsg").removeClass("alert alert-success")
+                            }, 3000);
                             location.reload();
                         },
                         dataType: 'json',
-                        error: function(jqXHR, textStatus, errorThrown)
-                        {
+                        error: function (jqXHR, textStatus, errorThrown) {
 
                             $("#spanmsg").addClass("alert alert-danger")
                             $("#spanmsg").text(data.message);
                             $("#alertmsg").toggleClass('hidden');
-                            $("#updateTopicForm"+id)[0].reset()
-                            setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
+                            $("#updateTopicForm" + id)[0].reset()
+                            setTimeout(function () {
+                                $("#alertmsg").toggleClass('hidden');
+                                $("#spanmsg").removeClass("alert alert-success")
+                            }, 3000);
 
                         }
 
                     });
             e.preventDefault();	//STOP default action
         });
-
-
-
-
 
 
     });
@@ -1299,13 +1337,13 @@
 
         });
     });
-    </script>
+</script>
 
 
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
 <g:render template="../templates/Topic/email"/>
-<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList: SubscribedTopicList]"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 </body>

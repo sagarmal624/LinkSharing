@@ -100,8 +100,10 @@
                         $("#linkshareform")[0].reset()
                         setTimeout(function () {
                             $("#alertmsg1").toggleClass('hidden');
-                            $("#spanmsg1").removeClass("alert alert-success")
-                        }, 3000);
+                            $("#spanmsg1").removeClass("alert alert-success");
+                            location.reload();
+
+                        }, 100);
 
                     },
                     dataType: 'json',
@@ -113,7 +115,7 @@
                         setTimeout(function () {
                             $("#alertmsg1").toggleClass('hidden');
                             $("#spanmsg1").removeClass("alert alert-success")
-                        }, 3000);
+                        }, 100);
 
                     }
 

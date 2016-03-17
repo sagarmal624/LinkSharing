@@ -96,16 +96,18 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        userImageFolder="/home/sagar/Desktop/userImageFolder"
-        documentFolder="/home/sagar/Desktop/documentFolder"
+        userImageFolder="${userHome}"
+        documentFolder="${userHome}"
     }
     production {
         grails.logging.jul.usebridge = false
         //TODO: grails.serverURL = "http://www.changeme.com"
     }
-    uploadDocumentFolder = "${userHome}/LinkSharing/upload/document/"
-    userProfileImageFolder = "${userHome}/LinkSharing/web-app/images/"
-    defaultUserImage = "user.png"
+// linkSharingPath="${appName}.config.location"
+//    uploadDocumentFolder = "${userHome}/LinkSharing/upload/document/"
+//    userProfileImageFolder = "${userHome}/LinkSharing/web-app/images/"
+//    defaultUserImage = "user.png"
+
 }
 // log4j configuration
 log4j.main = {

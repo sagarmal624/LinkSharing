@@ -10,24 +10,44 @@ import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
 import Enums.Visibility
 import jline.internal.Log
+import org.springframework.web.multipart.MultipartFile
 
 class BootStrap {
     def grailsApplication
     def init = {
-     log.info "boostrap is stared"
+        log.info "boostrap is stared"
         createUser()
         createTopics()
         createResources()
         subscribeTopic()
         createReadingItems()
         createResourceRating()
+        createResourceFolders();
+    }
+
+    void createResourceFolders() {
+        def applicationContext = grailsApplication.mainContext
+        String basePath = applicationContext.getResource("/").getFile().toString()
+        File userImageFolder = new File("${basePath}/userImageFolder")
+        if (!userImageFolder.isDirectory()) {
+            userImageFolder.mkdir();
+        }
+        File documentFolder = new File("${basePath}/documentFolder")
+        if (!documentFolder.isDirectory()) {
+            documentFolder.mkdir();
+        }
+
+
     }
 
     void createUser() {
+        def applicationContext = grailsApplication.mainContext
+        String basePath = applicationContext.getResource("/").getFile().toString()
+        File source = new File("${basePath}/images/2.png")
 
-        User user = new User(firstname: "Sagarmal", lastname: "Shankhala", email: "sagar@gmail.com", username: "Sagarmal624", password:"sagar",confirmPassword:"sagar",admin: true,active:true,imagePath:"");
+        User user = new User(firstname: "Sagarmal", lastname: "Shankhala", email: "sagar@gmail.com", username: "Sagarmal624", password: "sagar", confirmPassword: "sagar", admin:false, active: true, imagePath: source.absolutePath);
         Log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${user.name}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-        User admin = new User(firstname: "User2", lastname: "User2", email: "user2@gmail.com", username: "User2", password: "admin",confirmPassword: "admin", admin: false,active:false);
+        User admin = new User(firstname: "admin_sagar", lastname: "", email: "admin@gmail.com", username: "admin123", password: "admin", confirmPassword: "admin", admin:true, active:true, imagePath: source.absolutePath);
         if (User.count() == 0) {
             if (user.validate())
                 user.save(flush: true, failOnError: true)
@@ -46,7 +66,7 @@ class BootStrap {
 
     void createTopics() {
         User creater = User.findByFirstname("Sagarmal")
-        List topicsList = ["Grails","DevOps","AMC","Java","MeanStack"]
+        List topicsList = ["Grails", "DevOps", "AMC", "Java", "MeanStack"]
         if (Topic.countByCreatedBy(creater) == 0) {
             topicsList.each {
                 Topic topic = new Topic(name: it, createdBy: creater, visibility: Visibility.PUBLIC).save()
@@ -55,24 +75,31 @@ class BootStrap {
             Log.info("User already has 5 topics")
         }
     }
+
     void createResources() {
         List topicList = Topic.getAll();
+        List description = [];
+        description.add("Grails is an open source web application framework that uses the Groovy programming language (which is in turn based on the Java platform)")
+        description.add("DevOps Tutorials. There is no better way to begin your DevOps education. Check out our Beginner's DevOps Tutorials and streamline your development ")
+        description.add("The amc script will automatically organize your media. .... Here's a little tutorial how to set this up with Transmission BitTorrent Client.")
+        description.add("Java is a high-level programming language originally developed by Sun Microsystems and released in 1995. Java runs on a variety of UNIX.")
+        description.add("The goal of this tutorial is to guide you through the creation of a Reddit/Hacker News clone using the MEAN stack")
         if (Resource.count() == 0) {
-            topicList.each {
-                Resource docResource1 = new Document_Resource(description: it.name, topic: it, createdBy: it.createdBy, filePath: "ftp://ftp.funet.fi/pub/standards/RFC/rfc959.txt").save()
-                Resource docResource2 = new Document_Resource(description: it.name, topic: it, createdBy: it.createdBy, filePath: "ftp://ftp.funet.fi/pub/standards/RFC/rfc960.txt").save()
-                Resource linkResource1 = new Link_Resource(description: it.name, topic: it, createdBy: it.createdBy, url: "https://en.wikipedia.org/wiki/Main_Page").save()
-                Resource linkResource2 = new Link_Resource(description: it.name, topic: it, createdBy: it.createdBy, url: "http://www.encyclopedia.com/").save()
+
+            topicList.eachWithIndex {it,index->
+
+              println " -resource createding---------->"+ new Link_Resource(description: description[index],topic:it,createdBy: it.createdBy, url: "https://en.wikipedia.org/wiki/Main_Page").save(flush:true,failOnError:true).properties
+                //   Resource linkResource2 = new Link_Resource(description:description+index, topic: it, createdBy: it.createdBy, url: "http://www.encyclopedia.com/").save()
             }
         } else {
             Log.info("Resource count greater than zero")
         }
-        Log.info("Resource count is"+Resource.count())
+        Log.info("Resource count is" + Resource.count())
 
     }
 
     void subscribeTopic() {
-        User subscriber = User.findByFirstname("User2")
+        User subscriber = User.findByFirstname("admin_sagar")
         List topicsNotCreated = Topic.findAllByCreatedByNotEqual(subscriber)
         topicsNotCreated.each {
             if (Subscription.countByUserAndTopic(subscriber, it) == 0) {
@@ -84,7 +111,7 @@ class BootStrap {
     }
 
     void createReadingItems() {
-        User user = User.findByFirstname("User2")
+        User user = User.findByFirstname("admin_sagar")
         List resourceNotCreated = Resource.findAllByCreatedByNotEqual(user)
 
         resourceNotCreated.each {
@@ -99,22 +126,19 @@ class BootStrap {
         }
     }
 
-    void createResourceRating()
-    {
-        User user = User.findByFirstname("User2")
-        List unRead = ReadingItem.findAllByUserAndIsRead(user,false)
-        if(unRead.size()>0) {
+    void createResourceRating() {
+        User user = User.findByFirstname("admin_sagar")
+        List unRead = ReadingItem.findAllByUserAndIsRead(user, false)
+        if (unRead.size() > 0) {
             unRead.each {
-                Resource_Rating rating = new Resource_Rating(score: 5, user:user, resource: it.resource).save()
+                Resource_Rating rating = new Resource_Rating(score: 5, user: user, resource: it.resource).save()
             }
-        }
-        else
-        {
+        } else {
             Log.info("All the reading item has been read")
         }
 
     }
     def destroy = {
-           }
+    }
 
 }

@@ -79,12 +79,20 @@
             processData: false,  // tell jQuery not to process the data
             contentType: false,
             success: function (data) {
-                if (data.message != "Document is not Uploaded due to Some Error") {
+                if(data.message != "Document is not Uploaded due to Some Error")
+                {
                     $("#spanmsg2").addClass("alert alert-success")
                     $("#loaderId2").hide();
                 }
-                else
+                else if(data.message=="File,Description or Topic Name Can't be Blank")
+                {
                     $("#spanmsg2").addClass("alert alert-danger")
+
+//     $("#spanmsg2").addClass("alert alert-success")
+//                    $("#loaderId2").hide();
+                }
+             else
+                $("#spanmsg2").addClass("alert alert-danger")
 
                 $("#spanmsg2").text(data.message)
 
@@ -93,8 +101,9 @@
                  $('[name="fileinfodata"]')[0].reset()
                 setTimeout(function () {
                     $("#alertmsg2").toggleClass('hidden');
-                    $("#spanmsg2").removeClass("alert alert-success")
-                }, 3000);
+                    $("#spanmsg2").removeClass("alert alert-success");
+                    location.reload();
+                }, 1000);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 $("#spanmsg2").addClass("alert alert-danger")
@@ -103,8 +112,9 @@
                  $('[name="fileinfodata"]')[0].reset()
                 setTimeout(function () {
                     $("#alertmsg2").toggleClass('hidden');
-                    $("#spanmsg2").removeClass("alert alert-success")
-                }, 3000);
+                    $("#spanmsg2").removeClass("alert alert-success");
+                    location.reload();
+                }, 1000);
 
             }
 

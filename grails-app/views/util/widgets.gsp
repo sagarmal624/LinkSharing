@@ -29,7 +29,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="/linkSharing/mainpage" class="logo">
+        <a href="${createLink(controller:"linkSharing",action:"dashboard" )}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -66,8 +66,6 @@
                             <li>
                                 <ul class="menu" id="dropdownsearch">
                                 </ul>
-                            </li>
-                            <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
                             </li>
                         </ul>
                         %{----}%
@@ -653,11 +651,15 @@
                                         <img src="../dist/img/facebook.png"/>
                                         <img src="../dist/img/twtr.png"/>
                                         <img src="../dist/img/google.png"/> &nbsp;&nbsp;
-
+                                     <g:if test="${(topPost?.createdBy?.id==session.user.id) || session.user.admin}">
                                         <a href="#" onclick="deleteResource(${topPost.id})"><u>Delete</u></a>&nbsp;&nbsp;
+                                     </g:if>
+                                <g:if test="${(topPost?.createdBy?.id==session.user.id) || session.user.admin}">
 
-                                        <a href='${createLink(controller:'resource',action:'show')}?id=${topPost?.id}'><u>Edit</u></a>
+                                    <a href='${createLink(controller:'resource',action:'show')}?id=${topPost?.id}'><u>Edit</u></a>
                                     &nbsp;&nbsp;
+                                </g:if>
+
                                         <g:if test="${topPost?.url}">
                                             <a href="${topPost?.url}"><u>View Full Site</u></a>&nbsp;&nbsp;
 

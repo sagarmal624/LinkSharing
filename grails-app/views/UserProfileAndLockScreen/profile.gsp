@@ -34,7 +34,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
+    <a href="${createLink(controller:"linkSharing",action:"dashboard")}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>L</b>S</span>
       <!-- logo for regular state and mobile devices -->

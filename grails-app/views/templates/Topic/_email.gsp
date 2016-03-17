@@ -78,7 +78,10 @@
 
                         $("#alertmsg6").toggleClass('hidden');
                         $("#emailForm")[0].reset();
-                        setTimeout(function(){$("#alertmsg6").toggleClass('hidden');$("#spanmsg6").removeClass("alert alert-success")}, 3000);
+                        setTimeout(function(){
+                            $("#alertmsg6").toggleClass('hidden');$("#spanmsg6").removeClass("alert alert-success")
+                        location.reload();
+                        }, 500);
 
                     },
                     dataType: 'json',

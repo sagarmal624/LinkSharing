@@ -74,7 +74,12 @@
 
                         $("#alertmsg4").toggleClass('hidden');
                         $("#ajaxform")[0].reset();
-                        setTimeout(function(){$("#alertmsg4").toggleClass('hidden');$("#spanmsg4").removeClass("alert alert-success")}, 3000);
+                        setTimeout(function(){
+                            $("#alertmsg4").toggleClass('hidden');
+                            $("#spanmsg4").removeClass("alert alert-success")
+                                    location.reload();
+                        }
+                                , 500);
 
                     },
                     dataType: 'json',

@@ -75,8 +75,6 @@
                 <ul class="menu" id="dropdownsearch">
                 </ul>
               </li>
-              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
-              </li>
             </ul>
             %{----}%
 

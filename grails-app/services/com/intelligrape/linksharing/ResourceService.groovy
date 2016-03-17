@@ -40,19 +40,16 @@ class ResourceService {
         Map map = [subscriptionList: subscriptionList, readResources: readResources, resources: resources]
         return map
     }
-
-    Resource_Rating saveRating(long id, int score, User user) {
+    Resource_Rating saveRating(long id, int score,String email) {
         Resource_Rating resource_rating;
-        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id),user)
+        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id),User.findByEmail(email))
         if (!resource_rating)
-            resource_rating = new Resource_Rating(resource: Resource.get(id), score: score, user:user).save(flush: true)
+            resource_rating = new Resource_Rating(resource: Resource.get(id), score: score, user:User.findByEmail(email)).save(flush: true)
         else {
             resource_rating.score = score
             resource_rating.save(flush: true)
         }
         return resource_rating
-
-
     }
 
     Map fetchTopPostData(String time) {

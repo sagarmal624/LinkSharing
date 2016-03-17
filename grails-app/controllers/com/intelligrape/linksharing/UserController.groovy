@@ -1,5 +1,7 @@
 package com.intelligrape.linksharing
 
+import Enums.UserStatus
+import LinkSharing.DataTableCO
 import LinkSharing.DataTableVO
 import LinkSharing.MailSender
 import LinkSharing.SearchCO
@@ -8,6 +10,7 @@ import LinkSharing.UserServiceCo
 import grails.converters.JSON
 
 import org.codehaus.groovy.grails.web.binding.DataBindingUtils
+import org.fusesource.jansi.AnsiRenderer
 import org.springframework.web.multipart.MultipartFile
 
 import javax.mail.Message
@@ -18,6 +21,8 @@ import javax.mail.internet.MimeMessage
 
 class UserController extends UtilController {
     def userService
+//    def grailsApplication
+
     def index() {
 
         if (!session.username) {
@@ -28,7 +33,11 @@ class UserController extends UtilController {
     }
 
     def sendinvitation(String emailto, String topicname) {
-        boolean flag = userService.sendinvitation(emailto,topicname)
+
+       String message=g.render(template:"/templates/Topic/inviteTopicByEmail" ,model:[topicname:topicname,topicId:Topic.findByName(topicname).id] )
+        boolean flag = userService.sendinvitation(emailto,topicname,message)
+
+
         if (flag)
             flash.message = "Mail is sent Successfully"
         else
@@ -47,19 +56,22 @@ class UserController extends UtilController {
         forward(action: "dashboard", controller: "linkSharing")
     }
     def register() {
-        UserServiceCo userServiceCo=new UserServiceCo(firstname:params.firstname,lastname:params.lastname,email:params.email,username: params.username,password:params.password,confirmPassword:params.confirmPassword ,imagePath:"" )
-        User user=userService.registerUser(userServiceCo,params.photo,grailsApplication.config.userImageFolder)
+        def applicationContext = grailsApplication.mainContext
+        String basePath = applicationContext.getResource("/").getFile().toString()
+        File userImageFolder = new File("${basePath}/userImageFolder")
+        File source = new File("${basePath}/images/2.png")
+        UserServiceCo userServiceCo=new UserServiceCo(firstname:params.firstname,lastname:params.lastname,email:params.email,username: params.username,password:params.password,confirmPassword:params.confirmPassword ,imagePath:source.absolutePath)
+        MultipartFile inputImage=params.photo;
+        User user=userService.registerUser(userServiceCo,inputImage,userImageFolder.absolutePath)
         String message = "This Email-id or Username Already Exits!"
-           Map map = [message: message]
         if (user) {
-            message = "Record is Successfully Saved!"
             session.username = user.name;
             session.user = user;
-            forward(action: "dashboard", controller: "linkSharing");
             session.email = user.email;
+            forward(action: "dashboard", controller: "linkSharing");
         }
-        println "-------------------map==" + map;
-            groovy.lang.Closure closure = { map }
+        Map map = [message: message]
+        groovy.lang.Closure closure = { map }
             renderAsJSON(closure)
     }
 
@@ -139,9 +151,13 @@ class UserController extends UtilController {
     }
 
     def show() {
-
-        DataTableVO dataTableVO=userService.fetchUsersList(params.max,params.offset)
-        render(dataTableVO as JSON)
+//        println("params >> "+params.dump())
+//        println "-->>>${params.length}"
+//        println "--->${map}"
+//        DataTableVO dataTableVO=userService.fetchUsersList(params.int("length"),params.int("start"))
+//        println("data >>> "+dataTableVO.properties)
+//        render(dataTableVO as JSON)
+   render view:"/tables/adminTable"
     }
 
     def finduser(String mailidOrUname) {
@@ -155,5 +171,24 @@ class UserController extends UtilController {
         groovy.lang.Closure closure = { map }
         renderAsJSON(closure)
 
+    }
+    def list(DataTableCO userSearchCO) {
+        if (session.user?.admin) {
+            List<User> users = User.search(userSearchCO).list(max: userSearchCO.max, offset: userSearchCO.offset, order: userSearchCO.order, sort: userSearchCO.sort)
+            render view: '/tables/adminTable', model: [users: users, userCount: User.count(),SubscribedTopicList:Subscription.findAllByUser(session.user)]
+        } else {
+            redirect(uri: "/tables/adminTable")
+        }
+    }
+   def toogleActive() {
+        long id = params.long("id")
+        User user = User.get(id)
+        if (user.active) {
+            user.active = false
+        } else {
+            user.active = true
+        }
+        user.save(flush: true)
+        forward(controller: 'user', action: 'list')
     }
 }

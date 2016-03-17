@@ -1,5 +1,8 @@
 package com.intelligrape.linksharing
 
+import Enums.UserStatus
+import LinkSharing.DataTableCO
+
 class User {
     String username
     String firstname
@@ -77,5 +80,21 @@ class User {
         int totalPost = Resource.countByCreatedBy(user)
         return [totalSubscription: totalSubscription, totalTopic: totalTopic, totalPost: totalPost]
     }
-
+    static namedQueries = {
+        search {DataTableCO userSearchCO ->
+            if (userSearchCO.q) {
+                or {
+                    ilike('firstname', "%${userSearchCO.q}%")
+                    ilike('lastname', "%${userSearchCO.q}%")
+                    ilike('username', "%${userSearchCO.q}%")
+                    ilike('email', "%${userSearchCO.q}%")
+                }
+                if (userSearchCO.isActive == UserStatus.ACTIVE) {
+                    eq('active', true)
+                } else if (userSearchCO.isActive == UserStatus.INACTIVE) {
+                    eq('active', false)
+                }
+            }
+        }
+    }
 }

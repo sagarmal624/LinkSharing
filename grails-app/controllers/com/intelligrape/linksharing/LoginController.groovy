@@ -2,7 +2,6 @@ package com.intelligrape.linksharing
 
 class LoginController {
     def loginService
-
     def index() {
         if (!session.username) {
             forward(action: "loadmainpage", controller: "linkSharing")
@@ -17,6 +16,7 @@ class LoginController {
         if (user) {
             if (user.active) {
                 session.username = user.name
+
                 session.email = user.email;
                 session.user = user;
                 forward(action: "dashboard", controller: "linkSharing");

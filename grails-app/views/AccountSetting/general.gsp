@@ -29,7 +29,7 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
+    <a href="${createLink(controller:"linkSharing",action:"dashboard")}" class="logo">
       <span class="logo-mini"><b>Link</b>Sharing</span>
       <span class="logo-lg"><b>Link</b>Sharing</span>
     </a>
@@ -62,8 +62,6 @@
               <li>
                 <ul class="menu" id="dropdownsearch">
                 </ul>
-              </li>
-              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Relavent Topic</a>
               </li>
             </ul>
             %{----}%

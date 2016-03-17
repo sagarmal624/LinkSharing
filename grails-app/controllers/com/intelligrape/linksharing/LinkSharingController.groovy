@@ -6,7 +6,7 @@ class LinkSharingController {
     def linkSharingService
 
     def loadmainpage() {
-        println "before action--------------load main page----"
+        println "before action--------------load main page--linkSharingPath--"+grailsApplication.config.linkSharingPath
         Map map = linkSharingService.fetchLoadMainPageData()
         render view: "/HomePage", model: [topPostResource: Resource.getToppost(), recentTopicShare: map.resources,userId:map.userId]
 
@@ -38,9 +38,8 @@ class LinkSharingController {
 
     def admin() {
         List<User> users = User.list()
-
-        render view: "/tables/data", model: [SubscribedTopicList: loadTopic(), users: users]
-//        render(users as JSON)
+                 render view: "/tables/adminTable", model: [SubscribedTopicList: loadTopic(), users: users]
+        render(users as JSON)
     }
 
     def inbox() {
