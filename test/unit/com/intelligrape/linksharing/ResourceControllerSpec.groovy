@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(ResourceController)
 class ResourceControllerSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

@@ -10,11 +10,7 @@ import spock.lang.Unroll
 @TestFor(Document_Resource)
 class Document_ResourceSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
 
     @Unroll
     void "test for Document Resource"() {

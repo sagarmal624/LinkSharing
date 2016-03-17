@@ -11,11 +11,7 @@ import spock.lang.Unroll
 @TestFor(Topic)
 class TopicSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
 
     @Unroll
     void "Test Topic Validation"() {

@@ -10,11 +10,6 @@ import spock.lang.Unroll
 @TestFor(Link_Resource)
 class Link_ResourceSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
 
     @Unroll
     void "test for Link Resource"() {

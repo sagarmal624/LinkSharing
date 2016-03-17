@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(ReadingItemService)
 class ReadingItemServiceSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

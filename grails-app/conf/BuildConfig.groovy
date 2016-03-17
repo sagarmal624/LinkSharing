@@ -59,6 +59,7 @@ grails.project.dependency.resolution = {
         compile "org.grails.plugins:mail:1.0.7"
         // plugins for the compile step
         compile ":quartz:1.0.2"
+        compile "org.grails.plugins:codenarc:0.25.1"
 
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'

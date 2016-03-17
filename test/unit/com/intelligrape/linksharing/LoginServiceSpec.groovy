@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(LoginService)
 class LoginServiceSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

@@ -9,12 +9,4 @@ import spock.lang.Specification
 @TestFor(LinkController)
 class LinkControllerSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

@@ -1,7 +1,5 @@
 package com.intelligrape.linksharing
-
 import org.springframework.web.multipart.MultipartFile
-
 class DocumentController extends ResourceController {
     def documentService
 

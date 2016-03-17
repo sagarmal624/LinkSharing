@@ -11,14 +11,6 @@ import spock.lang.Unroll
 class UserSpec extends Specification {
 
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 
     @Unroll
     void "Test User Validation"() {

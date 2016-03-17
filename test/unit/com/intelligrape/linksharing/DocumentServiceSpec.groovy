@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(DocumentService)
 class DocumentServiceSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }

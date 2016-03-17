@@ -9,12 +9,5 @@ import spock.lang.Specification
 @TestFor(LinkSharingService)
 class LinkSharingServiceSpec extends Specification {
 
-    def setup() {
-    }
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
 }
