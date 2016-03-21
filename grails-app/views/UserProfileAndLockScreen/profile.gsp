@@ -330,7 +330,9 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header" >
+
+
       <h1>
         User Profile
       </h1>
@@ -339,7 +341,19 @@
         <li><a href="#">User Profile</a></li>
         <li class="active">User profile</li>
       </ol>
-    </section>
+ <div id="flashMsg" class="row collapse">
+  <g:if test="${flash.message}">
+    <div  class="alert alert-success">
+      <span>${flash.message}</span>
+    </div>
+  </g:if>
+  <g:if test="${flash.error}">
+    <div class="alert alert-danger">
+      <span>${flash.error}</span>
+    </div>
+  </g:if>
+   </div>
+</section>
 
     <section class="content">
 
@@ -646,57 +660,81 @@
               <!-- /.tab-pane -->
 
               <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                    <div class="col-sm-10">
-                      <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                        </label>
+              <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                  <!-- general form elements -->
+                  <div class="box box-primary">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Change Password</h3>
+                     </div>
+                    <g:form controller="user" action="updatePassword" role="form" name="updatePasswordForm" id="updatePasswordForm">
+                      <div class="box-body">
+                        <div class="form-group">
+                          <label for="email">Email address</label>
+                          <input type="email" class="form-control"  required="true" id="email" name="email"placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" name="password"  required="true" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Confirm Password</label>
+                          <input type="password" class="form-control"  required="true" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                        </div>
                       </div>
-                    </div>
+                      <div class="box-footer">
+                        <button type="button" class="btn btn-danger col-lg-offset-2">Cancel</button>
+                        <button type="submit" class="btn btn-success col-lg-offset-2">Update</button>
+                      </div>
+                    </g:form>
                   </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                </div>
+                <div class="col-md-6">
+                  <div class="box box-info">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">User Profile</h3>
+
                     </div>
+                    <g:form enctype="multipart/form-data" class="form-horizontal" controller="user" action="update" name="updateUserDetailForm" id="updateUserDetailForm">
+                      <div class="box-body">
+                        <div class="form-group">
+                          <label for="firstname" class="col-sm-3 control-label">FirstName:</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="lastname" class="col-sm-3 control-label">LastName:</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="photo" class="col-sm-3 control-label">Photo:</label>
+                          <input type="file" id="photo" name="photo">
+                        </div>
+                      </div>
+                      <div class="box-footer">
+
+                        <button type="Cancel" class="btn btn-danger col-lg-offset-2">Cancel</button>
+                        <div id="loaderId5" clas="col-lg-2" style="display: none" %{--class="loader pull-left hidden"--}%>
+                          <img src="${resource(dir:'images',file:'spinner.gif')}"/> Saving..
+                        </div>
+
+                        <g:actionSubmit controller="user" action="update" value="Update" id="userDetails" class="btn btn-success col-lg-offset-4">Update</g:actionSubmit>
+                      </div>
+                      <!-- /.box-footer -->
+                    </g:form>
                   </div>
-                </form>
+
+                </div>
+              </div>
+
+
+
               </div>
               <!-- /.tab-pane -->
             </div>
@@ -930,6 +968,7 @@
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
+<g:render template="../templates/resource/search"></g:render>
 <script type="text/javascript">
 
 
@@ -1059,6 +1098,110 @@
     e.preventDefault();	//STOP default action
   });
 </script>
+<script>
+  $('#updateUserDetailForm').bootstrapValidator({
+    fields: {
 
+      firstname: {
+        message: 'This FirstName is not valid',
+        validators: {
+
+          regexp: {
+            regexp: /^[a-zA-Z]+[\-'\s]?[a-zA-Z ]+$/,
+            message: 'The Firstname can only consist of alphabetical'
+
+          },
+          notEmpty: {
+            message: 'The First Name is required and can\'t be empty'
+          },
+          stringLength: {
+            min: 3,
+            message: 'The First name must be more than 3 characters long'
+          }
+        }
+
+      },
+      lastname: {
+        message: 'This Last Name is not valid',
+        validators: {
+
+          regexp: {
+            regexp: /^[a-zA-Z]+[\-'\s]?[a-zA-Z ]+$/,
+            message: 'The Lastname can only consist of alphabetical'
+
+          },
+        }
+      },
+    }
+
+  });
+
+
+
+
+
+  $('#updatePasswordForm').bootstrapValidator({
+    fields: {
+      email: {
+        validators: {
+          notEmpty: {
+            message: 'The email address is required and can\'t be empty'
+          },
+          regexp: {
+            regexp: /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+            message: 'Email id is not Valid.Please try Again'
+
+          }
+
+        }
+      },
+      password: {
+        validators: {
+          notEmpty: {
+            message: 'The password is required and can\'t be empty'
+          },
+          identical: {
+            field: 'confirmPassword',
+            message: 'The password and its confirm are not the same'
+          },
+          different: {
+            field: 'username',
+            message: 'The password can\'t be the same as username'
+          }
+        }
+      },
+      confirmPassword: {
+        validators: {
+          notEmpty: {
+            message: 'The confirm password is required and can\'t be empty'
+          },
+          identical: {
+            field: 'password',
+            message: 'The password and its confirm are not the same'
+          },
+          different: {
+            field: 'username',
+            message: 'The password can\'t be the same as username'
+          }
+        }
+      }
+
+    }
+
+  });
+
+</script>
+<script>
+  $(document).ready(function(){
+    $("#flashMsg").show(function(){
+   $(".content-header").attr("data-toggle","collapse");
+      $(".content-header").attr("data-target","flashMsg");
+      setTimeout(function(){
+        $("#flashMsg").hide();
+      },1000)
+
+    });
+  });
+  </script>
 </body>
 </html>

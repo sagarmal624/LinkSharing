@@ -418,11 +418,18 @@
            <button type="button" class="btn btn-default" onclick="markAsRead(${resource.id})"><i class="fa fa-star"></i>
                   Mark as Read
               </button>
+            <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
+ &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
+ &display=popup&caption= ${resource?.topic?.name}&link=${resource?.url}&description=${resource?.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+            </a>
 
-              <a hreef="#"> <img src="../../dist/img/facebook.png"/></a>
-              <a hreef="#"><img src="../../dist/img/twtr.png"/></a>
-              <a hreef="#">      <img src="../../dist/img/google.png"/>  </a>
-            </div>
+              %{--<a hreef="#">      <img src="https://www.gstatic.com/images/icons/gplus-32.png"/>  </a>--}%
+
+            <a href="https://plus.google.com/share?url=${resource.url}" onclick="javascript:window.open(this.href,
+                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+                    src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
+
+          </div>
             <!-- /.box-footer -->
           </div>
           <!-- /. box -->

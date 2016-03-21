@@ -1144,9 +1144,6 @@ $('.update').on('click',function(){
 
 
 
-
-
-
 });
 
 </script>

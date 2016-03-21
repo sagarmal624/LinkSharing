@@ -6,9 +6,9 @@
     <title>LinkSharing | Trending Topics</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
     </script>
+
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -648,9 +648,17 @@
 
                                         <br>
                                         <br>
-                                        <img src="../dist/img/facebook.png"/>
-                                        <img src="../dist/img/twtr.png"/>
-                                        <img src="../dist/img/google.png"/> &nbsp;&nbsp;
+
+                                         <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
+ &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
+ &display=popup&caption= ${topPost.topicname}&link=${topPost?.url}&description=${topPost.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+                                         </a>
+
+
+                                        <a href="https://plus.google.com/share?url=${topPost?.url}" onclick="javascript:window.open(this.href,
+                                                '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+                                                src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
+                                    &nbsp;&nbsp;
                                      <g:if test="${(topPost?.createdBy?.id==session.user.id) || session.user.admin}">
                                         <a href="#" onclick="deleteResource(${topPost.id})"><u>Delete</u></a>&nbsp;&nbsp;
                                      </g:if>
@@ -1097,9 +1105,15 @@
                         value.description +
                         "</span>" +
                         "<br>" +
-                        "<img src='../dist/img/facebook.png'/>" +
-                        "<img src='../dist/img/twtr.png'/>" +
-                        "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
+                        "<a href='https://www.facebook.com/dialog/feed?app_id=1705044979707974"+
+                        "&picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png"+
+                        "&display=popup&caption="+value.description+"&link="+value.url+"&description="+value.description+"&redirect_uri=https://www.facebook.com/'>" +
+                        "<img src='../dist/img/facebook.png'/>"+
+                        "</a>"+
+                   "<img src='../dist/img/twtr.png'/>" +
+
+                        "<img src='../dist/img/google.png'/>" +
+
                         markAsRead +
                         "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>Edit</a></u>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +

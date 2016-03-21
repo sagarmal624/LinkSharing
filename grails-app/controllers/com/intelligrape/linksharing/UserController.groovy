@@ -86,7 +86,7 @@ class UserController extends UtilController {
             session.email = user.email;
         } else
             flash.error = "Record is not updated due to some Validation"
-        forward(action: "accountSetting", controller: "linkSharing")
+        forward(action: "profile", controller: "linkSharing")
 
     }
 
@@ -126,18 +126,21 @@ class UserController extends UtilController {
                     user.confirmPassword = params.confirmPassword;
 
                     if (user.save(flush: true))
-                        flash.message1 = "Record is Successfully updated"
+                        flash.message = "Record is Successfully updated"
                     else
-                        flash.error1 = "Password And ConfirmPassword not match"
+                        flash.error = "Password And ConfirmPassword not match"
                 }
             } else {
-                flash.error1 = "Account not found"
+                flash.error = "Account not found"
             }
         } else {
-            flash.error1 = "Please Enter Your Email-id"
+            flash.error = "Please Enter Your Email-id"
 
         }
-        forward(action: "accountSetting", controller: "linkSharing")
+
+        forward(action: "profile", controller: "linkSharing")
+
+
     }
 
     def renderFromDirectory(long id) {

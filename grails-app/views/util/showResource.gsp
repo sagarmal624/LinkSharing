@@ -1,36 +1,35 @@
-<%@ page import="com.intelligrape.linksharing.Link_Resource; com.intelligrape.linksharing.Topic; com.intelligrape.linksharing.Subscription" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LinkSharing |Show Topics</title>
+    <title>LinkSharing | Topic Details</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="${resource(dir: 'bootstrap/css', file: 'bootstrap.min.css')}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+    </script>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="${resource(dir: 'dist/css', file: 'AdminLTE.min.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'dist/css/skins', file: '_all-skins.min.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/iCheck/flat/', file: 'blue.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/morris', file: 'morris.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/datepicker', file: 'datepicker3.css')}">
-    <link rel="stylesheet" href=" ${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker-bs3.css')}">
-    <link rel="stylesheet" href="${resource(dir: 'plugins/bootstrap-wysihtml5', file: 'bootstrap3-wysihtml5.min.css')}">
-    %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}%
-    <script src="../dist/js/star-rating.js" type="text/javascript"></script>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
+    <link rel="stylesheet" href="/plugins/morris/morris.css">
+    <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href=" /plugins/daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 
 </head>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="${createLink(controller: "linkSharing", action: "dashboard")}" class="logo">
+        <a href="${createLink(controller:"linkSharing",action:"dashboard" )}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>L</b>S</span>
             <!-- logo for regular state and mobile devices -->
@@ -51,14 +50,12 @@
                     <li class="dropdown notifications-menu">
                         <form id="searchform" class="navbar-form" role="search" style="padding-left:30px">
                             <div class="input-group">
-                                <input id="searchtxt" type="text" onkeyup="topic(this.value)"
-                                       onfocus="topic(this.value)" name="searchtxt"
+                                <input id="searchtxt" type="text" onkeyup="topic(this.value)" onfocus="topic(this.value)" name="searchtxt"
                                        class="col-md-12 form-control" placeholder="Search topics..."/>
 
                                 <div class="input-group-btn ">
 
-                                    <button class="btn btn-default" type="submit"><i
-                                            class="glyphicon glyphicon-search"></i></button>
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                 </div>
 
                             </div>
@@ -70,7 +67,7 @@
                                 <ul class="menu" id="dropdownsearch">
                                 </ul>
                             </li>
-                         </ul>
+                        </ul>
                         %{----}%
 
                     </li>
@@ -87,14 +84,12 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user2-160x160.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
-                                                ${id}
+                                                Support Team
                                                 <small><i class="fa fa-clock-o"></i> 5 mins</small>
                                             </h4>
-
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
@@ -102,56 +97,48 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
                                                 <small><i class="fa fa-clock-o"></i> 2 hours</small>
                                             </h4>
-
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Developers
                                                 <small><i class="fa fa-clock-o"></i> Today</small>
                                             </h4>
-
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Sales Department
                                                 <small><i class="fa fa-clock-o"></i> Yesterday</small>
                                             </h4>
-
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle"
-                                                     alt="User Image">
+                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Reviewers
                                                 <small><i class="fa fa-clock-o"></i> 2 days</small>
                                             </h4>
-
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
                                     </li>
@@ -162,11 +149,11 @@
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
-                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle"
-                           data-toggle="dropdown">
+                        <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-comment"></i>
                             <span class="label label-info"></span>
                         </a>
+
 
                     </li>
                     <li class="dropdown notifications-menu">
@@ -180,8 +167,7 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#shareDoc" data-toggle="modal" class="dropdown-toggle"
-                           data-toggle="dropdown">
+                        <a href="#" data-target="#shareDoc" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-file-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -189,8 +175,7 @@
                     </li>
 
                     <li class="dropdown tasks-menu">
-                        <a href="#" data-target="#sendInv" data-toggle="modal" class="dropdown-toggle"
-                           data-toggle="dropdown">
+                        <a href="#" data-target="#sendInv" data-toggle="modal"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-send-o"></i>
                             <span class="label label-success"></span>
                         </a>
@@ -210,7 +195,7 @@
                                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
-                                    ${session.username}- Web Developer Trainee
+                                    ${session.username} - Web Developer Trainee
                                     <small>To The New Digital</small>
                                 </p>
                             </li>
@@ -220,7 +205,6 @@
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Subscriptions</a>
                                     </div>
-
                                     <div class="col-xs-6 text-center">
                                         <a href="#">Topics</a>
                                     </div>
@@ -231,15 +215,13 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="${createLink(controller: "linkSharing", action: "profile")}"
-                                       class="btn btn-default btn-flat">Profile</a>
+                                    <a href="/linkSharing/profile" class="btn btn-default btn-flat">Profile</a>
                                 </div>
-
-                            <div class="pull-right">
-                                <a href="${createLink(controller: "login", action: "logout")}"
-                                   class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
+                                <div class="pull-right">
+                                    <a href="${createLink(controller: "login", action: "logout")}"
+                                       class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
@@ -257,11 +239,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
                     <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
+                    %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
                 </div>
-
                 <div class="pull-left info">
                     <p>${session.username}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
@@ -272,8 +253,7 @@
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
                     <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                                class="fa fa-search"></i>
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                         </button>
                     </span>
                 </div>
@@ -283,47 +263,45 @@
             <ul class="sidebar-menu">
                 <li class="header">LinkSharing</li>
                 <li class="treeview">
-                    <a href="${createLink(controller: 'linkSharing', action: 'dashboard')}">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
-                            class="fa fa-angle-left pull-right"></i>
+                    <a href="/linkSharing/dashboard">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
-
                 </li>
                 <li class="active">
-                    <a href="${createLink(controller: 'linkSharing', action: 'trendingPost')}">
+                    <a href="/linkSharing/trendingPost">
                         <i class="fa fa-th"></i> <span>Trending Topics</span>
                         <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
+                    <a href="/linkSharing/accountSetting">
                         <i class="fa fa-edit"></i> <span>Account Setting</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                 </li>
-    <g:if test="${session.user.admin}">
-        <li class="treeview">
-            <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
-                <i class="fa fa-table"></i> <span>Admin</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
+                <g:if test="${session.user.admin}">
+                    <li class="treeview">
+                        <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+                            <i class="fa fa-table"></i> <span>Admin</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
 
-                <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
-                        class="fa fa-circle-o"></i> Data tables</a></li>
-            </ul>
-        </li>
-    </g:if>
+                            <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                                    class="fa fa-circle-o"></i> Data tables</a></li>
+                        </ul>
+                    </li>
+                </g:if>
 
-    <li>
-                    <a href="${createLink(controller: 'linkSharing', action: 'calender')}">
+                <li>
+                    <a href="/linkSharing/calender">
                         <i class="fa fa-calendar"></i> <span>Calendar</span>
                         <small class="label pull-right bg-red">3</small>
                     </a>
                 </li>
                 <li>
 
-                    <a href="${createLink(controller: 'linkSharing', action: 'inbox')}">
+                    <a href="/linkSharing/inbox">
                         <i class="fa fa-envelope"></i> <span>Inbox</span>
                         <small class="label pull-right bg-yellow"></small>
                     </a>
@@ -335,10 +313,8 @@
                     </a>
                     <ul class="treeview-menu">
 
-                        <li><a href="${createLink(controller: 'linkSharing', action: 'profile')}"><i
-                                class="fa fa-circle-o"></i> Profile</a></li>
-                        <li><a href="${createLink(controller: 'linkSharing', action: 'lockscreen')}"><i
-                                class="fa fa-circle-o"></i> Lockscreen</a></li>
+                        <li><a href="/linkSharing/profile"><i class="fa fa-circle-o"></i> Profile</a></li>
+                        <li><a href="/linkSharing/lockscreen"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
                     </ul>
                 </li>
 
@@ -356,11 +332,14 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Trending Topics</li>
+                <li class="active">Topic Details</li>
             </ol>
         </section>
 
+        <!-- Main content -->
         <section class="content">
+
+
             <div class="row">
                 <div class="col-md-6 container">
                     <div class="box box-success">
@@ -418,7 +397,7 @@
                                         <span class="col-lg-4">
 
                                             <g:if test="${session.email != topicDetails?.createdBy?.email}">
-                                                %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
+                                            %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
                                                 <g:if test="${session.user?.isSubscribed(topicDetails?.id)}">
 
                                                     <button class="btn btn-link" onclick="unSubscribeTopic(${topicDetails?.id})">UnSubscribe </button>
@@ -575,18 +554,20 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- /.col -->
                 <div class="col-md-6">
+
                     <div class="box box-success">
                         <div class="box-header">
                             <i class="fa fa-comments-o"></i>
 
-                            <h3 class="box-title">Posts:${topicDetails.name}</h3>
+                            <h3 class="box-title">Posts:${topicDetails?.name}</h3>
 
                             <form class="dropdown-toggle pull-right" data-toggle="dropdown" role="search"
                                   style="padding-left:30px">
                                 <div class="input-group">
-                                    <input type="text" value="${topicDetails.name}" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
+                                    <input type="text" class="form-control" onkeyup="searchResourceAndTopic(this.value)"
                                            placeholder="Search" id="searchposts"/>
 
                                     <div class="input-group-btn ">
@@ -599,10 +580,7 @@
                             </form>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <div class="box-body chat" id="chat-box" name="postsbox" style="max-height:500px; overflow-y:scroll">
-
-
-
+                                    <div class="box-body chat" style="max-height:500px; overflow-y:scroll" id="chat-box" name="postsbox">
 
                                     </div>
                                 </li>
@@ -610,93 +588,16 @@
                         </div> <!-- /.chat -->
 
                     </div>
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
 
+
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
         </section>
-
+        <!-- /.content -->
     </div>
-
-
-
-    <div class="modal fade" id="editLink" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div id="alertmsg1" class="hidden"><span id="spanmsg1"></span></div>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" id="addContactModalLabel">Share Link</h4>
-                </div>
-
-                <form id="linkshareform">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <div class="col-lg-2">
-                                <label for="url">Link<span style="color:red">*</span>:</label>
-                            </div>
-
-                            <div class="col-lg-10">
-                                <input type="url" required="" class="form-control" id="url" name="url"
-                                       placeholder="Link..."/>
-                            </div>
-                        </div>
-                        <br><br>
-
-                        <div class="form-group">
-                            <div class="col-lg-2">
-                                <label for="description">Description<span style="color:red">*</span>:</label>
-                            </div>
-
-                            <div class="col-lg-10">
-                                <g:textArea required="" cols="12" class="form-control" id="description" name="description"
-                                            placeholder="Description..."/>
-                            </div>
-                        </div>
-                        <br><br><br><br>
-
-                        <div class="form-group">
-                            <div class="col-lg-2">
-                                <label>Topic:</label>
-                            </div>
-
-                            <div class="col-lg-10">
-
-                                <select class="form-control" id="topicname" name="topicname" data-toggle="tooltip"
-                                        title="Share Link with Given Topic Name">
-                                    <g:each in="${SubscribedTopicList}">
-                                        <option>${it}</option>
-                                    </g:each>
-
-                                </select>
-                            </div>
-                        </div>
-                        <br><br>
-                    </div>
-
-                    <div class="modal-footer">
-                        <div class="row">
-
-                            <div id="loaderId1" style="display: none" class="col-lg-2">
-                                <img src="${resource(dir: 'images', file: 'spinner.gif')}"/> Saving..
-                            </div>
-
-                            <div class="col-lg-4 col-lg-offset-2">
-                                <button type="submit" id="save" class="btn btn-success">Save</button></div>
-
-                            <div class="col-lg-3">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
+    <!-- /.content-wrapper -->
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
@@ -874,15 +775,13 @@
                         </label>
                     </div>
                     <!-- /.form-group -->
-                    %{--<img src='../../../../../userImageFolder'/>--}%
+
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Turn off notifications
                             <input type="checkbox" class="pull-right">
                         </label>
                     </div>
-                    <!-- /.form-group -->
-
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Delete chat history
@@ -895,62 +794,59 @@
             <!-- /.tab-pane -->
         </div>
     </aside>
-
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="${resource(dir: 'plugins/jQuery/', file: 'jQuery-2.2.0.min.js')}"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script><script>
+<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
-<script src="${resource(dir: 'bootstrap/js', file: 'bootstrap.min.js')}"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="${resource(dir: 'plugins/morris', file: 'morris.min.js')}"></script>
+<script src="/plugins/morris/morris.min.js"></script>
 
-<script src="${resource(dir: 'plugins/sparkline', file: 'jquery.sparkline.min.js')}"></script>
-<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-1.2.2.min.js')}"></script>
+<script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 
-<script src="${resource(dir: 'plugins/jvectormap', file: 'jquery-jvectormap-world-mill-en.js')}"></script>
-<script src="${resource(dir: 'plugins/knob', file: 'jquery.knob.js')}"></script>
+<script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/plugins/knob/jquery.knob.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="${resource(dir: 'plugins/daterangepicker', file: 'daterangepicker.js')}"></script>
+<script src="/plugins/daterangepicker/daterangepicker.js"></script>
 
-<script src="${resource(dir: 'plugins/datepicker', file: 'bootstrap-datepicker.js')}"></script>
-<script src="${resource(dir: 'plugins/bootstrap-wysihtml5/', file: 'bootstrap3-wysihtml5.all.min.js')}"></script>
-<script src="${resource(dir: 'plugins/slimScroll', file: 'jquery.slimscroll.min.js')}"></script>
+<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 
-<script src="${resource(dir: 'plugins/fastclick', file: 'fastclick.js')}"></script>
+<script src="/plugins/fastclick/fastclick.js"></script>
 
-<script src="${resource(dir: 'dist/js', file: 'app.min.js')}"></script>
+<script src="/dist/js/app.min.js"></script>
 
-<script src="${resource(dir: 'dist/js/pages', file: 'dashboard.js')}"></script>
-<script src="${resource(dir: 'dist/js', file: 'demo.js')}"></script>
-<g:render template="../templates/Topic/email"/>
+<script src="/dist/js/pages/dashboard.js"></script>
+<script src="/dist/js/demo.js"></script>
+<script type="text/javascript" src="/js/jquery-2.2.1.js"></script>
+
+
+
 <script type="text/javascript">
-
     function resourceSeriousness(seriouness) {
         console.log("score----------------------" + ${topicDetails?.id})
-
         %{--<g:set var="resource" value="${com.intelligrape.linksharing.Resource.get(1)}"></g:set>--}%
         %{--// <g:remoteFunction  controller="resource" action="saveRating"  params="['resource':resource,'score':score]" onSuccess="justDoIt(data,textStatus)"/>--}%
         <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ ${topicDetails?.createdBy.id} +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness" onSuccess="seriousnessResponse(data,textStatus)"/>
         %{--<g:remoteFunction  controller="resource" action="saveRating"  params="\'description=\'+description" onSuccess="justDoIt(data,textStatus)"/>--}%
-
     }
     ;
-
-
     function seriousnessResponse(data, textStatus) {
-
         if (data) {
             if (data.message != "Seriousness is not updated")
                 $("#spanmsg").addClass("alert alert-success")
             else
                 $("#spanmsg").addClass("alert alert-danger")
-
             $("#spanmsg").text(data.message)
-
             $("#alertmsg").toggleClass('hidden');
-
             setTimeout(function () {
                 $("#alertmsg").toggleClass('hidden');
                 $("#spanmsg").removeClass("alert alert-success")
@@ -959,12 +855,9 @@
         }
     }
     ;
-
     function subscribeTopic(id){
         <g:remoteFunction  controller="subscription" action="save"  params="\'id=\'+id " onSuccess="subscribeTopicResponse(data,textStatus)"/>
-
     };
-
     function subscribeTopicResponse(data, textStatus){
         if (data) {
             location.reload();
@@ -972,31 +865,28 @@
     };
     function unSubscribeTopic(id){
         <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
-
     };
-
     function unSubscribeTopicResponse(data, textStatus){
         if (data) {
             location.reload();
         }
     };
-
-
 </script>
 
-<g:render template="../templates/LinkResource/create"/>
+
+<g:render template="../templates/resource/search"/>
+<g:render template="../templates/message"/>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
-<g:render template="../templates/resource/search"/>
-%{--<g:render template="../templates/LinkResource/editLinkResource"/>--}%
 
 <script type="text/javascript">
 
     var searchResourceAndTopic = function searchPost(description) {
-        console.log(">>>>>> ",description);
+        console.log(description);
         <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchPostResponse(data,textStatus)"/>
     };
-
 
     var isEqualToJson = function (a, b) {
         function check(a, b) {
@@ -1035,9 +925,10 @@
             var readResources = eval(data.readResources);
 
             var subscriptionList = eval(data.subscriptionList);
+            console.log("subscription list----item->" + data.subscriptionList[0]);
+            console.log("subscription list----item-ss>" + subscriptionList.name);
 
             $('[name="postsbox"]').empty();
-
             if (data.resources == "") {
                 $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not found</span>");
 
@@ -1065,7 +956,7 @@
                         "<li>" +
 
                         "<div class='item' id='addhere'>" +
-                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key]+"' width=100 height=100 />" +
+                        "<img alt='user image' class='online' src='${createLink(controller:'user',action:'renderFromDirectory')}?id=" + data.userId[key] + "' width=100 height=100 />" +
 
                         "<p class='message'>" +
                         "<a href='#' class='name'>" +
@@ -1081,15 +972,19 @@
                         value.description +
                         "</span>" +
                         "<br>" +
+                        "<a target='_blank' href='https://www.facebook.com/dialog/feed?app_id=1705044979707974"+
+                        "&picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png"+
+                        "&display=popup&caption="+value.description+"&link="+value.url+"&description="+value.description+"&redirect_uri=https://www.facebook.com/'>" +
+                        "<img src='../dist/img/facebook.png'/>"+
+                        "</a>"+
 
-                        "<img src='../dist/img/facebook.png'/>" +
                         "<img src='../dist/img/twtr.png'/>" +
                         "<img src='../dist/img/google.png'/>&nbsp;&nbsp;" +
                         markAsRead +
                         "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>Edit</a></u>&nbsp;&nbsp;" +
                         flag + "&nbsp;&nbsp;" +
 
-    "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
+                        "<u><a href='${createLink(controller:'resource',action:'show')}?id=" + value.id + "'>View Post</a></u>&nbsp;&nbsp;" +
 
                         " </div>" +
                         "</div>" +
@@ -1100,8 +995,11 @@
         }
         else {
             $('[name="postsbox"]').append("<span class='alert alert-danger'>Record is not fond</span>");
+
         }
     }
 </script>
-    </body>
-    </html>
+
+
+</body>
+</html>
