@@ -7,9 +7,15 @@ import grails.transaction.Transactional
 class TopicService {
 
     String updateVisibility(long userId, long topicId, String visibility) {
-        Topic topic = Topic.findByCreatedByAndId(User.get(userId), topicId)
+        User user=User.get(userId)
+        Topic topic
+        if(user.admin)
+             topic=Topic.get(topicId)
+        else
+            topic= Topic.findByCreatedByAndId(user, topicId)
         topic.visibility = Visibility.toEnum(visibility)
         String message;
+
         if (topic.save(flush: true)) {
             message = "Visibility is Updated"
         } else {

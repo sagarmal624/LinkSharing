@@ -552,116 +552,120 @@
 
                   <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
                 </g:if>
-
-                         </div>
-                           
-                        
-                        
-                    
+s                         </div>
                     </div>
-                    
-                    
-                    
-                
                    </div>
               </g:each>
                 </div>
             <div class="tab-pane" id="timeline">
                 <!-- The timeline -->
-                <ul class="timeline timeline-inverse">
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-red">
-                          10 Feb. 2014
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
+                <g class="timeline timeline-inverse">
+             <g:set var="url" value="${""}"/>
+              <g:set var="dateWiseResource" value="${[]}"/>
+            <!-- timeline time label -->
+            <% int key=0;%>
+              <g:each in="${timeLineResource.lastUpdated.unique().reverse(true)}" var="date">
+
+                <%
+                dateWiseResource.add(date.format('dd/MM/yyyy').toString())  %>
+
+              </g:each>
+              <g:each in="${dateWiseResource.unique()}" var="date">
+                <li class="time-label">
+                  <span class="bg-green">
+                    ${date}
+                  </span>
+                </li>
+
+                <g:set var="subList" value="${[]}"/>
+                <g:each in="${timeLineResource}" var="resource">
+                   <g:if test="${date==resource?.lastUpdated?.format('dd/MM/yyyy').toString()}">
                   <li>
                     <i class="fa fa-envelope bg-blue"></i>
 
                     <div class="timeline-item">
                       <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
 
-                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+                      <h3 class="timeline-header">
+
+
+                        <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:resource?.id])}">${resource?.topic}</a>
+
+
+                        @${resource?.createdBy.name}</h3>
 
                       <div class="timeline-body">
-                       You can make customers reliant on you 24/7, or educate them to help them become more self-sufficient and successful. Learn how content can ...
- </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Read more</a>
-                        <a class="btn btn-danger btn-xs">Delete</a>
+
+                   ${resource?.description}
+<br>
+                        <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                          ${url=resource?.url}
+                        </g:if>
+                        <g:else>
+                          <%url="http://linksharing.com/"%>
+                        </g:else>
+
+                        <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
+ &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
+ &display=popup&caption= ${resource?.topic}&link=${url}&description=${resource?.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+                        </a>
+
+
+                        <a href="https://plus.google.com/share?url=${url}" onclick="javascript:window.open(this.href,
+                                '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+                                src="../dist/img/google.png" alt="Share on Google+"/></a>
+                      &nbsp;&nbsp;
+
+                        <g:if test="${(resource?.createdBy?.id==session.user.id) || session.user.admin}">
+                          <a href="#" class="btn btn-danger btn-xs" onclick="deleteResource(${resource?.id})">Delete</a>&nbsp;&nbsp;
+                        </g:if>
+                        <g:if test="${(resource?.createdBy?.id==session.user.id) || session.user.admin}">
+
+                          <a class="btn btn-primary btn-xs" href='${createLink(controller:'resource',action:'show')}?id=${resource?.id}'>Edit</a>
+                          &nbsp;&nbsp;
+                        </g:if>
+
+                        <g:if test="${resource.class!=com.intelligrape.linksharing.Document_Resource}">
+                          <a class="btn btn-warning btn-xs" target='_blank' href="${resource?.url}">View Full Site</a>&nbsp;&nbsp;
+
+                        </g:if>
+                        <g:else>
+                          <u><a class="btn btn-success btn-xs" target='_blank' href='${createLink(controller:'document',action:'downloadDocument')}?id=${resource?.id}'>Download</a></u>&nbsp;&nbsp;
+
+                        </g:else>
+                        <a class="btn btn-success btn-xs" href='${createLink(controller:'resource',action:'show')}?id=${resource?.id}'>View Post</a>
+
                       </div>
-                    </div>
+                           </div>
+
                   </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
+                   </g:if>
+
+
+
+                   </g:each>
+
+                <g:each in="${timeLineSubscription}" var="subscription">
+                  <g:if test="${date==subscription.lastUpdated.format('dd/MM/yyyy')}">
+                    <%subList.add(subscription)%>
+                  </g:if>
+                </g:each>
+                <g:each in="${subList}" var="subscription">
                   <li>
                     <i class="fa fa-user bg-aqua"></i>
 
                     <div class="timeline-item">
                       <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
 
-                      <h3 class="timeline-header no-border"><a href="#">Rahul is</a> accepted your friend request
+                      <h3 class="timeline-header no-border"><a href="#">${subscription.topic}</a> is Subscribed By @${subscription?.user.name}
                       </h3>
                     </div>
                   </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-comments bg-yellow"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Ankita</a> commented on your post</h3>
-
-                      <div class="timeline-body">
-                        Take me to your leader!
-                        Jaipur is small and neutral!
-                        We are more like Jodhpur, ambitious and misunderstood!
-                      </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-green">
-                         02 jan 2016
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-camera bg-purple"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Rahul</a> uploaded new photos</h3>
-
-                      <div class="timeline-body">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <li>
-                    <i class="fa fa-clock-o bg-gray"></i>
-                  </li>
+                </g:each>
+              </g:each>
                 </ul>
               </div>
-              <!-- /.tab-pane -->
-
               <div class="tab-pane" id="settings">
-
-
               <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
@@ -1192,6 +1196,20 @@
 
 </script>
 <script>
+
+  function deleteResource(id){
+    <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
+
+  };
+
+  function deleteResourceResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+
+
   $(document).ready(function(){
     $("#flashMsg").show(function(){
    $(".content-header").attr("data-toggle","collapse");

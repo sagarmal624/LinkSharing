@@ -176,12 +176,14 @@ class UserController extends UtilController {
 
     }
     def list(DataTableCO userSearchCO) {
+
         if (session.user?.admin) {
             List<User> users = User.search(userSearchCO).list(max: userSearchCO.max, offset: userSearchCO.offset, order: userSearchCO.order, sort: userSearchCO.sort)
             render view: '/tables/adminTable', model: [users: users, userCount: User.count(),SubscribedTopicList:Subscription.findAllByUser(session.user)]
         } else {
             redirect(uri: "/tables/adminTable")
         }
+
     }
    def toogleActive() {
         long id = params.long("id")

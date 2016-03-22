@@ -53,9 +53,28 @@ class LinkSharingController {
     }
 
     def profile() {
+
+        List<ReadingItem> readingItem=ReadingItem.createCriteria().list(){
+            eq('user',session.user)
+        }
+        List<Resource>resources=Resource.createCriteria().list(){
+            order('lastUpdated','desc');
+        }
+        List<Resource>dateWiseResources=[];
+        readingItem.each{ReadingItem readingItem1->
+            dateWiseResources.add(readingItem1?.resource)
+        }
+        List<Resource>timeLineResource=Resource.getAll(dateWiseResources.id.intersect(resources.id))
+
+        List<Topic>timeLineTopics=Topic.createCriteria().list(){
+
+                order('lastUpdated','desc');
+            eq('createdBy',session.user);
+        }
+        List<Subscription>timeLineSubscription=timeLineTopics.subscriptions.flatten()
         Map map = linkSharingService.fetchProfileData(session.user)
 
-        render view: "/UserProfileAndLockScreen/profile", model: [SubscribedTopicList: loadTopic(), userTopics: map.userTopics, totalResourceAndSubscription: map.totalResourceAndSubscription]
+        render view: "/UserProfileAndLockScreen/profile", model: [timeLineSubscription:timeLineSubscription,timeLineResource:timeLineResource,SubscribedTopicList: loadTopic(), userTopics: map.userTopics, totalResourceAndSubscription: map.totalResourceAndSubscription]
     }
 
     def lockscreen() {

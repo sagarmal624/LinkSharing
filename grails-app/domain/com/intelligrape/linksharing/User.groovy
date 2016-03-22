@@ -3,7 +3,7 @@ package com.intelligrape.linksharing
 import Enums.UserStatus
 import LinkSharing.DataTableCO
 
-class User {
+class User  {
     String username
     String firstname
     String lastname

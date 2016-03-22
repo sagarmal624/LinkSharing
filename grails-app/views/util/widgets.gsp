@@ -602,15 +602,13 @@
                             </div>
                         </div>
                         <div class="box-body chat" id="chat-box">
-
+                        <g:set var="url" value="${""}"/>
                             <g:each in="${topPostResource}" var="topPost">
                                 <div class="item" style="border-bottom:2px solid gray;padding-bottom:10px " >
                                     <div id="alertmsg" class="hidden col-lg-offset-4"><span id="spanmsg"></span></div>
 
                                     %{--<img src="../dist/img/user8-128x128.jpg" alt="user image" class="online">--}%
                                     <ls:userImage userId="${topPost?.createdBy?.id}" imageType="online"/>
-
-
                                     <p class="message">
                                         <a href="#" class="name">
                                             <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
@@ -648,16 +646,22 @@
 
                                         <br>
                                         <br>
+                                        <g:if test="${topPost instanceof com.intelligrape.linksharing.Link_Resource}">
+                                            ${url=topPost?.url}
+                                        </g:if>
+                                        <g:else>
+                                            <%url="http://linksharing.com/"%>
+                                        </g:else>
 
                                          <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
  &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
- &display=popup&caption= ${topPost.topicname}&link=${topPost?.url}&description=${topPost.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+ &display=popup&caption= ${topPost.topicname}&link=${url}&description=${topPost.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
                                          </a>
 
 
-                                        <a href="https://plus.google.com/share?url=${topPost?.url}" onclick="javascript:window.open(this.href,
+                                        <a href="https://plus.google.com/share?url=${url}" onclick="javascript:window.open(this.href,
                                                 '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
-                                                src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
+                                                src="../dist/img/google.png" alt="Share on Google+"/></a>
                                     &nbsp;&nbsp;
                                      <g:if test="${(topPost?.createdBy?.id==session.user.id) || session.user.admin}">
                                         <a href="#" onclick="deleteResource(${topPost.id})"><u>Delete</u></a>&nbsp;&nbsp;

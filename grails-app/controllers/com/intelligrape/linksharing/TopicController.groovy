@@ -10,8 +10,8 @@ class TopicController extends UtilController {
     }
     def updatevisibility(long userId,long topicId,String visibility )
     {
-     String message=topicService.updateVisibility(userId,topicId,visibility)
-    Map map = [message:message,topicid:topicId]
+     flash.message=topicService.updateVisibility(userId,topicId,visibility)
+    Map map = [message:flash.message,topicid:topicId]
     groovy.lang.Closure closure = { map }
     renderAsJSON(closure)
 }

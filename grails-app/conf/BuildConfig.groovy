@@ -60,8 +60,9 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":quartz:1.0.2"
         compile "org.grails.plugins:codenarc:0.25.1"
-
+//        compile ':spring-security-core:2.0-RC4'
         compile ":scaffolding:2.1.2"
+        compile ':spring-security-core:2.0.0'
         compile ':cache:1.1.8'
         compile ":asset-pipeline:1.9.9"
         compile "org.grails.plugins:console:1.5.7"

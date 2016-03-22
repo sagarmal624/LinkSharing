@@ -3,31 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LinkSharing |Inbox</title>
+  <title>LinkSharing| Mailbox</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- fullCalendar 2.2.5-->
-  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
-  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="../../plugins/fullcalendar/fullcalendar.print.css" media="print">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-  </script>
-
+  <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
   <header class="main-header">
     <!-- Logo -->
     <a href="${createLink(controller:"linkSharing",action:"mainpage")}" class="logo">
@@ -68,7 +71,7 @@
                 <ul class="menu" id="dropdownsearch">
                 </ul>
               </li>
-              </ul>
+            </ul>
             %{----}%
 
           </li>
@@ -148,7 +151,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-              ${session.username} - Web Developer
+                  ${session.username} - Web Developer
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -161,7 +164,7 @@
                   <div class="col-xs-6 text-center">
                     <a href="#">Post</a>
                   </div>
-                  </div>
+                </div>
               </li>
               <li class="user-footer">
                 <div class="pull-left">
@@ -198,10 +201,10 @@
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
+          <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            </button>
+          </span>
         </div>
       </form>
       <!-- /.search form -->
@@ -212,7 +215,7 @@
           <a href="${createLink(controller:'linkSharing', action: 'dashboard')}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
-          </li>
+        </li>
         <li>
           <a href="${createLink(controller:'linkSharing', action: 'trendingPost')}">
             <i class="fa fa-th"></i> <span>Trending Topics</span>
@@ -224,22 +227,22 @@
             <i class="fa fa-edit"></i> <span>Account Setting</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
-          </li>
-      <g:if test="${session.user.admin}">
-        <li class="treeview">
-          <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
-            <i class="fa fa-table"></i> <span>Admin</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-
-            <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
-                    class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
         </li>
-      </g:if>
+        <g:if test="${session.user.admin}">
+          <li class="treeview">
+            <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
+              <i class="fa fa-table"></i> <span>Admin</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
 
-      <li>
+              <li><a href="${createLink(controller: 'linkSharing', action: 'admin')}"><i
+                      class="fa fa-circle-o"></i> Data tables</a></li>
+            </ul>
+          </li>
+        </g:if>
+
+        <li>
           <a href="${createLink(controller:'linkSharing', action: 'calender')}">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <small class="label pull-right bg-red">3</small>
@@ -255,16 +258,16 @@
             </li>
           </ul>
         </li>
-     <li class="treeview">
+        <li class="treeview">
           <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
             <i class="fa fa-folder"></i> <span>User Profile</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            
+
             <li><a href="${createLink(controller:'linkSharing', action: 'profile')}"><i class="fa fa-circle-o"></i> Profile</a></li>
             <li><a href="${createLink(controller:'linkSharing', action: 'lockscreen')}"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-             </ul>
+          </ul>
         </li>
       </ul>
     </section>
@@ -374,17 +377,17 @@
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>
-<g:each in="${unreadResources}" var="unreadmail">
-                  <tr>
-                    <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                    <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}">${unreadmail.createdBy}</a></td>
-                    <td class="mailbox-subject"><b>${unreadmail.topic}</b> - ${unreadmail.description}...
-                    </td>
-                    <td class="mailbox-attachment"></td>
-                    <td class="mailbox-date">5 mins ago</td>
-                  </tr>
-        </g:each>
+                  <g:each in="${unreadResources}" var="unreadmail">
+                    <tr>
+                      <td><input type="checkbox"></td>
+                      <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                      <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}">${unreadmail.createdBy}</a></td>
+                      <td class="mailbox-subject"><b>${unreadmail.topic}</b> - ${unreadmail.description}...
+                      </td>
+                      <td class="mailbox-attachment"></td>
+                      <td class="mailbox-date">5 mins ago</td>
+                    </tr>
+                  </g:each>
 
 
 
@@ -433,7 +436,7 @@
       <b>Version</b> 2.3.2
     </div>
     <strong>Copyright &copy; 2016-2017 <a href="http://tothenew.com">To The New Digital</a>.</strong> All rights
-    reserved.
+  reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -630,24 +633,21 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+<!-- ./wrapper -->
+
 <!-- jQuery 2.2.0 -->
-<script src="../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
 <!-- Slimscroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.js"></script>
+<script src="../../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="../plugins/fullcalendar/fullcalendar.min.js"></script>
-<!-- Page specific script -->
+<script src="../../dist/js/app.min.js"></script>
+<!-- iCheck -->
+<script src="../../plugins/iCheck/icheck.min.js"></script>
+<!-- Page Script -->
 <script>
   $(function () {
     //Enable iCheck plugin for checkboxes
@@ -695,10 +695,14 @@
 </script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script src="../../dist/js/demo.js"></script>
 <g:render template="../templates/Topic/email"/>
 <g:render template="../templates/LinkResource/create"/>
 <g:render template="../templates/DocumentResource/create"/>
 <g:render template="../templates/Topic/create"/>
 <g:render template="../templates/resource/search"/>
+
+
+
 </body>
 </html>

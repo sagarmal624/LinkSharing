@@ -11,6 +11,22 @@ import org.springframework.web.multipart.MultipartFile
 
 class ResourceController extends UtilController {
     ResourceService resourceService
+
+    def timeLineData(){
+        List<ReadingItem> readingItem=ReadingItem.createCriteria().list(){
+            eq('user',User.get(2))
+        }
+        List<Resource>resources=Resource.createCriteria().list(){
+            order('lastUpdated','desc');
+        }
+        List<Resource>dateWiseResources=[];
+        readingItem.each{ReadingItem readingItem1->
+            dateWiseResources.add(readingItem1?.resource)
+        }
+        List<Resource>timeLineResource=Resource.getAll(dateWiseResources.id.intersect(resources.id))
+
+
+    }
     def update(long id, String url, String description) {
         Resource resource = Resource.get(id)
         if (url) {

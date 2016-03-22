@@ -1,4 +1,4 @@
-<script type="text/javascript" src="${resource(dir:'js',file:'jquery-2.2.1.js' )}"></script>
+%{--<script type="text/javascript" src="${resource(dir:'js',file:'jquery-2.2.1.js' )}"></script>--}%
 <div class="modal fade" id="createTopic" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">

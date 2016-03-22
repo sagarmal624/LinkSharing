@@ -661,9 +661,23 @@
                                         </form>
                                     </div>
                                     <br><br>
-                                    <img src="../dist/img/facebook.png"/>
-                                    <img src="../dist/img/twtr.png"/>
-                                    <img src="../dist/img/google.png"/> &nbsp;&nbsp;
+                                    %{--${resource?.url}--}%
+                                    <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                                        ${url=resource?.url}
+                                    </g:if>
+                                    <g:else>
+                                        <%url="http://linksharing.com/"%>
+                                    </g:else>
+
+                                    <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
+ &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
+ &display=popup&caption= ${resource?.topic}&link=${url}&description=${resource.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+                                    </a>
+                                    <a href="https://plus.google.com/share?url=${url}" onclick="javascript:window.open(this.href,
+                                            '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
+                                            src="../dist/img/google.png" alt="Share on Google+"/></a>
+                                &nbsp;&nbsp;
+
                                     <g:if test="${(resource?.createdBy?.id == session.user.id) || session.user.admin}">
                                         <a href="#" onclick="deleteResource(${resource?.id})"><u>Delete</u>
                                         </a>&nbsp;&nbsp;

@@ -420,7 +420,7 @@
               </button>
             <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
  &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
- &display=popup&caption= ${resource?.topic?.name}&link=${resource?.url}&description=${resource?.description}&redirect_uri=https://www.facebook.com/"> <img src="../dist/img/facebook.png"/>
+ &display=popup&caption= ${resource?.topic}&link=${resource?.url}&description=${resource?.description}&redirect_uri=http://localhost:8080/linkSharing/dashboard/"> <img src="../dist/img/facebook.png"/>
             </a>
 
               %{--<a hreef="#">      <img src="https://www.gstatic.com/images/icons/gplus-32.png"/>  </a>--}%

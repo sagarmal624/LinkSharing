@@ -1,4 +1,3 @@
-%{--<script type="text/javascript" src="${resource(dir: 'js', file: 'jquery-2.2.1.js')}"></script>--}%
 <%@ page import="com.intelligrape.linksharing.User; com.ttnd.LinkSharing.*" %>
 <div class="modal fade" id="shareLink" role="dialog">
     <div class="modal-dialog">
