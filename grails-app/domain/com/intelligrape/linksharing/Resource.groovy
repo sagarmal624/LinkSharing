@@ -10,7 +10,7 @@ abstract class Resource {
     Date lastUpdated;
     static  transients=['ratingInfo']
     static belongsTo = [createdBy:User,topic:Topic]
-    static hasMany = [resource_ratings:Resource_Rating,readingItems:ReadingItem]
+    static hasMany = [resource_ratings:ResourceRating, readingItems:ReadingItem]
     static mapping = {
         description type: 'text'
     }
@@ -24,7 +24,7 @@ abstract class Resource {
         readingItems(nullable:true)
     }
     RatingInfoVO getRatingInfo(long id) {
-        List result = Resource_Rating.createCriteria().get {
+        List result = ResourceRating.createCriteria().get {
             projections {
                 count('id')
                 sum('score')
@@ -75,16 +75,16 @@ abstract class Resource {
     }
     String whichResource()
     {
-        if(this instanceof Link_Resource) {
+        if(this instanceof LinkResource) {
             return "Link"
         }
-        else if(this instanceof Document_Resource)
+        else if(this instanceof DocumentResource)
         {
             return "Document"
         }
     }
     public static List<TopPostVO> getToppost(){
-        List<Resource_Rating> resources=Resource_Rating.createCriteria().list(max:5){
+        List<ResourceRating> resources=ResourceRating.createCriteria().list(max:5){
             projections{
                 groupProperty('resource')
                 avg('score','avgScore')
@@ -110,7 +110,7 @@ abstract class Resource {
     }
 
     public static List<TopPostVO> getToppost(Date today,Date before){
-        List<Resource_Rating> resources=Resource_Rating.createCriteria().list(max:5){
+        List<ResourceRating> resources=ResourceRating.createCriteria().list(max:5){
             projections{
                 groupProperty('resource')
                 avg('score','avgScore')
@@ -136,5 +136,7 @@ abstract class Resource {
         }
         return toppostList;
     }
-
+    Boolean isUnread(User user,long id){
+        return ReadingItem.findByUserAndResource(user,Resource.get(id)).isRead
+    }
 }

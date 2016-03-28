@@ -1,21 +1,21 @@
-import LinkSharing.PasswordConstant
-import com.intelligrape.linksharing.Document_Resource
-import com.intelligrape.linksharing.Link_Resource
+import com.intelligrape.linksharing.LinkResource
 import com.intelligrape.linksharing.ReadingItem
 import com.intelligrape.linksharing.Resource
-import com.intelligrape.linksharing.Resource_Rating
+import com.intelligrape.linksharing.ResourceRating
 import Enums.Seriousness
+import com.intelligrape.linksharing.Role
 import com.intelligrape.linksharing.Subscription
 import com.intelligrape.linksharing.Topic
 import com.intelligrape.linksharing.User
 import Enums.Visibility
+import com.intelligrape.linksharing.UserRole
 import jline.internal.Log
-import org.springframework.web.multipart.MultipartFile
 
 class BootStrap {
     def grailsApplication
-    def init = {
+    def init = {servletContext ->
         log.info "boostrap is stared"
+
         createUser()
         createTopics()
         createResources()
@@ -44,19 +44,24 @@ class BootStrap {
         def applicationContext = grailsApplication.mainContext
         String basePath = applicationContext.getResource("/").getFile().toString()
         File source = new File("${basePath}/images/2.png")
-
-        User user = new User(firstname: "Sagarmal", lastname: "Shankhala", email: "sagar@gmail.com", username: "Sagarmal624", password: "sagar", confirmPassword: "sagar", admin:false, active: true, imagePath: source.absolutePath);
-        Log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>${user.name}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-        User admin = new User(firstname: "admin_sagar", lastname: "", email: "admin@gmail.com", username: "admin123", password: "admin", confirmPassword: "admin", admin:true, active:true, imagePath: source.absolutePath);
+        User admin = new User(username:'admin', password:'sagar',firstname:'admin_sagar',lastname:'shankhala',email:'sagar@gmail.com',admin:true,active:true,imagePath:source.absolutePath)
+        User user = new User(username:'sagar', password:'sagar',firstname:'Sagarmal',lastname:'shankhala',email:'sagarmal@gmail.com',admin:false,active:true,imagePath:source.absolutePath)
+        Role royalty = new Role(authority: 'ROLE_ROYALTY').save()
+        Role common = new Role(authority: 'ROLE_COMMON').save()
         if (User.count() == 0) {
-            if (user.validate())
-                user.save(flush: true, failOnError: true)
-            else
+            if (user.validate()) {
+                user=user.save(flush: true, failOnError: true)
+                UserRole.create(user, common)
+
+            }else
                 log.error("Could not Validate")
 
             if (admin.validate()) {
-                User userReturned = admin.save(flush: true, failOnError: true)
-                log.info(userReturned)
+                admin = admin.save(flush: true, failOnError: true)
+                UserRole.create(admin, royalty)
+                UserRole.create(admin, common)
+
+                log.info(admin)
             } else
                 log.error("Could not Validate")
         } else {
@@ -88,8 +93,8 @@ class BootStrap {
 
             topicList.eachWithIndex {it,index->
 
-              println " -resource createding---------->"+ new Link_Resource(description: description[index],topic:it,createdBy: it.createdBy, url: "https://en.wikipedia.org/wiki/Main_Page").save(flush:true,failOnError:true).properties
-                //   Resource linkResource2 = new Link_Resource(description:description+index, topic: it, createdBy: it.createdBy, url: "http://www.encyclopedia.com/").save()
+              println " -resource createding---------->"+ new LinkResource(description: description[index],topic:it,createdBy: it.createdBy, url: "https://en.wikipedia.org/wiki/Main_Page").save(flush:true,failOnError:true).properties
+                //   Resource linkResource2 = new LinkResource(description:description+index, topic: it, createdBy: it.createdBy, url: "http://www.encyclopedia.com/").save()
             }
         } else {
             Log.info("Resource count greater than zero")
@@ -131,7 +136,7 @@ class BootStrap {
         List unRead = ReadingItem.findAllByUserAndIsRead(user, false)
         if (unRead.size() > 0) {
             unRead.each {
-                Resource_Rating rating = new Resource_Rating(score: 5, user: user, resource: it.resource).save()
+                ResourceRating rating = new ResourceRating(score: 5, user: user, resource: it.resource).save()
             }
         } else {
             Log.info("All the reading item has been read")

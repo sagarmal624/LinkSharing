@@ -93,7 +93,7 @@ class Topic {
 
         List<TopicVO> topicsvo = []
         topicList.eachWithIndex { it, index ->
-            topicsvo.add(new TopicVO(topic:Topic.get(it.getAt(2)),id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3))),seriousness:Subscription.findByUserAndTopic(User.findByUsername(it.getAt(5)),Topic.findByName(it.getAt(3))).seriousness))
+            topicsvo.add(new TopicVO(topic:Topic.get(it.getAt(2)),id: it.getAt(2), name: it.getAt(3), visibility: it.getAt(4), createdBy: it.getAt(5), countPost: Resource.countByTopic(Topic.get(it.getAt(2))), countSubscription:Subscription.countByTopic(Topic.findByName(it.getAt(3))),seriousness:Subscription.findByUserAndTopic(it.getAt(5),Topic.findByName(it.getAt(3))).seriousness))
         }
         return topicsvo
     }

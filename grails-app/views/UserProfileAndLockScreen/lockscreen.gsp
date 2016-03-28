@@ -22,7 +22,7 @@
     <a href="${createLink(controller:"linkSharing",action:"mainpage")}"><b>Link</b>Sharing</a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">${session.username}</div>
+  <div class="lockscreen-name">${session.user.name}</div>
 
   <div class="lockscreen-item">
     <!-- lockscreen image -->

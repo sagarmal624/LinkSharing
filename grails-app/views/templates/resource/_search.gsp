@@ -3,7 +3,6 @@
     var topic = function searchTopic(description) {
         <g:remoteFunction  controller="resource" action="search"  params="\'description=\'+description" onSuccess="searchResponse(data,textStatus)"/>
     };
-
     function searchResponse(data, textStatus) {
         if (data) {
             var obj = eval(data.resources)

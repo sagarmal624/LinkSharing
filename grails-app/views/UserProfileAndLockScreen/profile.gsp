@@ -1,12 +1,28 @@
+<%@ page import="com.intelligrape.linksharing.DocumentResource; com.intelligrape.linksharing.LinkResource" %>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>${session.username} | User Profile</title>
+  <title>${session.user.name} | User Profile</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
+
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -193,7 +209,7 @@
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
               <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
 
-              <span class="hidden-xs">${session.username}</span>
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -202,7 +218,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                  ${session.username} - Web Developer Trainee
+                  ${session.user.name} - Web Developer Trainee
                   <small>@To The New Digital</small>
                 </p>
               </li>
@@ -224,7 +240,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
               <div class="pull-right">
-                <a href="${createLink(controller: "login", action: "logout")}"
+                <a href="${createLink(controller:"logout")}"
                    class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
@@ -250,7 +266,7 @@
 
         </div>
         <div class="pull-left info">
-          <p>${session.username}</p>
+          <p>${session.user.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -279,12 +295,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-           </li>
+
   <g:if test="${session.user.admin}">
     <li class="treeview">
       <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
@@ -366,7 +377,7 @@
               %{--<img class="profile-user-img img-responsive img-circle" src="../../dist/img/user2-160x160.jpg" alt="User profile picture">--}%
               <ls:userImage userId="${session.user.id}" imageType="profile-user-img img-responsive img-circle"/>
 
-              <h3 class="profile-username text-center">${session.username}</h3>
+              <h3 class="profile-username text-center">${session.user.name}</h3>
 
               <p class="text-muted text-center">Software Engineer Trainee</p>
 
@@ -392,7 +403,13 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+            <strong><i class="fa fa-mail-forward margin-r-5"></i> Email-Id</strong>
+            <p class="text-muted">
+${session.user.email}            </p>
+
+            <hr>
+
+            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
 
               <p class="text-muted">
                 MCA  from the Birla Institute of Technology,Mesra
@@ -468,7 +485,7 @@
                       <span class="description">Shared publicly -${topic.createdDate}</span>
                       <div class="row">
                         <span class="text-success col-lg-4">
-                          @${topic?.createdBy}</span>
+                          @${topic?.createdBy.username}</span>
 
                         <span class="text-success col-lg-3">Subscriptions</span>
                           <span class="text-success col-lg-5">
@@ -516,7 +533,7 @@
                         
                         </div>
                         <div class="col-lg-3 form-group">
-                          <g:if test="${session.email}">
+                          <g:if test="${session.user.email}">
 
                             <select class="form-control"
                                     onchange="changeVisibility(${session.user.id},${topic.id},this.value)">
@@ -548,7 +565,7 @@
                                    style="font-size:25px"></span>
 
                            </a>&nbsp;&nbsp;&nbsp;
-                <g:if test="${(session.email==topic?.createdBy?.email)|| session.user.admin}">
+                <g:if test="${(session.user.email==topic?.createdBy?.email)|| session.user.admin}">
 
                   <a href="" onclick="deleteTopic(${topic.id})">  <span class="glyphicon glyphicon-trash" style="font-size:25px"></span></a>
                 </g:if>
@@ -598,7 +615,7 @@ s                         </div>
 
                    ${resource?.description}
 <br>
-                        <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
+                        <g:if test="${resource instanceof com.intelligrape.linksharing.LinkResource}">
                           ${url=resource?.url}
                         </g:if>
                         <g:else>
@@ -625,7 +642,7 @@ s                         </div>
                           &nbsp;&nbsp;
                         </g:if>
 
-                        <g:if test="${resource.class!=com.intelligrape.linksharing.Document_Resource}">
+                        <g:if test="${resource.class!=com.intelligrape.linksharing.DocumentResource}">
                           <a class="btn btn-warning btn-xs" target='_blank' href="${resource?.url}">View Full Site</a>&nbsp;&nbsp;
 
                         </g:if>

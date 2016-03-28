@@ -9,4 +9,5 @@ static belongsTo = [resource:Resource,user:User]
           resource(nullable: false)
           user(nullable: false)
    }
+
 }

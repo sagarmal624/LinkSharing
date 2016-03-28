@@ -1,8 +1,10 @@
 package com.intelligrape.linksharing
+
+import grails.plugin.springsecurity.annotation.Secured
 import org.springframework.web.multipart.MultipartFile
 class DocumentController extends ResourceController {
     def documentService
-
+    @Secured(['ROLE_ROYALTY','ROLE_COMMON'])
     def saveDocument(String description, String topic) {
         def applicationContext = grailsApplication.mainContext
         String basePath = applicationContext.getResource("/").getFile().toString()
@@ -25,7 +27,7 @@ class DocumentController extends ResourceController {
         renderAsJSON(closure)
 
     }
-
+    @Secured(['ROLE_ROYALTY','ROLE_COMMON'])
     def downloadDocument(long id) {
         Resource resource = documentService.downloadResourceDocument(id)
         String filePath = resource.filepath

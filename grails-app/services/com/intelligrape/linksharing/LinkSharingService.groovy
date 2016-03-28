@@ -1,5 +1,6 @@
 package com.intelligrape.linksharing
 
+import LinkSharing.TopPostVO
 import LinkSharing.TopicVO
 import grails.transaction.Transactional
 
@@ -20,20 +21,34 @@ class LinkSharingService {
         topicsName.each { Topic topic ->
             subscriptionList.add(Topic.getSubscribedTopicDetail(topic?.name))
         }
-        map = [totalResourceAndSubscription: totalResourceAndSubscription, subscriptionList: subscriptionList]
+
+
+
+        map = [unreadResources:getTotalUnreadPost(user),totalResourceAndSubscription: totalResourceAndSubscription, subscriptionList: subscriptionList]
         return map
     }
-
-    List fetchInboxData(User user) {
-        List<Resource> unreadResources = ReadingItem.createCriteria().list([max: 10]) {
+    int getTotalUnreadPost(User user){
+        List<Resource> unreadResources = ReadingItem.createCriteria().list() {
             projections {
                 property("resource")
 
             }
-
+            eq('isRead',false)
             eq("user", user)
-            eq("isRead", false)
         }
+ return unreadResources.size()
+
+    }
+    List fetchInboxData(User user) {
+        List<Resource> unreadResources = ReadingItem.createCriteria().list() {
+            projections {
+                property("resource")
+
+            }
+            order('isRead','asc')
+            eq("user", user)
+        }
+
         return unreadResources
     }
 
@@ -60,8 +75,10 @@ class LinkSharingService {
     }
 
     Map fetchLoadMainPageData() {
+        println("testing in service")
         List<Resource> resources = Resource.getRecentResources()
-        Map map=[resources:resources]
+        List<TopPostVO> topPostResource=Resource.getToppost()
+        Map map=[resources:resources,topPostResource:topPostResource]
         return map
     }
 

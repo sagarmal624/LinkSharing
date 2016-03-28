@@ -1,3 +1,4 @@
+<%@ page import="com.intelligrape.linksharing.Resource; com.intelligrape.linksharing.ReadingItem; com.intelligrape.linksharing.LinkResource" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,21 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
   %{--<!-- Bootstrap 3.3.5 -->--}%
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
+
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -81,32 +97,15 @@
           </li>
 
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <g:if test="${unreadResources}">
+                <span class="label label-warning">${unreadResources}</span>
+              </g:if>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
+
           </li>
+
           <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
@@ -146,7 +145,7 @@
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
               <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
 
-              <span class="hidden-xs">${session.username}</span>
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -155,7 +154,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                 ${session.username} - Web Developer Trainee
+                 ${session.user.name} - Web Developer Trainee
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -177,7 +176,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
               <div class="pull-right">
-                <a href="${createLink(controller: "login", action: "logout")}"
+                <a href="${createLink(controller:"logout")}"
                    class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
@@ -201,7 +200,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>${session.username}</p>
+          <p>${session.user.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -231,15 +230,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          
-            
-        </li>
-  <g:if test="${session.user.admin}">
+         <g:if test="${session.user.admin}">
     <li class="treeview">
       <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
         <i class="fa fa-table"></i> <span>Admin</span>
@@ -264,11 +255,6 @@
             <i class="fa fa-envelope"></i> <span>Inbox</span>
             <i class="fa fa-angle-left pull-right"></i>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">${totalUnreadMail}</span></a></li>
-            <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
-            <li class="active"><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="${createLink(controller: 'linkSharing', action: 'profile')}">
@@ -319,32 +305,13 @@
                   <span class="label label-primary pull-right">${totalUnreadMail-1}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
-                <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
-                </li>
                 <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Labels</h3>
 
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -362,7 +329,7 @@
             <div class="box-body no-padding">
               <div class="mailbox-read-info">
                 <h3>${resource.topic}</h3>
-                <h5>From: ${resource.createdBy}@tothenew.com
+                <h5>From: ${resource.createdBy.email}
                   <span class="mailbox-read-time pull-right">${resource.lastUpdated}</span></h5>
               </div>
               <!-- /.mailbox-read-info -->
@@ -371,10 +338,8 @@
                   <button type="button" class="btn btn-default btn-sm" onclick="deleteResource(${resource.id})" data-toggle="tooltip" data-container="body" title="Delete">
                     <i class="fa fa-trash-o"></i>
                   </button>
-                  <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
-                    <i class="fa fa-reply"></i></button>
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
-                    <i class="fa fa-share"></i></button>
+                    <a href="${createLink(controller:'linkSharing', action: 'forwardMail')}?id=${resource?.id}&totalUnreadMail=${totalUnreadMail}"><i class="fa fa-share"></i></a></button>
                 </div>
                 <!-- /.btn-group -->
 
@@ -383,59 +348,24 @@
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
-                <p>Hello ${session.username},</p>
 
                 <p>
-                  ${resource.description}
+
                 </p>
 
+<g:render template="/mailbox/readMailTemplate"model="[resource:resource]"/>
 
 
 
-
-                <p>Thanks,<br>${session.username}</p>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
-            <!-- /.box-body -->
-            <!-- /.box-footer -->
-            <div class="box-footer">
-              <div class="pull-right">
-                <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
-                <button type="button" class="btn btn-default"><i class="fa fa-share"></i> Forward</button>
-              </div>
-              <button type="button" class="btn btn-default" onclick="deleteResource(${resource.id})"><i class="fa fa-trash-o"></i> Delete</button>
-              <button type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
-              <g:if test="${resource instanceof com.intelligrape.linksharing.Link_Resource}">
-                <button type="button" class="btn btn-default"><i class="fa fa-link"></i>
-                  <a href="${resource?.url}"> View Full Site</a>
-                </button>
-              </g:if>
-              <g:else>
-                <button type="button" class="btn btn-default"><i class="fa fa-download"></i> Download</button>
 
-              </g:else>
-           <button type="button" class="btn btn-default" onclick="markAsRead(${resource.id})"><i class="fa fa-star"></i>
-                  Mark as Read
-              </button>
-            <a target="_blank" href="https://www.facebook.com/dialog/feed?app_id=1705044979707974
- &picture=http://www.seeamanaboutablog.co.uk/wp-content/uploads/2011/01/ShareThis-socilal-media-share-buttons.png
- &display=popup&caption= ${resource?.topic}&link=${resource?.url}&description=${resource?.description}&redirect_uri=http://localhost:8080/linkSharing/dashboard/"> <img src="../dist/img/facebook.png"/>
-            </a>
-
-              %{--<a hreef="#">      <img src="https://www.gstatic.com/images/icons/gplus-32.png"/>  </a>--}%
-
-            <a href="https://plus.google.com/share?url=${resource.url}" onclick="javascript:window.open(this.href,
-                    '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
-                    src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
-
-          </div>
             <!-- /.box-footer -->
           </div>
           <!-- /. box -->
         </div>
 
-        <!-- /.col -->
       </div>
       <!-- /.row -->
     </section>
@@ -671,6 +601,18 @@
     }
 
   };
+  function markAsUnRead(id){
+    <g:remoteFunction  controller="readingItem" action="changeIsRead"  params="\'id=\'+id+\'&isRead=\'+false" onSuccess="markASUnResponse(data,textStatus)"/>
+    %{--<a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}">--}%
+  };
+
+  function markASUnResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+
   function deleteResource(id){
     <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
 

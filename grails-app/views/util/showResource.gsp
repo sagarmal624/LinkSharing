@@ -3,29 +3,43 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LinkSharing | Topic Details</title>
+    <title>LinkSharing | Show Resource</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-    </script>
+    <style>
+    .modal-header {
+        padding:9px 15px;
+        border-bottom:1px solid #eee;
+        background-color:lightskyblue;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
 
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    </style>
+
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="/plugins/iCheck/flat/blue.css">
-    <link rel="stylesheet" href="/plugins/morris/morris.css">
-    <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-    <link rel="stylesheet" href="/plugins/datepicker/datepicker3.css">
-    <link rel="stylesheet" href=" /plugins/daterangepicker/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
 
-
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+
 
     <header class="main-header">
         <!-- Logo -->
@@ -72,81 +86,15 @@
 
                     </li>
                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
                             <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
+                            <g:if test="${unreadResources}">
+                                <span class="label label-warning">${unreadResources}</span>
+                            </g:if>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- start message -->
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <!-- end message -->
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                AdminLTE Design Team
-                                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Developers
-                                                <small><i class="fa fa-clock-o"></i> Today</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Sales Department
-                                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="pull-left">
-                                                <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                                            </div>
-                                            <h4>
-                                                Reviewers
-                                                <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="../mailbox/mailbox.gsp">See All Messages</a></li>
-                        </ul>
+
                     </li>
+
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
                         <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
@@ -186,7 +134,7 @@
                             %{--<img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
                             <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
 
-                            <span class="hidden-xs">${session.username}</span>
+                            <span class="hidden-xs">${session.user.name}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -195,7 +143,7 @@
                                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                                 <p>
-                                    ${session.username} - Web Developer Trainee
+                                    ${session.user.name} - Web Developer Trainee
                                     <small>To The New Digital</small>
                                 </p>
                             </li>
@@ -218,7 +166,7 @@
                                     <a href="/linkSharing/profile" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="${createLink(controller: "login", action: "logout")}"
+                                    <a href="${createLink(controller:"logout")}"
                                        class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
@@ -244,7 +192,7 @@
                     %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
                 </div>
                 <div class="pull-left info">
-                    <p>${session.username}</p>
+                    <p>${session.user.name}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -273,12 +221,7 @@
                         <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="/linkSharing/accountSetting">
-                        <i class="fa fa-edit"></i> <span>Account Setting</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                </li>
+
                 <g:if test="${session.user.admin}">
                     <li class="treeview">
                         <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
@@ -377,7 +320,7 @@
                                         <span class="row">
 
                                             <span class="text-info col-lg-4">
-                                                @${topicDetails?.createdBy}
+                                                @${topicDetails?.createdBy.username}
                                             </span>
                                             <span class="text-info  col-lg-4">
 
@@ -396,7 +339,7 @@
                                     <div class="row">
                                         <span class="col-lg-4">
 
-                                            <g:if test="${session.email != topicDetails?.createdBy?.email}">
+                                            <g:if test="${session.user.email != topicDetails?.createdBy?.email}">
                                             %{--<ls:showSubscribe topicId="${topicDetails?.id}"></ls:showSubscribe>--}%
                                                 <g:if test="${session.user?.isSubscribed(topicDetails?.id)}">
 
@@ -799,36 +742,18 @@
        immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
-<script src="../../../web-app/plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/plugins/morris/morris.min.js"></script>
-
-<script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
-<script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-
-<script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/plugins/knob/jquery.knob.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="/plugins/daterangepicker/daterangepicker.js"></script>
-
-<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-
-<script src="/plugins/fastclick/fastclick.js"></script>
-
-<script src="/dist/js/app.min.js"></script>
-
-<script src="/dist/js/pages/dashboard.js"></script>
-<script src="/dist/js/demo.js"></script>
-<script type="text/javascript" src="/js/jquery-2.2.1.js"></script>
-
-
+<!-- jQuery 2.2.0 -->
+<script src="../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
 
 <script type="text/javascript">
     function resourceSeriousness(seriouness) {
@@ -999,7 +924,6 @@
         }
     }
 </script>
-
 
 </body>
 </html>

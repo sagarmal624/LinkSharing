@@ -5,8 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>LinkSharing | Compose Message</title>
   <!-- Tell the browser to be responsive to screen width -->
+
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   %{--<!-- Bootstrap 3.3.5 -->--}%
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
+
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -80,34 +96,15 @@
 
           </li>
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <g:if test="${unreadResources}">
+                <span class="label label-warning">${unreadResources}</span>
+              </g:if>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
+
           </li>
-          <!-- Notifications: style can be found in dropdown.less -->
+
           <li class="dropdown notifications-menu">
             <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-comment"></i>
@@ -145,7 +142,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
               <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
-              <span class="hidden-xs">${session.username}</span>
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -154,7 +151,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
               <p>
-                 ${session.username} - Web Developer Trainee
+                 ${session.user.name} - Web Developer Trainee
                   <small>@To The New Digital</small>
                 </p>
               </li>
@@ -177,7 +174,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
               <div class="pull-right">
-                <a href="${createLink(controller: "login", action: "logout")}"
+                <a href="${createLink(controller:"logout")}"
                    class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
@@ -203,7 +200,7 @@
 
         </div>
         <div class="pull-left info">
-          <p>${session.username}</p>
+          <p>${session.user.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -233,13 +230,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller: "linkSharing",action:"accountSetting")}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          </li>
-  <g:if test="${session.user.admin}">
+        <g:if test="${session.user.admin}">
     <li class="treeview">
       <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
         <i class="fa fa-table"></i> <span>Admin</span>
@@ -267,9 +258,7 @@
     <ul class="treeview-menu">
       <li class="active"><a href="${createLink(controller:'linkSharing', action: 'inbox')}">Inbox <span class="label label-primary pull-right">${totalUnreadMail}</span></a>
       </li>
-      <li><a href="${createLink(controller:'linkSharing', action: 'composemail')}">Compose</a></li>
-      <li><a href="${createLink(controller:'linkSharing', action: 'readmail')}">Read</a></li>
-    </ul>
+     </ul>
   </li>
 
   <li class="treeview">
@@ -286,15 +275,15 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Mailbox
-        <small>13 new messages</small>
-      </h1>
+        <g:if test="${unreadResources}">
+        <small>${unreadResources} new messages</small>
+        </g:if>
+         </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Mailbox</li>
@@ -319,33 +308,13 @@
                   <span class="label label-primary pull-right">${totalUnreadMail}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
-                <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
-                </li>
                 <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Labels</h3>
 
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -358,10 +327,10 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <input class="form-control"  required="true" name="emailto" placeholder="To:">
+                <input class="form-control" type="email" required="true" name="emailto" placeholder="To:">
               </div>
               <div class="form-group">
-                <input class="form-control" required="true" name="subject" placeholder="Subject:">
+                <input class="form-control" type="text" required="true" name="subject" placeholder="Subject:">
               </div>
               <div class="form-group">
                     <textarea id="compose-textarea" required="true" name="message" class="form-control" style="height: 300px">
@@ -378,24 +347,15 @@
                         <li>List item four</li>
                       </ul>
                       <p>Thank you,</p>
-                      <p>${session.username}</p>
+                      <p>${session.user.name}</p>
                     </textarea>
-              </div>
-              <div class="form-group">
-                <div class="btn btn-default btn-file">
-                  <i class="fa fa-paperclip"></i> Attachment
-                  <input type="file" name="attachment">
-                </div>
-                <p class="help-block">Max. 32MB</p>
               </div>
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
               <div class="pull-right">
-                <button type="button" class="btn btn-default"><i class="fa fa-pencil"></i> Draft</button>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send</button>
               </div>
-              <button type="reset" class="btn btn-default"><i class="fa fa-times"></i> Discard</button>
             </div>
             <!-- /.box-footer -->
           </div>

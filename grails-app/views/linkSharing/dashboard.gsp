@@ -1,3 +1,4 @@
+<%@ page import="java.nio.file.Files" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,21 @@
   <title>LinkSharing | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
+
+<style>
+.modal-header {
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color:lightskyblue;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+</style>
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -14,7 +29,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css">
   <!-- Morris chart -->
@@ -73,88 +88,13 @@
           </li>
 
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <g:if test="${unreadResources}">
+              <span class="label label-warning">${unreadResources}</span>
+              </g:if>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
-                             alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
 
-                      <p>Java Develoepr</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
-                             alt="User Image">
-                      </div>
-                      <h4>
-                        To The New  Digital Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-
-                      <p>new blog is uploaded....</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
-                             alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-
-                      <p>Today is Gorm session.</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user3-128x128.jpg" class="img-circle"
-                             alt="User Image">
-                      </div>
-                      <h4>
-                        American Sawan Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-
-                      <p>project is going on...</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user4-128x128.jpg" class="img-circle"
-                             alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="../../pages/mailbox/mailbox.html">See All Messages</a></li>
-            </ul>
           </li>
           <li class="dropdown notifications-menu">
             <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle"
@@ -197,7 +137,7 @@
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
               <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
 
-              <span class="hidden-xs">${session.username}</span>
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -206,7 +146,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                  ${session.username} - Web Developer Trainee
+                  ${session.user.name} - Web Developer Trainee
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -232,7 +172,7 @@
                 </div>
 
                 <div class="pull-right">
-                  <a href="${createLink(controller: "login", action: "logout")}"
+                  <a href="${createLink(controller:"logout")}"
                      class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
@@ -255,7 +195,7 @@
         </div>
 
         <div class="pull-left info">
-          <p>${session.username}</p>
+          <p>${session.user.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -284,14 +224,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-
-        <li class="treeview">
-          <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-        </li>
-        <g:if test="${session.user.admin}">
+ <g:if test="${session.user.admin}">
           <li class="treeview">
             <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
               <i class="fa fa-table"></i> <span>Admin</span>
@@ -364,8 +297,7 @@
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-
-        <div class="col-lg-3 col-xs-6">
+ <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
               <h3>${totalTopic}</h3>
@@ -420,9 +352,10 @@
       </div>
 
       <div class="row">
+
         <section class="col-lg-7 connectedSortable">
           <div class="box box-success">
-            <div class="box-header">
+            <div class="box-header with-border">
               <i class="fa fa-comments-o"></i>
 
               <h3 class="box-title">Subscriptions</h3>
@@ -430,16 +363,7 @@
                 <span class="alert alert-danger">${flash.error}</span>
               </g:if>
 
-              <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
-                <div class="btn-group" data-toggle="btn-toggle">
-                  <button type="button" class="btn btn-default btn-sm active"><i
-                          class="fa fa-square text-green"></i>
-                  </button>
-                  <button type="button" class="btn btn-default btn-sm"><i
-                          class="fa fa-square text-red"></i></button>
-                </div>
-              </div>
-            </div>
+               </div>
 
             <div class="box-body chat" id="chat-box" style="max-height:500px; overflow-y:scroll">
               <g:each in="${subscriptions}" var="topicVo">
@@ -455,7 +379,6 @@
                     %{--<a href="${createLink(controller:"linkSharing",action:"showResource")}?id="+topicVo?.id+">--}%
                     %{--<g:link controller="linkSharing" action="showResource" id="${topicVo?.id}" >${topicVo.name}</g:link>--}%
                     %{--${topicVo?.createdBy?.isSubscribed(topicVo?.id)}--}%
-
                     <g:if test="${topicVo?.topic?.isExistResource(topicVo?.id)}">
                       <a href="${createLink(controller:"linkSharing",action:"showResource" ,params:[id:topicVo?.id])}">${topicVo?.name}</a>
                       </a>
@@ -465,37 +388,28 @@
                     </g:else>
                     <span class="row">
                       <span class="text-info col-lg-4">
-                        @ ${topicVo.createdBy}
+                        @ ${topicVo.createdBy.username}
                       </span>
                       <span class="text-info  col-lg-4">
-
                         Subscription
                       </span>
                       <span class="text-info col-lg-4">
-
                         Post
                       </span>
                     </span>
-
                   </p>
-
                   <div class="attachment">
-
                     <div class="row">
                       <span class="col-lg-4">
-                        <g:if test="${session.email!=topicVo?.createdBy?.email}">
 
+                        <g:if test="${session.user.email!=topicVo?.createdBy?.email}">
                           <g:if test="${session.user?.isSubscribed(topicVo?.id)}">
                             <button class="btn btn-link" onclick="unSubscribeTopic(${topicVo?.id})">UnSubscribe </button>
-
                           </g:if>
                           <g:else>
                             <button class="btn btn-link" onclick="subscribeTopic(${topicVo?.id})">Subscribe </button>
-
                           </g:else>
                         %{--<ls:showSubscribe topicId="${topicVo?.id}"></ls:showSubscribe>--}%
-
-
                         </g:if>
                       </span>
                       <span class="col-lg-4">
@@ -506,7 +420,6 @@
                         <span class="badge" style="color:aqua">
                           ${topicVo.countPost}</span>
                       </span>
-
                     </div>
                     <br>
                     <div class="row" id="updateTopic${topicVo?.id}" style="display: none">
@@ -516,22 +429,16 @@
                           <input type="text" class="form-control" name="name">
                         </div>
                         <div class="col-lg-4">
-
                           <input type="submit" class="btn btn-success" value="Save">
                         </div>
                       </form>
                     </div>
-
                     <br>
-
                     <div class="row">
                       <div class="col-lg-4">
-
                         <div class="form-group">
-
                           <select id="seriousnessID" class="form-control"
                                   onchange="resourceSeriousness(${topicVo.createdBy.id},'${topicVo.id}',this.value)">
-
                           %{--onchange="resourceSeriousness(this.value)">--}%
                           %{--onchange="resourceSeriousness(this.value)">--}%
                           %{--params: '\'userId=\'+ '\"{topicDetails?.createdBy.id}\"' +\'&topicId=\'+ ${topicDetails?.id}+ \'&seriousness=\'+seriouness' )}">--}%
@@ -560,7 +467,7 @@
 
                       <div class="col-lg-4">
                         <div class="form-group">
-                          <g:if test="${session.email==topicVo?.createdBy?.email}">
+                          <g:if test="${session.user.email==topicVo?.createdBy?.email}">
 
                             <select class="form-control"
                                     onchange="changeVisibility(${topicVo.createdBy.id},'${topicVo.id}',this.value)">
@@ -593,7 +500,7 @@
 
                         <div class="col-lg-4">
 
-                          <g:if test="${(session.email==topicVo?.createdBy?.email)|| session.user.admin}">
+                          <g:if test="${(session.user.email==topicVo?.createdBy?.email)|| session.user.admin}">
                             <a href="#"  class="update" id="updateTopicName_${topicVo?.id}"><span class="glyphicon glyphicon-file" style="font-size:25px"></span>
                             </a>
 
@@ -601,7 +508,7 @@
 
                         </div>
                         <div class="col-lg-4">
-                          <g:if test="${(session.email==topicVo?.createdBy?.email) || session.user.admin}">
+                          <g:if test="${(session.user.email==topicVo?.createdBy?.email) || session.user.admin}">
                           %{--<ls:deleteTopic topicId="${topicVo.id}"></ls:deleteTopic>--}%
                             <a href="" onclick="deleteTopic(${topicVo.id})">
                               <span class="glyphicon glyphicon-trash" style="font-size:25px"></span>
@@ -617,17 +524,15 @@
                 </div>
                 <!-- /.item -->
               </g:each>
-            <!-- chat item -->
-
-
-            <!-- /.item -->
-            <!-- chat item -->
-            <!-- /.item -->
             </div>
             <!-- /.chat -->
 
           </div>
 
+
+
+        </section>
+        <section class="col-lg-5 connectedSortable">
           <div class="box box-info">
             <div class="box-header">
               <i class="fa fa-envelope"></i>
@@ -665,56 +570,6 @@
 
           </div>
 
-        </section>
-        <section class="col-lg-5 connectedSortable">
-
-          <div class="box box-solid bg-light-blue-gradient">
-            <div class="box-header">
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-primary btn-sm daterange pull-right"
-                        data-toggle="tooltip" title="Date range">
-                  <i class="fa fa-calendar"></i></button>
-                <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                        data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                  <i class="fa fa-minus"></i></button>
-              </div>
-
-              <i class="fa fa-map-marker"></i>
-
-              <h3 class="box-title">
-                Visitors
-              </h3>
-            </div>
-
-            <div class="box-body">
-              <div id="world-map" style="height: 250px; width: 100%;"></div>
-            </div>
-
-            <div class="box-footer no-border">
-              <div class="row">
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <div id="sparkline-1"></div>
-
-                  <div class="knob-label">Visitors</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <div id="sparkline-2"></div>
-
-                  <div class="knob-label">Online</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center">
-                  <div id="sparkline-3"></div>
-
-                  <div class="knob-label">Exists</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-
           <div class="box box-solid bg-green-gradient">
             <div class="box-header">
               <i class="fa fa-calendar"></i>
@@ -747,50 +602,7 @@
               <div id="calendar" style="width: 100%"></div>
             </div>
 
-            <div class="box-footer text-black">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Progress bars -->
-                  <div class="clearfix">
-                    <span class="pull-left">Task #1</span>
-                    <small class="pull-right">90%</small>
-                  </div>
 
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #2</span>
-                    <small class="pull-right">70%</small>
-                  </div>
-
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6">
-                  <div class="clearfix">
-                    <span class="pull-left">Task #3</span>
-                    <small class="pull-right">60%</small>
-                  </div>
-
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #4</span>
-                    <small class="pull-right">40%</small>
-                  </div>
-
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
         </section>
@@ -1025,32 +837,24 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <script type="text/javascript">
-
-
   function resourceSeriousness(userid,topicid,seriouness) {
     <g:remoteFunction  controller="subscription" action="update"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&seriousness=\'+seriouness" onSuccess="changeSeriouness(data,textStatus)"/>
   };
-
   function changeSeriouness(data, textStatus) {
     if (data) {
       if(data.message!="Seriousness is not updated")
         $("#spanmsg").addClass("alert alert-success")
       else
         $("#spanmsg").addClass("alert alert-danger")
-
       $("#spanmsg").text(data.message)
-
       $("#alertmsg").toggleClass('hidden');
-
       setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
       //obj);
     }
   };
-
   function changeVisibility(userid,topicid,visibility)
   {
     <g:remoteFunction  controller="topic" action="updatevisibility"  params="\'userId=\'+ userid +\'&topicId=\'+topicid+ \'&visibility=\'+visibility" onSuccess="visibilityResponse(data,textStatus)"/>
-
   };
   function visibilityResponse(data, textStatus){
     if (data) {
@@ -1058,26 +862,19 @@
         $("#spanmsg").addClass("alert alert-success")
       else
         $("#spanmsg").addClass("alert alert-danger")
-
       $("#spanmsg").text(data.message)
-
       $("#alertmsg").toggleClass('hidden');
-
       setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
     }
-
   };
   function deleteTopic(id){
     <g:remoteFunction  controller="topic" action="delete"  params="\'id=\'+id " onSuccess="deleteTopicResponse(data,textStatus)"/>
-
   };
-
   function deleteTopicResponse(data, textStatus){
     if (data) {
       location.reload();
     }
   };
-
 </script>
 <g:render template="../templates/resource/search"/>
 <g:render template="../templates/message"/>
@@ -1094,19 +891,14 @@
       location.reload();
     }
   };
-
-
   function unSubscribeTopic(id){
     <g:remoteFunction  controller="subscription" action="delete"  params="\'id=\'+id " onSuccess="unSubscribeTopicResponse(data,textStatus)"/>
-
   };
-
   function unSubscribeTopicResponse(data, textStatus){
     if (data) {
       location.reload();
     }
   };
-
 </script>
 
 
@@ -1117,11 +909,8 @@
     //updateTopicName_
     id=($(this).attr('id')).substr(16);
     $("#updateTopic"+id).show();
-
-
     $("#updateTopicForm"+id).submit(function(e)
     {
-
       var postData = $(this).serializeArray();
       var formURL = "${g.createLink(action:"update",controller:"topic" )}";
       $.ajax(
@@ -1137,7 +926,6 @@
                   else
                     $("#spanmsg").addClass("alert alert-danger")
                   $("#spanmsg").text(data.message)
-
                   $("#alertmsg").toggleClass('hidden');
                   $("#updateTopicForm"+id)[0].reset();
                   setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
@@ -1146,23 +934,16 @@
                 dataType: 'json',
                 error: function(jqXHR, textStatus, errorThrown)
                 {
-
                   $("#spanmsg").addClass("alert alert-danger")
                   $("#spanmsg").text(data.message);
                   $("#alertmsg").toggleClass('hidden');
                   $("#updateTopicForm"+id)[0].reset()
                   setTimeout(function(){$("#alertmsg").toggleClass('hidden');$("#spanmsg").removeClass("alert alert-success")}, 3000);
-
                 }
-
               });
       e.preventDefault();	//STOP default action
     });
-
-
-
   });
-
 </script>
 </body>
 </html>

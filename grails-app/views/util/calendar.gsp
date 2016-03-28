@@ -6,6 +6,21 @@
   <title>LinkSharing| Calendar</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
+
   <!-- Bootstrap 3.3.5 -->
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -69,81 +84,15 @@
 
           </li>
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <g:if test="${unreadResources}">
+                <span class="label label-warning">${unreadResources}</span>
+              </g:if>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sagar Mal Shankhala
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>dont distrub me ok</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>New Blog is uploaded on site....</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        IT Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>plz check your mail new topic is uploaded</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Grails is already subscribed</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="../mailbox/mailbox.gsp">See All Messages</a></li>
-            </ul>
+
           </li>
+
           <li class="dropdown notifications-menu">
             <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-comment"></i>
@@ -180,16 +129,17 @@
 
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Sagar Mal Shankhala</span>
+              <ls:userImage userId="${session.user.id}" imageType="user-image"/>
+
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <ls:userImage userId="${session.user.id}" imageType="img-circle"/>
 
                 <p>
-                 Sagar Mal Shankhala - Web Developer
+                 ${session.user.name}- Web Developer
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -212,7 +162,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
               <div class="pull-right">
-                <a href="${createLink(controller: "login", action: "logout")}"
+                <a href="${createLink(controller:"logout")}"
                    class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
@@ -229,10 +179,12 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          %{--<img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}%
+          <ls:userImage userId="${session.user.id}" imageType="img-circle"/>
+
         </div>
         <div class="pull-left info">
-          <p>Sagar Mal Shankhala</p>
+          <p>${session.user.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -261,12 +213,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          </li>
+
   <g:if test="${session.user.admin}">
     <li class="treeview">
       <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
@@ -789,5 +736,11 @@
   });
 </script>
 <g:render template="../templates/resource/search"/>
+<g:render template="../templates/message"/>
+<g:render template="../templates/Topic/email"/>
+<g:render template="../templates/LinkResource/create" model="[SubscribedTopicList:SubscribedTopicList]"/>
+<g:render template="../templates/DocumentResource/create"/>
+<g:render template="../templates/Topic/create"/>
+
 </body>
 </html>

@@ -7,15 +7,24 @@
   <title>LinkSharing| Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.5 -->
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
   <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 
@@ -229,7 +238,7 @@
                 </div>
 
                 <div class="pull-right">
-                  <a href="${createLink(controller: "login", action: "logout")}"
+                  <a href="${createLink(controller:"logout")}"
                      class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
@@ -282,12 +291,7 @@
           </a>
         </li>
 
-        <li class="treeview">
-          <a href="${createLink(controller: 'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-        </li>
+
         <li class="treeview">
           <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
             <i class="fa fa-table"></i> <span>Admin</span>
@@ -639,7 +643,6 @@
     <g:remoteFunction  controller="user" action="activeUser"  params="\'id=\'+id+\'&activeness=\'+true" onSuccess="activateUserResponse(data,textStatus)"/>
 
   };
-
   function deActivateUserResponse(data, textStatus){
     if (data) {
       location.reload();
@@ -649,10 +652,31 @@
 <script>
   $(document).ready(function() {
     $('#example1').DataTable( {
-//      "processing": true,
-      "serverSide": true,
-      "ajax": "${createLink(controller:"user",action:"show")}"/*,
-      "data" :{query:data.search.value}*/
+//      "bProcessing": true,
+          "bStateSave": true,
+                "bServerSide": true,
+//      "Paginate": true,
+//      "Info": true,
+//      "Filter": false,
+//      "LengthChange": false,
+
+      "ajax": {
+        "url":"${createLink(controller:"user",action:"show")}",
+      "type":"POST",
+
+      },
+
+
+
+//      "columns": [
+//        { "data": "username" },
+//        { "data": "email" },
+//        { "data": "firstname" },
+//        { "data": "lastname" },
+//        { "data": "admin" },
+//        { "data": "active" }
+//      ]
+
     } );
   } );
   </script>

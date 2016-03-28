@@ -54,25 +54,7 @@
                                             <asset:image src="google.png"></asset:image>
                                         </div>
                                          <div class="col-lg-3">
-                                             %{--recentTopic[0]--}%
-                                            %{--<g:if test="${recentTopic[0]}">--}%
-                                             %{--//   <a href="${recentTopic[0]}"><u>View Post</u></a>--}%
-                                             %{--<g:set var="id" value="${[id:recentTopic[0]]}"></g:set>--}%
-                                              %{--${recentTopic[0]}--}%
-                                             %{--${recentTopic[0]}--}%
-                                             %{--${recentTopic[0]}--}%
-                                             %{--<a href="${createLink(controller:"resource",action:"show",id:"${recentTopic[0]}")}">View Post</a>--}%
                                              <a href="${createLink(controller:"resource",action:"show")}?id=${recentTopic[0]}">View Post</a>
-
-                                             %{--<a href="${createLink(controller:"resource",action:"show",params:"${[id:recentTopic[0]]}" )}">View Post</a>--}%
-
-                                             %{--</g:if>--}%
-                                            %{--<g:else>--}%
-                                                %{--<a href="${recentTopic[1]}"><u>Download</u></a>--}%
-%{----}%
-                                            %{--</g:else>--}%
-
-
 
 
 
@@ -146,16 +128,14 @@
                                 <g:actionSubmit controller="login"  action="loginHandler" value="Login" class="btn btn-success btn-lg">Login</g:actionSubmit>
                             </li>
                         </g:form>
-
                         <li>
-
+%{----}%
                             <a href="#productWrap" class="text-center">Register a new membership</a>
                         </li>
                     </ul>
                 </ul>
-
-
-            </div>
+%{----}%
+                 </div>
         </div>
     </div>
 </div>

@@ -5,7 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>LinkSharing| Mailbox</title>
   <!-- Tell the browser to be responsive to screen width -->
+
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <style>
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color:lightskyblue;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  </style>
+
   <!-- Bootstrap 3.3.5 -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -76,33 +92,15 @@
 
           </li>
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="${createLink(controller:"linkSharing" ,action:"inbox")}">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+              <g:if test="${unreadPost}">
+                <span class="label label-warning">${unreadPost}</span>
+              </g:if>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-              </li>
-              <li class="footer"><a href="mailbox.gsp">See All Messages</a></li>
-            </ul>
+
           </li>
+
           <li class="dropdown notifications-menu">
             <a href="#" data-target="#createTopic" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-comment"></i>
@@ -142,7 +140,7 @@
               %{--<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}%
               <ls:userImage userId="${session?.user?.id}" imageType="user-image"/>
 
-              <span class="hidden-xs">${session.username}</span>
+              <span class="hidden-xs">${session.user.name}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -151,7 +149,7 @@
                 <ls:userImage userId="${session?.user?.id}" imageType="img-circle"/>
 
                 <p>
-                  ${session.username} - Web Developer
+                  ${session.user.name} - Web Developer
                   <small>To The New Digital</small>
                 </p>
               </li>
@@ -171,7 +169,7 @@
                   <a href="${createLink(controller:"linkSharing",action:"profile")}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="${createLink(controller: "login", action: "logout")}"
+                  <a href="${createLink(controller:"logout")}"
                      class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
@@ -193,7 +191,7 @@
 
         </div>
         <div class="pull-left info">
-          <p>${session.username}</p>
+          <p>${session?.user?.name}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -222,13 +220,7 @@
             <small class="label pull-right bg-green">new</small>
           </a>
         </li>
-        <li class="treeview">
-          <a href="${createLink(controller:'linkSharing', action: 'accountSetting')}">
-            <i class="fa fa-edit"></i> <span>Account Setting</span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-        </li>
-        <g:if test="${session.user.admin}">
+         <g:if test="${session.user.admin}">
           <li class="treeview">
             <a href="${createLink(controller: 'linkSharing', action: 'admin')}">
               <i class="fa fa-table"></i> <span>Admin</span>
@@ -309,32 +301,13 @@
                   <span class="label label-primary pull-right">${unreadResources.size()}</span></a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> Sent</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Drafts</a></li>
-                <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
-                </li>
                 <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /. box -->
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Labels</h3>
 
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> Important</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Promotions</a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-light-blue"></i> Social</a></li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -358,12 +331,13 @@
                 <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
                 </button>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="deleteCheckedMail()"><i class="fa fa-trash-o"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="markAllUnReadMail()" data-toggle="tooltip" title="Checked As UnRead"><i class="fa fa-star text-yellow"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="markAllReadMail()" data-toggle="tooltip" title="Checked As Read"><i class="fa fa-star text-success"></i></button>
+
                 </div>
                 <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <button type="button" class="btn btn-default btn-sm" onclick="refresh()" data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh"></i></button>
                 <div class="pull-right">
                   1-50/200
                   <div class="btn-group">
@@ -378,15 +352,42 @@
                 <table class="table table-hover table-striped">
                   <tbody>
                   <g:each in="${unreadResources}" var="unreadmail">
+
                     <tr>
-                      <td><input type="checkbox"></td>
-                      <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
-                      <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}">${unreadmail.createdBy}</a></td>
-                      <td class="mailbox-subject"><b>${unreadmail.topic}</b> - ${unreadmail.description}...
+                      <td><input type="checkbox" name="selectedCheckBox" id="checkbox-${unreadmail?.id}" value="${unreadmail?.id}"></td>
+
+
+                      <g:if test="${unreadmail.isUnread(session.user,unreadmail.id)}">
+                        <td class="mailbox-star"><a href="#" onclick="markAsUnRead(${unreadmail.id})" data-toggle="tooltip" title="Mark As UnRead"><i class="fa fa-star text-success"></i></a></td>
+                      </g:if>
+                      <g:else>
+                        <td class="mailbox-star"><a href="#" onclick="markAsRead(${unreadmail.id})" data-toggle="tooltip" title="Mark As Read"><i class="fa fa-star text-yellow"></i></a></td>
+
+
+                      </g:else>
+
+
+
+
+
+
+                      <td class="mailbox-name"><a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}">${unreadmail.createdBy.name}</a></td>
+
+                      <g:if test="${unreadmail.description.length()>60}">
+                      <td class="mailbox-subject">
+                        <a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}"><b class="text text-black">${unreadmail.topic}</b>-<span class="text text-success"> ${unreadmail.description.substring(0,60)}...</span></a>
                       </td>
+                      </g:if>
+                      <g:else>
+                        <td class="mailbox-subject">
+                        <a href="${createLink(controller:'linkSharing', action: 'readmail')}?id=${unreadmail.id}&totalUnreadMail=${unreadResources.size()}"><b class="text text-black">${unreadmail.topic}</b>-<span class="text text-success">  ${unreadmail.description}...</span></a>
+                        </td>
+
+                      </g:else>
                       <td class="mailbox-attachment"></td>
                       <td class="mailbox-date">5 mins ago</td>
                     </tr>
+
                   </g:each>
 
 
@@ -404,12 +405,13 @@
                 <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
                 </button>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="deleteCheckedMail()"><i class="fa fa-trash-o"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="markAllUnReadMail()" data-toggle="tooltip" title="Checked As UnRead"><i class="fa fa-star text-yellow"></i></button>
+                  <button type="button" class="btn btn-default btn-sm" onclick="markAllReadMail()" data-toggle="tooltip" title="Checked As Read"><i class="fa fa-star text-success"></i></button>
+
                 </div>
                 <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <button type="button" class="btn btn-default btn-sm" onclick="refresh()" data-toggle="tooltip" title="Refresh"><i class="fa fa-refresh"></i></button>
                 <div class="pull-right">
                   1-50/200
                   <div class="btn-group">
@@ -692,6 +694,67 @@
       }
     });
   });
+</script>
+<script>
+
+  function deleteCheckedMail()
+  {
+
+    $('input[name="selectedCheckBox"]:checked').each(function() {
+      deleteResource(this.value);
+    });
+    window.location=document.referrer;
+  };
+  function deleteResource(id){
+    <g:remoteFunction  controller="resource" action="delete"  params="\'id=\'+id " onSuccess="deleteResourceResponse(data,textStatus)"/>
+
+  };
+  function markAsRead(id){
+    <g:remoteFunction  controller="readingItem" action="changeIsRead"  params="\'id=\'+id+\'&isRead=\'+true" onSuccess="markASResponse(data,textStatus)"/>
+    %{--<a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}">--}%
+  };
+
+  function markASResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+  function markAsUnRead(id){
+    <g:remoteFunction  controller="readingItem" action="changeIsRead"  params="\'id=\'+id+\'&isRead=\'+false" onSuccess="markASUnResponse(data,textStatus)"/>
+    %{--<a href="${createLink(controller: 'readingItem', action: 'changeIsRead')}?isRead=true&id=${resource.id}">--}%
+  };
+
+  function markASUnResponse(data, textStatus){
+    if (data) {
+      location.reload();
+    }
+
+  };
+function refresh(){
+  location.reload();
+
+};
+
+  function markAllUnReadMail()
+  {
+    $('input[name="selectedCheckBox"]:checked').each(function() {
+      markAsUnRead(this.value);
+    });
+    window.location=document.referrer;
+
+  };
+
+  function markAllReadMail()
+  {
+    $('input[name="selectedCheckBox"]:checked').each(function() {
+      markAsRead(this.value);
+    });
+    window.location=document.referrer;
+
+  };
+
+
 </script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>

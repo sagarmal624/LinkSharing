@@ -4,7 +4,6 @@ import Enums.Visibility
 import LinkSharing.ResourceSearchCO
 import LinkSharing.TopicVO
 import grails.transaction.Transactional
-import org.springframework.web.multipart.MultipartFile
 
 @Transactional
 class ResourceService {
@@ -21,7 +20,7 @@ class ResourceService {
     }
 
     Boolean saveLinkResource(String email, String url, String description, String topicname) {
-        Resource resource = new Link_Resource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(email), description: description, url: url)
+        Resource resource = new LinkResource(topic: Topic.findByName(topicname), createdBy: User.findByEmail(email), description: description, url: url)
         if (resource.validate()) {
             Thread.sleep(500)
             resource.save(flush: true)
@@ -40,11 +39,11 @@ class ResourceService {
         Map map = [subscriptionList: subscriptionList, readResources: readResources, resources: resources]
         return map
     }
-    Resource_Rating saveRating(long id, int score,String email) {
-        Resource_Rating resource_rating;
-        resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id),User.findByEmail(email))
+    ResourceRating saveRating(long id, int score, String email) {
+        ResourceRating resource_rating;
+        resource_rating = ResourceRating.findByResourceAndUser(Resource.get(id),User.findByEmail(email))
         if (!resource_rating)
-            resource_rating = new Resource_Rating(resource: Resource.get(id), score: score, user:User.findByEmail(email)).save(flush: true)
+            resource_rating = new ResourceRating(resource: Resource.get(id), score: score, user:User.findByEmail(email)).save(flush: true)
         else {
             resource_rating.score = score
             resource_rating.save(flush: true)
@@ -76,11 +75,11 @@ class ResourceService {
     }
 
     Map fetchShowData(long id, User user) {
-        Resource_Rating resource_rating = Resource_Rating.findByResourceAndUser(Resource.get(id), user);
+        ResourceRating resource_rating = ResourceRating.findByResourceAndUser(Resource.get(id), user);
         Map totalResourceAndSubscription = User.getTotalResourceAndSubscription(user)
         int score;
         if (!resource_rating?.score) {
-            resource_rating = new Resource_Rating(resource: Resource.get(id), user: user, score: 2)
+            resource_rating = new ResourceRating(resource: Resource.get(id), user: user, score: 2)
             resource_rating.save(flush: true)
             score = 2;
         } else

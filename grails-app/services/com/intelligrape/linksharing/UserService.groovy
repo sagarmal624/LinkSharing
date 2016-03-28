@@ -4,6 +4,9 @@ import LinkSharing.DataTableVO
 import LinkSharing.MailSender
 import LinkSharing.UserServiceCo
 import grails.transaction.Transactional
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.Authentication
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.multipart.MultipartFile
 
 @Transactional
@@ -32,13 +35,17 @@ class UserService {
 //            userServiceCo.imagePath=userImage.absolutePath
            user = new User(userServiceCo.getProperties())
            user.imagePath=userImage.absolutePath;
+
+
         }else
             user = new User(userServiceCo.getProperties())
         if (user) {
             if(user.validate()) {
                 user.active = true
                 user=user.save(flush:true,failOnError:true)
-            }
+                Role common = new Role(authority: 'ROLE_COMMON').save(flush:true)
+                UserRole.create(user, common)
+             }
          }
         return user?:null
 
@@ -46,7 +53,7 @@ class UserService {
     User activeUser(long id,boolean activeness){
         User user = User.get(id)
         user.active = activeness
-        user.confirmPassword = user.password;
+
         user=user.save(flush: true)
        user?:null
     }
@@ -76,14 +83,14 @@ class UserService {
         dataTableVO?:null
     }
 
-    User forgotPassword(String email){
+    User forgotPassword(String email,String newPassword,String message){
         User user = User.findByEmail(email)
         if (user) {
-            String newPassword = UserController.getRandomPassword();
+
             user.password = newPassword;
-            user.confirmPassword = newPassword;
+
             user.save(flush: true)
-            sendMail(email, "Regarding to Forgot Password", "<h2>Your New Password to Login in LinkSharing is:" + newPassword + "</h2>")
+            sendMail(email, "Regarding to Forgot Password",message)
          }
         user?:null
 
@@ -107,7 +114,7 @@ class UserService {
         if (userServiceCo.lastname)
             user.lastname = userServiceCo.lastname;
 
-        user.confirmPassword = user.password
+
         user=user.save(flush: true)
       user?:null
     }

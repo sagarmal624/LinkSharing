@@ -5,8 +5,8 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/"(controller:"linkSharing",action: "loadmainpage" )
-         "500"(view:'/error')
+        "/"(controller:"linkSharing",action: "dashboard" )
+        "500"(view:'/error')
 
 //        "500"(view:'/serverError')
 //        "404"(view:'/pageNotFoundError')

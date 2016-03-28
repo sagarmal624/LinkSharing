@@ -13,7 +13,7 @@ class DocumentService {
         inputDocument.transferTo(resourceDocument)
         User createdBy = user
         Thread.sleep(300);
-        Resource resource = new Document_Resource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
+        Resource resource = new DocumentResource(filepath: resourceDocument.absolutePath, description: description, topic: Topic.findByName(topic), createdBy: createdBy)
         if (resource.validate()) {
 
             resource = resource.save(flush: true)
